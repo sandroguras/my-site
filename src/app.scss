@@ -1,4 +1,43 @@
+$version: "1.1.0";
+
+/* ------------------------------------------------
+ Author: ArtStyles (Art)
+
+ Template Name: vCard
+ version: #{$version}
+------------------------------------------------ */
+
+/* ------------------------------------------------
+
+ - Bootstrap
+ - Vendors
+ - Font Icons
+ - Variables
+ - General Styles
+ - Typography
+ - Form
+ - Button
+ - Sidebar
+ - Sections
+ - Navbar
+ - Popup
+ - Cases
+ - Clients
+ - Contact
+ - Portfolio
+ - News
+ - Single news
+ - Single project
+ - Testimonials
+ - Timeline
+ - Footer
+ - Other
+
+------------------------------------------------ */
+
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing *//* Import only what you need from Bootstrap */
+
+// Boostrap
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
@@ -31,4 +70,45 @@
 @import "bootstrap/scss/offcanvas";
 @import "bootstrap/scss/placeholders";
 @import "bootstrap/scss/helpers";
-@import "bootstrap/scss/utilities/api"
+@import "bootstrap/scss/utilities/api";
+
+// Vendors
+@import url('./styles/vendors/swiper.min.css');
+@import url('./styles/vendors/simplebar.min.css');
+@import url('./styles/vendors/magnific-popup.css');
+@import url('./styles/vendors/photoswipe.css');
+@import url('./styles/vendors/default-skin.css');
+
+// Font Icons
+@import url('./assets/icons/style-custome-icons.css');
+@import url('./assets/icons/feather.css');
+
+// Variables
+@import './styles/variables/vars';
+@import './styles/variables/mixins';
+@import './styles/variables/media';
+
+// General settings
+@import './styles/app/general';
+@import './styles/app/typography';
+
+// Components
+@import './styles/app/form';
+@import './styles/app/button';
+@import './styles/app/sidebar';
+@import './styles/app/sections';
+@import './styles/app/navbar';
+@import './styles/app/popup';
+
+// Pages, layouts
+@import './styles/app/cases';
+@import './styles/app/clients';
+@import './styles/app/contact';
+@import './styles/app/portfolio';
+@import './styles/app/news';
+@import './styles/app/single-news';
+@import './styles/app/single-project';
+@import './styles/app/testimonials';
+@import './styles/app/timeline';
+
+@import './styles/app/other';
