@@ -84,9 +84,9 @@ $version: "1.1.0";
 @import url('./assets/icons/feather.css');
 
 // Variables
-@import './styles/variables/vars';
-@import './styles/variables/mixins';
-@import './styles/variables/media';
+//@import './styles/variables/vars';
+//@import './styles/variables/mixins';
+//@import './styles/variables/media';
 
 // General settings
 @import './styles/app/general';
@@ -95,9 +95,9 @@ $version: "1.1.0";
 // Components
 @import './styles/app/form';
 @import './styles/app/button';
-@import './styles/app/sidebar';
+//@import './styles/app/sidebar';
 @import './styles/app/sections';
-@import './styles/app/navbar';
+//@import './styles/app/navbar';
 @import './styles/app/popup';
 
 // Pages, layouts

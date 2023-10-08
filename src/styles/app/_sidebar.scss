@@ -4,7 +4,12 @@
 
 .sidebar {
   z-index: 10;
-  
+
+  @media only screen and (min-width: $large-xl) {
+    position: sticky;
+    top: rem(30px); /* Adjust if you want some space at the top */
+  }
+
   @media only screen and (max-width: $large-xl) {
     margin-bottom: rem(30px);
   }
@@ -18,7 +23,8 @@
       @include flex($align: center);
     }
   }
-  
+
+  //TODO remove &__additional-info after removing the slide script
   &__additional-info {
     @media only screen and (min-width: $large-xl) {
       display: block!important;
@@ -27,7 +33,7 @@
     @media only screen and (max-width: $large-xl) {
       display: none;
     }
-
+  //TODO remove up to this point ^^^
     .details-info__item {
       @media only screen and (max-width: $large-xl) {
         flex: 0 0 50%;
@@ -147,6 +153,7 @@
 /* Social */
 .social {
   text-align: center;
+  margin-top: rem(16px);
 
   &__link {
     font-size: rem(18px);
