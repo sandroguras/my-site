@@ -1,9 +1,11 @@
 <script>
   import "../app.scss";
+  import Seo from "$lib/components/Seo.svelte";
   import TopNav from "$lib/components/Header/TopNav.svelte";
   import Sidebar from "../lib/components/Sidebar.svelte";
 </script>
 
+<Seo/>
 <body>
 	<main class="main">
 		<div class="container gutter-top gutter-bottom">

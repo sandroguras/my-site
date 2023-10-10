@@ -44,9 +44,9 @@
 			<button on:click={toggleVisibility} class="btn btn--small btn--icon-right sidebar__btn js-btn-toggle"><span>Show Contacts</span><i class="feathericon-chevron-down"></i></button>
 		</div>
 		{#if isShown}
-		<div class="sidebar__container" transition:fade={{ delay: 100, duration: 600, easing: cubicOut }}>
+		<div class="sidebar__container" transition:fade={{ delay: 100, duration: 500, easing: cubicOut }}>
 			<div class="{displayClass} sidebar__additional-info"
-					 transition:slide="{{ delay: 100, duration: 600, easing: cubicOut, axis: 'x' }}">
+					 transition:slide={{ delay: 100, duration: 600, easing: cubicOut, axis: 'x' }}>
 				<div class="separation"></div>
 				<ul class="details-info">
 					<!-- Email -->
