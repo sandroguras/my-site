@@ -1,4 +1,5 @@
 <script>
+    //TODO need to improve wording and test out the meta tags
     import { page } from "$app/stores"
     import { browser } from "$app/environment"
 

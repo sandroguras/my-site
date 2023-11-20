@@ -21,7 +21,7 @@ $size-avatar: rem(80px);
   
   &::before {
     background: var(--color-gradient-soft) 
-                url(../../assets/icons/icon-quote.svg);
+                url(./src/assets/icons/icon-quote.svg);
     background-repeat: no-repeat;
     background-position: 0 0, right rem(30px) top rem(24px);
   }
@@ -63,7 +63,7 @@ $size-avatar: rem(80px);
 }
 
 .review-icon-quote {
-  background: url(../../assets/icons/icon-quote.svg) no-repeat center;
+  background: url(./src/assets/icons/icon-quote.svg) no-repeat center;
   margin: auto 0;
   height: rem(24px);
   max-width: $size-avatar;
@@ -103,11 +103,11 @@ $size-avatar: rem(80px);
 }
 
 /* Carousel pagination */
-.swiper-pagination  {
+.swiper-pagination {
   margin-top: rem(8px);
   position: relative;
   line-height: 0;
-  
+
   @media only screen and (max-width: $small) {
     margin-top: rem(16px);
   }
@@ -120,12 +120,12 @@ $size-avatar: rem(80px);
   height: rem(10px);
   width: rem(10px);
   transition: width .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  
+
   @media only screen and (max-width: $small) {
     height: rem(6px);
     width: rem(6px);
   }
-  
+
   &-active {
     background: var(--color-gradient);
 	  width: rem(20px);
