@@ -3,20 +3,20 @@
 ----------------------------------------------------------------- */
 
 .js-carousel-clients {
-  padding-top: rem(8px);
-  padding-bottom: rem(16px);
-  
-  .swiper-slide {
-	  text-align: center;
-  }
+	padding-top: rem(8px);
+	padding-bottom: rem(16px);
 
-  .logo-client {
-	  max-width: 80%;
-    filter: grayscale(1);
-    transition: all .5s ease-in-out;
+	.swiper-slide {
+		text-align: center;
+	}
 
-    &:hover {
-      filter: grayscale(0);
-    }
-  }
+	.logo-client {
+		max-width: 80%;
+		filter: grayscale(1);
+		transition: all 0.5s ease-in-out;
+
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
 }
