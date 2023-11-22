@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'feather';
   src:
-    url('../icons/feather.woff?e51d5j') format('woff'),
-    url('../icons/feather.woff2?e51d5j') format('woff');
+    url('feather.woff?e51d5j') format('woff'),
+    url('feather.woff2?e51d5j') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: block;

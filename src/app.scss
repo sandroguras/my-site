@@ -80,8 +80,8 @@ $version: "1.1.0";
 @import url('./styles/vendors/default-skin.css');
 
 // Font Icons
-@import url('./assets/icons/style-custome-icons.css');
-@import url('./assets/icons/feather.css');
+@import url('assets/icons/style-custome-icons.css');
+@import url('assets/icons/feather.css');
 
 // Variables
 //@import './styles/variables/vars';
@@ -102,13 +102,13 @@ $version: "1.1.0";
 
 // Pages, layouts
 @import './styles/app/cases';
-@import './styles/app/clients';
+//@import './styles/app/clients';
 @import './styles/app/contact';
 @import './styles/app/portfolio';
 @import './styles/app/news';
 @import './styles/app/single-news';
 @import './styles/app/single-project';
-@import './styles/app/testimonials';
+//@import './styles/app/testimonials';
 @import './styles/app/timeline';
 
 @import './styles/app/other';
