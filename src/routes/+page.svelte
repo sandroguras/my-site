@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 	import Introduction from '$lib/components/Introduction.svelte';
-	/*import Expertise from '$lib/components/Expertise/Expertise.svelte';*/
+	import Expertise from '$lib/components/Expertise/Expertise.svelte';
 
 	const caseItems = [
 		{
@@ -75,7 +75,7 @@
 <Introduction pageHeading={introduction.pageHeading} pageCopy={ingroductionSafeHTML} />
 
 <!-- Expertise -->
-<!--<Expertise sectionHeading="My Expertise" caseItems={{caseItems}} />-->
+<Expertise sectionHeading="My Expertise" caseItems={caseItems} />
 
 <!-- Testimonials -->
 <section class="testimonials">
