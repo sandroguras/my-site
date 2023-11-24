@@ -80,14 +80,11 @@ $size-nav: rem(64px);
 			}
 
 			&.active {
+				opacity: 1;
 				background: var(--color-gradient-text);
 				-webkit-background-clip: text;
 				background-clip: text;
 				-webkit-text-fill-color: transparent;
-			}
-
-			&.active:hover {
-				opacity: 1;
 			}
 		}
 	}

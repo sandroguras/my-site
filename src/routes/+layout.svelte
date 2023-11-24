@@ -1,8 +1,8 @@
 <script>
   import "../app.scss";
   import Seo from "$lib/components/Seo.svelte";
-  import TopNav from "$lib/components/Header/TopNav.svelte";
-  import Sidebar from "../lib/components/Sidebar.svelte";
+  import Navbar from "$lib/components/Header/Navbar.svelte";
+  import Sidebar from "$lib/components/Sidebar.svelte";
 </script>
 
 <Seo/>
@@ -13,7 +13,7 @@
 				<Sidebar />
 				<div class="col-12 col-md-12 col-xl-9">
 					<div class="box-outer">
-						<TopNav />
+						<Navbar />
 						<slot />
 					</div>
 				</div>
