@@ -1,9 +1,10 @@
 <script>
-  	import DOMPurify from 'dompurify';
+	import { onMount } from 'svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 	import Introduction from '$lib/components/Introduction.svelte';
+	/*import Expertise from '$lib/components/Expertise/Expertise.svelte';*/
 
-	const skills = [
+	const caseItems = [
 		{
 			name: 'Web Development',
 			icon: '/images/icon-dev.svg',
@@ -61,30 +62,20 @@
 			"<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
 	};
 
-    $: ingroductionSafeHTML = DOMPurify.sanitize(introduction.pageCopy);
+	let ingroductionSafeHTML;
+	onMount(async () => {
+		if (typeof window !== 'undefined') {
+			const DOMPurify = (await import('dompurify')).default;
+			ingroductionSafeHTML = DOMPurify.sanitize(introduction.pageCopy);
+		}
+	});
 </script>
 
 <!-- About -->
 <Introduction pageHeading={introduction.pageHeading} pageCopy={ingroductionSafeHTML} />
 
-<!-- What I'm Doing -->
-<section class="skills">
-	<h2 class="title title--h2 mt-3">What I'm Doing</h2>
-	<div class="row">
-		<!-- Case Item -->
-		{#each skills as skill}
-			<div class="col-12 col-lg-6">
-				<div class="case-item box box-inner">
-					<img class="case-item__icon" src={skill.icon} alt={skill.icon_alt} />
-					<div>
-						<h3 class="title title--h3">{skill.name}</h3>
-						<p class="case-item__caption">{skill.copy}</p>
-					</div>
-				</div>
-			</div>
-		{/each}
-	</div>
-</section>
+<!-- Expertise -->
+<!--<Expertise sectionHeading="My Expertise" caseItems={{caseItems}} />-->
 
 <!-- Testimonials -->
 <section class="testimonials">
