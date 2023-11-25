@@ -5,33 +5,41 @@
 	import Expertise from '$lib/components/Expertise/Expertise.svelte';
 	import Testimonials from '$lib/components/Testimonials.svelte';
 
-	const caseItems = [
-		{
-			name: 'Web Development',
-			icon: '/images/icon-dev.svg',
-			icon_alt: 'Web Development',
-			copy: 'Professional-grade website development.'
-		},
-		{
-			name: 'Project Management',
-			icon: '/images/icon-design.svg',
-			icon_alt: 'Project Management',
-			copy: 'Planning, organizing, executing, and fulfilling web projects.'
-		},
-		{
-			name: 'Mobile Apps',
-			icon: '/images/icon-app.svg',
-			icon_alt: 'Mobile Apps',
-			copy: 'Professional development of applications for iOS and Android.'
-		},
-		{
-			name: 'Photography',
-			icon: '/images/icon-photo.svg',
-			icon_alt: 'Photography',
-			copy: 'I make high-quality photos of any category at a professional level.'
-		}
-	];
-	const testimonials = [
+    const introduction = {
+      sectionHeading: 'About Me',
+      pageCopy:
+        "<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
+    };
+    const expertise = {
+		sectionHeading: 'My Expertise',
+		caseItems: [
+			{
+				name: 'Web Development',
+				icon: '/images/icon-dev.svg',
+				icon_alt: 'Web Development',
+				copy: 'Professional-grade website development.'
+			},
+			{
+				name: 'Project Management',
+				icon: '/images/icon-design.svg',
+				icon_alt: 'Project Management',
+				copy: 'Planning, organizing, executing, and fulfilling web projects.'
+			},
+			{
+				name: 'Mobile Apps',
+				icon: '/images/icon-app.svg',
+				icon_alt: 'Mobile Apps',
+				copy: 'Professional development of applications for iOS and Android.'
+			},
+			{
+				name: 'Photography',
+				icon: '/images/icon-photo.svg',
+				icon_alt: 'Photography',
+				copy: 'I make high-quality photos of any category at a professional level.'
+			}
+		]
+	};
+    const testimonials = [
 		{
 			name: 'Daniel Lewis',
 			image: './images/avatar-1.png',
@@ -57,11 +65,6 @@
 			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done...'
 		}
 	];
-	const introduction = {
-		pageHeading: 'About Me',
-		pageCopy:
-			"<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
-	};
 
 	let ingroductionSafeHTML;
 	onMount(async () => {
@@ -73,13 +76,13 @@
 </script>
 
 <!-- About -->
-<Introduction pageHeading={introduction.pageHeading} pageCopy={ingroductionSafeHTML} />
+<Introduction sectionHeading={introduction.sectionHeading} pageCopy={ingroductionSafeHTML} />
 
 <!-- Expertise -->
-<Expertise sectionHeading="My Expertise" testimonials={caseItems} />
+<Expertise sectionHeading={expertise.sectionHeading} caseItems={expertise.caseItems} />
 
 <!-- Testimonials -->
-<Testimonials sectionHeading="Testimonials" testimonials={testimonials} />
+<Testimonials sectionHeading="Testimonials" swiperId="swiper-testimonials" slides={testimonials} />
 
 <!-- Clients -->
 <section class="clients">

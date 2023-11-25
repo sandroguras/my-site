@@ -1,11 +1,8 @@
 <script lang="ts">
 	import CaseItem from './CaseItem.svelte';
 
-    export let sectionHeading: string = '';
-    export let caseItems: CaseItem[] = [];
-
-    console.log( caseItems );
-
+	export let sectionHeading: string = '';
+	export let caseItems: CaseItem[] = [];
 </script>
 
 <!-- Expertise -->
