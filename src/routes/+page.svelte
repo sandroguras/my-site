@@ -3,6 +3,7 @@
 	import Carousel from '$lib/components/Carousel.svelte';
 	import Introduction from '$lib/components/Introduction.svelte';
 	import Expertise from '$lib/components/Expertise/Expertise.svelte';
+	import Testimonials from '$lib/components/Testimonials.svelte';
 
 	const caseItems = [
 		{
@@ -30,7 +31,7 @@
 			copy: 'I make high-quality photos of any category at a professional level.'
 		}
 	];
-	const items = [
+	const testimonials = [
 		{
 			name: 'Daniel Lewis',
 			image: './images/avatar-1.png',
@@ -75,20 +76,10 @@
 <Introduction pageHeading={introduction.pageHeading} pageCopy={ingroductionSafeHTML} />
 
 <!-- Expertise -->
-<Expertise sectionHeading="My Expertise" caseItems={caseItems} />
+<Expertise sectionHeading="My Expertise" testimonials={caseItems} />
 
 <!-- Testimonials -->
-<section class="testimonials">
-	<h2 class="title title--h2 mt-3">Testimonials</h2>
-	<Carousel
-		swiperId="swiper-testimonials"
-		{items}
-		breakpoints={{
-			580: { slidesPerView: 1, spaceBetween: 20 },
-			991: { slidesPerView: 2 }
-		}}
-	/>
-</section>
+<Testimonials sectionHeading="Testimonials" testimonials={testimonials} />
 
 <!-- Clients -->
 <section class="clients">

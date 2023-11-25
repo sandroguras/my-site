@@ -16,7 +16,7 @@
 		991: { slidesPerView: 4, spaceBetween: 30 }
 	};
 	export let injectStylesUrls: string = ['/styles/swiper-pagination.css'];
-	export let items: object[] = [
+	export let slides: object[] = [
 		{
 			link: 'https://greymass.com/',
 			logo: '/images/clients/greymass-color.svg',
@@ -72,11 +72,11 @@
 {#if swiperId === 'swiper-clients'}
 	<swiper-container id="swiper-clients" init="false">
 		<!-- Client links -->
-		{#each items as item}
+		{#each slides as slide}
 			<swiper-slide class="js-carousel-clients">
 				<figure class="swiper-slide">
-					<a href={item.link} target="_blank"
-						><img class="logo-client" src={item.logo} alt={item.logo_alt} /></a
+					<a href={slide.link} target="_blank"
+						><img class="logo-client" src={slide.logo} alt={slide.logo_alt} /></a
 					>
 				</figure>
 			</swiper-slide>
@@ -86,13 +86,13 @@
 {#if swiperId === 'swiper-testimonials'}
 	<swiper-container id="swiper-testimonials" init="false">
 		<!-- Testimonials -->
-		{#each items as item}
+		{#each slides as slide}
 			<swiper-slide class="review-item box box-inner">
 				<figure class="box box-avatar">
-					<img src={item.image} alt={item.image_alt} />
+					<img src={slide.image} alt={slide.image_alt} />
 				</figure>
-				<h4 class="title title--h3">{item.name}</h4>
-				<p class="review-item__caption">{item.copy}</p>
+				<h4 class="title title--h3">{slide.name}</h4>
+				<p class="review-item__caption">{slide.copy}</p>
 			</swiper-slide>
 		{/each}
 	</swiper-container>
