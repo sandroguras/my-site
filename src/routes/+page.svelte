@@ -5,12 +5,12 @@
 	import Expertise from '$lib/components/Expertise/Expertise.svelte';
 	import Testimonials from '$lib/components/Testimonials.svelte';
 
-    const introduction = {
-      sectionHeading: 'About Me',
-      pageCopy:
-        "<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
-    };
-    const expertise = {
+	const introduction = {
+		sectionHeading: 'About Me',
+		pageCopy:
+			"<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
+	};
+	const expertise = {
 		sectionHeading: 'My Expertise',
 		caseItems: [
 			{
@@ -39,7 +39,7 @@
 			}
 		]
 	};
-    const testimonials = [
+	const testimonials = [
 		{
 			name: 'Daniel Lewis',
 			image: './images/avatar-1.png',
@@ -84,6 +84,7 @@
 <!-- Testimonials -->
 <Testimonials sectionHeading="Testimonials" swiperId="swiper-testimonials" slides={testimonials} />
 
+<!--TODO: refactor into Testimonials component-->
 <!-- Clients -->
 <section class="clients">
 	<h2 class="title title--h2 mt-4">Clients</h2>

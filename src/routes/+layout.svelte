@@ -3,6 +3,7 @@
   import Seo from "$lib/components/Seo.svelte";
   import Navbar from "$lib/components/Header/Navbar.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
+  import SectionHeading from '$lib/components/SectionHeading.svelte'
 </script>
 
 <Seo/>
@@ -14,6 +15,7 @@
 				<div class="col-12 col-md-12 col-xl-9">
 					<div class="box-outer">
 						<Navbar />
+						<SectionHeading />
 						<slot />
 					</div>
 				</div>

@@ -1,8 +1,3 @@
-<!-- About -->
-<div class="pb-3">
-	<h1 class="title title--h1 title__separate">Resume</h1>
-</div>
-
 <!-- Experience -->
 <h2 class="title title--h2"><span class="box icon-box"><i class="font-icon feathericon-book-open"></i></span>Education</h2>
 <div class="timeline">
