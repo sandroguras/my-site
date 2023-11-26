@@ -24,50 +24,10 @@
 		}
 	}
 
-	//TODO remove &__additional-info after removing the slide script
 	&__additional-info {
-		@media only screen and (min-width: $large-xl) {
-			display: block !important;
-		}
-
-		@media only screen and (max-width: $large-xl) {
-			display: none;
-		}
-		//TODO remove up to this point ^^^
 		.details-info__item {
 			@media only screen and (max-width: $large-xl) {
-				flex: 0 0 50%;
-
-				&:nth-last-child(2),
-				&:nth-last-child(1) {
-					margin-bottom: 0;
-				}
-			}
-
-			@media only screen and (max-width: $medium) {
-				margin-bottom: rem(20px);
-
-				&:nth-last-child(2) {
-					margin-bottom: rem(20px);
-				}
-
-				&:nth-last-child(1) {
-					margin-bottom: 0 !important;
-				}
-			}
-
-			@media only screen and (max-width: $small) {
-				//font-size: rem(13px);
-				flex: 0 0 100%;
-				//margin-bottom: rem(15px);
-
-				&:nth-last-child(2) {
-					margin-bottom: rem(15px);
-				}
-
-				&:nth-last-child(1) {
-					margin-bottom: 0;
-				}
+				margin-bottom: 0;
 			}
 		}
 	}

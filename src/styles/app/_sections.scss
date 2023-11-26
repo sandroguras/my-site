@@ -198,12 +198,12 @@
 	//overflow: hidden;
 
 	@media only screen and (max-width: $large-xl) {
-		@include flex($wrap: wrap);
+		@include flex($wrap: wrap, $justify: space-between);
 		margin-bottom: 0;
 	}
 
 	@media only screen and (max-width: $medium) {
-		@include flex($direction: column);
+		@include flex($direction: row);
 		margin-bottom: rem(8px);
 		font-size: rem(16px);
 	}
@@ -228,15 +228,7 @@
 		@media only screen and (max-width: $small) {
 			font-size: rem(13px);
 			//flex: 0 0 100%;
-			margin-bottom: rem(15px) !important;
-
-			&:nth-last-child(2) {
-				//margin-bottom: rem(15px);
-			}
-
-			&:nth-last-child(1) {
-				//margin-bottom: 0;
-			}
+			margin-bottom: rem(15px);
 		}
 
 		a {

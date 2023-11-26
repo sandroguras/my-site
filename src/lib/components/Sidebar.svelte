@@ -1,21 +1,17 @@
 <script lang="ts">
-
+    import Button from "$lib/components/Button.svelte";
 </script>
-
-<style lang="scss">
-    @import '../../styles/app/sidebar';
-</style>
 
 <aside class="col-12 col-md-12 col-xl-3">
 	<div class="sidebar box-outer sticky-column">
 		<!-- My photo -->
 		<div class="sidebar__base-info">
 			<figure class="avatar-box">
-				<img src="/images/my-avatar.png" alt="Sandro Guras">
+				<img src="/images/my-avatar.png" alt="David Guras">
 			</figure>
 
 			<div class="text-xl-center">
-				<h3 class="title title--h3 sidebar__name">Sandro Guras</h3>
+				<h3 class="title title--h3 sidebar__name">David Guras</h3>
 				<div class="badge">Web Developer</div>
 				<!-- Social -->
 				<div class="social">
@@ -24,46 +20,28 @@
 				</div>
 			</div>
 
-			<button class="btn btn--small btn--icon-right sidebar__btn js-btn-toggle"><span>Show Contacts</span><i class="feathericon-chevron-down"></i></button>
 		</div>
 		<div class="sidebar__container">
 			<div class="sidebar__additional-info">
 				<div class="separation"></div>
 				<ul class="details-info">
-					<!-- Email -->
-					<li class="details-info__item">
-						<span class="box icon-box"><i class="font-icon icon-envelope"></i></span>
-						<div class="contacts-block__info">
-							<span class="overhead">Email</span>
-							<a class="text-overflow" href="mailto:ricardo@example.com" title="ricardo@example.com">ricardo@example.com</a>
-						</div>
-					</li>
-					<!-- Phone -->
-					<li class="details-info__item">
-						<span class="box icon-box"><i class="font-icon icon-phone"></i></span>
-						<div class="contacts-block__info">
-							<span class="overhead">Phone</span>
-							<span class="text-overflow" title="+1 (070) 123-4567">+1 (070) 123-4567</span>
-						</div>
-					</li>
-					<!-- Birthday -->
-					<li class="details-info__item">
-						<span class="box icon-box"><i class="font-icon icon-calendar"></i></span>
-						<div class="contacts-block__info">
-							<span class="overhead">Birthday</span>
-							<span class="text-overflow" title="March 12, 1995">March 12, 1995</span>
-						</div>
-					</li>
 					<!-- Location -->
 					<li class="details-info__item">
 						<span class="box icon-box"><i class="font-icon icon-location"></i></span>
 						<div class="contacts-block__info">
 							<span class="overhead">Location</span>
-							<span class="text-overflow" title="San-Francisco, USA">San-Francisco, USA</span>
+							<span class="text-overflow" title="San-Francisco, USA">Washington, D.C.</span>
 						</div>
+					</li>
+					<li class="details-info__item">
+						<Button href="/contact" iconClass="icon-send" text="Contact Me" />
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </aside>
+
+<style lang="scss">
+    @import '../../styles/app/sidebar';
+</style>

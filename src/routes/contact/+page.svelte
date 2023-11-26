@@ -22,7 +22,7 @@
 			<div id="validator-contact" class="hidden"></div>
 		</div>
 		<div class="col-12 col-md-6 order-1 order-md-2 text-end">
-			<button type="submit" class="btn"><i class="font-icon icon-send"></i> Send Message</button>
+			<button type="submit" class="btn"><i class="font-icon icon-send"></i>Send Message</button>
 		</div>
 	</div>
 </form>
