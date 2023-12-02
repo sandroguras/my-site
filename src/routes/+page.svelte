@@ -1,14 +1,11 @@
 <script>
-	import { onMount } from 'svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 	import Introduction from '$lib/components/Introduction.svelte';
 	import Expertise from '$lib/components/Expertise/Expertise.svelte';
 	import Testimonials from '$lib/components/Testimonials.svelte';
 
 	const introduction = {
-		sectionHeading: 'About Me',
-		pageCopy:
-			"<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
+		copy: "<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
 	};
 	const expertise = {
 		sectionHeading: 'My Expertise',
@@ -65,18 +62,10 @@
 			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done...'
 		}
 	];
-
-	let ingroductionSafeHTML;
-	onMount(async () => {
-		if (typeof window !== 'undefined') {
-			const DOMPurify = (await import('dompurify')).default;
-			ingroductionSafeHTML = DOMPurify.sanitize(introduction.pageCopy);
-		}
-	});
 </script>
 
 <!-- About -->
-<Introduction sectionHeading={introduction.sectionHeading} pageCopy={ingroductionSafeHTML} />
+<Introduction copy={introduction.copy} />
 
 <!-- Expertise -->
 <Expertise sectionHeading={expertise.sectionHeading} caseItems={expertise.caseItems} />
