@@ -231,6 +231,10 @@
 			margin-bottom: rem(15px);
 		}
 
+		&:last-child {
+			margin-bottom: 0;
+		}
+
 		a {
 			color: var(--color-heading);
 			-webkit-text-fill-color: inherit;

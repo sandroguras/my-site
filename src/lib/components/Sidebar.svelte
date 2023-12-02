@@ -2,7 +2,7 @@
     import Button from "$lib/components/Button.svelte";
 </script>
 
-<aside class="col-12 col-md-12 col-xl-3">
+<aside class="aside col-12 col-md-12 col-xl-3">
 	<div class="sidebar box-outer sticky-column">
 		<!-- My photo -->
 		<div class="sidebar__base-info">
@@ -12,7 +12,7 @@
 
 			<div class="text-xl-center">
 				<h3 class="title title--h3 sidebar__name">David Guras</h3>
-				<div class="badge">Web Developer</div>
+				<div class="badge">Web Director</div>
 				<!-- Social -->
 				<div class="social">
 					<a class="social__link" target="_blank" href="https://twitter.com/sandro_guras"><i class="feathericon-twitter"></i></a>
@@ -34,7 +34,7 @@
 						</div>
 					</li>
 					<li class="details-info__item">
-						<Button href="/contact" iconClass="icon-send" text="Contact Me" />
+						<Button href="/contact" iconClass="icon-download" text="Download CV" />
 					</li>
 				</ul>
 			</div>

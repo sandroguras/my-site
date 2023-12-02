@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Timeline from '$lib/components/Timeline/Timeline.svelte';
+	import Skillset from "$lib/components/Skillset.svelte";
+
 	let experience: string[] = [
 		{
 			title: 'Creative Director',
@@ -48,6 +50,8 @@
 
 <!-- Education -->
 <Timeline name={'Education'} logo={'feathericon-book-open'} timelineArticles={education} />
+
+<Skillset />
 
 <!-- Skills -->
 <h2 class="title title--h2 mt-3">My Skills</h2>
