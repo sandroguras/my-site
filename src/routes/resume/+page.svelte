@@ -4,43 +4,62 @@
 
 	let experience: string[] = [
 		{
-			title: 'Creative Director',
-			period: '2015 — Present',
+			institution: 'Greymass',
+			position: 'Project Manager, Web Developer',
+			period: 'July 2023 — Present',
 			description:
 				'Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas molestias exceptur.'
 		},
 		{
-			title: 'Art Director',
-			period: '2013 — 2015',
+			institution: 'Bullish',
+			position: 'Manager: Web Engineering',
+			period: 'Feb 2020 — June 2023',
 			description:
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
 		},
 		{
-			title: 'Web Designer',
-			period: '2010 — 2013',
+			institution: 'SDG Agency',
+			position: 'Lead Web Developer',
+			period: '2019 — Feb 2020',
 			description:
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
-		}
+		},
+		{
+			institution: 'Grafik Agency',
+			position: 'Backend Developer',
+			period: 'Jul 2018 — Mar 2019',
+			description:
+				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
+		},
+		{
+			institution: '3Men Team',
+			position: 'Lead WordPress Developer',
+			period: 'Nov 2015 — Apr 2018',
+			description:
+				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
+		},
+		{
+			institution: 'Endava',
+			position: 'Backand Developer',
+			period: 'Oct 2013 — Sep 2015',
+			description:
+				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
+		},
+		{
+			institution: 'Magicindie Softworks',
+			position: 'Unity Developer',
+			period: 'Aug 2008 — Sep 2013',
+			description:
+				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
+		},
 	];
 
 	let education: string[] = [
 		{
-			title: 'University School of the Arts',
-			period: '2007 — 2009',
+			position: 'Moldova State University',
+			period: '2004 — 2008',
 			description:
-				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
-		},
-		{
-			title: 'New York Academy of Art',
-			period: '2005 — 2007',
-			description:
-				'Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est omnis..'
-		},
-		{
-			title: 'High School of Art and Design',
-			period: '2003 — 2005',
-			description:
-				'Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur magni dolores eos.'
+				'Bachelor of Computer Science'
 		}
 	];
 </script>

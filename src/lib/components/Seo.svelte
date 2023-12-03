@@ -3,15 +3,15 @@
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 
-	const author = 'Sandro Guras';
-	const baseTitle = `${author} personal website`;
+	const author = 'David Guras';
+	const baseTitle = `${author} business card`;
 
-	$: pageUrl = String($page.url) || 'https://sandroguras.com';
+	$: pageUrl = String($page.url) || 'https://davidguras.dev';
 
 	$: metaImage = $page.data.meta?.metaImage || '../../src/assets/images/social.jpg';
 
 	$: pageDescription =
-		$page.data.meta?.description || 'I provide reliable solutions to your web needs.';
+		$page.data.meta?.description || 'I provide reliable solutions to your business web needs.';
 
 	$: pageTitle = $page.data.meta?.title.concat(' - ', baseTitle) || baseTitle;
 
@@ -48,22 +48,22 @@
 	<link
 		rel="apple-touch-icon"
 		sizes="144x144"
-		href="../../src/assets/images/favicons/apple-touch-icon-144x144.png"
+		href="/static/images/favicons/apple-touch-icon-144x144.png"
 	/>
 	<link
 		rel="apple-touch-icon"
 		sizes="114x114"
-		href="../../src/assets/images/favicons/apple-touch-icon-114x114.png"
+		href="/static/images/favicons/apple-touch-icon-114x114.png"
 	/>
 	<link
 		rel="apple-touch-icon"
 		sizes="72x72"
-		href="../../src/assets/images/favicons/apple-touch-icon-72x72.png"
+		href="/static/images/favicons/apple-touch-icon-72x72.png"
 	/>
 	<link
 		rel="apple-touch-icon"
 		sizes="57x57"
-		href="../../src/assets/images/favicons/apple-touch-icon-57x57.png"
+		href="/static/images/favicons/apple-touch-icon-57x57.png"
 	/>
-	<link rel="shortcut icon" href="../../src/assets/images/favicons/favicon.png" type="image/png" />
+	<link rel="shortcut icon" href="/static/images/favicons/favicon.png" type="image/png" />
 </svelte:head>

@@ -12,7 +12,7 @@
 		border-left-color: var(--color-border);
 		border-left-width: 1px;
 		border-left-style: solid;
-		height: rem(60px);
+		height: rem(44px);
 		width: 1px;
 		@include position(absolute, $top: rem(-30px));
 	}
@@ -34,7 +34,7 @@
 			background: var(--color-gradient-text);
 			box-shadow: 0 0 0 rem(4px) rgba(255, 219, 110, 0.1);
 			border-radius: 50%;
-			@include position(absolute, $top: rem(1px), $left: rem(-5px));
+			@include position(absolute, $top: rem(6.4px), $left: rem(-5px));
 			height: rem(9px);
 			width: rem(9px);
 		}
@@ -54,10 +54,14 @@
 		}
 	}
 
-	&__title {
-		margin-bottom: 0;
-		position: relative;
-		top: rem(-5px);
+	&__institution {
+		margin-bottom: rem(4px);
+		font-weight: 600;
+	}
+
+	&__position {
+		margin-bottom: rem(4px);
+		font-weight: 400;
 	}
 
 	&__period {
@@ -69,7 +73,7 @@
 	}
 
 	&__description {
-		margin-top: rem(4px);
+		margin-top: rem(8px);
 
 		@media only screen and (max-width: $small) {
 			margin-top: rem(3px);

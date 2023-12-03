@@ -9,7 +9,7 @@
 	<div class="timeline">
 	<!-- Item -->
 	{#each timelineArticles as timelineArticle}
-		<TimelineArticle title={timelineArticle.title} period={timelineArticle.period} description={timelineArticle.description}/>
+		<TimelineArticle institution={timelineArticle.institution} position={timelineArticle.position} period={timelineArticle.period} description={timelineArticle.description}/>
 	{/each}
 </div>
 
