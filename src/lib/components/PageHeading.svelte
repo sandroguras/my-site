@@ -1,31 +1,31 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	let sectionHeading: string;
+	let pageHeading: string;
 	$: {
 		const url = $page.url.pathname;
 		switch (url) {
 			case '/':
-				sectionHeading = 'About Me';
+				pageHeading = 'About Me';
 				break;
 			case '/resume':
-				sectionHeading = 'Resume';
+				pageHeading = 'Resume';
 				break;
 			case '/portfolio':
-				sectionHeading = 'Portfolio';
+				pageHeading = 'Portfolio';
 				break;
 			case '/blog':
-				sectionHeading = 'Blog';
+				pageHeading = 'Blog';
 				break;
 			case '/contact':
-				sectionHeading = 'Contact Me';
+				pageHeading = 'Contact Me';
 				break;
 			// Add more cases as needed
 			default:
-				sectionHeading = '';
+				pageHeading = '';
 		}
 	}
 </script>
 
 <div class="pb-3">
-	<h1 class="title title--h1 title__separate">{sectionHeading}</h1>
+	<h1 class="title title--h1 title__separate">{pageHeading}</h1>
 </div>
