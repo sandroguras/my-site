@@ -12,25 +12,25 @@
 		caseItems: [
 			{
 				name: 'Web Development',
-				icon: '/images/icon-dev.svg',
+				icon: '/images/icons/icon-dev.svg',
 				icon_alt: 'Web Development',
 				copy: 'Professional-grade website development.'
 			},
 			{
 				name: 'Project Management',
-				icon: '/images/icon-design.svg',
+				icon: '/images/icons/icon-design.svg',
 				icon_alt: 'Project Management',
 				copy: 'Planning, organizing, executing, and fulfilling web projects.'
 			},
 			{
 				name: 'Mobile Apps',
-				icon: '/images/icon-app.svg',
+				icon: '/images/icons/icon-app.svg',
 				icon_alt: 'Mobile Apps',
 				copy: 'Professional development of applications for iOS and Android.'
 			},
 			{
 				name: 'Photography',
-				icon: '/images/icon-photo.svg',
+				icon: '/images/icons/icon-photo.svg',
 				icon_alt: 'Photography',
 				copy: 'I make high-quality photos of any category at a professional level.'
 			}

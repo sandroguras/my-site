@@ -2,7 +2,7 @@
 	import Timeline from '$lib/components/Timeline/Timeline.svelte';
 	import Skillset from "$lib/components/Skillset.svelte";
 
-	let experience: string[] = [
+	let experience = [
 		{
 			institution: 'Greymass',
 			position: 'Project Manager, Web Developer',
@@ -54,7 +54,7 @@
 		},
 	];
 
-	let education: string[] = [
+	let education = [
 		{
 			position: 'Moldova State University',
 			period: '2004 — 2008',

@@ -20,7 +20,7 @@ $size-avatar: rem(80px);
 	margin-top: rem(40px);
 
 	&::before {
-		background: var(--color-gradient-soft) url(./images/icon-quote-gold.svg);
+		background: var(--color-gradient-soft) url(./images/icons/icon-quote-gold.svg);
 		background-repeat: no-repeat;
 		background-position:
 			0 0,
@@ -66,7 +66,7 @@ $size-avatar: rem(80px);
 }
 
 .review-icon-quote {
-	background: url(./images/icon-quote-gold.svg) no-repeat center;
+	background: url(./images/icons/icon-quote-gold.svg) no-repeat center;
 	margin: auto 0;
 	height: rem(24px);
 	max-width: $size-avatar;
