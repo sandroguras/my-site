@@ -11,3 +11,7 @@
 	<span class="timeline__period">{period}</span>
 	<p class="timeline__description">{description}</p>
 </article>
+
+<style lang="scss">
+	@import '../../../styles/app/timeline-item';
+</style>

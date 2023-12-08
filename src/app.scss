@@ -73,11 +73,11 @@ $version: "1.1.0";
 @import "bootstrap/scss/utilities/api";
 
 // Vendors
-@import url('./styles/vendors/swiper.min.css');
-@import url('./styles/vendors/simplebar.min.css');
-@import url('./styles/vendors/magnific-popup.css');
-@import url('./styles/vendors/photoswipe.css');
-@import url('./styles/vendors/default-skin.css');
+//@import url('./styles/vendors/swiper.min.css');
+//@import url('./styles/vendors/simplebar.min.css');
+//@import url('./styles/vendors/magnific-popup.css');
+//@import url('./styles/vendors/photoswipe.css');
+//@import url('./styles/vendors/default-skin.css');
 
 // Font Icons
 @import url('assets/icons/style-custome-icons.css');
@@ -98,7 +98,7 @@ $version: "1.1.0";
 //@import './styles/app/sidebar';
 @import './styles/app/sections';
 //@import './styles/app/navbar';
-@import './styles/app/popup';
+//@import './styles/app/popup';
 
 // Pages, layouts
 //@import './styles/app/cases';
@@ -109,6 +109,6 @@ $version: "1.1.0";
 @import './styles/app/single-news';
 @import './styles/app/single-project';
 //@import './styles/app/testimonials';
-@import './styles/app/timeline';
+//@import './styles/app/timeline';
 
 @import './styles/app/other';

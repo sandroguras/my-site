@@ -18,6 +18,3 @@
 		{@html copy}
 	</div>
 </section>
-
-<style lang="scss">
-</style>

@@ -15,8 +15,14 @@
 				<div class="badge">Web Director</div>
 				<!-- Social -->
 				<div class="social">
-					<a class="social__link" target="_blank" href="https://twitter.com/sandro_guras"><i class="feathericon-twitter"></i></a>
-					<a class="social__link" href="https://www.linkedin.com/in/gurasan/" target="_blank"><i class="feathericon-linkedin"></i></a><a class="social__link" href="/contact" target="_self"><i class="feathericon-mail"></i></a>
+					<a class="social__link" target="_blank" href="https://twitter.com/sandro_guras"
+						><i class="feathericon-twitter"></i></a
+					>
+					<a class="social__link" href="https://www.linkedin.com/in/gurasan/" target="_blank"
+						><i class="feathericon-linkedin"></i></a
+					><a class="social__link" href="/contact" target="_self"
+						><i class="feathericon-mail"></i></a
+					>
 				</div>
 			</div>
 		</div>

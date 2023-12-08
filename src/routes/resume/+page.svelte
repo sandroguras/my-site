@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Timeline from '$lib/components/Timeline/Timeline.svelte';
-	import Skillset from "$lib/components/Skillset.svelte";
+	import Skillset from '$lib/components/Skillset.svelte';
 
 	let experience = [
 		{
@@ -51,59 +51,22 @@
 			period: 'Aug 2008 — Sep 2013',
 			description:
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
-		},
+		}
 	];
 
 	let education = [
 		{
 			position: 'Moldova State University',
 			period: '2004 — 2008',
-			description:
-				'Bachelor of Computer Science'
+			description: 'Bachelor of Computer Science'
 		}
 	];
 </script>
 
 <!-- Experience -->
-<Timeline name={'Experience'} logo={'feathericon-briefcase'} timelineArticles={experience} />
+<Timeline name={'Experience'} logo={'feathericon-briefcase'} timelineItems={experience} />
 
 <!-- Education -->
-<Timeline name={'Education'} logo={'feathericon-book-open'} timelineArticles={education} />
+<Timeline name={'Education'} logo={'feathericon-book-open'} timelineItems={education} />
 
 <Skillset />
-
-<!-- Skills -->
-<h2 class="title title--h2 mt-3">My Skills</h2>
-<div class="box box-inner mb-0">
-	<!-- Web Design -->
-	<div class="progress">
-		<div class="progress-text"><span>Web Design</span> 80%</div>
-		<div class="progress-bar">
-			<span role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></span>
-		</div>
-	</div>
-
-	<!-- Web Design -->
-	<div class="progress">
-		<div class="progress-text"><span>Graphic Design</span> 75%</div>
-		<div class="progress-bar">
-			<span role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></span>
-		</div>
-	</div>
-
-	<!-- Web Design -->
-	<div class="progress">
-		<div class="progress-text"><span>Branding</span> 90%</div>
-		<div class="progress-bar">
-			<span role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></span>
-		</div>
-	</div>
-
-	<!-- Web Design -->
-	<div class="progress">
-		<div class="progress-text"><span>WordPress</span> 50%</div>
-		<div class="progress-bar">
-			<span role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></span>
-		</div>
-	</div>
-</div>
