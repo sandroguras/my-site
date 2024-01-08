@@ -48,22 +48,22 @@
 	<link
 		rel="apple-touch-icon"
 		sizes="144x144"
-		href="/static/images/favicons/apple-touch-icon-144x144.png"
+		href="/images/favicons/apple-touch-icon-144x144.png"
 	/>
 	<link
 		rel="apple-touch-icon"
 		sizes="114x114"
-		href="/static/images/favicons/apple-touch-icon-114x114.png"
+		href="/images/favicons/apple-touch-icon-114x114.png"
 	/>
 	<link
 		rel="apple-touch-icon"
 		sizes="72x72"
-		href="/static/images/favicons/apple-touch-icon-72x72.png"
+		href="/images/favicons/apple-touch-icon-72x72.png"
 	/>
 	<link
 		rel="apple-touch-icon"
 		sizes="57x57"
-		href="/static/images/favicons/apple-touch-icon-57x57.png"
+		href="/images/favicons/apple-touch-icon-57x57.png"
 	/>
-	<link rel="shortcut icon" href="/static/images/favicons/favicon.png" type="image/png" />
+	<link rel="shortcut icon" href="/images/favicons/favicon.png" type="image/png" />
 </svelte:head>

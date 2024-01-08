@@ -88,8 +88,8 @@ h6 {
 		width: $size;
 
 		@media only screen and (max-width: $small) {
-			height: #{$size / 1.2};
-			width: #{$size / 1.2};
+			height: #{calc($size / 1.2)};
+			width: #{calc($size / 1.2)};
 		}
 	}
 

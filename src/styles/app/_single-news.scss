@@ -298,8 +298,8 @@
 		width: $size-btn;
 
 		@media only screen and (max-width: $small) {
-			height: #{$size-btn / 1.4};
-			width: #{$size-btn / 1.4};
+			height: #{calc($size-btn / 1.4)};
+			width: #{calc($size-btn / 1.4)};
 		}
 
 		i {
