@@ -1,14 +1,18 @@
-<script>
-	import Carousel from '$lib/components/Carousel.svelte';
+<script lang="ts">
 	import Introduction from '$lib/components/Introduction.svelte';
 	import Expertise from '$lib/components/Expertise/Expertise.svelte';
 	import Testimonials from '$lib/components/Testimonials.svelte';
-	import Modal from '$lib/components/Modal.svelte';
+	import type {
+		Introduction as IntroductionType,
+		Expertise as ExpertiseType,
+		ReviewData as ReviewDataType,
+		Client as ClientType
+	} from '../types/types';
 
-	const introduction = {
+	const introduction: IntroductionType = {
 		copy: "<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
 	};
-	const expertise = {
+	const expertise: ExpertiseType = {
 		sectionHeading: 'My Expertise',
 		caseItems: [
 			{
@@ -37,30 +41,74 @@
 			}
 		]
 	};
-	const testimonials = [
+	const testimonials: ReviewDataType[] = [
 		{
 			name: 'Daniel Lewis',
 			image: './images/avatar-1.png',
 			image_alt: 'Daniel Lewis',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done...'
+			short_copy:
+				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			review_date: '2021-01-01'
 		},
 		{
-			name: 'Daniel Lewis',
+			name: 'Aaron Cox',
 			image: './images/avatar-2.png',
 			image_alt: 'Daniel Lewis',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done...'
+			short_copy:
+				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			review_date: '2021-01-01'
 		},
 		{
-			name: 'Daniel Lewis',
+			name: 'David Guras',
 			image: './images/avatar-3.png',
 			image_alt: 'Daniel Lewis',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done...'
+			short_copy:
+				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			review_date: '2021-01-01'
 		},
 		{
-			name: 'Daniel Lewis',
+			name: 'Mara Mclean',
 			image: './images/avatar-4.png',
 			image_alt: 'Daniel Lewis',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done...'
+			short_copy:
+				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+			review_date: '2021-01-01'
+		}
+	];
+	const clients: ClientType[] = [
+		{
+			link: 'https://greymass.com/',
+			logo: '/images/clients/greymass-color.svg',
+			logo_alt: 'Greymass logo'
+		},
+		{
+			link: 'https://bullish.com',
+			logo: '/images/clients/bullish-color.svg',
+			logo_alt: 'Bullish logo'
+		},
+		{
+			link: 'https://b1.com',
+			logo: '/images/clients/b1-color.svg',
+			logo_alt: 'b1 logo'
+		},
+		{
+			link: 'https://about.voice.com/company/',
+			logo: '/images/clients/voice-color.svg',
+			logo_alt: 'Voice logo'
+		},
+		{
+			link: 'https://eos.io',
+			logo: '/images/clients/eosio-color.svg',
+			logo_alt: 'eosio logo'
+		},
+		{
+			link: 'https://grafic.agency',
+			logo: '/images/clients/grafik-color.svg',
+			logo_alt: 'Grafic logo'
 		}
 	];
 </script>
@@ -72,11 +120,24 @@
 <Expertise sectionHeading={expertise.sectionHeading} caseItems={expertise.caseItems} />
 
 <!-- Testimonials -->
-<Testimonials sectionHeading="Testimonials" swiperId="swiper-testimonials" slides={testimonials} />
+<Testimonials
+	sectionHeading="Testimonials"
+	swiperId="swiper-testimonials"
+	slides={testimonials}
+	breakpoints={{
+		580: { slidesPerView: 1, spaceBetween: 20 },
+		991: { slidesPerView: 2 }
+	}}
+/>
 
-<!--TODO: refactor into Testimonials component-->
 <!-- Clients -->
-<section class="clients">
-	<h2 class="title title--h2 mt-4">Clients</h2>
-	<Carousel />
-</section>
+<Testimonials
+	sectionHeading="Clients"
+	swiperId="swiper-clients"
+	slides={clients}
+	breakpoints={{
+		320: { slidesPerView: 2, spaceBetween: 0 },
+		580: { slidesPerView: 3, spaceBetween: 30 },
+		991: { slidesPerView: 4, spaceBetween: 30 }
+	}}
+/>

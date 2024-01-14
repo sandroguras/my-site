@@ -1,8 +1,11 @@
 <script lang="ts">
 	import CaseItem from './CaseItem.svelte';
+	import type {
+		CaseItem as CaseItemType
+	} from '../../../types/types';
 
 	export let sectionHeading: string = '';
-	export let caseItems: CaseItem[] = [];
+	export let caseItems: CaseItemType[] = [];
 </script>
 
 <!-- Expertise -->
