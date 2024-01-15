@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	import { scale } from 'svelte/transition';
-	import { backOut } from 'svelte/easing';
+	import { scale } from 'svelte/transition'
+	import { sineOut } from 'svelte/easing'
 	import type { ReviewData as ReviewDataType } from '../../types/types';
 	export let showModal: boolean = false;
 	export let modalData: ReviewDataType;
@@ -14,6 +14,13 @@
 		const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
 		const date = new Date(dateStr);
 		return new Intl.DateTimeFormat('en-US', options).format(date);
+	}
+
+	function handleClickOutside(event: MouseEvent): void {
+		// Close the modal if the click occurred outside the modal content
+		if (event.target === event.currentTarget) {
+			closeModal();
+		}
 	}
 
 	onMount(() => {
@@ -44,10 +51,10 @@
 		tabindex="-1"
 		style="overflow: hidden auto;"
 	>
-		<div class="mfp-container mfp-s-ready mfp-inline-holder">
+		<div class="mfp-container mfp-s-ready mfp-inline-holder" on:click={handleClickOutside}>
 			<div class="mfp-content">
-				<div transition:scale={{ duration: 500, easing: backOut }}>
-					<div id="review-{modalIndex}" class="popup">
+				<div transition:scale={{duration: 500, delay: 100, easing: sineOut}}>
+					<div id="review-{modalIndex}" on:click|stopPropagation class="popup">
 						<div class="row">
 							<div class="col-12 col-sm-2 full-rewiew-con-avatar">
 								<figure class="box box-avatar">
