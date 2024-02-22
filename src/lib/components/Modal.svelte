@@ -45,6 +45,7 @@
 </script>
 
 {#if showModal}
+	<!--TODO: Remove empty classes-->
 	<div class="mfp-bg mfp-zoom-out mfp-ready"></div>
 	<div
 		class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-zoom-out mfp-ready"

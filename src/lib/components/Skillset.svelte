@@ -1,4 +1,19 @@
 <section class="skillset">
 	<h2 class="title title--h2 mt-3">My Skills</h2>
-	<div class="box box-inner mb-0"></div>
+	<div class="badge">PHP</div>
+	<div class="badge">HTML5</div>
+	<div class="badge">CSS3</div>
+	<div class="badge">JavaScript</div>
+	<div class="badge">ReactJS</div>
+	<div class="badge">NodeJS</div>
+	<div class="badge">Angular</div>
+	<div class="badge">VueJS</div>
+	<div class="badge">Python</div>
+	<div class="badge">Ruby on Rails</div>
+	<div class="badge">Java</div>
+	<div class="badge">ASP.NET</div>
+	<div class="badge">MySQL</div>
+	<div class="badge">MongoDB</div>
+	<div class="badge">Docker</div>
+	<div class="badge">Git</div>
 </section>

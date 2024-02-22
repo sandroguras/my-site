@@ -63,10 +63,10 @@
 	];
 </script>
 
+<Skillset />
+
 <!-- Experience -->
 <Timeline name={'Experience'} logo={'feathericon-briefcase'} timelineItems={experience} />
 
 <!-- Education -->
 <Timeline name={'Education'} logo={'feathericon-book-open'} timelineItems={education} />
-
-<Skillset />
