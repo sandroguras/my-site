@@ -1,9 +1,9 @@
 <script lang="ts">
-/*	import {onMount} from "svelte";*/
+	/*	import {onMount} from "svelte";*/
 
-    export let copy: string = '';
+	export let copy: string = '';
 
-/*    let ingroductionSafeHTML;
+	/*    let ingroductionSafeHTML;
     onMount(async () => {
         if (typeof window !== 'undefined') {
             const DOMPurify = (await import('dompurify')).default;
