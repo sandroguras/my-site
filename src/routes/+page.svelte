@@ -13,31 +13,31 @@
 		copy: "<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"
 	};
 	const expertise: ExpertiseType = {
-		sectionHeading: 'My Expertise',
-		caseItems: [
+		heading: 'My Expertise',
+		expertiseCases: [
 			{
 				name: 'Web Development',
 				icon: '/images/icons/icon-dev.svg',
-				icon_alt: 'Web Development',
-				copy: 'Professional-grade website development.'
+				iconAlt: 'Web Development',
+				description: 'Professional-grade website development.'
 			},
 			{
 				name: 'Project Management',
 				icon: '/images/icons/icon-design.svg',
-				icon_alt: 'Project Management',
-				copy: 'Planning, organizing, executing, and fulfilling web projects.'
+				iconAlt: 'Project Management',
+				description: 'Planning, organizing, executing, and fulfilling web projects.'
 			},
 			{
 				name: 'Mobile Apps',
 				icon: '/images/icons/icon-app.svg',
-				icon_alt: 'Mobile Apps',
-				copy: 'Professional development of applications for iOS and Android.'
+				iconAlt: 'Mobile Apps',
+				description: 'Professional development of applications for iOS and Android.'
 			},
 			{
 				name: 'Photography',
 				icon: '/images/icons/icon-photo.svg',
-				icon_alt: 'Photography',
-				copy: 'I make high-quality photos of any category at a professional level.'
+				iconAlt: 'Photography',
+				description: 'I make high-quality photos of any category at a professional level.'
 			}
 		]
 	};
@@ -117,7 +117,7 @@
 <Introduction copy={introduction.copy} />
 
 <!-- Expertise -->
-<Expertise sectionHeading={expertise.sectionHeading} caseItems={expertise.caseItems} />
+<Expertise heading={expertise.heading} expertiseCases={expertise.expertiseCases} />
 
 <!-- Testimonials -->
 <Testimonials

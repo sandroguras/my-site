@@ -1,24 +1,16 @@
 <script lang="ts">
-	import CaseItem from './CaseItem.svelte';
-	import type {
-		CaseItem as CaseItemType
-	} from '../../../types/types';
+	import ExpertiseCase from './ExpertiseCase.svelte';
+	import type { Expertise as ExpertiseType } from '../../../types/Expertise';
 
-	export let sectionHeading: string = '';
-	export let caseItems: CaseItemType[] = [];
+	export let heading: ExpertiseType['heading'] = '';
+	export let expertiseCases: ExpertiseType['expertiseCases'] = [];
 </script>
-
 <!-- Expertise -->
 <section class="expertise">
-	<h2 class="title title--h2 mt-3">{sectionHeading}</h2>
+	<h2 class="title title--h2 mt-3">{heading}</h2>
 	<div class="row">
-		{#each caseItems as caseItem}
-			<CaseItem
-				name={caseItem.name}
-				icon={caseItem.icon}
-				icon_alt={caseItem.icon_alt}
-				copy={caseItem.copy}
-			/>
+		{#each expertiseCases as expertiseCase (expertiseCase['name'])}
+			<ExpertiseCase {expertiseCase} />
 		{/each}
 	</div>
 </section>

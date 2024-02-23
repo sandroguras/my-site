@@ -2,29 +2,38 @@ export interface Introduction {
 	copy: string;
 }
 
-export interface Expertise {
-	sectionHeading: string;
-	caseItems: CaseItem[];
+export interface Testimonials {
+	swiperId: string;
+	heading: string;
+	breakpoints: Breakpoints;
+	slider: ReviewData[] | ClientData[];
 }
 
-export interface CaseItem {
-	name: string;
-	icon: string;
-	icon_alt: string;
-	copy: string;
+interface Options {
+	slidesPerView: number;
+	spaceBetween?: number;
+}
+
+interface Breakpoints {
+	[key: number]: Options;
 }
 
 export interface ReviewData {
 	name: string;
 	image: string;
-	image_alt: string;
-	short_copy: string;
+	imageAlt: string;
+	shortCopy: string;
 	copy: string;
-	review_date: string;
+	reviewDate: string;
 }
 
-export interface Client {
+export interface ClientData {
 	link: string;
 	logo: string;
-	logo_alt: string;
+	logoAlt: string;
+}
+
+export interface Timeline {
+	heading: string;
+	events: Event[];
 }
