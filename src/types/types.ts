@@ -1,11 +1,19 @@
-export interface Introduction {
-	copy: string;
+export interface Expertise {
+	heading: string;
+	expertiseCases: ExpertiseCase[];
+}
+
+export interface ExpertiseCase {
+	name: string;
+	icon: string;
+	iconAlt?: string;
+	description: string; // Renamed from copy
 }
 
 export interface Testimonials {
 	swiperId: string;
 	heading: string;
-	breakpoints: Breakpoints;
+	breakpoints: Breakpoint;
 	slider: ReviewData[] | ClientData[];
 }
 
@@ -14,7 +22,7 @@ interface Options {
 	spaceBetween?: number;
 }
 
-interface Breakpoints {
+interface Breakpoint {
 	[key: number]: Options;
 }
 

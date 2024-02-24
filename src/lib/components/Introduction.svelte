@@ -1,15 +1,7 @@
 <script lang="ts">
-	/*	import {onMount} from "svelte";*/
+	import type { Introduction as IntroductionType } from '../../types/Introduction';
 
-	export let copy: string = '';
-
-	/*    let ingroductionSafeHTML;
-    onMount(async () => {
-        if (typeof window !== 'undefined') {
-            const DOMPurify = (await import('dompurify')).default;
-            ingroductionSafeHTML = DOMPurify.sanitize(copy);
-        }
-    });*/
+	export let copy: IntroductionType['copy'] = '';
 </script>
 
 <!-- About -->
