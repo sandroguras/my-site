@@ -1,9 +1,18 @@
-<script>
+<script lang="ts">
   import "../app.scss";
+	import type { NavLink as NavLinkType } from '../types/NavLink';
   import Seo from "$lib/components/Seo.svelte";
-  import Navbar from "$lib/components/Header/Navbar.svelte";
+  import NavBar from "$lib/components/Header/NavBar.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
   import PageHeading from '$lib/components/PageHeading.svelte'
+
+	let links: NavLinkType[] = [
+		{ path: '/', label: 'About'},
+		{ path: '/resume', label: 'Resume'},
+		{ path: '/portfolio', label: 'Portfolio'},
+		{ path: '/blog', label: 'Blog'},
+		{ path: '/contact', label: 'Contact'},
+	]
 </script>
 
 <Seo/>
@@ -14,7 +23,7 @@
 				<Sidebar />
 				<div class="col-12 col-md-12 col-xl-9">
 					<div class="box-outer">
-						<Navbar />
+						<NavBar {links} />
 						<PageHeading />
 						<slot />
 					</div>

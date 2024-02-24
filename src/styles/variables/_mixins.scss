@@ -57,3 +57,12 @@
   bottom: $bottom;
   left: $left;
 }
+
+// Navbar link styles
+@mixin link-style {
+  color: var(--color-paragraph);
+  -webkit-text-fill-color: inherit;
+  font-weight: 500;
+  opacity: 0.6;
+  transition: all 0.3s ease-in-out;
+}

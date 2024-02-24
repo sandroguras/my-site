@@ -2,20 +2,22 @@
     - Navbar
 ----------------------------------------------------------------- */
 
-$size-nav: rem(64px);
+/* NavBar styles: */
+$navbar-height: rem(64px); /* Height of the navbar - descriptive variable name */
 
-// Nav
+/* Main navigation container */
 .nav-container {
 	background: var(--color-surface-2);
 	border: 1px solid var(--color-border);
 	border-radius: 0 var(--radius-20) 0 var(--radius-20);
 	@include flex($align: center, $justify: flex-end);
-	height: $size-nav;
+	height: $navbar-height;
 	padding-right: rem(38px);
 	padding-left: rem(38px);
 	@include position(absolute, $top: 0, $right: 0);
 	z-index: 1;
 
+	/* Styles for large screens */
 	@media only screen and (max-width: $large) {
 		backdrop-filter: blur(6px);
 		background: rgba(43, 43, 44, 0.75);
@@ -23,11 +25,12 @@ $size-nav: rem(64px);
 		box-shadow: var(--box-shadow-30);
 		@include flex($align: center, $justify: center);
 		@include position(fixed, $top: auto, $left: 0, $bottom: 0);
-		height: #{$size-nav - rem(3px)};
+		height: #{$navbar-height - rem(3px)};
 		width: 100%;
 		z-index: 1112;
 	}
 
+	/* Styles for small screens */
 	@media only screen and (max-width: $small) {
 		border-radius: var(--radius-12) var(--radius-12) 0 0;
 		height: rem(48px);
@@ -36,60 +39,26 @@ $size-nav: rem(64px);
 	}
 }
 
+/* When zoom is opened */
 .medium-zoom--opened .nav-container {
 	@media only screen and (max-width: $large) {
 		z-index: 10;
 	}
 }
 
+/* Inner navigation container */
 .nav {
 	@include flex($align: center, $justify: center);
 	height: 100%;
 	overflow: hidden;
 
+	/* Styles for medium screens */
 	@media only screen and (max-width: $medium) {
 		font-size: rem(14px);
 	}
 
+	/* Styles for small screens */
 	@media only screen and (max-width: $small) {
 		font-size: rem(11px);
-	}
-
-	&__item {
-		margin-right: rem(44px);
-
-		@media only screen and (max-width: $large) {
-			margin-right: rem(32px);
-		}
-
-		@media only screen and (max-width: $small) {
-			margin-right: rem(20px);
-		}
-
-		a {
-			background: none;
-			color: var(--color-paragraph);
-			-webkit-text-fill-color: inherit;
-			font-weight: 500;
-			opacity: 0.6;
-			transition: all 0.3s ease-in-out;
-
-			&:hover {
-				opacity: 1;
-				text-decoration: none;
-			}
-
-			&.active {
-				opacity: 1;
-				background: var(--color-gradient-text);
-				-webkit-background-clip: text;
-				background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-		}
-	}
-
-	&__item:last-child {
-		margin-right: 0;
 	}
 }
