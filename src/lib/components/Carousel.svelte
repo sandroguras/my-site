@@ -2,9 +2,9 @@
 	import { onMount } from 'svelte';
 	import { register } from 'swiper/element/bundle';
 	import Modal from '$lib/components/Modal.svelte';
-	import type { ReviewData as ReviewDataType, Client as ClientType } from '../../types/types';
+	import type { Testimonials as TestimonialsType, ReviewData as ReviewDataType, ClientData as ClientDataType } from '../../types/Testimonials';
 
-	export let swiperId: string = '';
+	export let swiperId: TestimonialsType['swiperId'] = '';
 	export let slidesPerView: number | string = 'auto';
 	export let spaceBetween: number = 30;
 	export let speed: number = 500;
@@ -12,9 +12,9 @@
 	export let pagination: object = {
 		clickable: true
 	};
-	export let breakpoints: object = {};
+	export let breakpoints: TestimonialsType['breakpoints'] = {};
 	export let injectStylesUrls: string[] = ['/styles/swiper-pagination.css'];
-	export let slides: (ReviewDataType | ClientType)[] = [];
+	export let slides: (ReviewDataType | ClientDataType)[] = [];
 
 	// Swiper initialization and custom style injection
 	onMount(() => {
@@ -37,8 +37,8 @@
 	});
 
 	// Type guard function to check if a slide is of type ReviewDataType
-	function isReviewData(slide: ReviewDataType | ClientType): slide is ReviewDataType {
-		return 'short_copy' in slide;
+	function isReviewData(slide: ReviewDataType | ClientDataType): slide is ReviewDataType {
+		return 'shortCopy' in slide;
 	}
 
 	// Modal setup
@@ -69,7 +69,7 @@
 				<swiper-slide class="js-carousel-clients">
 					<figure class="swiper-slide">
 						<a href={slide.link} target="_blank">
-							<img class="logo-client" src={slide.logo} alt={slide.logo_alt} />
+							<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
 						</a>
 					</figure>
 				</swiper-slide>
@@ -86,14 +86,14 @@
 	<swiper-container id="swiper-testimonials" init="false">
 		<!-- Testimonials -->
 		{#each slides as slide, i}
-			{#if 'short_copy' in slide}
+			{#if 'shortCopy' in slide}
 				<!-- Check if the slide is a ReviewData -->
 				<swiper-slide class="review-item box box-inner" on:click={() => openModal(i)}>
 					<figure class="box box-avatar">
-						<img src={slide.image} alt={slide.image_alt} />
+						<img src={slide.image} alt={slide.imageAlt} />
 					</figure>
 					<h4 class="title title--h3">{slide.name}</h4>
-					<p class="review-item__caption">{slide.short_copy}</p>
+					<p class="review-item__caption">{slide.shortCopy}</p>
 				</swiper-slide>
 			{/if}
 		{/each}

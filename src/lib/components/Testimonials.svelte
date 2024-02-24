@@ -1,21 +1,25 @@
 <script lang="ts">
 	import Carousel from '$lib/components/Carousel.svelte';
 	import type {
+		Testimonials as TestimonialsType,
 		ReviewData as ReviewDataType,
-		Client as ClientType
-	} from '../../types/types';
+		ClientData as ClientDataType
+	} from '../../types/Testimonials';
 
-	export let swiperId: string = '';
-	export let sectionHeading: string = '';
-	export let slides: (ReviewDataType | ClientType)[] = [];
+	export let swiperId: TestimonialsType['swiperId'] = '';
+	export let heading: TestimonialsType['heading'] = '';
+	export let breakpoints: TestimonialsType['breakpoints'] = {};
+	export let slides: (ReviewDataType | ClientDataType)[] = [];
 
-	export let breakpoints: object = {};
+	// Extracted the section class determination logic to a function.
+	function getSectionClass(id: string): string {
+		return id === 'swiper-testimonials' ? 'testimonials' : 'clients';
+	}
 
-	let sectionClass = swiperId === 'swiper-testimonials' ? 'testimonials' : 'clients';
+	let sectionClass = getSectionClass(swiperId);
 </script>
 
-<!-- Testimonials -->
 <section class={sectionClass}>
-	<h2 class="title title--h2 mt-3">{sectionHeading}</h2>
+	<h2 class="title title--h2 mt-3">{heading}</h2>
 	<Carousel {swiperId} {slides} {breakpoints} />
 </section>

@@ -55,17 +55,17 @@
 		<div class="mfp-container mfp-s-ready mfp-inline-holder" on:click={handleClickOutside}>
 			<div class="mfp-content">
 				<div transition:scale={{duration: 500, delay: 100, easing: sineOut}}>
-					<div id="review-{modalIndex}" on:click|stopPropagation class="popup">
+					<div role="button" id="review-{modalIndex}" on:click|stopPropagation class="popup">
 						<div class="row">
 							<div class="col-12 col-sm-2 full-rewiew-con-avatar">
 								<figure class="box box-avatar">
-									<img src={modalData.image} alt={modalData.image_alt} />
+									<img src={modalData.image} alt={modalData.imageAlt} />
 								</figure>
 								<div class="review-icon-quote"></div>
 							</div>
 							<div class="col-12 col-sm-10 full-rewiew-con-text">
 								<h2 class="title title--h2 mb-1">{modalData.name}</h2>
-								<span class="review-date">{formatDate(modalData.review_date)}</span>
+								<span class="review-date">{formatDate(modalData.reviewDate)}</span>
 								{modalData.copy}
 							</div>
 						</div>

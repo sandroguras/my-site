@@ -6,7 +6,7 @@
 		Introduction as IntroductionType,
 		Expertise as ExpertiseType,
 		ReviewData as ReviewDataType,
-		Client as ClientType
+		ClientData as ClientType
 	} from '../types/types';
 
 	const introduction: IntroductionType = {
@@ -45,70 +45,70 @@
 		{
 			name: 'Daniel Lewis',
 			image: './images/avatar-1.png',
-			image_alt: 'Daniel Lewis',
-			short_copy:
+			imageAlt: 'Daniel Lewis',
+			shortCopy:
 				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
 			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			review_date: '2021-01-01'
+			reviewDate: '2021-01-01'
 		},
 		{
 			name: 'Aaron Cox',
 			image: './images/avatar-2.png',
-			image_alt: 'Daniel Lewis',
-			short_copy:
+			imageAlt: 'Daniel Lewis',
+			shortCopy:
 				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
 			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			review_date: '2021-01-01'
+			reviewDate: '2021-01-01'
 		},
 		{
 			name: 'David Guras',
 			image: './images/avatar-3.png',
-			image_alt: 'Daniel Lewis',
-			short_copy:
+			imageAlt: 'Daniel Lewis',
+			shortCopy:
 				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
 			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			review_date: '2021-01-01'
+			reviewDate: '2021-01-01'
 		},
 		{
 			name: 'Mara Mclean',
 			image: './images/avatar-4.png',
-			image_alt: 'Daniel Lewis',
-			short_copy:
+			imageAlt: 'Daniel Lewis',
+			shortCopy:
 				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
 			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			review_date: '2021-01-01'
+			reviewDate: '2021-01-01'
 		}
 	];
 	const clients: ClientType[] = [
 		{
 			link: 'https://greymass.com/',
 			logo: '/images/clients/greymass-color.svg',
-			logo_alt: 'Greymass logo'
+			logoAlt: 'Greymass logo'
 		},
 		{
 			link: 'https://bullish.com',
 			logo: '/images/clients/bullish-color.svg',
-			logo_alt: 'Bullish logo'
+			logoAlt: 'Bullish logo'
 		},
 		{
 			link: 'https://b1.com',
 			logo: '/images/clients/b1-color.svg',
-			logo_alt: 'b1 logo'
+			logoAlt: 'b1 logo'
 		},
 		{
 			link: 'https://about.voice.com/company/',
 			logo: '/images/clients/voice-color.svg',
-			logo_alt: 'Voice logo'
+			logoAlt: 'Voice logo'
 		},
 		{
 			link: 'https://eos.io',
 			logo: '/images/clients/eosio-color.svg',
-			logo_alt: 'eosio logo'
+			logoAlt: 'eosio logo'
 		},
 		{
 			link: 'https://grafic.agency',
 			logo: '/images/clients/grafik-color.svg',
-			logo_alt: 'Grafic logo'
+			logoAlt: 'Grafic logo'
 		}
 	];
 </script>
@@ -121,7 +121,7 @@
 
 <!-- Testimonials -->
 <Testimonials
-	sectionHeading="Testimonials"
+	heading="Testimonials"
 	swiperId="swiper-testimonials"
 	slides={testimonials}
 	breakpoints={{
@@ -132,7 +132,7 @@
 
 <!-- Clients -->
 <Testimonials
-	sectionHeading="Clients"
+	heading="Clients"
 	swiperId="swiper-clients"
 	slides={clients}
 	breakpoints={{
