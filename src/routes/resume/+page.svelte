@@ -4,6 +4,7 @@
 
 	let experience = [
 		{
+			id: 1,
 			institution: 'Greymass',
 			position: 'Project Manager, Web Developer',
 			period: 'July 2023 — Present',
@@ -11,6 +12,7 @@
 				'Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas molestias exceptur.'
 		},
 		{
+			id: 2,
 			institution: 'Bullish',
 			position: 'Manager: Web Engineering',
 			period: 'Feb 2020 — June 2023',
@@ -18,6 +20,7 @@
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
 		},
 		{
+			id: 3,
 			institution: 'SDG Agency',
 			position: 'Lead Web Developer',
 			period: '2019 — Feb 2020',
@@ -25,6 +28,7 @@
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
 		},
 		{
+			id: 4,
 			institution: 'Grafik Agency',
 			position: 'Backend Developer',
 			period: 'Jul 2018 — Mar 2019',
@@ -32,6 +36,7 @@
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
 		},
 		{
+			id: 5,
 			institution: '3Men Team',
 			position: 'Lead WordPress Developer',
 			period: 'Nov 2015 — Apr 2018',
@@ -39,6 +44,7 @@
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
 		},
 		{
+			id: 6,
 			institution: 'Endava',
 			position: 'Backand Developer',
 			period: 'Oct 2013 — Sep 2015',
@@ -46,6 +52,7 @@
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
 		},
 		{
+			id: 7,
 			institution: 'Magicindie Softworks',
 			position: 'Unity Developer',
 			period: 'Aug 2008 — Sep 2013',
@@ -56,7 +63,9 @@
 
 	let education = [
 		{
-			position: 'Moldova State University',
+			id: 1,
+			institution: 'Moldova State University',
+			position: 'Student',
 			period: '2004 — 2008',
 			description: 'Bachelor of Computer Science'
 		}
@@ -66,7 +75,7 @@
 <Skillset />
 
 <!-- Experience -->
-<Timeline name={'Experience'} logo={'feathericon-briefcase'} timelineItems={experience} />
+<Timeline heading={'Experience'} logo={'feathericon-briefcase'} timelineEvents={experience} />
 
 <!-- Education -->
-<Timeline name={'Education'} logo={'feathericon-book-open'} timelineItems={education} />
+<Timeline heading={'Education'} logo={'feathericon-book-open'} timelineEvents={education} />

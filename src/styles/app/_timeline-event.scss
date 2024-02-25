@@ -1,9 +1,9 @@
 /* -----------------------------------------------------------------
-    - Timeline item
+    - Timeline event
 ----------------------------------------------------------------- */
 
 .timeline {
-	&__item {
+	&__event {
 		border-left-color: var(--color-border);
 		border-left-width: 1px;
 		border-left-style: solid;
