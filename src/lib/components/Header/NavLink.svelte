@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import type { NavLink as NavLinkType } from '../../../types/NavLink';
+	import type { NavLink as NavLinkType } from '#types/NavLink';
 	export let href: NavLinkType['path'] = '';
 	export let label: NavLinkType['label'] = '';
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import "../app.scss";
-	import type { NavLink as NavLinkType } from '../types/NavLink';
+	import type { NavLink as NavLinkType } from '#types/NavLink';
   import Seo from "$lib/components/Seo.svelte";
   import NavBar from "$lib/components/Header/NavBar.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";

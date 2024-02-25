@@ -2,12 +2,12 @@
 	import Introduction from '$lib/components/Introduction.svelte';
 	import Expertise from '$lib/components/Expertise/Expertise.svelte';
 	import Testimonials from '$lib/components/Testimonials.svelte';
+	import type { Introduction as IntroductionType } from '../types/Introduction';
+	import type { Expertise as ExpertiseType } from '../types/Expertise';
 	import type {
-		Introduction as IntroductionType,
-		Expertise as ExpertiseType,
 		ReviewData as ReviewDataType,
 		ClientData as ClientType
-	} from '../types/types';
+	} from '../types/Testimonials';
 
 	const introduction: IntroductionType = {
 		copy: "<p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>"

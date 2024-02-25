@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ExpertiseCase from './ExpertiseCase.svelte';
-	import type { Expertise as ExpertiseType } from '../../../types/Expertise';
+	import type { Expertise as ExpertiseType } from '#types/Expertise';
 
 	export let heading: ExpertiseType['heading'] = '';
 	export let expertiseCases: ExpertiseType['expertiseCases'] = [];

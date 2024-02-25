@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { register } from 'swiper/element/bundle';
 	import Modal from '$lib/components/Modal.svelte';
-	import type { Testimonials as TestimonialsType, ReviewData as ReviewDataType, ClientData as ClientDataType } from '../../types/Testimonials';
+	import type { Testimonials as TestimonialsType, ReviewData as ReviewDataType, ClientData as ClientDataType } from '#types/Testimonials';
 
 	export let swiperId: TestimonialsType['swiperId'] = '';
 	export let slidesPerView: number | string = 'auto';

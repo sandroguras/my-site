@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ExpertiseCase as ExpertiseCaseType } from '../../../types/Expertise';
+	import type { ExpertiseCase as ExpertiseCaseType } from '#types/Expertise';
 
 	export let expertiseCase: ExpertiseCaseType = {
 		name: '',

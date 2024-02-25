@@ -4,7 +4,7 @@
 		Testimonials as TestimonialsType,
 		ReviewData as ReviewDataType,
 		ClientData as ClientDataType
-	} from '../../types/Testimonials';
+	} from '#types/Testimonials';
 
 	export let swiperId: TestimonialsType['swiperId'] = '';
 	export let heading: TestimonialsType['heading'] = '';

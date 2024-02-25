@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Introduction as IntroductionType } from '../../types/Introduction';
+	import type { Introduction as IntroductionType } from '#types/Introduction';
 
 	export let copy: IntroductionType['copy'] = '';
 </script>

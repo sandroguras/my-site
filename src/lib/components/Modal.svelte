@@ -3,7 +3,7 @@
 	import { browser } from '$app/environment';
 	import { scale } from 'svelte/transition'
 	import { sineOut } from 'svelte/easing'
-	import type { ReviewData as ReviewDataType } from '../../types/types';
+	import type { ReviewData as ReviewDataType } from '#types/Testimonials';
 	export let showModal: boolean = false;
 	export let modalData: ReviewDataType;
 	export let modalIndex: number;
@@ -55,7 +55,7 @@
 		<div class="mfp-container mfp-s-ready mfp-inline-holder" on:click={handleClickOutside}>
 			<div class="mfp-content">
 				<div transition:scale={{duration: 500, delay: 100, easing: sineOut}}>
-					<div role="button" id="review-{modalIndex}" on:click|stopPropagation class="popup">
+					<div id="review-{modalIndex}" on:click|stopPropagation class="popup">
 						<div class="row">
 							<div class="col-12 col-sm-2 full-rewiew-con-avatar">
 								<figure class="box box-avatar">

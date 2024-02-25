@@ -1,6 +1,6 @@
 <script lang="ts">
 	import NavLink from './NavLink.svelte';
-	import type { NavLink as NavLinkType } from '../../../types/NavLink';
+	import type { NavLink as NavLinkType } from '#types/NavLink';
 
 	export let links: NavLinkType[] = [
 		{ path: '/', label: 'About'},
