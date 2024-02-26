@@ -1,8 +1,60 @@
 <script lang="ts">
+	import type { Skillset as SkillsetType } from '#types/Skillset';
+	import type { Timline as TimelineType } from '#types/Timeline';
 	import Timeline from '$lib/components/Timeline/Timeline.svelte';
-	import Skillset from '$lib/components/Skillset.svelte';
+	import Skillset from '$lib/components/Skillset/Skillset.svelte';
 
-	let experience = [
+	export let skills: SkillsetType['skills'] = [
+		{
+			name: 'PHP'
+		},
+		{
+			name: 'HTML5'
+		},
+		{
+			name: 'CSS3'
+		},
+		{
+			name: 'JavaScript'
+		},
+		{
+			name: 'ReactJS'
+		},
+		{
+			name: 'NodeJS'
+		},
+		{
+			name: 'Angular'
+		},
+		{
+			name: 'VueJS'
+		},
+		{
+			name: 'Python'
+		},
+		{
+			name: 'Ruby on Rails'
+		},
+		{
+			name: 'Java'
+		},
+		{
+			name: 'ASP.NET'
+		},
+		{
+			name: 'MySQL'
+		},
+		{
+			name: 'MongoDB'
+		},
+		{
+			name: 'Docker'
+		},
+		{
+			name: 'Git'
+		}
+	];
+	let experience: TimelineType['events'] = [
 		{
 			id: 1,
 			institution: 'Greymass',
@@ -60,8 +112,7 @@
 				'Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.'
 		}
 	];
-
-	let education = [
+	let education: TimelineType['events'] = [
 		{
 			id: 1,
 			institution: 'Moldova State University',
@@ -72,7 +123,7 @@
 	];
 </script>
 
-<Skillset />
+<Skillset heading={'My Skills'} {skills} />
 
 <!-- Experience -->
 <Timeline heading={'Experience'} logo={'feathericon-briefcase'} timelineEvents={experience} />
