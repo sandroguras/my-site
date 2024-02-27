@@ -20,5 +20,5 @@
 </div>
 
 <style lang="scss">
-  @import '../../../styles/app/navbar.scss';
+  @import '#styles/app/navbar.scss';
 </style>

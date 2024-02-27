@@ -78,7 +78,7 @@
 	</swiper-container>
 
 	<style lang="scss">
-		@import '../../styles/app/clients';
+		@import '#styles/app/clients';
 	</style>
 {/if}
 
@@ -100,7 +100,7 @@
 	</swiper-container>
 
 	<style lang="scss">
-		@import '../../styles/app/testimonials';
+		@import '#styles/app/testimonials';
 	</style>
 
 	<Modal {modalData} {modalIndex} {showModal} {closeModal} />

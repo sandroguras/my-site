@@ -26,3 +26,8 @@
 		</div>
 	</div>
 </form>
+
+<style lang="scss">
+  @import '#styles/app/contact';
+  @import '#styles/app/form';
+</style>

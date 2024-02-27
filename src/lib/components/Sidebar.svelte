@@ -36,5 +36,5 @@
 </aside>
 
 <style lang="scss">
-	@import '../../styles/app/sidebar';
+	@import '#styles/app/sidebar';
 </style>

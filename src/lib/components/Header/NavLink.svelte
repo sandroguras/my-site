@@ -8,5 +8,5 @@
 <li class="nav__item"><a class:active={$page.url.pathname === href} href="{href}">{label}</a></li>
 
 <style lang="scss">
-  @import '../../../styles/app/navlink.scss';
+  @import '#styles/app/navlink.scss';
 </style>

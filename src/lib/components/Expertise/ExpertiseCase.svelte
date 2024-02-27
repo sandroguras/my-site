@@ -20,5 +20,5 @@
 </div>
 
 <style lang="scss">
-  @import '../../../styles/app/cases';
+  @import '#styles/app/cases';
 </style>

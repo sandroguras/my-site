@@ -19,5 +19,5 @@
 </section>
 
 <style lang="scss">
-	@import '../../../styles/app/skillset';
+	@import '#styles/app/skillset';
 </style>

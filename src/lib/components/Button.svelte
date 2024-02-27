@@ -7,5 +7,5 @@
 <a {href} class="btn"><i class="font-icon {iconClass}"></i>{text}</a>
 
 <style lang="scss">
-	@import '../../styles/app/button';
+	@import '#styles/app/button';
 </style>

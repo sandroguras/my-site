@@ -8,5 +8,5 @@
 <span class="skillset__skill">{name}</span>
 
 <style lang="scss">
-  @import '../../../styles/app/skill';
+  @import '#styles/app/skill';
 </style>

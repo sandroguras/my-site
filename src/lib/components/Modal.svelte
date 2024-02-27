@@ -80,5 +80,5 @@
 {/if}
 
 <style lang="scss">
-	@import '../../styles/app/popup';
+	@import '#styles/app/popup';
 </style>

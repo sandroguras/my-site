@@ -14,5 +14,5 @@
 </article>
 
 <style lang="scss">
-	@import '../../../styles/app/timeline-event';
+	@import '#styles/app/timeline-event';
 </style>
