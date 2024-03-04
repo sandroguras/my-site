@@ -114,7 +114,9 @@
 </script>
 
 <!-- About -->
-<Introduction copy={introduction.copy} />
+<Introduction>
+	{@html introduction.copy}
+</Introduction>
 
 <!-- Expertise -->
 <Expertise heading={expertise.heading} expertiseCases={expertise.expertiseCases} />
