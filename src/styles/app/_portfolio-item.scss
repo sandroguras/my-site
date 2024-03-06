@@ -1,22 +1,4 @@
-/* -----------------------------------------------------------------
-    - Portfolio
------------------------------------------------------------------ */
-
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr [col-start]);
-  column-gap: 1.75rem;
-  row-gap: 1.75rem;
-
-  @media only screen and (max-width: $large) {
-    grid-template-columns: repeat(2, 1fr [col-start]);
-  }
-
-  @media only screen and (max-width: $medium) {
-    grid-template-columns: repeat(1, 1fr [col-start]);
-  }
-
-
   &__item {
 
     &:hover .gallery-grid__image {
@@ -106,7 +88,7 @@
     margin-bottom: 0;
   }
 
-  &__company {
+  &__category {
     font-size: rem(14px);
     color: var(--color-paragraph);
     display: block;
