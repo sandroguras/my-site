@@ -4,7 +4,7 @@
   import Seo from "$lib/components/Seo.svelte";
   import NavBar from "$lib/components/Header/NavBar.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
-  import PageHeading from '$lib/components/PageHeading.svelte'
+  import PageTitle from '$lib/components/PageTitle.svelte'
 
 	let links: NavLinkType[] = [
 		{ path: '/', label: 'About'},
@@ -24,7 +24,7 @@
 			<div class="col-12 col-md-12 col-xl-9">
 				<div class="box-outer">
 					<NavBar {links} />
-					<PageHeading />
+					<PageTitle />
 					<slot />
 				</div>
 			</div>
