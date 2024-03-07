@@ -1,5 +1,5 @@
 <!-- Project details -->
-<a class="btn-back" href="portfolio.html"><i class="feathericon-arrow-left"></i>Back Portfolio</a>
+<a class="btn-back" href="/portfolio"><i class="feathericon-arrow-left"></i>Back Portfolio</a>
 
 <header class="header-project">
 	<h1 class="title title--h1">Moonboard – Admin Dashboard & <br>UI Kit + Charts Kit</h1>
@@ -74,3 +74,7 @@
 	</div>
 	<div class="swiper-pagination"></div>
 </div><!-- /swiper-container -->
+
+<style lang="scss">
+	@import "#styles/app/single-project";
+</style>
