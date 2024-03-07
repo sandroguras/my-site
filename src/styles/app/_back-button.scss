@@ -1,0 +1,16 @@
+/* -----------------------------------------------------------------
+    - Back Button
+----------------------------------------------------------------- */
+
+.btn-back {
+  color: var(--color-paragraph);
+  @include flex($align: center);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  i {
+    margin-right: rem(8px);
+  }
+}

@@ -1,5 +1,15 @@
-<!-- Project details -->
-<a class="btn-back" href="/portfolio"><i class="feathericon-arrow-left"></i>Back Portfolio</a>
+<script lang="ts">
+	import type { BackButton as BackButtonType } from '#types/BackButton';
+	import BackButton from '$lib/components/BackButton.svelte';
+
+	const backButtonProps: BackButtonType = {
+		link: '/portfolio',
+		glyph: 'feathericon-arrow-left',
+		text: 'Back to Portfolio'
+	};
+</script>
+
+<BackButton {backButtonProps} />
 
 <header class="header-project">
 	<h1 class="title title--h1">Moonboard – Admin Dashboard & <br>UI Kit + Charts Kit</h1>
@@ -15,14 +25,6 @@
 		<div class="details-info__info">
 			<span class="overhead">Client</span>
 			ArtTemplate
-		</div>
-	</li>
-	<!-- Category -->
-	<li class="details-info__item">
-		<span class="box icon-box"><i class="font-icon feathericon-layers"></i></span>
-		<div class="details-info__info">
-			<span class="overhead">Category</span>
-			Web Design
 		</div>
 	</li>
 	<!-- Date -->
@@ -76,5 +78,5 @@
 </div><!-- /swiper-container -->
 
 <style lang="scss">
-	@import "#styles/app/single-project";
+  @import "#styles/app/single-project";
 </style>
