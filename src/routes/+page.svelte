@@ -123,7 +123,12 @@
 </section>
 
 <!-- Expertise -->
-<Expertise heading={expertise.heading} expertiseCases={expertise.expertiseCases} />
+<section class="expertise">
+	<h2 class="title title--h2 mt-3">{expertise.heading}</h2>
+	<div class="row">
+		<Expertise expertiseCases={expertise.expertiseCases} />
+	</div>
+</section>
 
 <!-- Testimonials -->
 <Testimonials
