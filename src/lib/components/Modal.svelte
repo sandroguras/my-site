@@ -3,7 +3,7 @@
 	import { browser } from '$app/environment';
 	import { scale } from 'svelte/transition'
 	import { sineOut } from 'svelte/easing'
-	import type { ReviewData as ReviewDataType } from '#types/Testimonials';
+	import type { ReviewData as ReviewDataType } from '#types/Carousel';
 	export let showModal: boolean = false;
 	export let modalData: ReviewDataType;
 	export let modalIndex: number;

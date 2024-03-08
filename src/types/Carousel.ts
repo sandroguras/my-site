@@ -1,4 +1,4 @@
-export interface Testimonials {
+export interface Carousel {
 	swiperId: string;
 	heading: string;
 	breakpoints: Breakpoints;
@@ -27,4 +27,13 @@ export interface ClientData {
 	link: string;
 	logo: string;
 	logoAlt: string;
+}
+
+export interface GalleryData {
+	images: ImageData[];
+}
+
+export interface ImageData {
+	src: string;
+	alt: string;
 }

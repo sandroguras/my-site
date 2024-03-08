@@ -2,9 +2,14 @@
 	import { onMount } from 'svelte';
 	import { register } from 'swiper/element/bundle';
 	import Modal from '$lib/components/Modal.svelte';
-	import type { Testimonials as TestimonialsType, ReviewData as ReviewDataType, ClientData as ClientDataType } from '#types/Testimonials';
+	import type {
+		Carousel as CarouselType,
+		ReviewData as ReviewDataType,
+		ClientData as ClientDataType
+	} from '#types/Carousel';
 
-	export let swiperId: TestimonialsType['swiperId'] = '';
+	export let swiperId: CarouselType['swiperId'] = '';
+	export let heading: CarouselType['heading'] = '';
 	export let slidesPerView: number | string = 'auto';
 	export let spaceBetween: number = 30;
 	export let speed: number = 500;
@@ -12,14 +17,20 @@
 	export let pagination: object = {
 		clickable: true
 	};
-	export let breakpoints: TestimonialsType['breakpoints'] = {};
+	export let breakpoints: CarouselType['breakpoints'] = {};
 	export let injectStylesUrls: string[] = ['/styles/swiper-pagination.css'];
 	export let slides: (ReviewDataType | ClientDataType)[] = [];
+
+	// Extracted the section class determination logic to a function.
+	function getSectionClass(id: string): string {
+		return id === 'swiper-testimonials' ? 'testimonials' : 'clients';
+	}
+
+	let sectionClass = getSectionClass(swiperId);
 
 	// Swiper initialization and custom style injection
 	onMount(() => {
 		register();
-
 		const swiperEl = document.querySelector(`#${swiperId}`);
 		const params = {
 			slidesPerView,
@@ -31,7 +42,6 @@
 			injectStylesUrls,
 			loop: true
 		};
-
 		Object.assign(swiperEl, params);
 		swiperEl.initialize();
 	});
@@ -60,12 +70,32 @@
 	}
 </script>
 
-{#if swiperId === 'swiper-clients'}
-	<swiper-container id="swiper-clients" init="false">
-		<!-- Client links -->
-		{#each slides as slide}
-			{#if 'logo' in slide}
-				<!-- Check if the slide is a Client -->
+<section class={sectionClass}>
+	<h2 class="title title--h2 mt-3">{heading}</h2>
+
+	<swiper-container id={swiperId} init="false">
+		{#each slides as slide, i}
+			{#if swiperId === 'swiper-clients' && 'logo' in slide}
+				<swiper-slide class="js-carousel-clients">
+					<figure class="swiper-slide">
+						<a href={slide.link} target="_blank">
+							<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
+						</a>
+					</figure>
+				</swiper-slide>
+			{/if}
+
+			{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
+				<swiper-slide class="review-item box box-inner" on:click={() => openModal(i)}>
+					<figure class="box box-avatar">
+						<img src={slide.image} alt={slide.imageAlt} />
+					</figure>
+					<h4 class="title title--h3">{slide.name}</h4>
+					<p class="review-item__caption">{slide.shortCopy}</p>
+				</swiper-slide>
+			{/if}
+
+			{#if swiperId === 'swiper-gallery' && 'logo' in slide}
 				<swiper-slide class="js-carousel-clients">
 					<figure class="swiper-slide">
 						<a href={slide.link} target="_blank">
@@ -77,31 +107,12 @@
 		{/each}
 	</swiper-container>
 
-	<style lang="scss">
-		@import '#styles/app/clients';
-	</style>
-{/if}
+	{#if swiperId === 'swiper-testimonials'}
+		<Modal {modalData} {modalIndex} {showModal} {closeModal} />
+	{/if}
+</section>
 
-{#if swiperId === 'swiper-testimonials'}
-	<swiper-container id="swiper-testimonials" init="false">
-		<!-- Testimonials -->
-		{#each slides as slide, i}
-			{#if 'shortCopy' in slide}
-				<!-- Check if the slide is a ReviewData -->
-				<swiper-slide class="review-item box box-inner" on:click={() => openModal(i)}>
-					<figure class="box box-avatar">
-						<img src={slide.image} alt={slide.imageAlt} />
-					</figure>
-					<h4 class="title title--h3">{slide.name}</h4>
-					<p class="review-item__caption">{slide.shortCopy}</p>
-				</swiper-slide>
-			{/if}
-		{/each}
-	</swiper-container>
-
-	<style lang="scss">
-		@import '#styles/app/testimonials';
-	</style>
-
-	<Modal {modalData} {modalIndex} {showModal} {closeModal} />
-{/if}
+<style lang="scss">
+  @import '#styles/app/clients';
+  @import '#styles/app/testimonials';
+</style>
