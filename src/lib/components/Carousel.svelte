@@ -5,25 +5,37 @@
 	import type {
 		Carousel as CarouselType,
 		ReviewData as ReviewDataType,
-		ClientData as ClientDataType
+		ClientData as ClientDataType,
+		GalleryData as GalleryDataType
 	} from '#types/Carousel';
 
 	export let swiperId: CarouselType['swiperId'] = '';
 	export let heading: CarouselType['heading'] = '';
-	export let slidesPerView: number | string = 'auto';
+	export let slidesPerView: number | 'auto' = 'auto';
 	export let spaceBetween: number = 30;
+	export let centeredSlides: boolean = false;
 	export let speed: number = 500;
 	export let grabCursor: boolean = true;
+	export let watchOverflow: boolean = true;
 	export let pagination: object = {
-		clickable: true
+		clickable: true,
 	};
 	export let breakpoints: CarouselType['breakpoints'] = {};
 	export let injectStylesUrls: string[] = ['/styles/swiper-pagination.css'];
-	export let slides: (ReviewDataType | ClientDataType)[] = [];
+	export let slides: (ReviewDataType | ClientDataType | GalleryDataType)[] = [];
 
 	// Extracted the section class determination logic to a function.
 	function getSectionClass(id: string): string {
-		return id === 'swiper-testimonials' ? 'testimonials' : 'clients';
+		switch (id) {
+			case 'swiper-testimonials':
+				return 'testimonials';
+			case 'swiper-clients':
+				return 'clients';
+			case 'swiper-gallery':
+				return 'gallery';
+			default:
+				return 'unknown'; // default return in case id not matched
+		}
 	}
 
 	let sectionClass = getSectionClass(swiperId);
@@ -37,6 +49,8 @@
 			spaceBetween,
 			speed,
 			grabCursor,
+			centeredSlides,
+			watchOverflow,
 			pagination,
 			breakpoints,
 			injectStylesUrls,
@@ -47,7 +61,7 @@
 	});
 
 	// Type guard function to check if a slide is of type ReviewDataType
-	function isReviewData(slide: ReviewDataType | ClientDataType): slide is ReviewDataType {
+	function isReviewData(slide: ReviewDataType | ClientDataType | GalleryDataType): slide is ReviewDataType {
 		return 'shortCopy' in slide;
 	}
 
@@ -71,7 +85,9 @@
 </script>
 
 <section class={sectionClass}>
-	<h2 class="title title--h2 mt-3">{heading}</h2>
+	{#if heading}
+		<h2 class="title title--h2 mt-3">{heading}</h2>
+	{/if}
 
 	<swiper-container id={swiperId} init="false">
 		{#each slides as slide, i}
@@ -95,11 +111,11 @@
 				</swiper-slide>
 			{/if}
 
-			{#if swiperId === 'swiper-gallery' && 'logo' in slide}
-				<swiper-slide class="js-carousel-clients">
+			{#if swiperId === 'swiper-gallery' && 'src' in slide}
+				<swiper-slide class="swiper-slide-project">
 					<figure class="swiper-slide">
-						<a href={slide.link} target="_blank">
-							<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
+						<a id="first" title="click to zoom-in" href={slide.src} data-size="1920x1080">
+							<img src={slide.src} alt={slide.alt} />
 						</a>
 					</figure>
 				</swiper-slide>
@@ -113,6 +129,7 @@
 </section>
 
 <style lang="scss">
-  @import '#styles/app/clients';
+  @import '#styles/app/carousel-clients';
+  @import '#styles/app/carousel-projects';
   @import '#styles/app/testimonials';
 </style>

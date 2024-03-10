@@ -102,38 +102,3 @@
 		flex: 1;
 	}
 }
-
-/* Slider */
-.js-carousel-project {
-	margin-top: rem(38px);
-
-	.swiper-pagination {
-		margin-top: rem(30px);
-	}
-
-	@media only screen and (max-width: $small) {
-		margin-top: rem(24px);
-	}
-}
-
-.swiper-slide-project {
-	height: rem(315px);
-	max-width: rem(560px);
-	opacity: 0.5;
-	overflow: hidden;
-	transition: opacity 0.3s ease-in-out;
-
-	&.swiper-slide-active {
-		opacity: 1;
-	}
-
-	img {
-		object-fit: cover;
-		height: 100%;
-		width: 100%;
-	}
-
-	@media only screen and (max-width: $small) {
-		height: rem(148px);
-	}
-}

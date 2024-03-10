@@ -10,7 +10,7 @@ interface Breakpoints {
 }
 
 interface Options {
-	slidesPerView: number;
+	slidesPerView: number | 'auto';
 	spaceBetween?: number;
 }
 
@@ -30,10 +30,6 @@ export interface ClientData {
 }
 
 export interface GalleryData {
-	images: ImageData[];
-}
-
-export interface ImageData {
 	src: string;
-	alt: string;
+	alt	: string;
 }

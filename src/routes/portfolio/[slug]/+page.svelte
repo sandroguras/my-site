@@ -5,6 +5,7 @@
 	import BackButton from '$lib/components/BackButton.svelte';
 	import InfoBlock from '$lib/components/InfoBlock.svelte';
 	import Copy from '$lib/components/Copy.svelte';
+	import Carousel from '$lib/components/Carousel.svelte';
 
 	const backButtonProps: BackButtonType = {
 		link: '/portfolio',
@@ -46,7 +47,26 @@
 			'\t\t<p>Scelerisque ipsum pretium augue neque at. Bibendum semper ipsum arcu, nibh blandit facilisi. Quis dictum ornare\n' +
 			'\t\t\tultricies porta lectus in metus, purus facilisi. Egestas amet, enim in maecenas ultrices. Ornare donec volutpat\n' +
 			'\t\t\tenim at eget habitant eleifend. Enim, nisl porttitor egestas etiam a, magna neque.</p>'
-	}
+	};
+
+	const slides = [
+		{
+			src: '/images/560x340.jpg',
+			alt: 'Testimonial 1'
+		},
+		{
+			src: '/images/560x340.jpg',
+			alt: 'Testimonial 2'
+		},
+		{
+			src: '/images/560x340.jpg',
+			alt: 'Testimonial 3'
+		},
+		{
+			src: '/images/560x340.jpg',
+			alt: 'Testimonial 4'
+		}
+	];
 </script>
 
 <article class="project">
@@ -71,38 +91,17 @@
 		</Copy>
 	</section>
 
-	<section class="swiper-container js-carousel-project">
-		<div class="swiper-wrapper project-gallery">
-			<!-- Item -->
-			<figure class="swiper-slide swiper-slide-project">
-				<a id="first" title="click to zoom-in" href="assets/images/560x340.jpg" data-size="1920x1080">
-					<img class="lazyload" src="assets/images/560x340.jpg" alt="" />
-				</a>
-			</figure>
-
-			<!-- Item -->
-			<figure class="swiper-slide swiper-slide-project">
-				<a title="click to zoom-in" href="assets/images/560x340.jpg" data-size="1920x1080">
-					<img class="lazyload" src="assets/images/560x340.jpg" alt="" />
-				</a>
-			</figure>
-
-			<!-- Item -->
-			<figure class="swiper-slide swiper-slide-project">
-				<a title="click to zoom-in" href="assets/images/560x340.jpg" data-size="1920x1080">
-					<img class="lazyload" src="assets/images/560x340.jpg" alt="" />
-				</a>
-			</figure>
-
-			<!-- Item -->
-			<figure class="swiper-slide swiper-slide-project">
-				<a title="click to zoom-in" href="assets/images/560x340.jpg" data-size="1920x1080">
-					<img class="lazyload" src="assets/images/560x340.jpg" alt="" />
-				</a>
-			</figure>
-		</div>
-		<div class="swiper-pagination"></div>
-	</section><!-- /swiper-container -->
+	<Carousel
+		swiperId="swiper-gallery"
+		heading=""
+		slidesPerView='auto'
+		slides={slides}
+		centeredSlides={true}
+		speed={300}
+		breakpoints={{
+			580: { slidesPerView: 'auto', spaceBetween: 20 },
+		}}
+	/>
 </article>
 
 <style lang="scss">
