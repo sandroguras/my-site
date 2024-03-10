@@ -5,6 +5,7 @@
 .skillset__grid {
 	display: flex;
 	flex-wrap: wrap;
+	column-gap: rem(16px);
 	row-gap: rem(20px);
 	margin-bottom: 3rem;
 
