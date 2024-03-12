@@ -112,9 +112,12 @@
 	border-color: var(--color-error);
 }
 
-#validator-contact {
-	font-size: rem(14px);
-	margin-top: rem(16px);
+#h-captcha {
+	margin-bottom: 0;
+
+	@media only screen and (max-width: $medium) {
+		margin-bottom: rem(32px);
+	}
 }
 
 .form-control::-webkit-input-placeholder {

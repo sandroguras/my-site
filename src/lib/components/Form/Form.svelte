@@ -1,13 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
 
+	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
 	// reCaptcha script for contact form
 	onMount(() => {
-		if (browser) {
-			const script = document.createElement('script');
-			script.src = 'https://www.google.com/recaptcha/api.js?render=6Lf1SpQpAAAAAImaVys3nNCKEUHqGlwcIxdcnUZD';
+		if (typeof window !== 'undefined') {
+			let script = document.createElement('script');
+			script.src = 'https://js.hcaptcha.com/1/api.js?render=explicit';
+			script.async = true;
+			script.defer = true;
 			document.head.appendChild(script);
+
+			script.onload = () => {
+				// Initialize hCaptcha with your site key
+				hcaptcha.render('h-captcha', { sitekey: hCaptchaSiteKey });
+			};
 		}
 	});
 
@@ -18,35 +25,47 @@
 		token: ''
 	};
 
-	async function handleSubmit(event: Event) {
+	async function handleSubmit(event) {
 		event.preventDefault();
-		if (typeof window !== 'undefined' && window.grecaptcha) {
-			const token = await window.grecaptcha.execute('your_site_key', { action: 'submit' });
+
+		if (typeof window !== 'undefined' && window.hcaptcha) {
+			// Get the hCaptcha response (token)
+			const token = hcaptcha.getResponse();
+
+			if (!token) {
+				console.error('Please complete the hCaptcha challenge');
+				return; // Early return if there's no token, indicating captcha was not solved
+			}
+
 			formData.token = token;
-		}
 
-		const response = await fetch('/contact', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(formData),
-		});
+			// Your endpoint here
+			const response = await fetch('/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			});
 
-		if (response.ok) {
-			console.log('Form submitted successfully');
-			// Reset form data after successful submission
-			formData = {
-				name: '',
-				email: '',
-				message: '',
-				token: '',
-			};
-			console.log('Thank you for your message!');
+			if (response.ok) {
+				console.log('Form submitted successfully');
+				console.log('Thank you for your message!');
+				// Reset form data or handle success as needed
+				formData = { name: '', email: '', message: '', token: '' };
+
+				// Reset hCaptcha for next submission
+				hcaptcha.reset();
+			} else {
+				console.error('Form submission failed');
+				// Handle failure as needed, possibly showing an error message to the user
+			}
 		} else {
-			console.error('Form submission failed');
+			console.error('hCaptcha not loaded');
+			// Handle the case where hCaptcha didn't load or initialize properly
 		}
-	}</script>
+	}
+</script>
 
 <form id="contact-form" class="contact-form" on:submit|preventDefault={handleSubmit}>
 	<div class="row">
@@ -89,11 +108,11 @@
 			<div class="help-block with-errors"></div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-12 col-md-6 order-2 order-md-1 text-center text-md-start">
-			<div id="validator-contact" class="hidden"></div>
+	<div class="row align-items-center">
+		<div class="col-12 col-md-6 order-1 order-md-1 text-center text-md-start">
+			<div id="h-captcha" data-sitekey={hCaptchaSiteKey}></div>
 		</div>
-		<div class="col-12 col-md-6 order-1 order-md-2 text-end">
+		<div class="col-12 col-md-6 order-2 order-md-2 text-end justify-content-center">
 			<button type="submit" class="btn"><i class="font-icon icon-send"></i>Send Message</button>
 		</div>
 	</div>

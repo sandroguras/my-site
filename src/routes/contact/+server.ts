@@ -5,20 +5,20 @@ import fetch from 'node-fetch';
 
 dotenv.config();
 
-interface ReCaptchaVerifyResponse {
+interface HCaptchaVerifyResponse {
 	success: boolean;
-	challenge_ts?: string;
-	hostname?: string;
-	score?: number;
-	action?: string;
-	errorCodes?: string[];
+	challenge_ts?: string; // Timestamp of the challenge
+	hostname?: string; // The site where the hCaptcha was solved
+	credit?: boolean; // Optional: Indicates if credit to the site owner will be given
+	'error-codes'?: string[]; // Optional: Error codes
 }
 
-function isReCaptchaVerifyResponse(obj: any): obj is ReCaptchaVerifyResponse {
+// Type guard to check if an object is an HCaptchaVerifyResponse
+function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
 	return (
 		'success' in obj &&
 		typeof obj.success === 'boolean' &&
-		(obj.errorCodes === undefined || Array.isArray(obj.errorCodes))
+		(obj['error-codes'] === undefined || Array.isArray(obj['error-codes']))
 	);
 }
 
@@ -26,27 +26,32 @@ export const POST: RequestHandler = async ({ request }) => {
 	const formData = await request.json();
 	const { name, email, message, token } = formData;
 
-	const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+	const verificationResponse = await fetch('https://hcaptcha.com/siteverify', {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
+			'Content-Type': 'application/x-www-form-urlencoded'
 		},
-		body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+		body: new URLSearchParams({
+			secret: process.env.HCAPTCHA_SECRET_KEY || '', // Provide a fallback value
+			response: token
+		}).toString()
 	});
 
-	const json = await recaptchaResponse.json();
+	const verificationResult: any = await verificationResponse.json();
 
-	if (!isReCaptchaVerifyResponse(json)) {
-		throw new Error('Invalid reCAPTCHA verify response');
+	// Use the type guard to check the verification result
+	if (!isHCaptchaVerifyResponse(verificationResult)) {
+		return new Response(JSON.stringify({ message: 'Invalid hCaptcha verification response' }), {
+			status: 500,
+			headers: { 'Content-Type': 'application/json' }
+		});
 	}
 
-// At this point, TypeScript knows json is of type ReCaptchaVerifyResponse
-	const recaptchaResult = json; // json is now known to be ReCaptchaVerifyResponse
-
-	if (!recaptchaResult.success) {
-		return new Response(JSON.stringify({ message: 'reCAPTCHA verification failed' }), {
+	if (!verificationResult.success) {
+		// Respond with an error if hCaptcha verification fails
+		return new Response(JSON.stringify({ message: 'hCaptcha verification failed' }), {
 			status: 400,
-			headers: { 'Content-Type': 'application/json' },
+			headers: { 'Content-Type': 'application/json' }
 		});
 	}
 
@@ -58,8 +63,8 @@ export const POST: RequestHandler = async ({ request }) => {
 		secure: false,
 		auth: {
 			user: process.env.GMAIL_USER,
-			pass: process.env.GMAIL_PASSWORD,
-		},
+			pass: process.env.GMAIL_PASSWORD
+		}
 	});
 
 	// Setup email data
@@ -72,7 +77,7 @@ export const POST: RequestHandler = async ({ request }) => {
       Name: ${name}
       Email: ${email}
       Message: ${message}
-    `,
+    `
 	};
 
 	try {
@@ -80,13 +85,13 @@ export const POST: RequestHandler = async ({ request }) => {
 		await transporter.sendMail(mailOptions);
 		return new Response(JSON.stringify({ message: 'Email sent successfully' }), {
 			status: 200,
-			headers: { 'Content-Type': 'application/json' },
+			headers: { 'Content-Type': 'application/json' }
 		});
 	} catch (error) {
 		console.error('Error sending email:', error);
 		return new Response(JSON.stringify({ message: 'Error sending email' }), {
 			status: 500,
-			headers: { 'Content-Type': 'application/json' },
+			headers: { 'Content-Type': 'application/json' }
 		});
 	}
 };
