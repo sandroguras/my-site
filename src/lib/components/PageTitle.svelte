@@ -5,7 +5,6 @@
 	$: {
 		const rawUrl = $page.url.pathname;
 		const url = extractFirstPart(rawUrl);
-		console.log('url:', url);
 		switch (url) {
 			case '/':
 				pageTitle = 'About Me';

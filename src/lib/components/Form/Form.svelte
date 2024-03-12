@@ -1,13 +1,12 @@
 <script lang="ts">
 	let formData = {
 		name: '',
-		email: ''
+		email: '',
+		message: ''
 	};
 
-	async function handleSubmit(event) {
-		event.preventDefault(); // Prevents the form from submitting traditionally
-
-		const response = await fetch('/api/submit-form', {
+	async function handleSubmit() {
+		const response = await fetch('/contact', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -16,16 +15,22 @@
 		});
 
 		if (response.ok) {
-			// Handle success
 			console.log('Form submitted successfully');
+			// Reset form data after successful submission
+			formData = {
+				name: '',
+				email: '',
+				message: ''
+			};
+			// Show success message
+			console.log('Thank you for your message!');
 		} else {
-			// Handle error
 			console.error('Form submission failed');
 		}
 	}
 </script>
 
-<form id="contact-form" class="contact-form" data-toggle="validator">
+<form id="contact-form" class="contact-form" on:submit|preventDefault={handleSubmit}>
 	<div class="row">
 		<div class="form-group col-12 col-md-6">
 			<input
@@ -34,10 +39,9 @@
 				id="nameContact"
 				name="nameContact"
 				placeholder="Full name"
-				required="required"
+				required
 				autocomplete="on"
-				oninvalid="setCustomValidity('Fill in the field')"
-				onkeyup="setCustomValidity('')"
+				bind:value={formData.name}
 			/>
 			<div class="help-block with-errors"></div>
 		</div>
@@ -48,23 +52,21 @@
 				id="emailContact"
 				name="emailContact"
 				placeholder="Email address"
-				required="required"
+				required
 				autocomplete="on"
-				oninvalid="setCustomValidity('Email is incorrect')"
-				onkeyup="setCustomValidity('')"
+				bind:value={formData.email}
 			/>
 			<div class="help-block with-errors"></div>
 		</div>
 		<div class="form-group col-12 col-md-12">
-			<textarea
+      <textarea
 				class="textarea form-control"
 				id="messageContact"
 				name="messageContact"
 				placeholder="Your Message"
 				rows="4"
-				required="required"
-				oninvalid="setCustomValidity('Fill in the field')"
-				onkeyup="setCustomValidity('')"
+				required
+				bind:value={formData.message}
 			></textarea>
 			<div class="help-block with-errors"></div>
 		</div>

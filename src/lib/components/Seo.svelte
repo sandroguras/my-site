@@ -4,9 +4,9 @@
 	import { browser } from '$app/environment';
 
 	const author = 'David Guras';
-	const baseTitle = `${author} business card`;
+	const baseTitle = `${author}' business card`;
 
-	$: pageUrl = String($page.url) || 'https://davidguras.dev';
+	$: pageUrl = String($page.url);
 
 	$: metaImage = $page.data.meta?.metaImage || '../../src/assets/images/social.jpg';
 
