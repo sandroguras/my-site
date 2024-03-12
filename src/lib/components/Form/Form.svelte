@@ -1,17 +1,36 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
+
+	// reCaptcha script for contact form
+	onMount(() => {
+		if (browser) {
+			const script = document.createElement('script');
+			script.src = 'https://www.google.com/recaptcha/api.js?render=6Lf1SpQpAAAAAImaVys3nNCKEUHqGlwcIxdcnUZD';
+			document.head.appendChild(script);
+		}
+	});
+
 	let formData = {
 		name: '',
 		email: '',
-		message: ''
+		message: '',
+		token: ''
 	};
 
-	async function handleSubmit() {
+	async function handleSubmit(event: Event) {
+		event.preventDefault();
+		if (typeof window !== 'undefined' && window.grecaptcha) {
+			const token = await window.grecaptcha.execute('your_site_key', { action: 'submit' });
+			formData.token = token;
+		}
+
 		const response = await fetch('/contact', {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(formData)
+			body: JSON.stringify(formData),
 		});
 
 		if (response.ok) {
@@ -20,15 +39,14 @@
 			formData = {
 				name: '',
 				email: '',
-				message: ''
+				message: '',
+				token: '',
 			};
-			// Show success message
 			console.log('Thank you for your message!');
 		} else {
 			console.error('Form submission failed');
 		}
-	}
-</script>
+	}</script>
 
 <form id="contact-form" class="contact-form" on:submit|preventDefault={handleSubmit}>
 	<div class="row">
