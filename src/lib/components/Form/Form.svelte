@@ -1,7 +1,18 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
+	import { sineOut } from 'svelte/easing';
 
 	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
+
+	let formData = {
+		name: '',
+		email: '',
+		message: '',
+		token: ''
+	};
+
+	$: formSubmitted = false;
 
 	// reCaptcha script for contact form
 	onMount(() => {
@@ -16,14 +27,8 @@
 				window.hcaptcha.render('h-captcha', { sitekey: hCaptchaSiteKey });
 			};
 		}
-	});
 
-	let formData = {
-		name: '',
-		email: '',
-		message: '',
-		token: ''
-	};
+	});
 
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
@@ -51,6 +56,7 @@
 			if (response.ok) {
 				console.log('Form submitted successfully');
 				console.log('Thank you for your message!');
+				formSubmitted = true;
 				// Reset form data or handle success as needed
 				formData = { name: '', email: '', message: '', token: '' };
 				// Reset hCaptcha for next submission
@@ -66,35 +72,37 @@
 	}
 </script>
 
-<form id="contact-form" class="contact-form" on:submit|preventDefault={handleSubmit}>
-	<div class="row">
-		<div class="form-group col-12 col-md-6">
-			<input
-				type="text"
-				class="input form-control"
-				id="nameContact"
-				name="nameContact"
-				placeholder="Full name"
-				required
-				autocomplete="on"
-				bind:value={formData.name}
-			/>
-			<div class="help-block with-errors"></div>
-		</div>
-		<div class="form-group col-12 col-md-6">
-			<input
-				type="email"
-				class="input form-control"
-				id="emailContact"
-				name="emailContact"
-				placeholder="Email address"
-				required
-				autocomplete="on"
-				bind:value={formData.email}
-			/>
-			<div class="help-block with-errors"></div>
-		</div>
-		<div class="form-group col-12 col-md-12">
+{#if !formSubmitted}
+	<div transition:slide={{duration: 250, delay: 50, easing: sineOut}}>
+		<form id="contact-form" class="contact-form" on:submit|preventDefault={handleSubmit}>
+			<div class="row">
+				<div class="form-group col-12 col-md-6">
+					<input
+						type="text"
+						class="input form-control"
+						id="nameContact"
+						name="nameContact"
+						placeholder="Full name"
+						required
+						autocomplete="on"
+						bind:value={formData.name}
+					/>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group col-12 col-md-6">
+					<input
+						type="email"
+						class="input form-control"
+						id="emailContact"
+						name="emailContact"
+						placeholder="Email address"
+						required
+						autocomplete="on"
+						bind:value={formData.email}
+					/>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group col-12 col-md-12">
       <textarea
 				class="textarea form-control"
 				id="messageContact"
@@ -104,19 +112,57 @@
 				required
 				bind:value={formData.message}
 			></textarea>
-			<div class="help-block with-errors"></div>
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+			<div class="row align-items-center">
+				<div class="col-12 col-md-6 order-1 order-md-1 text-center text-md-start">
+					<div id="h-captcha" data-sitekey={hCaptchaSiteKey}></div>
+				</div>
+				<div class="col-12 col-md-6 order-2 order-md-2 text-end justify-content-center">
+					<button type="submit" class="btn"><i class="font-icon icon-send"></i>Send Message</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<style lang="scss">
+    @import '#styles/app/form';
+	</style>
+{:else}
+	<div transition:slide={{duration: 250, delay: 200, easing: sineOut}}>
+		<div class="thank-you-message">
+			<div class="review-item box box-inner">
+				<figure class="box box-avatar">
+					<p class="portrait">&#128236</p>
+				</figure>
+				<h4 class="title title--h3">Thank you!</h4>
+				<p class="review-item__caption">Your message was sent. I will contact you shortly.</p>
+			</div>
 		</div>
 	</div>
-	<div class="row align-items-center">
-		<div class="col-12 col-md-6 order-1 order-md-1 text-center text-md-start">
-			<div id="h-captcha" data-sitekey={hCaptchaSiteKey}></div>
-		</div>
-		<div class="col-12 col-md-6 order-2 order-md-2 text-end justify-content-center">
-			<button type="submit" class="btn"><i class="font-icon icon-send"></i>Send Message</button>
-		</div>
-	</div>
-</form>
 
-<style lang="scss">
-  @import '#styles/app/form';
-</style>
+	<style lang="scss">
+    @import '#styles/app/testimonials';
+
+    .thank-you-message {
+      margin: 6rem auto;
+      display: flex;
+      justify-content: center;
+
+
+      @media only screen and (max-width: $small) {
+        margin: 3rem auto;
+      }
+
+      .portrait {
+        font-size: rem(50px);
+        text-align: center;
+
+        @media only screen and (max-width: $small) {
+          font-size: rem(40px);
+        }
+      }
+
+    }
+	</style>
+{/if}

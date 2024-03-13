@@ -1,4 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
+import sanitizeHtml from 'sanitize-html';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
@@ -24,6 +25,11 @@ function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
 export const POST: RequestHandler = async ({ request }) => {
 	const formData = await request.json();
 	const { name, email, message, token } = formData;
+
+	// Sanitize user input
+	const sanitizedName = sanitizeHtml(name);
+	const sanitizedEmail = sanitizeHtml(email);
+	const sanitizedMessage = sanitizeHtml(message);
 
 	const secretKey = process.env.HCAPTCHA_SECRET_KEY;
 	if (!secretKey) {
@@ -78,12 +84,12 @@ export const POST: RequestHandler = async ({ request }) => {
 	const mailOptions = {
 		from: process.env.GMAIL_USER,
 		to: process.env.GMAIL_USER,
-		replyTo: email,
-		subject: `Contact Form Submission from ${name}`,
+		replyTo: sanitizedEmail,
+		subject: `Contact Form Submission from ${sanitizedName}`,
 		text: `
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
+      Name: ${sanitizedName}
+      Email: ${sanitizedEmail}
+      Message: ${sanitizedMessage}
     `
 	};
 
