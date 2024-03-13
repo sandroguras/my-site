@@ -6,6 +6,8 @@ import fetch from 'node-fetch';
 
 dotenv.config();
 
+const maxMessageLength: number = 500;
+
 interface HCaptchaVerifyResponse {
 	success: boolean;
 	challenge_ts?: string; // Timestamp of the challenge
@@ -29,7 +31,12 @@ export const POST: RequestHandler = async ({ request }) => {
 	// Sanitize user input
 	const sanitizedName = sanitizeHtml(name);
 	const sanitizedEmail = sanitizeHtml(email);
-	const sanitizedMessage = sanitizeHtml(message);
+	let sanitizedMessage = sanitizeHtml(message);
+
+	// Truncate message if it exceeds the maximum allowed length
+	if (sanitizedMessage.length > maxMessageLength) {
+		sanitizedMessage = sanitizedMessage.slice(0, maxMessageLength);
+	}
 
 	const secretKey = process.env.HCAPTCHA_SECRET_KEY;
 	if (!secretKey) {
