@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 
 	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
+
 	// reCaptcha script for contact form
 	onMount(() => {
 		if (typeof window !== 'undefined') {
@@ -10,10 +11,9 @@
 			script.async = true;
 			script.defer = true;
 			document.head.appendChild(script);
-
 			script.onload = () => {
 				// Initialize hCaptcha with your site key
-				hcaptcha.render('h-captcha', { sitekey: hCaptchaSiteKey });
+				window.hcaptcha.render('h-captcha', { sitekey: hCaptchaSiteKey });
 			};
 		}
 	});
@@ -25,12 +25,12 @@
 		token: ''
 	};
 
-	async function handleSubmit(event) {
+	async function handleSubmit(event: Event) {
 		event.preventDefault();
 
 		if (typeof window !== 'undefined' && window.hcaptcha) {
 			// Get the hCaptcha response (token)
-			const token = hcaptcha.getResponse();
+			const token = window.hcaptcha.getResponse();
 
 			if (!token) {
 				console.error('Please complete the hCaptcha challenge');
@@ -53,9 +53,8 @@
 				console.log('Thank you for your message!');
 				// Reset form data or handle success as needed
 				formData = { name: '', email: '', message: '', token: '' };
-
 				// Reset hCaptcha for next submission
-				hcaptcha.reset();
+				window.hcaptcha.reset();
 			} else {
 				console.error('Form submission failed');
 				// Handle failure as needed, possibly showing an error message to the user

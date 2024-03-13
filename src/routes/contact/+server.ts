@@ -16,9 +16,8 @@ interface HCaptchaVerifyResponse {
 // Type guard to check if an object is an HCaptchaVerifyResponse
 function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
 	return (
-		'success' in obj &&
 		typeof obj.success === 'boolean' &&
-		(obj['error-codes'] === undefined || Array.isArray(obj['error-codes']))
+		(typeof obj['error-codes'] === 'undefined' || Array.isArray(obj['error-codes']))
 	);
 }
 
@@ -26,13 +25,21 @@ export const POST: RequestHandler = async ({ request }) => {
 	const formData = await request.json();
 	const { name, email, message, token } = formData;
 
+	const secretKey = process.env.HCAPTCHA_SECRET_KEY;
+	if (!secretKey) {
+		return new Response(JSON.stringify({ message: 'hCaptcha secret key is missing' }), {
+			status: 500,
+			headers: { 'Content-Type': 'application/json' }
+		});
+	}
+
 	const verificationResponse = await fetch('https://hcaptcha.com/siteverify', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
 		body: new URLSearchParams({
-			secret: process.env.HCAPTCHA_SECRET_KEY || '', // Provide a fallback value
+			secret: secretKey,
 			response: token
 		}).toString()
 	});
