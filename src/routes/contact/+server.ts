@@ -26,17 +26,18 @@ function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
 
 export const POST: RequestHandler = async ({ request }) => {
 	const formData = await request.json();
-	const { name, email, message, token } = formData;
+	const { name, email, message, token } = formData
+
+	// Truncate message if it exceeds the maximum allowed length
+	let truncatedMessage = message;
+	if (message.length > maxMessageLength) {
+		truncatedMessage = message.slice(0, maxMessageLength);
+	}
 
 	// Sanitize user input
 	const sanitizedName = sanitizeHtml(name);
 	const sanitizedEmail = sanitizeHtml(email);
-	let sanitizedMessage = sanitizeHtml(message);
-
-	// Truncate message if it exceeds the maximum allowed length
-	if (sanitizedMessage.length > maxMessageLength) {
-		sanitizedMessage = sanitizedMessage.slice(0, maxMessageLength);
-	}
+	const sanitizedMessage = sanitizeHtml(truncatedMessage);
 
 	const secretKey = process.env.HCAPTCHA_SECRET_KEY;
 	if (!secretKey) {
