@@ -4,6 +4,14 @@
 	import { sineOut } from 'svelte/easing';
 
 	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
+	let messageLength = 0;
+	const maxMessageLength = 500;
+
+	function handleMessageInput(event: Event) {
+		const target = event.target as HTMLTextAreaElement;
+		formData.message = target.value.slice(0, maxMessageLength);
+		messageLength = formData.message.length;
+	}
 
 	let formData = {
 		name: '',
@@ -111,8 +119,11 @@
 				rows="4"
 				required
 				bind:value={formData.message}
+				on:input={handleMessageInput}
+				maxlength={maxMessageLength}
 			></textarea>
 					<div class="help-block with-errors"></div>
+					<div class="message-length">{messageLength}/{maxMessageLength}</div>
 				</div>
 			</div>
 			<div class="row align-items-center">
@@ -127,6 +138,12 @@
 	</div>
 	<style lang="scss">
     @import '#styles/app/form';
+    .message-length {
+      font-size: 0.8em;
+      color: #888;
+      text-align: right;
+      margin-top: 0.25rem;
+    }
 	</style>
 {:else}
 	<div transition:slide={{duration: 250, delay: 200, easing: sineOut}}>
