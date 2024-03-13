@@ -58,7 +58,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		}).toString()
 	});
 
-	const verificationResult: any = await verificationResponse.json();
+	const verificationResult = await verificationResponse.json();
 
 	// Use the type guard to check the verification result
 	if (!isHCaptchaVerifyResponse(verificationResult)) {
