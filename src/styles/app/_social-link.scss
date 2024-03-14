@@ -1,0 +1,26 @@
+/* -----------------------------------------------------------------
+    - Social Link
+----------------------------------------------------------------- */
+
+.social {
+  &__link {
+    font-size: rem(20px);
+    color: var(--color-heading);
+    -webkit-text-fill-color: inherit;
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+
+    @media only screen and (max-width: $small) {
+      font-size: rem(16px);
+    }
+  }
+
+  &__link:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  @media only screen and (max-width: $large-xl) {
+    text-align: left;
+  }
+}
