@@ -24,14 +24,6 @@
     }
   }
 
-  &__additional-info {
-    .details-info__item {
-      @media only screen and (max-width: $large-xl) {
-        margin-bottom: 0;
-      }
-    }
-  }
-
   .avatar-box {
     background: var(--color-gradient-gray);
     border-radius: var(--radius-32);

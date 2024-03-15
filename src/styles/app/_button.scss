@@ -3,6 +3,7 @@
 ----------------------------------------------------------------- */
 
 .btn {
+  width: 100%;
   background: var(--color-gradient-border-gray);
   border-radius: var(--radius-14);
   box-shadow: var(--box-shadow-40);
@@ -69,10 +70,7 @@
   }
 }
 
-button:focus {
-  outline: none;
-}
-
+/*
 .aside .btn {
   display: block;
   width: 100%;
@@ -87,4 +85,5 @@ button:focus {
     width: 100%;
   }
 }
+*/
 

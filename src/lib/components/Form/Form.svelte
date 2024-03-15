@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { sineOut } from 'svelte/easing';
+	import Button from '$lib/components/Button.svelte';
 
 	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
 	let messageLength = 0;
@@ -126,12 +127,12 @@
 					<div class="message-length">{messageLength}/{maxMessageLength}</div>
 				</div>
 			</div>
-			<div class="row align-items-center">
-				<div class="col-12 col-md-6 order-1 order-md-1 text-center text-md-start">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-12 col-md-6 order-1 order-md-1">
 					<div id="h-captcha" data-sitekey={hCaptchaSiteKey}></div>
 				</div>
-				<div class="col-12 col-md-6 order-2 order-md-2 text-end justify-content-center">
-					<button type="submit" class="btn"><i class="font-icon icon-send"></i>Send Message</button>
+				<div class="col-12 col-md-4 order-2">
+					<Button icon="icon-send" text="Send Message"/>
 				</div>
 			</div>
 		</form>

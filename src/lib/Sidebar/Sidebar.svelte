@@ -42,12 +42,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="sidebar__container">
-			<div class="sidebar__additional-info">
-				<div class="separation"></div>
-				<Button link="/contact" icon="icon-download" text="Download CV" ariaLable="Download David's resume PDF, 266KB"/>
-			</div>
-		</div>
+		<div class="separation"></div>
+		<Button isButtonLink={true}
+						link="/contact"
+						icon="icon-download"
+						text="Download CV"
+						ariaLabel="Download David's resume PDF, 266KB" />
 	</div>
 </aside>
 

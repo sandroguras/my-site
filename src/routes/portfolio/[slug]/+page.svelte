@@ -1,13 +1,11 @@
 <script lang="ts">
-	import type { BackButton as BackButtonType } from '#types/BackButton';
 	import type { InfoBlock as InfoBlockType } from '#types/InfoBlock';
 	import type { Copy as CopyType } from '#types/Copy';
-	import BackButton from '$lib/components/BackButton.svelte';
 	import InfoBlock from '$lib/components/InfoBlock.svelte';
 	import Copy from '$lib/components/Copy.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 
-	const backButtonProps: BackButtonType = {
+	const backButtonProps = {
 		link: '/portfolio',
 		glyph: 'feathericon-arrow-left',
 		text: 'Back to Portfolio'
@@ -70,7 +68,7 @@
 </script>
 
 <article class="project">
-	<BackButton {backButtonProps} />
+	<a class="btn-back" href={backButtonProps.link}><i class={backButtonProps.glyph}></i>{backButtonProps.text}</a>
 
 	<header class="header-project">
 		<h1 class="title title--h1">{@html project.title}</h1>
