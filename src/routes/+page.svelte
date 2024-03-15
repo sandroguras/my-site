@@ -10,7 +10,9 @@
 	} from '#types/Carousel';
 
 	const Introduction: CopyType = {
-		copy: '<p>I\'m Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p><p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>'
+		copy: '<p>I am a Web Director, leading a skilled team of developers and designers for over a decade. We have created exceptional websites for clients across diverse industries, transforming intricate concepts into sleek, user-friendly designs.</p>\n' +
+			'<p>Based in Washington DC, I\'ve been assisting US businesses in establishing a robust online presence. With every project, I dedicate myself to crafting digital masterpieces that combine technical proficiency, creative flair, and a steadfast commitment to understanding my client\'s requirements.</p>\n' +
+			'<p>My company\'s growth and evolution are fueled by my unyielding passion for developing websites that are both visually striking and effortlessly functional.</p>\n'
 	};
 	const expertise: ExpertiseType = {
 		heading: 'My Expertise',
@@ -28,54 +30,68 @@
 				description: 'Planning, organizing, executing, and fulfilling web projects.'
 			},
 			{
-				name: 'Mobile Apps',
-				icon: '/images/icons/icon-app.svg',
-				iconAlt: 'Mobile Apps',
-				description: 'Professional development of applications for iOS and Android.'
+				name: 'Web Apps',
+				icon: '/images/icons/icon-framework.svg',
+				iconAlt: 'Web Apps',
+				description: 'Web applications development with Laravel, Symfony and Ruby on Rails.'
 			},
 			{
-				name: 'Photography',
-				icon: '/images/icons/icon-photo.svg',
-				iconAlt: 'Photography',
-				description: 'I make high-quality photos of any category at a professional level.'
+				name: 'Cybersecurity',
+				icon: '/images/icons/icon-security.svg',
+				iconAlt: 'Cybersecurity',
+				description: 'Securing, fortifying, testing, and hardening web applications.'
 			}
 		]
 	};
 	const testimonials: ReviewDataType[] = [
 		{
-			name: 'Daniel Lewis',
-			image: './images/avatar-1.png',
-			imageAlt: 'Daniel Lewis',
-			shortCopy:
-				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			reviewDate: '2021-01-01'
-		},
-		{
-			name: 'Aaron Cox',
-			image: './images/avatar-2.png',
-			imageAlt: 'Daniel Lewis',
-			shortCopy:
-				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			reviewDate: '2021-01-01'
-		},
-		{
-			name: 'David Guras',
-			image: './images/avatar-3.png',
-			imageAlt: 'Daniel Lewis',
-			shortCopy:
-				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			reviewDate: '2021-01-01'
-		},
-		{
-			name: 'Mara Mclean',
+			name: 'Chris Bartlett',
 			image: './images/avatar-4.png',
-			imageAlt: 'Daniel Lewis',
+			imageAlt: 'Chris Bartlett',
 			shortCopy:
-				'Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
-			copy: 'Ricardo was hired to create a corporate identity. We were very pleased with the work done... Ricardo was hired to create a corporate identity. We were very pleased with the work done...',
+				'It has been an absolute pleasure in working for David at Bullishfor the last two years...',
+			copy: '<p>It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.\n' +
+				'\n' +
+				'David is able to communicate at all levels from complex discussions with developers to distilling technical ideas and conveying them to non-technical C-level executives. \n' +
+				'\n' +
+				'David would liaise with all departments including security, procurement, design, product managers, sales and more and would ensure all our projects were not only delivered on time but to budget and to spec. He led the Web Development department of several developers and contractors to many successes, including but not limited to, the new Block.one site, the Full Marketing site for the Bullish exchange, the Investor Relations site and several other sites. David is comfortable working in multiple methodologies including waterfall, agile and in-between.\n' +
+				'\n' +
+				'David was instrumental in updating the tech stack of Bullish moving from just WordPress sites to decoupled WordPress CMS and React (Next,js), Typescript and GraphQL frontend, which vastly increased speed time for the end user by 390% and reducing deployment time from 30 minutes to just a few.\n' +
+				'\n' +
+				'Not only is David a great manager but David is still a great developer too and will often help out whenever we needed help and always keeps up to date with the latest technology.\n' +
+				'\n' +
+				'I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David\'s abilities he would surely lead any team to success.</p>',
+			reviewDate: '2023-03-9'
+		},
+		{
+			name: 'Alex Radulescu',
+			image: './images/avatar-2.png',
+			imageAlt: 'Alex Radulescu',
+			shortCopy:
+				'It has been a pleasure working with David and I strongly recommend him....',
+			copy: 'It has been a pleasure working with David and I strongly recommend him.\n' +
+				'He joined my team with an open mind, took on the challenge of managing new people and thanks to him delivered on time multiple major web projects.\n' +
+				'He also successfully linked stakeholders and architected a robust and elegant top of the line headless wordpress setup with nextjs, graphql and typescript.\n' +
+				'He continuously improved the system, bringing down release downtimes from 30-40 minutes to 0 seconds, faster loading time (390%) and smoother experience.',
+			reviewDate: '2023-03-09'
+		},
+		{
+			name: 'Mike Dulik',
+			image: './images/avatar-3.png',
+			imageAlt: 'Mike Dulik',
+			shortCopy:
+				'I had the pleasure of working alongside Dave as a web developer at Grafik...',
+			copy: 'I had the pleasure of working alongside Dave as a web developer at Grafik, a digital branding agency based in Alexandria. Dave exhibited many traits that are essential to the making of a great developer. His innovative nature helped to transform our dev practice, and many of his findings are still helping us to work better as a team. I would be very lucky to have the opportunity to collaborate with him again one day. ',
+			reviewDate: '2019-04-30'
+		},
+		{
+			name: 'Simion Nacu',
+			image: './images/avatar-4.png',
+			imageAlt: 'Simion Nacu',
+			shortCopy:
+				' I\'ve had the opportunity to work with David, for about six years...',
+			copy: 'I\'ve had the opportunity to work with David, for about six years in both a professional and personal level. I have always felt confident that things would be handled in a timely manner and that he was willing to go up and above when necessary. \n' +
+				' He proved to be always eager for new knowledge and flexible enough to embrace new technologies and work flows. He will make a very good addition to any team looking for a strong creative professional.',
 			reviewDate: '2021-01-01'
 		}
 	];
