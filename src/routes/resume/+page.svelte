@@ -123,7 +123,10 @@
 	];
 </script>
 
-<Skillset heading={'My Skills'} {skills} />
+<section class="skillset">
+	<h2 class="title title--h2 mt-3">My Skills</h2>
+	<Skillset {skills} />
+</section>
 
 <!-- Experience -->
 <Timeline heading={'Experience'} logo={'feathericon-briefcase'} timelineEvents={experience} />
