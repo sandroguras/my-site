@@ -62,4 +62,36 @@ $navbar-height: rem(64px); /* Height of the navbar - descriptive variable name *
   @media only screen and (max-width: $small) {
     font-size: rem(11px);
   }
+
+  &__item {
+    margin-right: rem(44px);
+    @media only screen and (max-width: $large) {
+      margin-right: rem(32px);
+    }
+    @media only screen and (max-width: $small) {
+      margin-right: rem(20px);
+    }
+
+    a {
+      @include link-style;
+      background: none;
+
+      &:hover {
+        opacity: 1;
+        text-decoration: none;
+      }
+
+      &.active {
+        opacity: 1;
+        background: var(--color-gradient-text);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
