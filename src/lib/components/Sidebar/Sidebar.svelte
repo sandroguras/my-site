@@ -2,7 +2,6 @@
 	import Button from '$lib/components/Button.svelte';
 	import avatar from '#images/my-avatar.webp';
 	import type { PersonalInfo as PersonalInfoType } from '#types/PersonalInfo';
-	import SocialLink from '$lib/components/Sidebar/SocialLink.svelte';
 
 	export let personalInfo: PersonalInfoType = {
 		name: 'David Guras',
@@ -37,7 +36,10 @@
 				<!-- Social -->
 				<div class="social">
 					{#each personalInfo.socials as social}
-						<SocialLink {social} />
+						<a class="social__link" href={social.link} target={social.target} aria-label={social.ariaLabel}
+							 rel="noopener noreferrer">
+							<i class={`feathericon-${social.icon}`} />
+						</a>
 					{/each}
 				</div>
 			</div>
