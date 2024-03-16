@@ -50,7 +50,7 @@
 			imageAlt: 'Chris Bartlett',
 			shortCopy:
 				'It has been an absolute pleasure in working for David at Bullishfor the last two years...',
-			copy: '<p>It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.\n' +
+			copy: 'It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.\n' +
 				'\n' +
 				'David is able to communicate at all levels from complex discussions with developers to distilling technical ideas and conveying them to non-technical C-level executives. \n' +
 				'\n' +
@@ -60,8 +60,8 @@
 				'\n' +
 				'Not only is David a great manager but David is still a great developer too and will often help out whenever we needed help and always keeps up to date with the latest technology.\n' +
 				'\n' +
-				'I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David\'s abilities he would surely lead any team to success.</p>',
-			reviewDate: '2023-03-9'
+				'I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David\'s abilities he would surely lead any team to success.',
+			reviewDate: '2023-03-09'
 		},
 		{
 			name: 'Alex Radulescu',

@@ -12,8 +12,18 @@
 
 	function formatDate(dateStr: string): string {
 		const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-		const date = new Date(dateStr);
-		return new Intl.DateTimeFormat('en-US', options).format(date);
+		try {
+			const date = new Date(dateStr);
+			if (!isNaN(date.getTime())) { // Check if date is valid
+				return new Intl.DateTimeFormat('en-US', options).format(date);
+			} else {
+				console.error(`Invalid date: ${dateStr}`);
+				return 'Invalid date'; // Or return a default/fallback date string
+			}
+		} catch (e) {
+			console.error(`Error formatting date: ${dateStr}`, e);
+			return 'Error formatting date'; // Or return a default/fallback date string
+		}
 	}
 
 	function handleClickOutside(event: MouseEvent): void {
@@ -81,4 +91,5 @@
 
 <style lang="scss">
 	@import '#styles/app/popup';
+	@import '#styles/app/testimonials';
 </style>

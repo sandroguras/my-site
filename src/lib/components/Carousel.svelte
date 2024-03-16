@@ -18,7 +18,7 @@
 	export let grabCursor: boolean = true;
 	export let watchOverflow: boolean = true;
 	export let pagination: object = {
-		clickable: true,
+		clickable: true
 	};
 	export let breakpoints: CarouselType['breakpoints'] = {};
 	export let injectStylesUrls: string[] = ['/styles/swiper-pagination.css'];
@@ -102,7 +102,8 @@
 			{/if}
 
 			{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
-				<swiper-slide class="review-item box box-inner" on:click={() => openModal(i)}>
+				<swiper-slide class="review-item box box-inner"
+											on:click={() => openModal(i) }>
 					<figure class="box box-avatar">
 						<img src={slide.image} alt={slide.imageAlt} />
 					</figure>
