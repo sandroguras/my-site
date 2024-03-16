@@ -10,7 +10,6 @@
 	} from '#types/Carousel';
 
 	export let swiperId: CarouselType['swiperId'] = '';
-	export let heading: CarouselType['heading'] = '';
 	export let slidesPerView: number | 'auto' = 'auto';
 	export let spaceBetween: number = 30;
 	export let centeredSlides: boolean = false;
@@ -84,50 +83,44 @@
 	}
 </script>
 
-<section class={sectionClass}>
-	{#if heading}
-		<h2 class="title title--h2 mt-3">{heading}</h2>
-	{/if}
+<swiper-container id={swiperId} init="false">
+	{#each slides as slide, i}
+		{#if swiperId === 'swiper-clients' && 'logo' in slide}
+			<swiper-slide class="js-carousel-clients">
+				<figure class="swiper-slide">
+					<a href={slide.link} target="_blank">
+						<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
+					</a>
+				</figure>
+			</swiper-slide>
+		{/if}
 
-	<swiper-container id={swiperId} init="false">
-		{#each slides as slide, i}
-			{#if swiperId === 'swiper-clients' && 'logo' in slide}
-				<swiper-slide class="js-carousel-clients">
-					<figure class="swiper-slide">
-						<a href={slide.link} target="_blank">
-							<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
-						</a>
-					</figure>
-				</swiper-slide>
-			{/if}
+		{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
+			<swiper-slide class="review-item box box-inner"
+										on:click={() => openModal(i) }>
+				<figure class="box box-avatar">
+					<img src={slide.image} alt={slide.imageAlt} />
+				</figure>
+				<h4 class="title title--h3">{slide.name}</h4>
+				<p class="review-item__caption">{slide.shortCopy}</p>
+			</swiper-slide>
+		{/if}
 
-			{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
-				<swiper-slide class="review-item box box-inner"
-											on:click={() => openModal(i) }>
-					<figure class="box box-avatar">
-						<img src={slide.image} alt={slide.imageAlt} />
-					</figure>
-					<h4 class="title title--h3">{slide.name}</h4>
-					<p class="review-item__caption">{slide.shortCopy}</p>
-				</swiper-slide>
-			{/if}
+		{#if swiperId === 'swiper-gallery' && 'src' in slide}
+			<swiper-slide class="swiper-slide-project">
+				<figure class="swiper-slide">
+					<a id="first" title="click to zoom-in" href={slide.src} data-size="1920x1080">
+						<img src={slide.src} alt={slide.alt} />
+					</a>
+				</figure>
+			</swiper-slide>
+		{/if}
+	{/each}
+</swiper-container>
 
-			{#if swiperId === 'swiper-gallery' && 'src' in slide}
-				<swiper-slide class="swiper-slide-project">
-					<figure class="swiper-slide">
-						<a id="first" title="click to zoom-in" href={slide.src} data-size="1920x1080">
-							<img src={slide.src} alt={slide.alt} />
-						</a>
-					</figure>
-				</swiper-slide>
-			{/if}
-		{/each}
-	</swiper-container>
-
-	{#if swiperId === 'swiper-testimonials'}
-		<Modal {modalData} {modalIndex} {showModal} {closeModal} />
-	{/if}
-</section>
+{#if swiperId === 'swiper-testimonials'}
+	<Modal {modalData} {modalIndex} {showModal} {closeModal} />
+{/if}
 
 <style lang="scss">
   @import '#styles/app/carousel-clients';

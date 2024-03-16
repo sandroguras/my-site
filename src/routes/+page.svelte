@@ -147,19 +147,22 @@
 </section>
 
 <!-- Testimonials -->
-<Carousel
-	heading="Testimonials"
-	swiperId="swiper-testimonials"
-	slides={testimonials}
-	breakpoints={{
+<section class="swiper-testimonials">
+	<h2 class="title title--h2 mt-3">Testimonials</h2>
+	<Carousel
+		swiperId="swiper-testimonials"
+		slides={testimonials}
+		breakpoints={{
 		580: { slidesPerView: 1, spaceBetween: 20 },
 		991: { slidesPerView: 2 }
 	}}
-/>
+	/>
+</section>
 
 <!-- Clients -->
+<section class="swiper-clients">
+	<h2 class="title title--h2 mt-3">Clients</h2>
 <Carousel
-	heading="Clients"
 	swiperId="swiper-clients"
 	slides={clients}
 	breakpoints={{
@@ -168,3 +171,4 @@
 		991: { slidesPerView: 4, spaceBetween: 30 }
 	}}
 />
+</section>
