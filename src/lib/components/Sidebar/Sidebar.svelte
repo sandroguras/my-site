@@ -2,7 +2,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import avatar from '#images/my-avatar.webp';
 	import type { PersonalInfo as PersonalInfoType } from '#types/PersonalInfo';
-	import SocialLink from '$lib/Sidebar/SocialLink.svelte';
+	import SocialLink from '$lib/components/Sidebar/SocialLink.svelte';
 
 	export let personalInfo: PersonalInfoType = {
 		name: 'David Guras',
@@ -15,7 +15,7 @@
 				ariaLabel: 'View David\'s LinkedIn profile'
 			},
 			{
-				icon: 'mail',
+				icon: 'at-sign',
 				link: '/contact',
 				target: '_self',
 				ariaLabel: 'Submit a contact form to David'

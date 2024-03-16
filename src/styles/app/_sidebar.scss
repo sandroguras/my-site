@@ -29,22 +29,20 @@
     border-radius: var(--radius-32);
     margin: rem(30px) rem(30px) rem(20px);
     overflow: hidden;
-    height: calc(100% - #{rem(60px)});
+    height: auto;
     width: calc(100% - #{rem(60px)});
     transition: all 0.3s ease-in-out;
 
     @media only screen and (max-width: $large-xl) {
       flex-shrink: 0;
       margin: 0 rem(24px) 0 0;
-      height: rem(120px);
-      width: rem(120px);
+      width: rem(150px);
     }
 
     @media only screen and (max-width: $small) {
       border-radius: var(--radius-20);
       margin: 0 rem(16px) 0 0;
-      height: rem(80px);
-      width: rem(80px);
+      width: rem(120px);
     }
   }
 
@@ -112,7 +110,7 @@
 
   @media only screen and (max-width: $large-xl) {
     justify-content: left;
-    gap: 10%;
+    gap: 20%;
   }
 }
 
