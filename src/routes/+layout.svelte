@@ -10,7 +10,7 @@
 		{ path: '/', label: 'About'},
 		{ path: '/resume', label: 'Resume'},
 		{ path: '/portfolio', label: 'Portfolio'},
-		{ path: '/blog', label: 'Blog'},
+/*		{ path: '/blog', label: 'Blog'},*/
 		{ path: '/contact', label: 'Contact'},
 	]
 </script>

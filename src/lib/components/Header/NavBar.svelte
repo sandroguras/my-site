@@ -2,13 +2,7 @@
 	import NavLink from './NavLink.svelte';
 	import type { NavLink as NavLinkType } from '#types/NavLink';
 
-	export let links: NavLinkType[] = [
-		{ path: '/', label: 'About'},
-		{ path: '/resume', label: 'Resume'},
-		{ path: '/portfolio', label: 'Portfolio'},
-		{ path: '/blog', label: 'Blog'},
-		{ path: '/contact', label: 'Contact'}
-	];
+	export let links: NavLinkType[] = [];
 </script>
 
 <div class="nav-container">
