@@ -122,9 +122,9 @@
 			logoAlt: 'eosio logo'
 		},
 		{
-			link: 'https://grafic.agency',
+			link: 'https://grafik.agency',
 			logo: '/images/clients/grafik-color.svg',
-			logoAlt: 'Grafic logo'
+			logoAlt: 'Grafik logo'
 		}
 	];
 </script>
