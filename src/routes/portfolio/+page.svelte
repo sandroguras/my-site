@@ -76,6 +76,7 @@
 </script>
 
 <!-- Gallery -->
+<h2 class="title title--h2 mt-3">My Projects</h2>
 <div class="gallery-grid">
 	{#each portfolioItems as portfolioItem}
 		<PortfolioItem {portfolioItem} />

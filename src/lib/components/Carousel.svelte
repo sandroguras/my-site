@@ -101,7 +101,7 @@
 				<figure class="box box-avatar">
 					<img src={slide.image} alt={slide.imageAlt} />
 				</figure>
-				<h4 class="title title--h3">{slide.name}</h4>
+				<h3 class="title title--h3">{slide.name}</h3>
 				<p class="review-item__caption">{slide.shortCopy}</p>
 			</swiper-slide>
 		{/if}
@@ -109,7 +109,7 @@
 		{#if swiperId === 'swiper-gallery' && 'src' in slide}
 			<swiper-slide class="swiper-slide-project">
 				<figure class="swiper-slide">
-					<a id="first" title="click to zoom-in" href={slide.src} data-size="1920x1080">
+					<a title="click to zoom-in" href={slide.src} data-size="1920x1080">
 						<img src={slide.src} alt={slide.alt} />
 					</a>
 				</figure>
