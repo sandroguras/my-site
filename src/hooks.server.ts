@@ -24,7 +24,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
 	response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
 	response.headers.set('Permissions-Policy', 'geolocation=(), microphone=()');
-	response.headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
+	//response.headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
 	response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
 
 	return response;
