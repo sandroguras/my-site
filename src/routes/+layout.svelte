@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../app.scss";
 	import type { NavLink as NavLinkType } from '#types/NavLink';
-  import Seo from "$lib/components/Seo.svelte";
+  import SEO from "$lib/components/SEO.svelte";
   import NavBar from "$lib/components/NavBar.svelte";
   import Sidebar from "$lib/components/Sidebar/Sidebar.svelte";
   import PageTitle from '$lib/components/PageTitle.svelte'
@@ -14,8 +14,18 @@
 		{ path: '/contact', label: 'Contact'},
 	]
 </script>
-
-<Seo />
+<svelte:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<SEO />
+</svelte:head>
 <body>
 <main class="main">
 	<div class="container gutter-top gutter-bottom">
