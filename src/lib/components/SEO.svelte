@@ -5,7 +5,7 @@
 	$: siteURL = String($page.url);
 
 	const title: string = 'David Guras | Precision Web Engineering';
-	const description: string = 'David Guras, a Web Director, leads in crafting advanced web solutions and applications. Known for precision and team leadership, he delivers fast, responsive, and accessible projects on a large scale.';
+	const description: string = 'David Guras: Expert Web Director, crafting large-scale, precise solutions. Ensures fast, responsive, accessible projects with unmatched quality.';
 </script>
 
 <!-- Various meta tags and link elements -->
