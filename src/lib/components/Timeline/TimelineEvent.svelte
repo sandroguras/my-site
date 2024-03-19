@@ -7,10 +7,10 @@
 </script>
 
 <article class="timeline__event">
-	<h3 class="title title--h3 timeline__institution">{institution}</h3>
+	<h3 class="title title--h3 timeline__institution">{@html institution}</h3>
 	<h4 class="title title--h4 timeline__position">{position}</h4>
 	<span class="timeline__period">{period}</span>
-	<p class="timeline__description">{description}</p>
+	<p class="timeline__description">{@html description}</p>
 </article>
 
 <style lang="scss">
