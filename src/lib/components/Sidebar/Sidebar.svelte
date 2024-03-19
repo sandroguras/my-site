@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import avatar from '#images/my-avatar.webp';
+	import avatar from '#images/headshot.webp';
 	import type { PersonalInfo as PersonalInfoType } from '#types/PersonalInfo';
 
 	export let personalInfo: PersonalInfoType = {

@@ -105,7 +105,7 @@
 			position: 'Manager: Web Engineering',
 			period: 'Feb 2020 — June 2023',
 			description: '- Led the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> development, achieving completion 2 weeks ahead of schedule.<br>' +
-				'- Upgraded the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish site</a> to a headless CMS and NEXT.js, resulting in a 390% improvement in load time.<br>' +
+				'- Upgraded the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> to a headless CMS and NEXT.js, resulting in a 390% improvement in load time.<br>' +
 				'- Eliminated the backend dependency of the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> by leveraging GCP<br>' +
 				'- Incorporated automated selenium tests into the development workflow.\n<br>' +
 				'- Created an in-house SaaS intranet platform to reduce costs.<br>' +
