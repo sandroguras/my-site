@@ -110,11 +110,11 @@
 
   @media only screen and (max-width: $large-xl) {
     justify-content: left;
-    gap: 20%;
+    gap: 10%;
   }
 
   &__link {
-    font-size: rem(25px);
+    font-size: rem(20px);
     color: var(--color-heading);
     -webkit-text-fill-color: inherit;
     opacity: 0.6;
