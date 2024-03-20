@@ -23,22 +23,6 @@
 	export let injectStylesUrls: string[] = ['/styles/swiper-pagination.css'];
 	export let slides: (ReviewDataType | ClientDataType | GalleryDataType)[] = [];
 
-	// Extracted the section class determination logic to a function.
-	function getSectionClass(id: string): string {
-		switch (id) {
-			case 'swiper-testimonials':
-				return 'testimonials';
-			case 'swiper-clients':
-				return 'clients';
-			case 'swiper-gallery':
-				return 'gallery';
-			default:
-				return 'unknown'; // default return in case id not matched
-		}
-	}
-
-	let sectionClass = getSectionClass(swiperId);
-
 	// Swiper initialization and custom style injection
 	onMount(() => {
 		register();
@@ -118,12 +102,21 @@
 	{/each}
 </swiper-container>
 
-{#if swiperId === 'swiper-testimonials'}
-	<Modal {modalData} {modalIndex} {showModal} {closeModal} />
+{#if swiperId === 'swiper-clients'}
+	<style lang="scss">
+    @import '#styles/app/carousel-clients';
+	</style>
 {/if}
 
-<style lang="scss">
-  @import '#styles/app/carousel-clients';
-  @import '#styles/app/carousel-projects';
-  @import '#styles/app/testimonials';
-</style>
+{#if swiperId === 'swiper-testimonials'}
+	<Modal {modalData} {modalIndex} {showModal} {closeModal} />
+	<style lang="scss">
+    @import '#styles/app/testimonials';
+	</style>
+{/if}
+
+{#if swiperId === 'swiper-gallery'}
+	<style lang="scss">
+    @import '#styles/app/carousel-projects';
+	</style>
+{/if}

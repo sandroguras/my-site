@@ -5,7 +5,7 @@
 </script>
 
 <div class="gallery-grid__item">
-	<a target="_self" href={portfolioItem.link}>
+	<a href={portfolioItem.link}>
 		<div class="gallery-grid__image-wrap">
 			<img class="gallery-grid__image cover" src={portfolioItem.image} alt={portfolioItem.imageAlt} />
 		</div>

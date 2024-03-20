@@ -91,7 +91,6 @@
 
 	<Carousel
 		swiperId="swiper-gallery"
-		heading=""
 		slidesPerView='auto'
 		slides={slides}
 		centeredSlides={true}
