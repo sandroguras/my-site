@@ -4,6 +4,7 @@ import { redirect } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	const disabledPaths = ['/blog']; // Paths to disable
+	const cacheControlDisabledPaths = ['/contact']; // Paths to disable cache
 	const { pathname } = event.url;
 
 	if (disabledPaths.includes(pathname)) {
@@ -26,6 +27,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 	response.headers.set('Permissions-Policy', 'geolocation=(), microphone=()');
 	//response.headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
 	response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
+
+	// Disable cache for specific paths
+	if (cacheControlDisabledPaths.includes(pathname)) {
+		response.headers.set('Cache-Control', 'no-store, max-age=0');
+	}
 
 	return response;
 };

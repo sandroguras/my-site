@@ -111,7 +111,7 @@
 				'- Created an in-house SaaS intranet platform to reduce costs.<br>' +
 				'- Directed the development of the <a href="https://b1.com/" target="_blank" aria-label="B1 Website" rel="noopener noreferrer">B1 Corporation</a> website, successfully launching within 7 days.<br>' +
 				'- Oversaw a team of developers in India, enhancing productivity and code quality through Scrum/Jira.<br>' +
-				'- Developed and maintained five web properties: <a href="https://b1.com/" target="_blank" aria-label="B1 Website" rel="noopener noreferrer">b1.com</a>, <a href="https://eos.io/" target="_blank" aria-label="EOSIO Website" rel="noopener noreferrer">eos.io</a>, <a href="https://voice.com/" target="_blank" aria-label="Voice Website" rel="noopener noreferrer">voice.com</a>, <a href="https://vc.eos.io/" target="_blank" aria-label="VC EOS Website" rel="noopener noreferrer">vc.eos.io</a>, <a href="https://hackathon.eos.io/" target="_blank" aria-label="EOS Hackathon Website" rel="noopener noreferrer">hackathon.eos.io</a>)'
+				'- Developed and maintained five web properties: <a href="https://b1.com/" target="_blank" aria-label="B1 Website" rel="noopener noreferrer">b1.com</a>, <a href="https://eos.io/" target="_blank" aria-label="EOSIO Website" rel="noopener noreferrer">eos.io</a>, <a href="https://voice.com/" target="_blank" aria-label="Voice Website" rel="noopener noreferrer">voice.com</a>, <a href="https://vc.eos.io/" target="_blank" aria-label="VC EOS Website" rel="noopener noreferrer">vc.eos.io</a>, <a href="https://hackathon.eos.io/" target="_blank" aria-label="EOS Hackathon Website" rel="noopener noreferrer">hackathon.eos.io</a>'
 		},
 		{
 			id: 5,
