@@ -1,7 +1,16 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import avatar from '#images/headshot.webp';
 	import type { PersonalInfo as PersonalInfoType } from '#types/PersonalInfo';
+
+	function isLocalLink(target: string): { target?: string, rel?: string } {
+		if (target === '_blank') {
+			return { target: '_blank', rel: 'noopener noreferrer' };
+		} else {
+			return {};
+		}
+	}
+
 
 	export let personalInfo: PersonalInfoType = {
 		name: 'David Guras',
@@ -16,7 +25,7 @@
 			{
 				icon: 'at-sign',
 				link: '/contact',
-				target: '_self',
+				target: '',
 				ariaLabel: 'Submit a contact form to David'
 			}]
 	};
@@ -36,8 +45,7 @@
 				<!-- Social -->
 				<div class="social">
 					{#each personalInfo.socials as social}
-						<a class="social__link" href={social.link} target={social.target} aria-label={social.ariaLabel}
-							 rel="noopener noreferrer">
+						<a class="social__link" href={social.link} {...isLocalLink(social.target)} aria-label={social.ariaLabel}>
 							<i class={`feathericon-${social.icon}`} />
 						</a>
 					{/each}
