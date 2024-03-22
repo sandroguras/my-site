@@ -3,5 +3,5 @@ export interface PortfolioItem {
 	company: string;
 	image: string;
 	imageAlt: string;
-	link: string;
+	slug: string;
 }

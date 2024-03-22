@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { InfoBlock as InfoBlockType } from '#types/InfoBlock';
 	import type { Copy as CopyType } from '#types/Copy';
-	import InfoBlock from '$lib/components/InfoBlock.svelte';
 	import Copy from '$lib/components/Copy.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 
@@ -28,8 +27,8 @@
 	const infoBlocks: InfoBlockType[] = [
 		{
 			icon: 'feathericon-user',
-			title: 'ArtTemplate',
-			content: 'Client'
+			title: 'Client',
+			content: 'ArtTemplate'
 		},
 		{
 			icon: 'icon-calendar',
@@ -77,9 +76,15 @@
 		</div>
 	</header>
 
-	<section class="infoblock">
+	<section class="details-info details-info--inline">
 		{#each infoBlocks as infoBlock}
-			<InfoBlock {infoBlock} />
+			<li class="details-info__item">
+				<span class="box icon-box"><i class="font-icon {infoBlock.icon}"></i></span>
+				<div class="details-info__info">
+					<span class="overhead">{infoBlock.title}</span>
+					<span>{infoBlock.content}</span>
+				</div>
+			</li>
 		{/each}
 	</section>
 

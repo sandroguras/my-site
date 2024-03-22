@@ -1,85 +1,53 @@
 <script lang="ts">
-	import PortfolioItem from '$lib/components/PortfolioItem.svelte';
 	import type { PortfolioItem as PortFolioItemType } from '#types/PortfolioItem';
 
 	const portfolioItems: PortFolioItemType[] = [
 		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
+			name: 'Bullish Exchange Website',
+			company: 'Bullish group',
+			image: '/images/bullish-website.webp',
+			imageAlt: 'Bullish Exchange Logo',
+			slug: 'bullish-exchange-website'
 		},
 		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
+			name: 'EOSIO Website',
+			company: 'Block.one',
+			image: '/images/eosio-website.webp',
+			imageAlt: 'EOSIO Website Logo',
+			slug: 'eosio-website'
 		},
 		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
+			name: 'b1 Corporate Website',
+			company: 'Block.one',
+			image: '/images/b1-website.webp',
+			imageAlt: 'b1 Website Logo',
+			slug: 'b1-website'
 		},
 		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
-		},
-		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
-		},
-		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
-		},
-		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
-		},
-		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
-		},
-		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
-		},
-		{
-			name: 'Incredible Bronze Sausages',
-			company: 'Bullish',
-			image: '/images/280x204.jpg',
-			imageAlt: 'violet',
-			link: '/portfolio/incredible-bronze-sausages'
-		}];
+			name: 'Voice.com Website',
+			company: 'Block.one',
+			image: '/images/voice-website.webp',
+			imageAlt: 'Voice Website Logo',
+			slug: 'voice-website'
+		}
+	];
 </script>
 
 <!-- Gallery -->
 <h2 class="title title--h2 mt-3">My Projects</h2>
 <div class="gallery-grid">
 	{#each portfolioItems as portfolioItem}
-		<PortfolioItem {portfolioItem} />
+		<div class="gallery-grid__item">
+			<a href={`/portfolio/${portfolioItem.slug}`}>
+				<div class="gallery-grid__image-wrap">
+					<img class="gallery-grid__image cover" src={portfolioItem.image} alt={portfolioItem.imageAlt} />
+				</div>
+				<div class="gallery-grid__caption">
+					<h3 class="title gallery-grid__title">{portfolioItem.name}</h3>
+					<span class="gallery-grid__client">{portfolioItem.company}</span>
+				</div>
+			</a>
+		</div>
 	{/each}
 </div>
 

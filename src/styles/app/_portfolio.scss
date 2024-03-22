@@ -15,4 +15,99 @@
   @media only screen and (max-width: $medium) {
     grid-template-columns: repeat(1, 1fr [col-start]);
   }
+  &__item {
+
+    &:hover .gallery-grid__image {
+      transform: scale3d(1.05, 1.05, 1);
+    }
+
+    &:hover .gallery-grid__image-wrap::before {
+      background: rgba(13, 13, 13, 0.3);
+    }
+
+    &:hover .gallery-grid__image-wrap::after {
+      transform: scale(1);
+      transition: transform 0.6s ease-in-out;
+    }
+  }
+
+  &__image-wrap {
+    border-radius: var(--radius-16);
+    max-height: rem(204px);
+    height: 13vw;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      background: rgba(13, 13, 13, 0);
+      height: 100%;
+      @include position(absolute, $top: 0, $left: 0);
+      width: 100%;
+      z-index: 1;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &::after {
+      content: '\e95f';
+      background: rgba(32, 32, 33, 0.8);
+      backdrop-filter: blur(6px);
+      border-radius: var(--radius-12);
+      font-family: 'feather', serif !important;
+      font-size: rem(18px);
+      color: var(--color-accent) !important;
+      @include flex($align: center, $justify: center);
+      height: rem(56px);
+      margin: auto;
+      @include position(absolute, $top: 0, $right: 0, $bottom: 0, $left: 0);
+      width: rem(56px);
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+      z-index: 2;
+    }
+
+    @media only screen and (max-width: $large-xl) {
+      max-height: rem(380px);
+      height: 15.5vw;
+    }
+
+    @media only screen and (max-width: $large) {
+      height: rem(208px);
+    }
+
+    @media only screen and (max-width: $medium) {
+      height: rem(288px);
+    }
+
+    @media only screen and (max-width: $small) {
+      height: rem(190px);
+    }
+  }
+
+  &__image {
+    border-radius: var(--radius-16);
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  &__caption {
+    padding: 0 rem(8px);
+  }
+
+  &__title {
+    font-size: rem(15px);
+    font-weight: 300;
+    color: var(--color-heading);
+    margin-top: rem(16px);
+    margin-bottom: 0;
+  }
+
+  &__client {
+    font-size: rem(14px);
+    color: var(--color-paragraph);
+    display: block;
+    opacity: 0.7;
+  }
 }
