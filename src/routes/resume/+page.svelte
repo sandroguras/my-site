@@ -4,7 +4,7 @@
 	import Timeline from '$lib/components/Timeline/Timeline.svelte';
 	import Skillset from '$lib/components/Skillset/Skillset.svelte';
 
-	export let skills: SkillsetType['skills'] = [
+	let softSkills: SkillsetType['skills'] = [
 		{
 			name: 'Team Coordination'
 		},
@@ -26,6 +26,23 @@
 		{
 			name: 'AI Integration'
 		},
+		{
+			name: 'Jira'
+		},
+		{
+			name: 'ClickUp'
+		},
+		{
+			name: 'Basecamp'
+		},
+		{
+			name: 'Asana'
+		},
+		{
+			name: 'Trello'
+		}
+	];
+	let hardSkills: SkillsetType['skills'] = [
 		{
 			name: 'AWS'
 		},
@@ -73,21 +90,6 @@
 		},
 		{
 			name: 'MongoDB'
-		},
-		{
-			name: 'Jira'
-		},
-		{
-			name: 'ClickUp'
-		},
-		{
-			name: 'Basecamp'
-		},
-		{
-			name: 'Asana'
-		},
-		{
-			name: 'Trello'
 		}
 	];
 	let experience: TimelineType['events'] = [
@@ -143,7 +145,7 @@
 		{
 			id: 2,
 			institution: 'Endava',
-			position: 'Backand Developer',
+			position: 'Backend Developer',
 			period: 'Oct 2013 — Sep 2015',
 			description: '- Backend development utilizing Symfony, MySQL, PostgreSQL, PHPUnit\n' +
 				'Developed solutions for internal company use.'
@@ -168,8 +170,10 @@
 </script>
 
 <section class="skillset">
-	<h2 class="title title--h2 mt-3">My Skills</h2>
-	<Skillset {skills} />
+	<h2 class="title title--h2 mt-3">Soft Skills</h2>
+	<Skillset skills={softSkills} />
+	<h2 class="title title--h2 mt-3">Hard Skills</h2>
+	<Skillset skills={hardSkills} />
 </section>
 
 <!-- Experience -->
