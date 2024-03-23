@@ -54,7 +54,7 @@
 		</div>
 		<div class="separation"></div>
 		<Button isButtonLink={true}
-						link="/contact"
+						link="/David_Guras_resume.pdf"
 						icon="icon-download"
 						text="Download CV"
 						ariaLabel="Download David's resume PDF, 266KB" />
