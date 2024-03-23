@@ -24,7 +24,7 @@ function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
 	);
 }
 
-export const GET: RequestHandler = async () => {
+/*export const GET: RequestHandler = async () => {
 	// Render the contact page for GET requests
 	return new Response(null, {
 		status: 200,
@@ -125,4 +125,4 @@ export const POST: RequestHandler = async ({ request }) => {
 			headers: { 'Content-Type': 'application/json' }
 		});
 	}
-};
+};*/
