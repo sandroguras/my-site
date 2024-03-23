@@ -1,3 +1,4 @@
+/*
 import type { RequestHandler } from '@sveltejs/kit';
 import sanitizeHtml from 'sanitize-html';
 import nodemailer from 'nodemailer';
@@ -23,16 +24,6 @@ function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
 		(typeof obj['error-codes'] === 'undefined' || Array.isArray(obj['error-codes']))
 	);
 }
-
-/*export const GET: RequestHandler = async () => {
-	// Render the contact page for GET requests
-	return new Response(null, {
-		status: 200,
-		headers: {
-			'Content-Type': 'text/html'
-		}
-	});
-};
 
 export const POST: RequestHandler = async ({ request }) => {
 	const formData = await request.json();
@@ -125,4 +116,5 @@ export const POST: RequestHandler = async ({ request }) => {
 			headers: { 'Content-Type': 'application/json' }
 		});
 	}
-};*/
+};
+*/
