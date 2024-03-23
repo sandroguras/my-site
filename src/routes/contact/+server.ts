@@ -1,4 +1,3 @@
-/*
 import type { RequestHandler } from '@sveltejs/kit';
 import sanitizeHtml from 'sanitize-html';
 import nodemailer from 'nodemailer';
@@ -117,4 +116,3 @@ export const POST: RequestHandler = async ({ request }) => {
 		});
 	}
 };
-*/
