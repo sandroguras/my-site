@@ -1,6 +1,5 @@
 <script lang="ts">
   import "../app.scss";
-	import { page } from '$app/stores';
 	import type { NavLink as NavLinkType } from '#types/NavLink';
   import SEO from "$lib/components/SEO.svelte";
   import NavBar from "$lib/components/NavBar.svelte";
@@ -16,7 +15,6 @@
 	]
 </script>
 <svelte:head>
-	<link rel="canonical" href="{`${$page.url.origin}${$page.url.pathname}`}" />
 	<SEO />
 </svelte:head>
 <body>
