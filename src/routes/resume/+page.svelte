@@ -2,7 +2,7 @@
 	import type { Skillset as SkillsetType } from '#types/Skillset';
 	import type { Timeline as TimelineType } from '#types/Timeline';
 	import Timeline from '$lib/components/Timeline/Timeline.svelte';
-	import Skillset from '$lib/components/Skillset/Skillset.svelte';
+	import Skillset from '$lib/components/Skillset.svelte';
 
 	let softSkills: SkillsetType['skills'] = [
 		{
@@ -170,9 +170,9 @@
 </script>
 
 <section class="skillset">
-	<h2 class="title title--h2 mt-3">Soft Skills</h2>
+	<h2 class="title title--h2">Soft Skills</h2>
 	<Skillset skills={softSkills} />
-	<h2 class="title title--h2 mt-3">Hard Skills</h2>
+	<h2 class="title title--h2">Hard Skills</h2>
 	<Skillset skills={hardSkills} />
 </section>
 

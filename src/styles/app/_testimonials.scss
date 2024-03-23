@@ -105,6 +105,27 @@ $size-avatar: rem(80px);
 	margin-bottom: 0;
 }
 
+.thank-you-message {
+	margin: 6rem auto;
+	display: flex;
+	justify-content: center;
+
+
+	@media only screen and (max-width: $small) {
+		margin: 3rem auto;
+	}
+
+	.portrait {
+		font-size: rem(50px);
+		text-align: center;
+
+		@media only screen and (max-width: $small) {
+			font-size: rem(40px);
+		}
+	}
+
+}
+
 /* Carousel pagination */
 // Swiper v11 doesn't support global styling for pagination
 // Static stylesheet at static/styles/swiper-pagination.css is used instead

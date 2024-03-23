@@ -131,16 +131,14 @@
 
 <!-- About -->
 <section class="about">
-	<div class="pb-0 pb-sm-2">
-		<Copy>
-			{@html Introduction.copy}
-		</Copy>
-	</div>
+	<Copy>
+		{@html Introduction.copy}
+	</Copy>
 </section>
 
 <!-- Expertise -->
 <section class="expertise">
-	<h2 class="title title--h2 mt-3">{expertise.heading}</h2>
+	<h2 class="title title--h2">{expertise.heading}</h2>
 	<div class="row">
 		<Expertise expertiseCases={expertise.expertiseCases} />
 	</div>
@@ -148,7 +146,7 @@
 
 <!-- Testimonials -->
 <section class="swiper-testimonials">
-	<h2 class="title title--h2 mt-3">Testimonials</h2>
+	<h2 class="title title--h2">Testimonials</h2>
 	<Carousel
 		swiperId="swiper-testimonials"
 		slides={testimonials}
@@ -161,7 +159,7 @@
 
 <!-- Clients -->
 <section class="swiper-clients">
-	<h2 class="title title--h2 mt-3">Clients</h2>
+	<h2 class="title title--h2">Clients</h2>
 <Carousel
 	swiperId="swiper-clients"
 	slides={clients}
@@ -172,3 +170,15 @@
 	}}
 />
 </section>
+
+<style lang="scss">
+	.about {
+    margin-bottom: 2.5rem;
+	}
+	.expertise {
+		margin-bottom: 1rem;
+	}
+	.swiper-testimonials {
+		margin-bottom: 1rem;
+	}
+</style>

@@ -45,6 +45,14 @@
       width: rem(120px);
     }
   }
+  
+  .copy-box {
+    text-align: center;
+
+    @media only screen and (max-width: $large-xl) {
+      text-align: left;
+    }
+  }
 
   .avatar-box img {
     width: 100%;

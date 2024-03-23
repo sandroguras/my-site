@@ -39,7 +39,7 @@
 				<img src={avatar} alt={personalInfo.name} />
 			</figure>
 
-			<div class="text-xl-center">
+			<div class="copy-box">
 				<h3 class="title title--h3 sidebar__name">{personalInfo.name}</h3>
 				<div class="badge">{personalInfo.role}</div>
 				<!-- Social -->

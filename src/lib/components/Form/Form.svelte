@@ -112,39 +112,31 @@
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group col-12 col-md-12">
-      <textarea
-				class="textarea form-control"
-				id="messageContact"
-				name="messageContact"
-				placeholder="Your Message"
-				rows="4"
-				required
-				bind:value={formData.message}
-				on:input={handleMessageInput}
-				maxlength={maxMessageLength}
-			></textarea>
+					<textarea
+						class="textarea form-control"
+						id="messageContact"
+						name="messageContact"
+						placeholder="Your Message"
+						rows="4"
+						required
+						bind:value={formData.message}
+						on:input={handleMessageInput}
+						maxlength={maxMessageLength}
+					></textarea>
 					<div class="help-block with-errors"></div>
 					<div class="message-length">{messageLength}/{maxMessageLength}</div>
 				</div>
-			</div>
-			<div class="row align-items-center justify-content-between">
-				<div class="col-12 col-md-6 order-1 order-md-1">
+				<div class="col-12 col-md">
 					<div id="h-captcha" data-sitekey={hCaptchaSiteKey}></div>
 				</div>
-				<div class="col-12 col-md-4 order-2">
-					<Button icon="icon-send" text="Send Message"/>
+				<div class="col-12 col-md-4">
+					<Button icon="icon-send" text="Send Message" />
 				</div>
 			</div>
 		</form>
 	</div>
 	<style lang="scss">
     @import '#styles/app/form';
-    .message-length {
-      font-size: 0.8em;
-      color: #888;
-      text-align: right;
-      margin-top: 0.25rem;
-    }
 	</style>
 {:else}
 	<div transition:slide={{duration: 250, delay: 200, easing: sineOut}}>
@@ -161,26 +153,5 @@
 
 	<style lang="scss">
     @import '#styles/app/testimonials';
-
-    .thank-you-message {
-      margin: 6rem auto;
-      display: flex;
-      justify-content: center;
-
-
-      @media only screen and (max-width: $small) {
-        margin: 3rem auto;
-      }
-
-      .portrait {
-        font-size: rem(50px);
-        text-align: center;
-
-        @media only screen and (max-width: $small) {
-          font-size: rem(40px);
-        }
-      }
-
-    }
 	</style>
 {/if}

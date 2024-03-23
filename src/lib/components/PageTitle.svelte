@@ -42,6 +42,6 @@
 	}
 </script>
 
-<div class="pb-3">
+<div class="gutter-bottom--small">
 	<h1 class="title title--h1 title__separate">{pageTitle}</h1>
 </div>

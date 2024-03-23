@@ -94,7 +94,7 @@ h6 {
 	}
 
 	&__separate {
-		margin-bottom: rem(37px);
+		margin-bottom: rem(55px);
 		position: relative;
 
 		&::before {
@@ -108,7 +108,7 @@ h6 {
 		}
 
 		@media only screen and (max-width: $small) {
-			margin-bottom: rem(24px);
+			margin-bottom: rem(40px);
 
 			&::before {
 				height: rem(3px);
