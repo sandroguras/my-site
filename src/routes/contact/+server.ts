@@ -24,12 +24,13 @@ function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
 	);
 }
 
-export const GET: RequestHandler = async ({ request }) => {
-	// Optionally, you can redirect to the page or serve a minimal HTML response
-	// For now, we'll just return a simple JSON response as an example
-	return new Response(JSON.stringify({ message: 'Contact page' }), {
-		status: 200, // OK status
-		headers: { 'Content-Type': 'application/json' }
+export const GET: RequestHandler = async () => {
+	// Render the contact page for GET requests
+	return new Response(null, {
+		status: 200,
+		headers: {
+			'Content-Type': 'text/html'
+		}
 	});
 };
 
