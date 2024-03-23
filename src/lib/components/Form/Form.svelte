@@ -8,9 +8,37 @@
 	let messageLength = 0;
 	const maxMessageLength = 500;
 
+	function handleNameInput(event: Event) {
+		const target = event.target as HTMLInputElement;
+		let inputValue = target.value;
+
+		// Check if the entire input is just spaces and there's no non-space character
+		if (inputValue.trim().length === 0 && inputValue.length > 0) {
+			// If there are only spaces (and possibly the input was spaces before),
+			// keep the current value without adding more spaces.
+			// This condition prevents adding more spaces if there's no non-space character yet.
+			formData.name = formData.name.trimEnd();
+		} else {
+			// Allow the input if it's not only spaces or if there's at least one non-space character
+			formData.name = inputValue; // No need to slice since we don't have a max length defined here
+		}
+	}
+
 	function handleMessageInput(event: Event) {
 		const target = event.target as HTMLTextAreaElement;
-		formData.message = target.value.slice(0, maxMessageLength);
+		let inputValue = target.value;
+
+		// Check if the entire input is just spaces and there's no non-space character
+		if (inputValue.trim().length === 0 && inputValue.length > 0) {
+			// If there are only spaces (and possibly the input was spaces before),
+			// keep the current value without adding more spaces.
+			// This condition prevents adding more spaces if there's no non-space character yet.
+			formData.message = formData.message.trimEnd();
+		} else {
+			// Allow the input if it's not only spaces or if there's at least one non-space character
+			formData.message = inputValue.slice(0, maxMessageLength);
+		}
+
 		messageLength = formData.message.length;
 	}
 
@@ -42,6 +70,21 @@
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
 
+		formData.name = formData.name.trim();
+		formData.message = formData.message.trim();
+
+		// Check if the name or message is empty after trimming and handle it appropriately
+		if (!formData.name) {
+			console.error('The name cannot be empty.');
+			return; // Prevent form submission if the name is empty
+		}
+
+		// Check if the message is empty after trimming and handle it appropriately
+		if (!formData.message) {
+			console.error('The message cannot be empty.');
+			return; // Prevent form submission if the message is empty
+		}
+
 		if (typeof window !== 'undefined' && window.hcaptcha) {
 			// Get the hCaptcha response (token)
 			const token = window.hcaptcha.getResponse();
@@ -53,7 +96,7 @@
 
 			formData.token = token;
 
-			// Your endpoint here
+			// Endpoint here for form submission
 			const response = await fetch('/contact', {
 				method: 'POST',
 				headers: {
@@ -95,6 +138,7 @@
 						required
 						autocomplete="on"
 						bind:value={formData.name}
+						on:input={handleNameInput}
 					/>
 					<div class="help-block with-errors"></div>
 				</div>
