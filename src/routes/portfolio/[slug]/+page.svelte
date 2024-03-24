@@ -4,12 +4,6 @@
 	import Copy from '$lib/components/Copy.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 
-	const backButtonProps = {
-		link: '/portfolio',
-		glyph: 'feathericon-arrow-left',
-		text: 'Back to Portfolio'
-	};
-
 	const project = {
 		title: 'Moonboard – Admin Dashboard & <br>UI Kit + Charts Kit',
 		cover: '/images/280x204.jpg',
@@ -67,7 +61,7 @@
 </script>
 
 <article class="project">
-	<a class="btn-back" href={backButtonProps.link}><i class={backButtonProps.glyph}></i>{backButtonProps.text}</a>
+	<a class="btn-back" href="/portfolio"><i class="feathericon-arrow-left"></i>Back to Portfolio</a>
 
 	<header class="header-project">
 		<h1 class="title title--h1">{@html project.title}</h1>
@@ -101,7 +95,7 @@
 		centeredSlides={true}
 		speed={300}
 		breakpoints={{
-			580: { slidesPerView: 'auto', spaceBetween: 20 },
+			580: { slidesPerView: 'auto', spaceBetween: 20 }
 		}}
 	/>
 </article>
