@@ -2,68 +2,195 @@ import type { PortfolioProject } from '#types/PortfolioProject';
 
 const mockData: PortfolioProject[] = [
 	{
-		name: 'Bullish Exchange',
 		slug: 'bullish-exchange',
-		company: 'Bullish group',
-		thumbnail: '/images/bullish-website.webp',
+		listName: 'bullish.com',
+		pageTitle: '<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View Bullish Exchange website">bullish.com</a>',
+		coverImage: '/images/portfolio/bullish/bullish-cover-image.webp',
+		coverImageAlt: 'Bullish Exchange website',
+		thumbnail: '/images/portfolio/bullish/bullish-thumb.webp',
 		thumbnailAlt: 'Bullish Exchange logo',
-		date: '2021-07-01',
+		infoBlocks: [
+			{
+				icon: 'feathericon-user',
+				title: 'Client',
+				content: 'Bullish Exchange'
+			},
+			{
+				icon: 'icon-calendar',
+				title: 'Date',
+				content: '2022-08-02'
+			}
+		],
 		images: [
 			{
-				src: '/images/bullish-website.webp',
-				alt: 'Bullish Exchange website logo '
+				src: '/images/portfolio/bullish/bullish.com_screen_1.webp',
+				alt: 'Bullish website landing page hero section'
+			},
+			{
+				src: '/images/portfolio/bullish/bullish.com_screen_2.webp',
+				alt: 'Bullish website spot trading section'
+			},
+			{
+				src: '/images/portfolio/bullish/bullish.com_screen_3.webp',
+				alt: 'Bullish website products page hero section'
+			},
+			{
+				src: '/images/portfolio/bullish/bullish.com_screen_4.webp',
+				alt: 'Bullish website global presence section'
+			},
+			{
+				src: '/images/portfolio/bullish/bullish.com_screen_5.webp',
+				alt: 'Bullish website largest markets section'
+			},
+			{
+				src: '/images/portfolio/bullish/bullish.com_screen_6.webp',
+				alt: 'Bullish website digital assets Bitcoin page'
+			},
+			{
+				src: '/images/portfolio/bullish/bullish.com_screen_7.webp',
+				alt: 'Bullish website global presence section'
+			},
+			{
+				src: '/images/portfolio/bullish/bullish.com_screen_8.webp',
+				alt: 'Bullish website top 5 trading venue section'
 			}
 		],
 		description:
-			'Bullish is a new cryptocurrency exchange platform that leverages the EOSIO blockchain technology. The website is built using modern web technologies and is optimized for performance and user experience.'
+			'<p>Bullish is a new cryptocurrency exchange platform that leverages the EOSIO blockchain technology.</p>' +
+			'<p>The website is built using modern web technologies and is optimized for performance and user experience.</p>'
 	},
 	{
-		name: 'EOSIO',
 		slug: 'eosio',
-		company: 'Block.one',
-		thumbnail: '/images/eosio-website.webp',
+		listName: 'eos.io',
+		pageTitle: '<a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View EOSIO website">eos.io</a>',
+		coverImage: '/images/portfolio/eosio/eos.io_screen_1.webp',
+		coverImageAlt: 'EOSIO website',
+		thumbnail: '/images/portfolio/eosio/eosio-thumb.webp',
 		thumbnailAlt: 'EOSIO website logo',
-		date: '2021-06-01',
+		infoBlocks: [
+			{
+				icon: 'feathericon-user',
+				title: 'Client',
+				content: 'Block.one'
+			},
+			{
+				icon: 'icon-calendar',
+				title: 'Date',
+				content: '2021-02-02'
+			}
+		],
 		images: [
 			{
-				src: '/images/eosio-website.webp',
-				alt: 'EOSIO website'
+				src: '/images/portfolio/eosio/eos.io_screen_1.webp',
+				alt: 'EOSIO website main hero'
+			},
+			{
+				src: '/images/portfolio/eosio/eos.io_screen_2.webp',
+				alt: 'EOSIO website mega menu'
+			},
+			{
+				src: '/images/portfolio/eosio/eos.io_screen_3.webp',
+				alt: 'EOSIO website Event page hero'
+			},
+			{
+				src: '/images/portfolio/eosio/eos.io_screen_4.webp',
+				alt: 'EOSIO website For Developers hero'
+			},
+			{
+				src: '/images/portfolio/eosio/eos.io_screen_5.webp',
+				alt: 'EOSIO website News page'
+			},
+			{
+				src: '/images/portfolio/eosio/eos.io_screen_6.webp',
+				alt: 'EOSIO website Training & Certification hero'
+			},
+			{
+				src: '/images/portfolio/eosio/eos.io_screen_7.webp',
+				alt: 'EOSIO website Info Blocks section'
+			},
+			{
+				src: '/images/portfolio/eosio/eos.io_screen_8.webp',
+				alt: 'EOSIO website Why EOSIO slider section'
 			}
 		],
 		description:
-			'EOSIO is a blockchain protocol that enables horizontal scaling of decentralized applications, allowing developers to efficiently create high performance applications. The website provides information about the protocol and its features.'
+			'<p>EOSIO is a blockchain protocol that enables horizontal scaling of decentralized applications, allowing developers to efficiently create high performance applications.</p>' +
+			'<p>The website provides information about the protocol and its features.</p>'
 	},
 	{
-		name: 'b1 Corporate',
-		slug: 'b1-corporate-site',
-		company: 'Block.one',
-		thumbnail: '/images/b1-website.webp',
+		slug: 'b1',
+		listName: 'b1.com',
+		pageTitle: '<a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View EOSIO website">b1.com</a>',
+		coverImage: '/images/portfolio/b1/b1-cover-image.webp',
+		coverImageAlt: 'Block.one corporate website',
+		thumbnail: '/images/portfolio/b1/b1-thumb.webp',
 		thumbnailAlt: 'b1 website logo',
-		date: '2021-05-01',
+		infoBlocks: [
+			{
+				icon: 'feathericon-user',
+				title: 'Client',
+				content: 'Block.one'
+			},
+			{
+				icon: 'icon-calendar',
+				title: 'Date',
+				content: '2021-05-01'
+			}
+		],
 		images: [
+			{
+				src: '/images/b1-website.webp',
+				alt: 'b1 Corporate website'
+			},
+			{
+				src: '/images/b1-website.webp',
+				alt: 'b1 Corporate website'
+			},
 			{
 				src: '/images/b1-website.webp',
 				alt: 'b1 Corporate website'
 			}
 		],
 		description:
-			'Block.one is a software company specializing in high performance blockchain technologies. The corporate website provides information about the company, its products and services.'
+			'<p>Block.one is a software company specializing in high performance blockchain technologies.</p>' +
+			'<p>The corporate website provides information about the company, its products and services.</p>'
 	},
 	{
-		name: 'Voice.com',
 		slug: 'voice',
-		company: 'Block.one',
+		listName: 'Voice.com',
+		pageTitle: 'Voice.com | Portfolio | Web Development | Web Design',
+		coverImage: '/images/voice-website.webp',
+		coverImageAlt: 'Voice.com Website',
 		thumbnail: '/images/voice-website.webp',
 		thumbnailAlt: 'Voice website logo',
-		date: '2021-04-01',
+		infoBlocks: [
+			{
+				icon: 'feathericon-user',
+				title: 'Client',
+				content: 'Block.one'
+			},
+			{
+				icon: 'icon-calendar',
+				title: 'Date',
+				content: '2021-04-01'
+			}
+		],
 		images: [
+			{
+				src: '/images/voice-website.webp',
+				alt: 'Voice.com website'
+			},
+			{
+				src: '/images/voice-website.webp',
+				alt: 'Voice.com website'
+			},
 			{
 				src: '/images/voice-website.webp',
 				alt: 'Voice.com website'
 			}
 		],
 		description:
-			'Voice is a blockchain-based social media platform that redefines social media by putting control back into the hands of users. The website provides information about the platform and its features.'
+			'<p>Voice is a blockchain-based social media platform that redefines social media by putting control back into the hands of users. The website provides information about the platform and its features.</p>'
 	}
 ];
 

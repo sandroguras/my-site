@@ -3,28 +3,13 @@
 	import { browser } from '$app/environment';
 	import { scale } from 'svelte/transition'
 	import { sineOut } from 'svelte/easing'
+	import { formatDate } from '$lib/utils/dateUtils';
 	import type { ReviewData as ReviewDataType } from '#types/Carousel';
 	export let showModal: boolean = false;
 	export let modalData: ReviewDataType;
 	export let modalIndex: number;
 	export let closeModal: () => void;
 	let originalOverflow: string;
-
-	function formatDate(dateStr: string): string {
-		const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-		try {
-			const date = new Date(dateStr);
-			if (!isNaN(date.getTime())) { // Check if date is valid
-				return new Intl.DateTimeFormat('en-US', options).format(date);
-			} else {
-				console.error(`Invalid date: ${dateStr}`);
-				return 'Invalid date'; // Or return a default/fallback date string
-			}
-		} catch (e) {
-			console.error(`Error formatting date: ${dateStr}`, e);
-			return 'Error formatting date'; // Or return a default/fallback date string
-		}
-	}
 
 	function handleClickOutside(event: MouseEvent): void {
 		// Close the modal if the click occurred outside the modal content
