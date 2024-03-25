@@ -46,7 +46,7 @@
 	const testimonials: ReviewDataType[] = [
 		{
 			name: 'Chris Bartlett',
-			image: './images/avatar-4.png',
+			image: './images/testimonials/Chris_B.webp',
 			imageAlt: 'Chris Bartlett',
 			shortCopy:
 				'It has been an absolute pleasure in working for David at Bullishfor the last two years...',
@@ -65,7 +65,7 @@
 		},
 		{
 			name: 'Alex Radulescu',
-			image: './images/avatar-2.png',
+			image: './images/testimonials/Alex_R.webp',
 			imageAlt: 'Alex Radulescu',
 			shortCopy:
 				'It has been a pleasure working with David and I strongly recommend him....',
@@ -77,7 +77,7 @@
 		},
 		{
 			name: 'Mike Dulik',
-			image: './images/avatar-3.png',
+			image: './images/testimonials/Mike_D.webp',
 			imageAlt: 'Mike Dulik',
 			shortCopy:
 				'I had the pleasure of working alongside Dave as a web developer at Grafik...',
@@ -86,7 +86,7 @@
 		},
 		{
 			name: 'Simion Nacu',
-			image: './images/avatar-4.png',
+			image: './images/testimonials/Simion_N.webp',
 			imageAlt: 'Simion Nacu',
 			shortCopy:
 				' I\'ve had the opportunity to work with David, for about six years...',
