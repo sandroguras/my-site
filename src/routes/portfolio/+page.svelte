@@ -16,8 +16,7 @@
 					<img class="gallery-grid__image cover" src={project.thumbnail} alt={project.thumbnailAlt} />
 				</div>
 				<div class="gallery-grid__caption">
-					<h3 class="title gallery-grid__title">{project.name}</h3>
-					<!--<span class="gallery-grid__client">{project.company}</span>-->
+					<h3 class="title gallery-grid__title">{project.listName}</h3>
 				</div>
 			</a>
 		</div>

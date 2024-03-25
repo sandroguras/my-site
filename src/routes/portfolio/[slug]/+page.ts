@@ -1,13 +1,14 @@
 import type { PageLoad } from './$types';
+import { fetchProjectDataBySlug } from '$lib/data/portfolioData';
 
 export const load: PageLoad = async ({ params }) => {
-	const slugs: string[] = ['bullish-exchange', 'eosio', 'b1-corporate', 'voice'];
-
 	const { slug } = params;
 
-	if (!slugs.includes(slug)) {
+	const project = fetchProjectDataBySlug(slug);
+
+	if (!project) {
 		throw new Error('Invalid slug');
 	}
 
-	return {};
+	return { project };
 };

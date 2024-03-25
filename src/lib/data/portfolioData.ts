@@ -139,17 +139,29 @@ const mockData: PortfolioProject[] = [
 		],
 		images: [
 			{
-				src: '/images/b1-website.webp',
-				alt: 'b1 Corporate website'
+				src: '/images/portfolio/b1/b1.com_screen_1.webp',
+				alt: 'b1 website main hero'
 			},
 			{
-				src: '/images/b1-website.webp',
-				alt: 'b1 Corporate website'
+				src: '/images/portfolio/b1/b1.com_screen_2.webp',
+				alt: 'b1 website Architect Integrity section'
 			},
 			{
-				src: '/images/b1-website.webp',
-				alt: 'b1 Corporate website'
-			}
+				src: '/images/portfolio/b1/b1.com_screen_3.webp',
+				alt: 'b1 website leadership page'
+			},
+			{
+				src: '/images/portfolio/b1/b1.com_screen_4.webp',
+				alt: 'b1 website portfolio page'
+			},
+			{
+				src: '/images/portfolio/b1/b1.com_screen_5.webp',
+				alt: 'b1 website portfolio page item'
+			},
+			{
+				src: '/images/portfolio/b1/b1.com_screen_6.webp',
+				alt: 'b1 website contact page'
+			},
 		],
 		description:
 			'<p>Block.one is a software company specializing in high performance blockchain technologies.</p>' +
