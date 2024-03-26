@@ -2,13 +2,13 @@ import type { PortfolioProject } from '#types/PortfolioProject';
 
 const mockData: PortfolioProject[] = [
 	{
-		slug: 'bullish-exchange',
+		slug: 'bullish',
 		listName: 'bullish.com',
-		pageTitle: '<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View Bullish Exchange website">bullish.com</a>',
+		pageTitle: '<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">bullish.com</a>',
 		coverImage: '/images/portfolio/bullish/bullish-cover-image.webp',
-		coverImageAlt: 'Bullish Exchange website',
+		coverImageAlt: 'bullish.com cover image',
 		thumbnail: '/images/portfolio/bullish/bullish-thumb.webp',
-		thumbnailAlt: 'Bullish Exchange logo',
+		thumbnailAlt: 'bullish.com thumbnail',
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -62,11 +62,11 @@ const mockData: PortfolioProject[] = [
 	{
 		slug: 'eosio',
 		listName: 'eos.io',
-		pageTitle: '<a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View EOSIO website">eos.io</a>',
-		coverImage: '/images/portfolio/eosio/eos.io_screen_1.webp',
-		coverImageAlt: 'EOSIO website',
+		pageTitle: '<a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a>',
+		coverImage: '/images/portfolio/eosio/eosio-cover-image.webp',
+		coverImageAlt: 'eos.io cover image',
 		thumbnail: '/images/portfolio/eosio/eosio-thumb.webp',
-		thumbnailAlt: 'EOSIO website logo',
+		thumbnailAlt: 'eos.io thumbnail',
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -118,13 +118,13 @@ const mockData: PortfolioProject[] = [
 			'<p>The website provides information about the protocol and its features.</p>'
 	},
 	{
-		slug: 'b1',
-		listName: 'b1.com',
-		pageTitle: '<a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View EOSIO website">b1.com</a>',
+		slug: 'blockone',
+		listName: 'block.one',
+		pageTitle: '<a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View block.one website">b1.com</a>',
 		coverImage: '/images/portfolio/b1/b1-cover-image.webp',
-		coverImageAlt: 'Block.one corporate website',
+		coverImageAlt: 'block.one cover image',
 		thumbnail: '/images/portfolio/b1/b1-thumb.webp',
-		thumbnailAlt: 'b1 website logo',
+		thumbnailAlt: 'block.one thumbnail',
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -134,7 +134,7 @@ const mockData: PortfolioProject[] = [
 			{
 				icon: 'icon-calendar',
 				title: 'Date',
-				content: '2021-05-01'
+				content: '2021-07-10'
 			}
 		],
 		images: [
@@ -169,12 +169,12 @@ const mockData: PortfolioProject[] = [
 	},
 	{
 		slug: 'voice',
-		listName: 'Voice.com',
-		pageTitle: 'Voice.com | Portfolio | Web Development | Web Design',
-		coverImage: '/images/voice-website.webp',
-		coverImageAlt: 'Voice.com Website',
-		thumbnail: '/images/voice-website.webp',
-		thumbnailAlt: 'Voice website logo',
+		listName: 'voice.com',
+		pageTitle: '<a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View voice.com website">voice.com</a>',
+		coverImage: '/images/portfolio/voice/voice-cover-image.webp',
+		coverImageAlt: 'voice.com cover image',
+		thumbnail: '/images/portfolio/voice/voice-thumb.webp',
+		thumbnailAlt: 'voice.com thumbnail',
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -189,17 +189,37 @@ const mockData: PortfolioProject[] = [
 		],
 		images: [
 			{
-				src: '/images/voice-website.webp',
+				src: '/images/portfolio/voice/voice.com_screen_1.webp',
 				alt: 'Voice.com website'
 			},
 			{
-				src: '/images/voice-website.webp',
+				src: '/images/portfolio/voice/voice.com_screen_2.webp',
 				alt: 'Voice.com website'
 			},
 			{
-				src: '/images/voice-website.webp',
+				src: '/images/portfolio/voice/voice.com_screen_3.webp',
 				alt: 'Voice.com website'
-			}
+			},
+			{
+				src: '/images/portfolio/voice/voice.com_screen_4.webp',
+				alt: 'Voice.com website'
+			},
+			{
+				src: '/images/portfolio/voice/voice.com_screen_5.webp',
+				alt: 'Voice.com website'
+			},
+			{
+				src: '/images/portfolio/voice/voice.com_screen_6.webp',
+				alt: 'Voice.com website'
+			},
+			{
+				src: '/images/portfolio/voice/voice.com_screen_7.webp',
+				alt: 'Voice.com website'
+			},
+			{
+				src: '/images/portfolio/voice/voice.com_screen_8.webp',
+				alt: 'Voice.com website'
+			},
 		],
 		description:
 			'<p>Voice is a blockchain-based social media platform that redefines social media by putting control back into the hands of users. The website provides information about the platform and its features.</p>'
