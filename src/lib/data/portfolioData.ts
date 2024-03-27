@@ -3,9 +3,9 @@ import type { PortfolioProject } from '#types/PortfolioProject';
 const mockData: PortfolioProject[] = [
 	{
 		slug: 'bullish',
-		listName: 'bullish.com',
+		listName: 'BULLISH.COM',
 		pageTitle:
-			'<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">bullish.com</a>',
+			'<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a>',
 		coverImage: '/images/portfolio/bullish/bullish-cover-image.webp',
 		coverImageAlt: 'bullish.com cover image',
 		thumbnail: '/images/portfolio/bullish/bullish-thumb.webp',
@@ -57,7 +57,7 @@ const mockData: PortfolioProject[] = [
 			}
 		],
 		description:
-			'<p>The <a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">bullish.com</a> website project was focused on developing a marketing platform for a cryptocurrency exchange. As the web director, I spearheaded the project from its inception, taking charge of the architecture planning and initial code layout. The initial phase began with a simple content management system (CMS), which I helped scale into a more comprehensive web multi-system to meet the specialized needs of marketing a crypto exchange. I worked closely with the team to design a flexible system that allowed the marketing team to swiftly adapt content, launch new campaigns, and introduce pages that could engage and inform users about the exchange\'s features and benefits. This level of adaptability was crucial for staying competitive in the fast-paced world of cryptocurrency trading.</p>\n' +
+			'<p>The <a href="https://BULLISH.COM" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">bullish.com</a> website project was focused on developing a marketing platform for a cryptocurrency exchange. As the web director, I spearheaded the project from its inception, taking charge of the architecture planning and initial code layout. The initial phase began with a simple content management system (CMS), which I helped scale into a more comprehensive web multi-system to meet the specialized needs of marketing a crypto exchange. I worked closely with the team to design a flexible system that allowed the marketing team to swiftly adapt content, launch new campaigns, and introduce pages that could engage and inform users about the exchange\'s features and benefits. This level of adaptability was crucial for staying competitive in the fast-paced world of cryptocurrency trading.</p>\n' +
 			'\n' +
 			'<p>In my role as the project lead, I oversaw a team of six developers located in different regions. This setup presented unique challenges in terms of coordination and maintaining a cohesive workflow. Our key objectives were ensuring timely delivery, managing stakeholder expectations, and driving the development process forward while adhering to high coding standards. To meet these goals, I focused on efficient project management practices, such as using Jira for task tracking and fostering a culture of regular code reviews to maintain code quality and facilitate feature development.</p>\n' +
 			'\n' +
@@ -65,13 +65,13 @@ const mockData: PortfolioProject[] = [
 	},
 	{
 		slug: 'eosio',
-		listName: 'eos.io',
+		listName: 'EOS.IO',
 		pageTitle:
-			'<a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a>',
+			'<a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">EOS.IO</a>',
 		coverImage: '/images/portfolio/eosio/eosio-cover-image.webp',
-		coverImageAlt: 'eos.io cover image',
+		coverImageAlt: 'EOS.IO cover image',
 		thumbnail: '/images/portfolio/eosio/eosio-thumb.webp',
-		thumbnailAlt: 'eos.io thumbnail',
+		thumbnailAlt: 'EOS.IO thumbnail',
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -118,25 +118,26 @@ const mockData: PortfolioProject[] = [
 				alt: 'EOSIO website Why EOSIO slider section'
 			}
 		],
-		description: '<p>As the web director for the <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> website project, I played a key role in overseeing the site\'s development and evolution throughout its four-year lifecycle. The project aimed to create a robust marketing platform for the EOS blockchain, a cutting-edge, open-source platform renowned for its industry-leading transaction speed and versatile utility. <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> was engineered to support enterprise-grade use cases and cater to both public and private blockchain deployments.</p>\n' +
+		description:
+			'<p>As the web director for the <a href="https://EOS.IO" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">EOS.IO</a> website project, I oversaw the site\'s development and evolution throughout its lifecycle. The project aimed to create a robust marketing platform for the cutting-edge EOS blockchain, supporting enterprise-grade use cases and both public and private deployments.</p>\n' +
 			'\n' +
-			'<p>I spearheaded the team through three significant visual iterations of the site, each designed to optimize user experience and align with the evolving needs of the <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> platform. My team and I diligently supported the ongoing marketing campaigns and site extensions necessary to maintain the platform\'s competitiveness in the rapidly advancing world of blockchain technology.</p>\n' +
+			"<p>I led the team through three significant visual iterations, each optimizing user experience and aligning with the platform's evolving needs. We diligently supported ongoing marketing campaigns and site extensions to maintain competitiveness in the rapidly advancing blockchain technology world.</p>\n" +
 			'\n' +
-			'<p>One of the key features I directed was the development of a powerful section constructor system. This system enabled marketing professionals and content editors to swiftly scaffold new pages on the fly, providing them with the agility to adapt to the industry\'s ever-changing demands. Additionally, I implemented a 3-stage deployment system that allowed for seamless deployments and staging of information, which decreased deploy speeds to mere seconds. This feature was pivotal in ensuring that the <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> site remained responsive and nimble in delivering pertinent content to its users.</p>\n' +
+			'<p>Key features I directed included a powerful section constructor system, enabling swift scaffolding of new pages, and a 3-stage deployment system that allowed seamless deployments and staging of information, decreasing deploy speeds to mere seconds. These features ensured the site remained responsive and nimble in delivering pertinent content.</p>\n' +
 			'\n' +
-			'<p>Given the delicate nature of the blockchain industry, security was of paramount importance. I prioritized maintaining a robust security framework for the <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> site. My team and I implemented rigorous security measures and regularly conducted audits to identify and address any potential vulnerabilities. We collaborated closely with the <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> security team to ensure that the site met the highest standards of data protection and user privacy.</p>\n' +
+			"<p>Given the blockchain industry's delicate nature, security was paramount. I prioritized maintaining a robust security framework, implementing rigorous measures and conducting regular audits. We collaborated closely with the EOS.IO security team to ensure the highest standards of data protection and user privacy.</p>\n" +
 			'\n' +
-			'<p>The <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> website project demonstrated my ability to lead a team in delivering a high-performing, secure, and user-centric platform. By combining my technical expertise with strong leadership skills, I successfully navigated the complexities of the project and delivered a website that effectively promoted the <a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">eos.io</a> blockchain platform and positioned it as a leader in the industry.</p>'
+			'<p>The <a href="https://EOS.IO" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">EOS.IO</a> website project demonstrated my ability to lead a team in delivering a high-performing, secure, and user-centric platform. By combining technical expertise with strong leadership skills, I successfully navigated complexities and delivered a website that effectively promoted the EOS.IO blockchain platform, positioning it as an industry leader.</p>'
 	},
 	{
 		slug: 'blockone',
-		listName: 'block.one',
+		listName: 'BLOCK.ONE',
 		pageTitle:
-			'<a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View block.one website">b1.com</a>',
+			'<a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View block.one website">BLOCK.ONE</a>',
 		coverImage: '/images/portfolio/b1/b1-cover-image.webp',
-		coverImageAlt: 'block.one cover image',
+		coverImageAlt: 'BLOCK.ONE cover image',
 		thumbnail: '/images/portfolio/b1/b1-thumb.webp',
-		thumbnailAlt: 'block.one thumbnail',
+		thumbnailAlt: 'BLOCK.ONE thumbnail',
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -176,8 +177,11 @@ const mockData: PortfolioProject[] = [
 			}
 		],
 		description:
-			'<p>Block.one is a software company specializing in high performance blockchain technologies.</p>' +
-			'<p>The corporate website provides information about the company, its products and services.</p>'
+			'<p>As the web director for the <a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View BLOCK.ONE website">B1.COM</a> website project, I oversaw the site\'s development and managed two visual iterations. I implemented a 3-stage deployment system that enabled continuous development and rapid deployments.</p>\n' +
+			'\n' +
+			"<p>In the site's current iteration, I led a team that delivered the final product in just three days, collaborating with two outsourced agencies. This swift turnaround showcased my ability to effectively manage resources and maintain a high pace of development without compromising quality.</p>\n" +
+			'\n' +
+			"<p>Throughout the project, I provided ongoing support and maintenance to ensure the site's optimal performance and user experience. By combining my technical expertise with strong project management skills, I successfully delivered a website that met the client's requirements and positioned B1.com for success in its industry.</p>"
 	},
 	{
 		slug: 'voice',
@@ -197,45 +201,49 @@ const mockData: PortfolioProject[] = [
 			{
 				icon: 'icon-calendar',
 				title: 'Date',
-				content: '2021-04-01'
+				content: '2020-01-02'
 			}
 		],
 		images: [
 			{
 				src: '/images/portfolio/voice/voice.com_screen_1.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription landing page'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_2.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription landing page Now the fun part section'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_3.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription landing page You pocket the reward section'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_4.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription landing page Collect you Voice section'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_5.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription Get posting page'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_6.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription Get to Know Voice page'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_7.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription Blog page'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_8.webp',
-				alt: 'Voice.com website'
+				alt: 'Voice.com beta subscription Blog page'
 			}
 		],
 		description:
-			'<p>Voice is a blockchain-based social media platform that redefines social media by putting control back into the hands of users. The website provides information about the platform and its features.</p>'
+			'<p>As the web director for the <a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View VOICE.COM website">VOICE.COM</a> beta subscription website project, I oversaw the development and maintenance of the site.</p>\n' +
+			'\n' +
+			'<p>Throughout the project, I focused on ensuring the site\'s optimal performance, security, and user experience. I worked closely with the BLOCKONE\'s marketing team to implement necessary updates and enhancements to keep the website running smoothly.</p>\n' +
+			'\n' +
+			'<p>By leveraging my technical expertise and project management skills, I successfully delivered a stable and user-friendly website that supported product\'s online presence and goals. My role in the project demonstrated my ability to maintain and optimize a website to ensure its continued success.</p>'
 	}
 ];
 
