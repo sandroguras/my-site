@@ -1,4 +1,4 @@
-import { error, json } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import sanitizeHtml from 'sanitize-html';
 import nodemailer from 'nodemailer';
@@ -34,7 +34,7 @@ export const actions: Actions = {
 		const token = formData.get('token');
 
 		if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string' || typeof token !== 'string') {
-			throw error(400, { message: 'Form data validation failed' });
+			return fail(400, { message: 'Form data validation failed' });
 		}
 
 		// Truncate message if it exceeds the maximum allowed length
@@ -50,7 +50,7 @@ export const actions: Actions = {
 
 		const secretKey = process.env.HCAPTCHA_SECRET_KEY;
 		if (!secretKey) {
-			throw error(500, { message: 'hCaptcha secret key is missing' });
+			return fail(500, { message: 'hCaptcha secret key is missing' });
 		}
 
 		const verificationResponse = await fetch('https://hcaptcha.com/siteverify', {
@@ -67,12 +67,12 @@ export const actions: Actions = {
 		const verificationResult = await verificationResponse.json();
 
 		if (!isHCaptchaVerifyResponse(verificationResult)) {
-			throw error(500, { message: 'Invalid hCaptcha verification response' });
+			return fail(500, { message: 'Invalid hCaptcha verification response' });
 		}
 
 		if (!verificationResult.success) {
 			// Respond with an error if hCaptcha verification fails
-			return json({ message: 'hCaptcha verification failed' }, { status: 400 });
+			return fail(400, { message: 'hCaptcha verification failed' });
 		}
 
 		// Configure Gmail SMTP server details
@@ -99,10 +99,10 @@ export const actions: Actions = {
 		try {
 			// Send the email
 			await transporter.sendMail(mailOptions);
-			return json({ message: 'Email sent successfully' });
+			return { message: 'Email sent successfully' };
 		} catch (err) {
 			console.error('Error sending email:', err);
-			throw error(500, { message: 'Error sending email' });
+			return fail(500, { message: 'Error sending email' });
 		}
 	}
 };

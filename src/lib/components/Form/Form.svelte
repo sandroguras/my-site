@@ -96,13 +96,17 @@
 
 			formData.token = token;
 
+			// Create a new FormData object
+			const formDataToSend = new FormData();
+			formDataToSend.append('name', formData.name);
+			formDataToSend.append('email', formData.email);
+			formDataToSend.append('message', formData.message);
+			formDataToSend.append('token', formData.token);
+
 			// Endpoint here for form submission
 			const response = await fetch('/contact', {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(formData)
+				body: formDataToSend
 			});
 
 			if (response.ok) {
