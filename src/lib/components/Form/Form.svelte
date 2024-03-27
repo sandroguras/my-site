@@ -2,11 +2,16 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { sineOut } from 'svelte/easing';
+	import DOMPurify from 'dompurify';
 	import Button from '$lib/components/Button.svelte';
 
 	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
 	let messageLength = 0;
 	const maxMessageLength = 500;
+
+	function sanitize(dirty: string): string {
+		return DOMPurify.sanitize(dirty);
+	}
 
 	function handleNameInput(event: Event) {
 		const target = event.target as HTMLInputElement;
@@ -19,8 +24,8 @@
 			// This condition prevents adding more spaces if there's no non-space character yet.
 			formData.name = formData.name.trimEnd();
 		} else {
-			// Allow the input if it's not only spaces or if there's at least one non-space character
-			formData.name = inputValue; // No need to slice since we don't have a max length defined here
+			// Sanitize the input value
+			formData.name = sanitize(inputValue);
 		}
 	}
 
@@ -36,7 +41,7 @@
 			formData.message = formData.message.trimEnd();
 		} else {
 			// Allow the input if it's not only spaces or if there's at least one non-space character
-			formData.message = inputValue.slice(0, maxMessageLength);
+			formData.message = sanitize(inputValue.slice(0, maxMessageLength)); // Sanitize the input value
 		}
 
 		messageLength = formData.message.length;
