@@ -34,12 +34,6 @@
 		{/each}
 	</section>
 
-	<section class="project-copy">
-		<Copy>
-			{@html project.description}
-		</Copy>
-	</section>
-
 	<Carousel
 		swiperId="swiper-gallery"
 		slidesPerView='auto'
@@ -50,8 +44,15 @@
 			580: { slidesPerView: 'auto', spaceBetween: 20 }
 		}}
 	/>
+
+	<section class="project-copy">
+		<Copy>
+			{@html project.description}
+		</Copy>
+	</section>
+
 </article>
 
 <style lang="scss">
-  @import "#styles/app/single-project";
+    @import "#styles/app/single-project";
 </style>
