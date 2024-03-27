@@ -7,20 +7,24 @@ import type { RequestHandler } from '@sveltejs/kit';
  * @returns {Response} - The response object containing the XML sitemap.
  */
 export const GET: RequestHandler = async ({ request }) => {
-	const protocol = 'https';
-	const host = request.headers.get('host') || 'davidguras.dev';
+	try {
+		const protocol = import.meta.env.VITE_SITE_PROTOCOL || 'https';
+		const host = request.headers.get('host') || import.meta.env.VITE_SITE_HOST || 'davidguras.dev';
 
-	// List of paths for website
-	const pages: string[] = [
-		'/',
-		'/resume',
-		'/portfolio',
-		'/contact'
-		// Add more page paths as needed
-	];
+		// ToDo Fetch paths dynamically
+		const dynamicPages = [];
+		const pages: string[] = [
+			'/',
+			'/resume',
+			'/portfolio',
+			'/portfolio/bullish',
+			'/portfolio/eosio',
+			'/portfolio/blockone',
+			'/portfolio/voice',
+			'/contact'
+		];
 
-	// Generate the XML content
-	const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+		const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages
 	.map(
@@ -34,9 +38,15 @@ ${pages
 	.join('\n')}
 </urlset>`;
 
-	return new Response(xmlContent, {
-		headers: {
-			'Content-Type': 'application/xml'
-		}
-	});
+		return new Response(xmlContent, {
+			headers: {
+				'Content-Type': 'application/xml',
+				'Cache-Control': 'public, max-age=86400' // Adjust caching as needed
+			}
+		});
+	} catch (error) {
+		console.error('Error generating sitemap:', error);
+		// Return a basic error
+		return new Response('Internal Server Error', { status: 500 });
+	}
 };
