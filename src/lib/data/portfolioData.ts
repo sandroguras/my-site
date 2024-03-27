@@ -185,13 +185,13 @@ const mockData: PortfolioProject[] = [
 	},
 	{
 		slug: 'voice',
-		listName: 'voice.com',
+		listName: 'VOICE.COM',
 		pageTitle:
-			'<a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View voice.com website">voice.com</a>',
+			'<a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View voice.com website">VOICE.COM</a>',
 		coverImage: '/images/portfolio/voice/voice-cover-image.webp',
-		coverImageAlt: 'voice.com cover image',
+		coverImageAlt: 'VOICE.COM cover image',
 		thumbnail: '/images/portfolio/voice/voice-thumb.webp',
-		thumbnailAlt: 'voice.com thumbnail',
+		thumbnailAlt: 'VOICE.COM thumbnail',
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
