@@ -5,6 +5,9 @@
   import NavBar from "$lib/components/NavBar.svelte";
   import Sidebar from "$lib/components/Sidebar/Sidebar.svelte";
   import PageTitle from '$lib/components/PageTitle.svelte'
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+	injectSpeedInsights();
 
 	let links: NavLinkType[] = [
 		{ path: '/', label: 'About'},
