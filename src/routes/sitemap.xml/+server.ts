@@ -1,15 +1,18 @@
-// src/routes/sitemap.xml.ts
-
 import type { RequestHandler } from '@sveltejs/kit';
 
+/**
+ * Handles the GET request and generates an XML sitemap for the website.
+ * @param {Object} param - The parameter object.
+ * @param {Request} param.request - The request object.
+ * @returns {Response} - The response object containing the XML sitemap.
+ */
 export const GET: RequestHandler = async ({ request }) => {
 	const protocol = 'https';
 	const host = request.headers.get('host') || 'davidguras.dev';
 
 	// List of paths for website
-	const pages = [
+	const pages: string[] = [
 		'/',
-		'/about',
 		'/resume',
 		'/portfolio',
 		'/contact'
