@@ -34,16 +34,18 @@
 		{/each}
 	</section>
 
-	<Carousel
-		swiperId="swiper-gallery"
-		slidesPerView='auto'
-		slides={project.images}
-		centeredSlides={true}
-		speed={300}
-		breakpoints={{
+	<section class="carousel">
+		<Carousel
+			swiperId="swiper-gallery"
+			slidesPerView='auto'
+			slides={project.images}
+			centeredSlides={true}
+			speed={300}
+			breakpoints={{
 			580: { slidesPerView: 'auto', spaceBetween: 20 }
 		}}
-	/>
+		/>
+	</section>
 
 	<section class="project-copy">
 		<Copy>
@@ -54,5 +56,19 @@
 </article>
 
 <style lang="scss">
-    @import "#styles/app/single-project";
+  @import "#styles/app/single-project";
+
+  .details-info {
+    margin-bottom: 1.5rem;
+    @media only screen and (max-width: $small) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .carousel {
+    margin-bottom: 2rem;
+    @media only screen and (max-width: $small) {
+      margin-bottom: 1rem;
+    }
+  }
 </style>

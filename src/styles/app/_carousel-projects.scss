@@ -2,12 +2,8 @@
     - Project Carousel
 ----------------------------------------------------------------- */
 
-.gallery {
-  margin-top: rem(38px);
-}
-
 .swiper-slide-project {
-  height: rem(292px);
+  height: auto;
   max-width: rem(480px);
   opacity: .5;
   overflow: hidden;
@@ -21,9 +17,5 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
-  }
-
-  @media only screen and (max-width: $small) {
-    height: rem(148px);
   }
 }
