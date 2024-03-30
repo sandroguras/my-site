@@ -50,17 +50,17 @@
 			imageAlt: 'Chris Bartlett',
 			shortCopy:
 				'It has been an absolute pleasure in working for David at Bullishfor the last two years...',
-			copy: 'It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.\n' +
+			copy: 'It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.</p>\n' +
 				'\n' +
-				'David is able to communicate at all levels from complex discussions with developers to distilling technical ideas and conveying them to non-technical C-level executives. \n' +
+				'<p>David is able to communicate at all levels from complex discussions with developers to distilling technical ideas and conveying them to non-technical C-level executives.</p>\n' +
 				'\n' +
-				'David would liaise with all departments including security, procurement, design, product managers, sales and more and would ensure all our projects were not only delivered on time but to budget and to spec. He led the Web Development department of several developers and contractors to many successes, including but not limited to, the new Block.one site, the Full Marketing site for the Bullish exchange, the Investor Relations site and several other sites. David is comfortable working in multiple methodologies including waterfall, agile and in-between.\n' +
+				'<p>David would liaise with all departments including security, procurement, design, product managers, sales and more and would ensure all our projects were not only delivered on time but to budget and to spec. He led the Web Development department of several developers and contractors to many successes, including but not limited to, the new Block.one site, the Full Marketing site for the Bullish exchange, the Investor Relations site and several other sites. David is comfortable working in multiple methodologies including waterfall, agile and in-between.</p>\n' +
 				'\n' +
-				'David was instrumental in updating the tech stack of Bullish moving from just WordPress sites to decoupled WordPress CMS and React (Next,js), Typescript and GraphQL frontend, which vastly increased speed time for the end user by 390% and reducing deployment time from 30 minutes to just a few.\n' +
+				'<p>David was instrumental in updating the tech stack of Bullish moving from just WordPress sites to decoupled WordPress CMS and React (Next,js), Typescript and GraphQL frontend, which vastly increased speed time for the end user by 390% and reducing deployment time from 30 minutes to just a few.</p>\n' +
 				'\n' +
-				'Not only is David a great manager but David is still a great developer too and will often help out whenever we needed help and always keeps up to date with the latest technology.\n' +
+				'<p>Not only is David a great manager but David is still a great developer too and will often help out whenever we needed help and always keeps up to date with the latest technology.</p>\n' +
 				'\n' +
-				'I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David\'s abilities he would surely lead any team to success.',
+				'<p>I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David\'s abilities he would surely lead any team to success.</p>',
 			reviewDate: '2023-03-09'
 		},
 		{
@@ -69,10 +69,11 @@
 			imageAlt: 'Alex Radulescu',
 			shortCopy:
 				'It has been a pleasure working with David and I strongly recommend him....',
-			copy: 'It has been a pleasure working with David and I strongly recommend him.\n' +
-				'He joined my team with an open mind, took on the challenge of managing new people and thanks to him delivered on time multiple major web projects.\n' +
-				'He also successfully linked stakeholders and architected a robust and elegant top of the line headless wordpress setup with nextjs, graphql and typescript.\n' +
-				'He continuously improved the system, bringing down release downtimes from 30-40 minutes to 0 seconds, faster loading time (390%) and smoother experience.',
+			copy: '<p>It has been a pleasure working with David and I strongly recommend him.\n' +
+				'He joined my team with an open mind, took on the challenge of managing new people and thanks to him delivered on time multiple major web projects.</p>\n' +
+				'\n' +
+				'<p>He also successfully linked stakeholders and architected a robust and elegant top of the line headless wordpress setup with nextjs, graphql and typescript.\n' +
+				'He continuously improved the system, bringing down release downtimes from 30-40 minutes to 0 seconds, faster loading time (390%) and smoother experience.</p>',
 			reviewDate: '2023-03-09'
 		},
 		{
@@ -81,7 +82,7 @@
 			imageAlt: 'Mike Dulik',
 			shortCopy:
 				'I had the pleasure of working alongside Dave as a web developer at Grafik...',
-			copy: 'I had the pleasure of working alongside Dave as a web developer at Grafik, a digital branding agency based in Alexandria. Dave exhibited many traits that are essential to the making of a great developer. His innovative nature helped to transform our dev practice, and many of his findings are still helping us to work better as a team. I would be very lucky to have the opportunity to collaborate with him again one day. ',
+			copy: '<p>I had the pleasure of working alongside Dave as a web developer at Grafik, a digital branding agency based in Alexandria. Dave exhibited many traits that are essential to the making of a great developer. His innovative nature helped to transform our dev practice, and many of his findings are still helping us to work better as a team. I would be very lucky to have the opportunity to collaborate with him again one day.</p>',
 			reviewDate: '2019-04-30'
 		},
 		{
@@ -90,8 +91,9 @@
 			imageAlt: 'Simion Nacu',
 			shortCopy:
 				' I\'ve had the opportunity to work with David, for about six years...',
-			copy: 'I\'ve had the opportunity to work with David, for about six years in both a professional and personal level. I have always felt confident that things would be handled in a timely manner and that he was willing to go up and above when necessary. \n' +
-				' He proved to be always eager for new knowledge and flexible enough to embrace new technologies and work flows. He will make a very good addition to any team looking for a strong creative professional.',
+			copy: '<p>I\'ve had the opportunity to work with David, for about six years in both a professional and personal level. I have always felt confident that things would be handled in a timely manner and that he was willing to go up and above when necessary.</p>\n' +
+				'\n' +
+				'<p>He proved to be always eager for new knowledge and flexible enough to embrace new technologies and work flows. He will make a very good addition to any team looking for a strong creative professional.</p>',
 			reviewDate: '2021-01-01'
 		}
 	];

@@ -61,7 +61,7 @@
 							<div class="col-12 col-sm-10 full-rewiew-con-text">
 								<h2 class="title title--h2">{modalData.name}</h2>
 								<span class="review-date">{formatDate(modalData.reviewDate)}</span>
-								{modalData.copy}
+								{@html modalData.copy}
 							</div>
 						</div>
 						<button title="Close (Esc)" type="button" class="mfp-close" on:click={closeModal}
