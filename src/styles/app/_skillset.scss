@@ -8,11 +8,9 @@
     flex-wrap: wrap;
     column-gap: rem(16px);
     row-gap: rem(20px);
-    margin-bottom: 3rem;
 
     @media only screen and (max-width: $small) {
       row-gap: rem(16px);
-      margin-bottom: 2.5rem;
     }
 
   }

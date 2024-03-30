@@ -169,15 +169,43 @@
 	];
 </script>
 
+<!-- Experience -->
+<section class="experience">
+	<Timeline heading={'Experience'} logo={'feathericon-briefcase'} timelineEvents={experience} />
+</section>
+
+<!-- Education -->
+<section class="education">
+	<Timeline heading={'Education'} logo={'feathericon-book-open'} timelineEvents={education} />
+</section>
+
+<!-- Skillset -->
 <section class="skillset">
 	<h2 class="title title--h2">Soft Skills</h2>
 	<Skillset skills={softSkills} />
+</section>
+<section class="skillset">
 	<h2 class="title title--h2">Hard Skills</h2>
 	<Skillset skills={hardSkills} />
 </section>
 
-<!-- Experience -->
-<Timeline heading={'Experience'} logo={'feathericon-briefcase'} timelineEvents={experience} />
+<style lang="scss">
+  section:nth-of-type(3) {
+    margin-bottom: 3rem;
+    @media only screen and (max-width: $small) {
+      margin-bottom: 2.5rem;
+    }
+  }
 
-<!-- Education -->
-<Timeline heading={'Education'} logo={'feathericon-book-open'} timelineEvents={education} />
+  section:nth-of-type(4) {
+    margin-bottom: 0;
+  }
+
+  .education {
+    margin-bottom: 3rem;
+
+    @media only screen and (max-width: $small) {
+      margin-bottom: 2.5rem;
+    }
+  }
+</style>
