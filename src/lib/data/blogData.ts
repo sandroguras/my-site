@@ -4,8 +4,7 @@ const mockData: BlogPost[] = [
 	{
 		slug: 'bullish',
 		listName: 'BULLISH.COM',
-		pageTitle:
-			'<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a>',
+		fullName: 'Some super long blog post name that is way too long for the list view',
 		coverImage: '/images/portfolio/bullish/bullish-cover-image.webp',
 		coverImageAlt: 'bullish.com cover image',
 		thumbnail: '/images/portfolio/bullish/bullish-thumb.webp',
@@ -13,6 +12,7 @@ const mockData: BlogPost[] = [
 		category: 'AI',
 	  date: '2024-03-30',
 		excerpt: 'Developing a marketing platform for a cryptocurrency exchange',
+		subheading: 'Marketing platform for a cryptocurrency exchange and crypto trading with a focus on security and performance. ',
 		copy:
 			'<p>The <a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a> website project was focused on developing a marketing platform for a cryptocurrency exchange. As the web director, I spearheaded the project from its inception, taking charge of the architecture planning and initial code layout. The initial phase began with a simple content management system (CMS), which I helped scale into a more comprehensive web multi-system to meet the specialized needs of marketing a crypto exchange. I worked closely with the team to design a flexible system that allowed the marketing team to swiftly adapt content, launch new campaigns, and introduce pages that could engage and inform users about the exchange\'s features and benefits. This level of adaptability was crucial for staying competitive in the fast-paced world of cryptocurrency trading.</p>\n' +
 			'\n' +

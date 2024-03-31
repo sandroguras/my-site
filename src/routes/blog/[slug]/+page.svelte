@@ -1,20 +1,26 @@
+<script lang="ts">
+	import type { PageData } from './$types';
+	import { formatDate, isValidISODateString } from '$lib/utils/dateUtils';
+
+	export let data: PageData;
+	const { post } = data;
+</script>
 <div class="pb-3">
 	<header class="header-post">
-		<h1 class="title title--h1">Web Design Weekly #38</h1>
+		<h1 class="title title--h1">{post.fullName}</h1>
 		<div class="caption-post">
-			<p>Above all, think of life as a prototype. We can conduct experiments, make discoveries, and change our perspectives. We can look for opportunities to turn processes into projects that have tangible outcomes.</p>
+			<p>{post.subheading}</p>
 		</div>
 		<div class="header-post__image-wrap">
-			<img class="cover lazyload" src="assets/images/958x400.jpg" alt="" />
+			<img class="cover" src={post.coverImage} alt={post.coverImageAlt} />
 		</div>
 	</header>
 	<div class="caption-post">
-		<p>We can learn how to take joy in the things we create whether they take the form of a fleeting experience or an heirloom that will last for generations. We can learn that reward comes in creation and re-creation.</p>
-		<p>It is not enough that we build products that function, that are understandable and usable, we also need to build products that bring joy and excitement, pleasure and fun, and, yes, beauty to people’s lives. Creativity is to discover a question that has never been asked.</p>
+		{@html post.copy}
 	</div>
 	<div class="gallery-post">
-		<img class="gallery-post__item cover lazyload" src="/images/400x550.jpg" data-zoom alt="" />
-		<img class="gallery-post__item cover lazyload" src="/images/400x550.jpg" data-zoom alt="" />
+		<img class="gallery-post__item cover" src="/images/400x550.jpg" data-zoom alt="" />
+		<img class="gallery-post__item cover" src="/images/400x550.jpg" data-zoom alt="" />
 		<div class="gallery-post__caption">Work by <a href="#">Colin Adams</a>, <a href="#">Mark Craig</a></div>
 	</div>
 	<div class="caption-post">

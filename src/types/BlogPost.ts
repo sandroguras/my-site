@@ -6,7 +6,7 @@ interface ImageDetails {
 export interface BlogPost {
 	slug: string;
 	listName: string;
-	pageTitle: string;
+	fullName: string;
 	coverImage: string;
 	coverImageAlt: string;
 	thumbnail: string;
@@ -14,6 +14,7 @@ export interface BlogPost {
 	category: string;
 	date: string;
 	excerpt: string;
+	subheading: string;
 	copy: string;
 	images: ImageDetails[];
 }
