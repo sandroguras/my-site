@@ -1,10 +1,10 @@
 import type { PageLoad } from './$types';
-import { fetchProjectDataBySlug } from '$lib/data/portfolioData';
+import { fetchBlogDataBySlug } from '$lib/data/portfolioData';
 
 export const load: PageLoad = async ({ params }) => {
 	const { slug } = params;
 
-	const project = fetchProjectDataBySlug(slug);
+	const project = fetchBlogDataBySlug(slug);
 
 	if (!project) {
 		throw new Error('Invalid slug');
