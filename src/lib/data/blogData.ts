@@ -4,7 +4,7 @@ const mockData: BlogPost[] = [
 	{
 		slug: 'bullish',
 		listName: 'BULLISH.COM',
-		fullName: 'Some super long blog post name that is way too long for the list view',
+		title: 'Some super long blog post name that is way too long for the list view',
 		coverImage: '/images/portfolio/bullish/bullish-cover-image.webp',
 		coverImageAlt: 'bullish.com cover image',
 		thumbnail: '/images/portfolio/bullish/bullish-thumb.webp',
