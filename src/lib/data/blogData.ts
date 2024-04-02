@@ -47,7 +47,7 @@ const mockData: BlogPost[] = [
 			{
 				type: 'quote',
 				copy:
-					'If you’re not prepared to be wrong, you’ll never come up with anything original.',
+					'<p>If you’re not prepared to be wrong, you’ll never come up with anything original.</p>',
 				author: 'Ken Robinson'
 			},
 			{

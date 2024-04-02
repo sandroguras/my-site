@@ -1,15 +1,25 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import type { PageData } from './$types';
-	import { formatDate, isValidISODateString } from '$lib/utils/dateUtils';
 
 	export let data: PageData;
 	const { post } = data;
+
+	const urlToShare = $page.url.href;
+
+	// Encoding the URL
+	const encodedURL: string = encodeURIComponent(urlToShare);
+
+	// Constructing the LinkedIn share link
+	const linkedInShareLink: string = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedURL}`;
+	const twitterShareLink: string = `https://twitter.com/intent/tweet?url=${encodedURL}`;
+	const facebookShareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
 </script>
-<div class="pb-3">
+<section class="blogpost">
 	<header class="header-post">
 		<h1 class="title title--h1">{post.title}</h1>
 		<div class="caption-post">
-			<p>{post.subtitle}</p>
+			{@html post.subtitle}
 		</div>
 		<div class="header-post__image-wrap">
 			<img class="cover" src={post.cover.src} alt={post.cover.alt} />
@@ -21,7 +31,7 @@
 				{#if block.subheading}
 					<h2 class="title title--h2">{block.subheading}</h2>
 				{/if}
-				<p>{@html block.copy}</p>
+				{@html block.copy}
 			</div>
 		{:else if block.type === 'image'}
 			<div class="gallery-post">
@@ -35,21 +45,21 @@
 		{:else if block.type === 'quote'}
 			<div class="caption-post">
 				<blockquote class="block-quote">
-					<p>{block.copy}</p>
+					{@html block.copy}
 					<cite class="block-quote__author">{block.author}</cite>
 				</blockquote>
 			</div>
 		{/if}
 	{/each}
 	<footer class="footer-post">
-		<a class="footer-post__share" href="http://facebook.com"><i
+		<a class="footer-post__share" href={facebookShareLink} target="_blank" rel="noopener noreferrer"><i
 			class="font-icon icon-facebook"></i><span>Facebook</span></a>
-		<a class="footer-post__share" href="http://twitter.com"><i
+		<a class="footer-post__share" href={twitterShareLink} target="_blank" rel="noopener noreferrer"><i
 			class="font-icon icon-twitter"></i><span>Twitter</span></a>
-		<a class="footer-post__share" href="http://linkedin.com"><i
+		<a class="footer-post__share" href={linkedInShareLink} target="_blank" rel="noopener noreferrer"><i
 			class="font-icon icon-linkedin2"></i><span>Linkedin</span></a>
 	</footer>
-</div>
+</section>
 
 <style lang="scss">
   @import "#styles/app/single-post";
