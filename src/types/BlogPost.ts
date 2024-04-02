@@ -1,21 +1,20 @@
+import type { Image } from '#types/Image';
+
 interface TextBlock {
 	type: 'text';
 	subheading?: string;
-	content: string;
+	copy: string;
 }
 
 interface ImageBlock {
 	type: 'image';
-	images: {
-		src: string;
-		alt: string;
-	}[];
+	images: Image[];
 	imageCaption?: string;
 }
 
 interface QuoteBlock {
 	type: 'quote';
-	content: string;
+	copy: string;
 	author: string;
 }
 
@@ -26,8 +25,8 @@ export interface BlogPost {
 	listName: string;
 	title: string;
 	subtitle: string;
-	coverImg: string;
-	coverAlt: string;
+	cover: Image;
+	thumb: Image;
 	category: string;
 	date: string;
 	excerpt: string;

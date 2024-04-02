@@ -6,11 +6,10 @@ export const load: PageLoad = async () => {
 
 	// Map the full project objects to only include the properties needed by the component
 	const posts = allPosts.map(
-		({ slug, listName, thumbnail, thumbnailAlt, category, date, excerpt }) => ({
+		({ slug, listName, thumb, category, date, excerpt }) => ({
 			slug,
 			listName,
-			thumbnail,
-			thumbnailAlt,
+			thumb,
 			category,
 			date,
 			excerpt

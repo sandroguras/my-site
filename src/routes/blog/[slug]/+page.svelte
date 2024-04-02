@@ -12,7 +12,7 @@
 			<p>{post.subtitle}</p>
 		</div>
 		<div class="header-post__image-wrap">
-			<img class="cover" src={post.coverImg} alt={post.coverAlt} />
+			<img class="cover" src={post.cover.src} alt={post.cover.alt} />
 		</div>
 	</header>
 	{#each post.content as block}
@@ -21,7 +21,7 @@
 				{#if block.subheading}
 					<h2 class="title title--h2">{block.subheading}</h2>
 				{/if}
-				<p>{@html block.content}</p>
+				<p>{@html block.copy}</p>
 			</div>
 		{:else if block.type === 'image'}
 			<div class="gallery-post">
@@ -35,7 +35,7 @@
 		{:else if block.type === 'quote'}
 			<div class="caption-post">
 				<blockquote class="block-quote">
-					<p>{block.content}</p>
+					<p>{block.copy}</p>
 					<cite class="block-quote__author">{block.author}</cite>
 				</blockquote>
 			</div>

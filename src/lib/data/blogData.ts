@@ -4,58 +4,62 @@ const mockData: BlogPost[] = [
 	{
 		slug: 'bullish',
 		listName: 'BULLISH.COM',
-		title: 'Some super long blog post name that is way too long for the list view',
-		coverImage: '/images/portfolio/bullish/bullish-cover-image.webp',
-		coverImageAlt: 'bullish.com cover image',
-		thumbnail: '/images/portfolio/bullish/bullish-thumb.webp',
-		thumbnailAlt: 'bullish.com thumbnail',
+		title: 'Web Design Weekly #38',
+		subtitle:
+			'Above all, think of life as a prototype. We can conduct experiments, make discoveries, and change our perspectives. We can look for opportunities to turn processes into projects that have tangible outcomes.',
+		cover: {
+			src: '/images/portfolio/bullish/bullish-cover-image.webp',
+			alt: 'bullish.com cover image'
+		},
+		thumb: { src: '/images/portfolio/bullish/bullish-thumb.webp', alt: 'bullish.com thumbnail' },
 		category: 'AI',
-	  date: '2024-03-30',
+		date: '2024-03-30',
 		excerpt: 'Developing a marketing platform for a cryptocurrency exchange',
-		subheading: 'Marketing platform for a cryptocurrency exchange and crypto trading with a focus on security and performance. ',
-		copy:
-			'<p>The <a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a> website project was focused on developing a marketing platform for a cryptocurrency exchange. As the web director, I spearheaded the project from its inception, taking charge of the architecture planning and initial code layout. The initial phase began with a simple content management system (CMS), which I helped scale into a more comprehensive web multi-system to meet the specialized needs of marketing a crypto exchange. I worked closely with the team to design a flexible system that allowed the marketing team to swiftly adapt content, launch new campaigns, and introduce pages that could engage and inform users about the exchange\'s features and benefits. This level of adaptability was crucial for staying competitive in the fast-paced world of cryptocurrency trading.</p>\n' +
-			'\n' +
-			'<p>In my role as the project lead, I oversaw a team of six developers located in different regions. This setup presented unique challenges in terms of coordination and maintaining a cohesive workflow. Our key objectives were ensuring timely delivery, managing stakeholder expectations, and driving the development process forward while adhering to high coding standards. To meet these goals, I focused on efficient project management practices, such as using Jira for task tracking and fostering a culture of regular code reviews to maintain code quality and facilitate feature development.</p>\n' +
-			'\n' +
-			'<p>The security aspect of the site was particularly important, given the sensitive nature of the financial information and transactions associated with a crypto exchange. From the early stages of architecture planning, I prioritized the implementation of stringent security protocols, balancing these with the need for a high-performing website. This required a thoughtful approach to coding practices and a commitment to continuous testing and improvement. The project was not just about building a marketing site; it was about creating a secure, efficient platform that could effectively promote the crypto exchange and build trust with its users. Through teamwork and a commitment to best practices, we developed a site that not only met but exceeded these objectives.</p>',
-		images: [
+		content: [
 			{
-				src: '/images/portfolio/bullish/bullish.com_screen_1.webp',
-				alt: 'Bullish website landing page hero section'
+				type: 'text',
+				copy:
+					'<p>We can learn how to take joy in the things we create whether they take the form of a fleeting experience or an heirloom that will last for generations. We can learn that reward comes in creation and re-creation.</p>\n' +
+					'\n' +
+					'<p>It is not enough that we build products that function, that are understandable and usable, we also need to build products that bring joy and excitement, pleasure and fun, and, yes, beauty to people’s lives. Creativity is to discover a question that has never been asked.</p>'
 			},
 			{
-				src: '/images/portfolio/bullish/bullish.com_screen_2.webp',
-				alt: 'Bullish website spot trading section'
+				type: 'image',
+				images: [
+					{
+						src: '/images/portfolio/bullish/bullish.com_screen_1.webp',
+						alt: 'Bullish website landing page hero section'
+					},
+					{
+						src: '/images/portfolio/bullish/bullish.com_screen_2.webp',
+						alt: 'Bullish website spot trading section'
+					}
+				],
+				imageCaption: 'Bullish.com website screens'
 			},
 			{
-				src: '/images/portfolio/bullish/bullish.com_screen_3.webp',
-				alt: 'Bullish website products page hero section'
+				type: 'text',
+				subheading:
+					'If you’re not prepared to be wrong, you’ll never come up with anything original.',
+				copy:
+					'<p>Here is one of the few effective keys to the design problem: the ability of the designer to recognize as many of the constraints as possible his willingness and enthusiasm for working within these constraints. The most profound technologies are those that disappear. They weave themselves into the fabric of everyday life until they are indistinguishable from it.</p>'
 			},
 			{
-				src: '/images/portfolio/bullish/bullish.com_screen_4.webp',
-				alt: 'Bullish website global presence section'
+				type: 'quote',
+				copy:
+					'If you’re not prepared to be wrong, you’ll never come up with anything original.',
+				author: 'Ken Robinson'
 			},
 			{
-				src: '/images/portfolio/bullish/bullish.com_screen_5.webp',
-				alt: 'Bullish website largest markets section'
+				type: 'text',
+				copy:
+					'<p>Above all, think of life as a prototype. We can conduct experiments, make discoveries, and change our perspectives. We can look for opportunities to turn processes into projects that have tangible outcomes.</p>\n' +
+					'\n' +
+					'<p>We can learn how to take joy in the things we create whether they take the form of a fleeting experience or an heirloom that will last for generations. We can learn that reward comes in creation and re-creation, no just in the consumption of the world around us. Active participation in the process of creation is our right and our privilege. We can learn to measure the success of our ideas not by our bank accounts by their impact on the world.</p>'
 			},
-			{
-				src: '/images/portfolio/bullish/bullish.com_screen_6.webp',
-				alt: 'Bullish website digital assets Bitcoin page'
-			},
-			{
-				src: '/images/portfolio/bullish/bullish.com_screen_7.webp',
-				alt: 'Bullish website global presence section'
-			},
-			{
-				src: '/images/portfolio/bullish/bullish.com_screen_8.webp',
-				alt: 'Bullish website top 5 trading venue section'
-			}
 		]
 	}
 ];
-
 // Fetch all projects for portfolio overview
 export async function fetchAllPosts(): Promise<BlogPost[]> {
 	// TODO: replace mock data fetching with an API call
