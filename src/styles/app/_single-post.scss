@@ -151,11 +151,3 @@
 		}
 	}
 }
-
-// Scroll Indicator
-.scroll-line {
-	height: rem(3px);
-	@include position(fixed, $top: 0);
-	width: 0;
-	z-index: 3;
-}
