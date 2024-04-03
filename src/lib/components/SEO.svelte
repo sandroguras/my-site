@@ -16,25 +16,25 @@
 			case '/resume':
 				return {
 					title: 'David Guras | My Resume',
-					description: 'View my professional resume and career accomplishments.',
+					description: 'Discover the professional journey of David Guras. From innovative projects to technical expertise, explore a resume that showcases a commitment to excellence.',
 					image: `${siteURL}images/opengraphs/resume-og.jpg`
 				};
 			case '/portfolio':
 				return {
 					title: 'David Guras | Portfolio',
-					description: 'Explore my portfolio of web development projects.',
+					description: 'Explore the portfolio of David Guras, where each project is a testament to innovation, skill, and dedication in the field of web development and design.',
 					image: `${siteURL}images/opengraphs/portfolio-og.jpg`
 				};
 			case '/blog':
 				return {
 					title: 'David Guras | Blog',
-					description: 'Dive into the latest trends, tips, and personal insights in web development and engineering. Stay updated with David Guras\'s blog.',
+					description: 'Explore David Guras\'s insights into web development. Dive deep into trends, tips, and personal reflections in a blog crafted for the web professionals.',
 					image: `${siteURL}images/opengraphs/blog-og.jpg`
 				};
 			case '/contact':
 				return {
 					title: 'David Guras | Contact Me',
-					description: 'Have questions, project ideas, or want to say hello? Don’t hesitate to get in touch. I’m always here to discuss new opportunities and collaborations.',
+					description: 'Interested in collaboration or have questions? Connect with David Guras to transform your ideas into unique and impactful web development solutions. Contact now!',
 					image: `${siteURL}images/opengraphs/contact-og.jpg`
 				};
 			default:
