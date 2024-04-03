@@ -35,7 +35,7 @@
 				return {
 					title: 'David Guras | Contact Me',
 					description: 'Have questions, project ideas, or want to say hello? Don’t hesitate to get in touch. I’m always here to discuss new opportunities and collaborations.',
-					image: `${siteURL}images/opengraphs/blog-og.jpg`
+					image: `${siteURL}images/opengraphs/contact-og.jpg`
 				};
 			default:
 				return {
