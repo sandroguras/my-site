@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { sineOut } from 'svelte/easing';
+	import '@hcaptcha/types';
 	import DOMPurify from 'dompurify';
 	import Button from '$lib/components/Button.svelte';
 
