@@ -3,6 +3,9 @@
 ----------------------------------------------------------------- */
 
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   background: var(--color-gradient-border-gray);
   border-radius: var(--radius-14);

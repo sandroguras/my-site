@@ -2,13 +2,13 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { sineOut } from 'svelte/easing';
-	import '@hcaptcha/types';
 	import DOMPurify from 'dompurify';
 	import Button from '$lib/components/Button.svelte';
 
 	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
 	let messageLength = 0;
 	const maxMessageLength = 500;
+	let isSubmitting = false;
 
 	function sanitize(dirty: string): string {
 		return DOMPurify.sanitize(dirty);
@@ -75,6 +75,7 @@
 
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
+		isSubmitting = true; // Start submission
 
 		formData.name = formData.name.trim();
 		formData.message = formData.message.trim();
@@ -131,6 +132,8 @@
 			console.error('hCaptcha not loaded');
 			// Handle the case where hCaptcha didn't load or initialize properly
 		}
+
+		isSubmitting = false; // End submission
 	}
 </script>
 
@@ -184,7 +187,11 @@
 					<div id="h-captcha" data-sitekey={hCaptchaSiteKey}></div>
 				</div>
 				<div class="col-12 col-md-4">
-					<Button icon="icon-send" text="Send Message" />
+					{#if isSubmitting}
+						<Button btnDisbl={true} text="Sending..." />
+					{:else}
+						<Button icon="icon-send" text="Send Message" on:click={handleSubmit} />
+					{/if}
 				</div>
 			</div>
 		</form>
