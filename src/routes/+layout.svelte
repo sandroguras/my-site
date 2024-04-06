@@ -6,6 +6,10 @@
   import Sidebar from "$lib/components/Sidebar.svelte";
   import PageTitle from '$lib/components/PageTitle.svelte'
 
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+	inject({ mode: dev ? 'development' : 'production' });
+
 	let links: NavLinkType[] = [
 		{ path: '/', label: 'About'},
 		{ path: '/resume', label: 'Resume'},
