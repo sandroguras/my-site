@@ -25,6 +25,9 @@ dependencies:
     version: 11.1.0
 
 devDependencies:
+  '@hcaptcha/types':
+    specifier: ^1.0.3
+    version: 1.0.3
   '@popperjs/core':
     specifier: ^2.11.8
     version: 2.11.8
@@ -349,6 +352,10 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@hcaptcha/types@1.0.3:
+    resolution: {integrity: sha512-1mbU6eSGawRrqeahRrOzZo/SVLI6oZ5/azuBpSyVrRRR96CnS3fOVDWfzxpngfxKD0/I9Rwu6c/3ITqD8rXeTQ==}
     dev: true
 
   /@humanwhocodes/config-array@0.11.14:
