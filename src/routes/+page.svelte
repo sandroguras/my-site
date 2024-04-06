@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Copy from '$lib/components/Copy.svelte';
-	import Expertise from '$lib/components/Expertise/Expertise.svelte';
+	import Expertise from '$lib/components/Expertise.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
 	import type { Copy as CopyType } from '#types/Copy';
 	import type { Expertise as ExpertiseType } from '../types/Expertise';
