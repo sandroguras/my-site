@@ -14,7 +14,7 @@
 
 	export let personalInfo: PersonalInfoType = {
 		name: 'David Guras',
-		role: 'Web Director',
+		role: 'Lead Web Developer',
 		socials: [
 			{
 				icon: 'linkedin',

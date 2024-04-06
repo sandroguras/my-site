@@ -57,9 +57,9 @@ const mockData: PortfolioProject[] = [
 			}
 		],
 		description:
-			'<p>The <a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a> website project was focused on developing a marketing platform for a cryptocurrency exchange. As the web director, I spearheaded the project from its inception, taking charge of the architecture planning and initial code layout. The initial phase began with a simple content management system (CMS), which I helped scale into a more comprehensive web multi-system to meet the specialized needs of marketing a crypto exchange. I worked closely with the team to design a flexible system that allowed the marketing team to swiftly adapt content, launch new campaigns, and introduce pages that could engage and inform users about the exchange\'s features and benefits. This level of adaptability was crucial for staying competitive in the fast-paced world of cryptocurrency trading.</p>\n' +
+			'<p>The <a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a> website project was focused on developing a marketing platform for a cryptocurrency exchange. As the lead web developer, I spearheaded the project from its inception, taking charge of the architecture planning and initial code layout. The initial phase began with a simple content management system (CMS), which I helped scale into a more comprehensive web multi-system to meet the specialized needs of marketing a crypto exchange. I worked closely with the team to design a flexible system that allowed the marketing team to swiftly adapt content, launch new campaigns, and introduce pages that could engage and inform users about the exchange\'s features and benefits. This level of adaptability was crucial for staying competitive in the fast-paced world of cryptocurrency trading.</p>\n' +
 			'\n' +
-			'<p>In my role as the project lead, I oversaw a team of six developers located in different regions. This setup presented unique challenges in terms of coordination and maintaining a cohesive workflow. Our key objectives were ensuring timely delivery, managing stakeholder expectations, and driving the development process forward while adhering to high coding standards. To meet these goals, I focused on efficient project management practices, such as using Jira for task tracking and fostering a culture of regular code reviews to maintain code quality and facilitate feature development.</p>\n' +
+			'<p>I oversaw a team of six developers located in different regions. This setup presented unique challenges in terms of coordination and maintaining a cohesive workflow. Our key objectives were ensuring timely delivery, managing stakeholder expectations, and driving the development process forward while adhering to high coding standards. To meet these goals, I focused on efficient project management practices, such as using Jira for task tracking and fostering a culture of regular code reviews to maintain code quality and facilitate feature development.</p>\n' +
 			'\n' +
 			'<p>The security aspect of the site was particularly important, given the sensitive nature of the financial information and transactions associated with a crypto exchange. From the early stages of architecture planning, I prioritized the implementation of stringent security protocols, balancing these with the need for a high-performing website. This required a thoughtful approach to coding practices and a commitment to continuous testing and improvement. The project was not just about building a marketing site; it was about creating a secure, efficient platform that could effectively promote the crypto exchange and build trust with its users. Through teamwork and a commitment to best practices, we developed a site that not only met but exceeded these objectives.</p>'
 	},
@@ -119,7 +119,7 @@ const mockData: PortfolioProject[] = [
 			}
 		],
 		description:
-			'<p>As the web director for the <a href="https://EOS.IO" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">EOS.IO</a> website project, I oversaw the site\'s development and evolution throughout its lifecycle. The project aimed to create a robust marketing platform for the cutting-edge EOS blockchain, supporting enterprise-grade use cases and both public and private deployments.</p>\n' +
+			'<p>As the lead web developer for the <a href="https://EOS.IO" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">EOS.IO</a> website project, I oversaw the site\'s development and evolution throughout its lifecycle. The project aimed to create a robust marketing platform for the cutting-edge EOS blockchain, supporting enterprise-grade use cases and both public and private deployments.</p>\n' +
 			'\n' +
 			"<p>I led the team through three significant visual iterations, each optimizing user experience and aligning with the platform's evolving needs. We diligently supported ongoing marketing campaigns and site extensions to maintain competitiveness in the rapidly advancing blockchain technology world.</p>\n" +
 			'\n' +
@@ -177,7 +177,7 @@ const mockData: PortfolioProject[] = [
 			}
 		],
 		description:
-			'<p>As the web director for the <a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View BLOCK.ONE website">B1.COM</a> website project, I oversaw the site\'s development and managed two visual iterations. I implemented a 3-stage deployment system that enabled continuous development and rapid deployments.</p>\n' +
+			'<p>As the laed web developer for the <a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View BLOCK.ONE website">B1.COM</a> website project, I oversaw the site\'s development and managed two visual iterations. I implemented a 3-stage deployment system that enabled continuous development and rapid deployments.</p>\n' +
 			'\n' +
 			"<p>In the site's current iteration, I led a team that delivered the final product in just three days, collaborating with two outsourced agencies. This swift turnaround showcased my ability to effectively manage resources and maintain a high pace of development without compromising quality.</p>\n" +
 			'\n' +
@@ -239,7 +239,7 @@ const mockData: PortfolioProject[] = [
 			}
 		],
 		description:
-			'<p>As the web director for the <a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View VOICE.COM website">VOICE.COM</a> beta subscription website project, I oversaw the development and maintenance of the site.</p>\n' +
+			'<p>As the web developer for the <a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View VOICE.COM website">VOICE.COM</a> beta subscription website project, I oversaw the development and maintenance of the site.</p>\n' +
 			'\n' +
 			'<p>Throughout the project, I focused on ensuring the site\'s optimal performance, security, and user experience. I worked closely with the BLOCKONE\'s marketing team to implement necessary updates and enhancements to keep the website running smoothly.</p>\n' +
 			'\n' +

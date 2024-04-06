@@ -10,9 +10,10 @@
 	} from '#types/Carousel';
 
 	const Introduction: CopyType = {
-		copy: '<p>I am a Web Director, leading a skilled team of developers and designers for over a decade. We have created exceptional websites for clients across diverse industries, transforming intricate concepts into sleek, user-friendly designs.</p>\n' +
+		copy: '<p>With over a decade of experience as a Lead Web Developer, I guide a talented team in creating high-quality websites for clients across various industries. We aim to transform complex ideas into clean, user-friendly designs that engage audiences and drive results.</p>\n' +
 			'<p>Based in Washington DC, I\'ve been assisting US businesses in establishing a robust online presence. With every project, I dedicate myself to crafting digital masterpieces that combine technical proficiency, creative flair, and a steadfast commitment to understanding my client\'s requirements.</p>\n' +
-			'<p>My company\'s growth and evolution are fueled by my unyielding passion for developing websites that are both visually striking and effortlessly functional.</p>\n'
+			'<p>I\'m passionate about staying up-to-date with the latest web development technologies and trends. This dedication to innovation and a desire to create smooth user experiences has been a key factor in my company\'s growth and success.</p>\n' +
+			'<p>Together we take a comprehensive approach to each project, paying close attention to detail and working to translate clients\' visions into impactful online experiences effectively. We value building long-term relationships with our clients, built on a foundation of trust and a shared goal of achieving strong results in the digital space.</p>\n'
 	};
 	const expertise: ExpertiseType = {
 		heading: 'My Expertise',
