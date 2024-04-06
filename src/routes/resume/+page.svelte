@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Skillset as SkillsetType } from '#types/Skillset';
 	import type { Timeline as TimelineType } from '#types/Timeline';
-	import Timeline from '$lib/components/Timeline/Timeline.svelte';
+	import Timeline from '$lib/components/Timeline.svelte';
 	import Skillset from '$lib/components/Skillset.svelte';
 
 	let softSkills: SkillsetType['skills'] = [
