@@ -1,6 +1,6 @@
 <!-- Contact -->
 <script lang="ts">
-	import Form from '$lib/components/Form/Form.svelte';
+	import Form from '$lib/components/Form.svelte';
 </script>
 
 <Form />

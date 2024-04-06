@@ -3,7 +3,7 @@
 	import type { NavLink as NavLinkType } from '#types/NavLink';
   import SEO from "$lib/components/SEO.svelte";
   import NavBar from "$lib/components/NavBar.svelte";
-  import Sidebar from "$lib/components/Sidebar/Sidebar.svelte";
+  import Sidebar from "$lib/components/Sidebar.svelte";
   import PageTitle from '$lib/components/PageTitle.svelte'
 
 	let links: NavLinkType[] = [
