@@ -93,7 +93,8 @@
 		{#if swiperId === 'swiper-gallery' && 'src' in slide}
 			<swiper-slide class="swiper-slide-project">
 				<figure class="swiper-slide">
-					<a title="click to zoom-in" href={slide.src} data-size="1920x1080">
+					<a title="click to zoom-in" href={slide.src} data-pswp-width='1680' data-pswp-height='945' target="_blank"
+						 rel="noreferrer">
 						<img src={slide.src} alt={slide.alt} />
 					</a>
 				</figure>

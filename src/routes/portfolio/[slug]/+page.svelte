@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+	import 'photoswipe/style.css';
 	import type { PageData } from './$types';
 	import Copy from '$lib/components/Copy.svelte';
 	import Carousel from '$lib/components/Carousel.svelte';
@@ -6,6 +9,16 @@
 
 	export let data: PageData;
 	const { project } = data;
+
+	onMount(() => {
+		let lightbox = new PhotoSwipeLightbox({
+			gallery: '#swiper-gallery',
+			children: 'a',
+			showHideAnimationType: 'fade',
+			pswpModule: () => import('photoswipe')
+		});
+		lightbox.init();
+	});
 </script>
 
 <article class="project">
