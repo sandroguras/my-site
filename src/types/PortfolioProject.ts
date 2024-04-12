@@ -1,6 +1,7 @@
 interface ImageDetails {
 	alt: string;
 	src: string;
+	thumb: string;
 }
 
 export interface InfoBlock {

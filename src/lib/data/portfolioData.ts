@@ -25,35 +25,43 @@ const mockData: PortfolioProject[] = [
 		images: [
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_1.webp',
-				alt: 'Bullish website landing page hero section'
+				alt: 'Bullish website landing page hero section',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_1_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_2.webp',
-				alt: 'Bullish website spot trading section'
+				alt: 'Bullish website spot trading section',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_2_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_3.webp',
-				alt: 'Bullish website products page hero section'
+				alt: 'Bullish website products page hero section',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_3_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_4.webp',
-				alt: 'Bullish website global presence section'
+				alt: 'Bullish website global presence section',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_4_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_5.webp',
-				alt: 'Bullish website largest markets section'
+				alt: 'Bullish website largest markets section',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_5_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_6.webp',
-				alt: 'Bullish website digital assets Bitcoin page'
+				alt: 'Bullish website digital assets Bitcoin page',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_6_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_7.webp',
-				alt: 'Bullish website global presence section'
+				alt: 'Bullish website global presence section',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_7_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/bullish/bullish.com_screen_8.webp',
-				alt: 'Bullish website top 5 trading venue section'
+				alt: 'Bullish website top 5 trading venue section',
+				thumb: '/images/portfolio/bullish/bullish.com_screen_8_thumb.webp'
 			}
 		],
 		description:
@@ -87,35 +95,43 @@ const mockData: PortfolioProject[] = [
 		images: [
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_1.webp',
-				alt: 'EOSIO website main hero'
+				alt: 'EOSIO website main hero',
+				thumb: '/images/portfolio/eosio/eos.io_screen_1_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_2.webp',
-				alt: 'EOSIO website mega menu'
+				alt: 'EOSIO website mega menu',
+				thumb: '/images/portfolio/eosio/eos.io_screen_2_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_3.webp',
-				alt: 'EOSIO website Event page hero'
+				alt: 'EOSIO website Event page hero',
+				thumb: '/images/portfolio/eosio/eos.io_screen_3_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_4.webp',
-				alt: 'EOSIO website For Developers hero'
+				alt: 'EOSIO website For Developers hero',
+				thumb: '/images/portfolio/eosio/eos.io_screen_4_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_5.webp',
-				alt: 'EOSIO website News page'
+				alt: 'EOSIO website News page',
+				thumb: '/images/portfolio/eosio/eos.io_screen_5_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_6.webp',
-				alt: 'EOSIO website Training & Certification hero'
+				alt: 'EOSIO website Training & Certification hero',
+				thumb: '/images/portfolio/eosio/eos.io_screen_6_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_7.webp',
-				alt: 'EOSIO website Info Blocks section'
+				alt: 'EOSIO website Info Blocks section',
+				thumb: '/images/portfolio/eosio/eos.io_screen_7_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/eosio/eos.io_screen_8.webp',
-				alt: 'EOSIO website Why EOSIO slider section'
+				alt: 'EOSIO website Why EOSIO slider section',
+				thumb: '/images/portfolio/eosio/eos.io_screen_8_thumb.webp'
 			}
 		],
 		description:
@@ -153,27 +169,33 @@ const mockData: PortfolioProject[] = [
 		images: [
 			{
 				src: '/images/portfolio/b1/b1.com_screen_1.webp',
-				alt: 'b1 website main hero'
+				alt: 'b1 website main hero',
+				thumb: '/images/portfolio/b1/b1.com_screen_1_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/b1/b1.com_screen_2.webp',
-				alt: 'b1 website Architect Integrity section'
+				alt: 'b1 website Architect Integrity section',
+				thumb: '/images/portfolio/b1/b1.com_screen_2_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/b1/b1.com_screen_3.webp',
-				alt: 'b1 website leadership page'
+				alt: 'b1 website leadership page',
+				thumb: '/images/portfolio/b1/b1.com_screen_3_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/b1/b1.com_screen_4.webp',
-				alt: 'b1 website portfolio page'
+				alt: 'b1 website portfolio page',
+				thumb: '/images/portfolio/b1/b1.com_screen_4_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/b1/b1.com_screen_5.webp',
-				alt: 'b1 website portfolio page item'
+				alt: 'b1 website portfolio page item',
+				thumb: '/images/portfolio/b1/b1.com_screen_5_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/b1/b1.com_screen_6.webp',
-				alt: 'b1 website contact page'
+				alt: 'b1 website contact page',
+				thumb: '/images/portfolio/b1/b1.com_screen_6_thumb.webp'
 			}
 		],
 		description:
@@ -207,35 +229,43 @@ const mockData: PortfolioProject[] = [
 		images: [
 			{
 				src: '/images/portfolio/voice/voice.com_screen_1.webp',
-				alt: 'Voice.com beta subscription landing page'
+				alt: 'Voice.com beta subscription landing page',
+				thumb: '/images/portfolio/voice/voice.com_screen_1_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_2.webp',
-				alt: 'Voice.com beta subscription landing page Now the fun part section'
+				alt: 'Voice.com beta subscription landing page Now the fun part section',
+				thumb: '/images/portfolio/voice/voice.com_screen_2_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_3.webp',
-				alt: 'Voice.com beta subscription landing page You pocket the reward section'
+				alt: 'Voice.com beta subscription landing page You pocket the reward section',
+				thumb: '/images/portfolio/voice/voice.com_screen_3_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_4.webp',
-				alt: 'Voice.com beta subscription landing page Collect you Voice section'
+				alt: 'Voice.com beta subscription landing page Collect you Voice section',
+				thumb: '/images/portfolio/voice/voice.com_screen_4_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_5.webp',
-				alt: 'Voice.com beta subscription Get posting page'
+				alt: 'Voice.com beta subscription Get posting page',
+				thumb: '/images/portfolio/voice/voice.com_screen_5_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_6.webp',
-				alt: 'Voice.com beta subscription Get to Know Voice page'
+				alt: 'Voice.com beta subscription Get to Know Voice page',
+				thumb: '/images/portfolio/voice/voice.com_screen_6_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_7.webp',
-				alt: 'Voice.com beta subscription Blog page'
+				alt: 'Voice.com beta subscription Blog page',
+				thumb: '/images/portfolio/voice/voice.com_screen_7_thumb.webp'
 			},
 			{
 				src: '/images/portfolio/voice/voice.com_screen_8.webp',
-				alt: 'Voice.com beta subscription Blog page'
+				alt: 'Voice.com beta subscription Blog page',
+				thumb: '/images/portfolio/voice/voice.com_screen_8_thumb.webp'
 			}
 		],
 		description:
