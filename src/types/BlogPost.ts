@@ -18,7 +18,16 @@ interface QuoteBlock {
 	author: string;
 }
 
-type ContentBlock = TextBlock | ImageBlock | QuoteBlock;
+interface CodeBlock {
+	type: 'code';
+	language: string;
+	code: string;
+	title?: string;           // Optional title for the code snippet
+	filename?: string;        // Optional filename for the code snippet
+	highlights?: number[];    // Optional line numbers to highlight
+}
+
+type ContentBlock = TextBlock | ImageBlock | QuoteBlock | CodeBlock;
 
 export interface BlogPost {
 	slug: string;
