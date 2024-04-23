@@ -51,6 +51,26 @@ const mockData: BlogPost[] = [
 				author: 'Ken Robinson'
 			},
 			{
+				type: 'code',
+				language: 'typescript',
+				code: "interface User {\n" +
+					"  name: string;\n" +
+					"  id: number;\n" +
+					"}\n" +
+					" \n" +
+					"class UserAccount {\n" +
+					"  name: string;\n" +
+					"  id: number;\n" +
+					" \n" +
+					"  constructor(name: string, id: number) {\n" +
+					"    this.name = name;\n" +
+					"    this.id = id;\n" +
+					"  }\n" +
+					"}\n" +
+					" \n" +
+					"const user: User = new UserAccount(\"Murphy\", 1);"
+			},
+			{
 				type: 'text',
 				copy:
 					'<p>Above all, think of life as a prototype. We can conduct experiments, make discoveries, and change our perspectives. We can look for opportunities to turn processes into projects that have tangible outcomes.</p>\n' +

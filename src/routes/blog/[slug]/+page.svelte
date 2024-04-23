@@ -1,19 +1,31 @@
 <script lang="ts">
+	export let data: PageData;
+
+	import Highlight from 'svelte-highlight';
+	import CopyButton from '$lib/components/CopyButton.svelte';
+	import typescript from 'svelte-highlight/languages/typescript';
+	import 'svelte-highlight/styles/atom-one-dark-reasonable.css';
 	import { page } from '$app/stores';
 	import type { PageData } from './$types';
 
-	export let data: PageData;
 	const { post } = data;
-
 	const urlToShare = $page.url.href;
-
 	// Encoding the URL
 	const encodedURL: string = encodeURIComponent(urlToShare);
-
 	// Constructing the LinkedIn share link
 	const linkedInShareLink: string = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedURL}`;
 	const twitterShareLink: string = `https://twitter.com/intent/tweet?url=${encodedURL}`;
 	const facebookShareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
+
+	function langSelect(language: string) {
+		switch (language) {
+			case 'typescript':
+				return typescript;
+			default:
+				return typescript;
+		}
+	}
+
 </script>
 <section class="blogpost">
 	<header class="header-post">
@@ -48,6 +60,11 @@
 					{@html block.copy}
 					<cite class="block-quote__author">{block.author}</cite>
 				</blockquote>
+			</div>
+		{:else if block.type === 'code'}
+			<div class="caption-post">
+				<CopyButton textToCopy={block.code} />
+				<Highlight language={langSelect(block.language)} code={block.code} />
 			</div>
 		{/if}
 	{/each}

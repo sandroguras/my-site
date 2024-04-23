@@ -10,8 +10,9 @@
 	{#each posts as post}
 		<article class="news-item box">
 			<div class="news-item__image-wrap">
-				<a class="news-item__link" href={`/blog/${post.slug}`} />
-				<img class="cover" src={post.thumb.src} alt={post.thumb.alt} />
+				<a class="news-item__link" href={`/blog/${post.slug}`}>
+					<img class="cover" src={post.thumb.src} alt={post.thumb.alt} />
+				</a>
 			</div>
 			<div class="news-item__caption">
 				<div class="news-item__date"><span>{post.category}</span>{formatDate(post.date)}</div>
