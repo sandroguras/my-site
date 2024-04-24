@@ -282,6 +282,6 @@ export async function fetchAllProjects(): Promise<PortfolioProject[]> {
 }
 
 // Fetch individual project data by slug
-export function fetchBlogDataBySlug(slug: string): PortfolioProject | undefined {
+export function fetchProjectDataBySlug(slug: string): PortfolioProject | undefined {
 	return mockData.find((project: PortfolioProject): boolean => project.slug === slug);
 }
