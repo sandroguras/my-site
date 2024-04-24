@@ -1,3 +1,5 @@
+import type { Image } from './Image';
+
 interface ImageDetails {
 	alt: string;
 	src: string;
@@ -14,10 +16,8 @@ export interface PortfolioProject {
 	slug: string;
 	listName: string;
 	pageTitle: string;
-	coverImage: string;
-	coverImageAlt: string;
-	thumbnail: string;
-	thumbnailAlt: string;
+	cover: Image;
+	thumb: Image;
 	infoBlocks: InfoBlock[];
 	images: ImageDetails[];
 	description: string;
