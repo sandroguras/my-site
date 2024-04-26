@@ -4,6 +4,7 @@
 	import Highlight from 'svelte-highlight';
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import typescript from 'svelte-highlight/languages/typescript';
+	import bash from 'svelte-highlight/languages/bash';
 	import 'svelte-highlight/styles/atom-one-dark-reasonable.css';
 	import { page } from '$app/stores';
 	import type { PageData } from './$types';
@@ -21,6 +22,8 @@
 		switch (language) {
 			case 'typescript':
 				return typescript;
+			case 'bash':
+				return bash;
 			default:
 				return typescript;
 		}
@@ -29,7 +32,7 @@
 </script>
 <section class="blogpost">
 	<header class="header-post">
-		<h1 class="title title--h1">{post.title}</h1>
+		<h1 class="title title--h1">{@html post.title}</h1>
 		<div class="caption-post">
 			{@html post.subtitle}
 		</div>

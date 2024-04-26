@@ -35,6 +35,7 @@ export interface BlogPost {
 	subtitle: string;
 	cover: Image;
 	thumb: Image;
+	openGraph: string;
 	category: string;
 	date: string;
 	excerpt: string;

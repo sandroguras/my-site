@@ -2,12 +2,13 @@
 	//TODO need to improve wording and test out the meta tags
 	import { page } from '$app/stores';
 	import { derived } from 'svelte/store';
+	import { getBlogPostMetadata } from '$lib/data/blogData';
 
 
-	const siteURL = "https://davidguras.dev/";
+	const siteURL = 'https://davidguras.dev/';
 
 	const defaultTitle: string = 'David Guras | Precision Web Engineering';
-	const defatulSiteName: string = 'David Guras';
+	const defaultSiteName: string = 'David Guras';
 	const defaultDescription: string = 'David Guras: Expert Web Director, crafting large-scale, precise solutions. Ensures fast, responsive, accessible projects with unmatched quality.';
 	const defaultImage = `${siteURL}images/opengraphs/default-og.jpg`;
 
@@ -38,11 +39,30 @@
 					image: `${siteURL}images/opengraphs/contact-og.jpg`
 				};
 			default:
-				return {
-					title: defaultTitle,
-					description: defaultDescription,
-					image: defaultImage
-				};
+				// Check if the current page is a blog post
+				if ($page.url.pathname.startsWith('/blog/')) {
+					// Extract the slug from the URL path
+					const slug = $page.url.pathname.split('/').pop();
+
+					// Check if slug is defined before calling getBlogPostMetadata
+					if (slug) {
+						// Get the metadata for the specific blog post
+						return getBlogPostMetadata(slug, siteURL);
+					} else {
+						// Fallback metadata for blog posts with invalid slugs
+						return {
+							title: 'David Guras | Blog Post',
+							description: 'Read David Guras\'s latest blog post, offering valuable insights and expert opinions on the latest trends and techniques in web development.',
+							image: `${siteURL}images/opengraphs/blog-post-og.jpg`
+						};
+					}
+				} else {
+					return {
+						title: defaultTitle,
+						description: defaultDescription,
+						image: defaultImage
+					};
+				}
 		}
 	});
 </script>
@@ -56,7 +76,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content={siteURL} />
 <meta property="og:title" content={$metadata.title} />
-<meta property="og:site_name" content={defatulSiteName} />
+<meta property="og:site_name" content={defaultSiteName} />
 <meta property="og:description" content={$metadata.description} />
 <meta property="og:image" content={$metadata.image} />
 <meta property="og:image:width" content="1200" />
