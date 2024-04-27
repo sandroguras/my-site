@@ -9,7 +9,7 @@
 
 	const defaultTitle: string = 'David Guras | Precision Web Engineering';
 	const defaultSiteName: string = 'David Guras';
-	const defaultDescription: string = 'David Guras: Expert Web Director, crafting large-scale, precise solutions. Ensures fast, responsive, accessible projects with unmatched quality.';
+	const defaultDescription: string = 'David Guras: Expert Web Developer, crafting large-scale, precise solutions. Ensures fast, responsive, accessible projects with unmatched quality.';
 	const defaultImage = `${siteURL}images/opengraphs/default-og.jpg`;
 
 	const defaultArticleAuthor: string = 'David Guras';
