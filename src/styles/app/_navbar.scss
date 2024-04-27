@@ -3,12 +3,13 @@
 ----------------------------------------------------------------- */
 
 /* NavBar styles: */
-$navbar-height: rem(64px); /* Height of the navbar - descriptive variable name */
+$navbar-height: rem(64px);
 
 /* Main navigation container */
 .nav-container {
   background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   border-radius: 0 var(--radius-20) 0 var(--radius-20);
   @include flex($align: center, $justify: flex-end);
   height: $navbar-height;
@@ -22,6 +23,7 @@ $navbar-height: rem(64px); /* Height of the navbar - descriptive variable name *
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     background: rgba(43, 43, 44, 0.75);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-20) var(--radius-20) 0 0;
     box-shadow: var(--box-shadow-30);
     @include flex($align: center, $justify: center);

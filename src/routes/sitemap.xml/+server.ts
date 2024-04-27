@@ -21,6 +21,7 @@ export const GET: RequestHandler = async ({ request }) => {
 			'/portfolio/eosio',
 			'/portfolio/blockone',
 			'/portfolio/voice',
+			'/blog/sveltekit-installation-tutorial',
 			'/contact'
 		];
 

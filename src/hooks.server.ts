@@ -3,17 +3,13 @@ import type { Handle } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const disabledPaths = ['/blog']; // Paths to disable
+	const disabledPaths = ['']; // Paths to disable
 	const cacheControlDisabledPaths = ['/contact']; // Paths to disable cache
 	const { pathname } = event.url;
 
 	if (disabledPaths.includes(pathname)) {
 		// Redirect to a maintenance page or return a custom error
-		// Option 1: Redirect
 		throw redirect(307, '/');
-
-		// Option 2: Return a custom error (uncomment if you prefer this method)
-		// return new Response('This page is temporarily unavailable', { status: 503 });
 	}
 
 	const response = await resolve(event);

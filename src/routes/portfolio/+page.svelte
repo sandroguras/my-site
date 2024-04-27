@@ -13,7 +13,7 @@
 		<div class="gallery-grid__item">
 			<a href={`/portfolio/${project.slug}`}>
 				<div class="gallery-grid__image-wrap">
-					<img class="gallery-grid__image cover" src={project.thumbnail} alt={project.thumbnailAlt} />
+					<img class="gallery-grid__image cover" src={project.thumb.src} alt={project.thumb.alt} />
 				</div>
 				<div class="gallery-grid__caption">
 					<h3 class="title gallery-grid__title">{project.listName}</h3>

@@ -27,7 +27,7 @@
 	<header class="header-project">
 		<h1 class="title title--h1">{@html project.pageTitle}</h1>
 		<div class="header-project__image-wrap">
-			<img class="cover" src={project.coverImage} alt={project.coverImageAlt} />
+			<img class="cover" src={project.cover.src} alt={project.cover.alt} />
 		</div>
 	</header>
 

@@ -6,10 +6,14 @@ const mockData: PortfolioProject[] = [
 		listName: 'BULLISH.COM',
 		pageTitle:
 			'<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a>',
-		coverImage: '/images/portfolio/bullish/bullish-cover-image.webp',
-		coverImageAlt: 'bullish.com cover image',
-		thumbnail: '/images/portfolio/bullish/bullish-thumb.webp',
-		thumbnailAlt: 'bullish.com thumbnail',
+		cover: {
+			src: '/images/portfolio/bullish/bullish-cover-image.webp',
+			alt: 'bullish.com cover image'
+		},
+		thumb: {
+			src: '/images/portfolio/bullish/bullish-thumb.webp',
+			alt: 'bullish.com thumbnail'
+		},
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -76,10 +80,8 @@ const mockData: PortfolioProject[] = [
 		listName: 'EOS.IO',
 		pageTitle:
 			'<a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">EOS.IO</a>',
-		coverImage: '/images/portfolio/eosio/eosio-cover-image.webp',
-		coverImageAlt: 'EOS.IO cover image',
-		thumbnail: '/images/portfolio/eosio/eosio-thumb.webp',
-		thumbnailAlt: 'EOS.IO thumbnail',
+		cover: { src: '/images/portfolio/eosio/eosio-cover-image.webp', alt: 'EOS.IO cover image' },
+		thumb: { src: '/images/portfolio/eosio/eosio-thumb.webp', alt: 'EOS.IO thumbnail' },
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -150,10 +152,8 @@ const mockData: PortfolioProject[] = [
 		listName: 'BLOCK.ONE',
 		pageTitle:
 			'<a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View block.one website">BLOCK.ONE</a>',
-		coverImage: '/images/portfolio/b1/b1-cover-image.webp',
-		coverImageAlt: 'BLOCK.ONE cover image',
-		thumbnail: '/images/portfolio/b1/b1-thumb.webp',
-		thumbnailAlt: 'BLOCK.ONE thumbnail',
+		cover: { src: '/images/portfolio/b1/b1-cover-image.webp', alt: 'BLOCK.ONE cover image' },
+		thumb: { src: '/images/portfolio/b1/b1-thumb.webp', alt: 'BLOCK.ONE thumbnail' },
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -210,10 +210,8 @@ const mockData: PortfolioProject[] = [
 		listName: 'VOICE.COM',
 		pageTitle:
 			'<a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View voice.com website">VOICE.COM</a>',
-		coverImage: '/images/portfolio/voice/voice-cover-image.webp',
-		coverImageAlt: 'VOICE.COM cover image',
-		thumbnail: '/images/portfolio/voice/voice-thumb.webp',
-		thumbnailAlt: 'VOICE.COM thumbnail',
+		cover: { src: '/images/portfolio/voice/voice-cover-image.webp', alt: 'VOICE.COM cover image' },
+		thumb: { src: '/images/portfolio/voice/voice-thumb.webp', alt: 'VOICE.COM thumbnail' },
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -271,9 +269,9 @@ const mockData: PortfolioProject[] = [
 		description:
 			'<p>As the web developer for the <a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View VOICE.COM website">VOICE.COM</a> beta subscription website project, I oversaw the development and maintenance of the site.</p>\n' +
 			'\n' +
-			'<p>Throughout the project, I focused on ensuring the site\'s optimal performance, security, and user experience. I worked closely with the BLOCKONE\'s marketing team to implement necessary updates and enhancements to keep the website running smoothly.</p>\n' +
+			"<p>Throughout the project, I focused on ensuring the site's optimal performance, security, and user experience. I worked closely with the BLOCKONE's marketing team to implement necessary updates and enhancements to keep the website running smoothly.</p>\n" +
 			'\n' +
-			'<p>By leveraging my technical expertise and project management skills, I successfully delivered a stable and user-friendly website that supported product\'s online presence and goals. My role in the project demonstrated my ability to maintain and optimize a website to ensure its continued success.</p>'
+			"<p>By leveraging my technical expertise and project management skills, I successfully delivered a stable and user-friendly website that supported product's online presence and goals. My role in the project demonstrated my ability to maintain and optimize a website to ensure its continued success.</p>"
 	}
 ];
 
