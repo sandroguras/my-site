@@ -207,6 +207,10 @@ export function getBlogPostMetadata(
 	title: string;
 	description: string;
 	image: string;
+	articleAuthor: string;
+	articlePublishedTime: string;
+	articleSection: string;
+	articleTag: string;
 } {
 	const blogPost = fetchBlogDataBySlug(slug);
 
@@ -216,7 +220,11 @@ export function getBlogPostMetadata(
 			description: blogPost.excerpt,
 			image: blogPost.openGraph
 				? `${siteURL}${blogPost.openGraph}`
-				: `${siteURL}images/opengraphs/blog-post-og.jpg`
+				: `${siteURL}images/opengraphs/blog-post-og.jpg`,
+			articleAuthor: 'David Guras',
+			articlePublishedTime: new Date(blogPost.date).toISOString(), // Convert the date to ISO 8601 format
+			articleSection: 'Web Development',
+			articleTag: 'Web Development, Programming, Technology'
 		};
 	} else {
 		// Fallback metadata for unknown blog posts
@@ -224,7 +232,11 @@ export function getBlogPostMetadata(
 			title: 'David Guras | Blog Post',
 			description:
 				"Read David Guras's latest blog post, offering valuable insights and expert opinions on the latest trends and techniques in web development.",
-			image: `${siteURL}images/opengraphs/blog-post-og.jpg`
+			image: `${siteURL}images/opengraphs/blog-post-og.jpg`,
+			articleAuthor: 'David Guras',
+			articlePublishedTime: new Date().toISOString(), // Use the current date and time as a fallback
+			articleSection: 'Web Development',
+			articleTag: 'Web Development, Programming, Technology'
 		};
 	}
 }

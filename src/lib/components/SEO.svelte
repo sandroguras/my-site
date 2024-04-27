@@ -12,6 +12,10 @@
 	const defaultDescription: string = 'David Guras: Expert Web Director, crafting large-scale, precise solutions. Ensures fast, responsive, accessible projects with unmatched quality.';
 	const defaultImage = `${siteURL}images/opengraphs/default-og.jpg`;
 
+	const defaultArticleAuthor: string = 'David Guras';
+	const defaultArticleSection: string = 'Web Development';
+	const defaultArticleTag: string = 'Web Development, Programming, Technology';
+
 	const metadata = derived(page, $page => {
 		switch ($page.url.pathname) {
 			case '/resume':
@@ -47,20 +51,37 @@
 					// Check if slug is defined before calling getBlogPostMetadata
 					if (slug) {
 						// Get the metadata for the specific blog post
-						return getBlogPostMetadata(slug, siteURL);
+						const blogPostMetadata = getBlogPostMetadata(slug, siteURL);
+						return {
+							title: blogPostMetadata.title,
+							description: blogPostMetadata.description,
+							image: blogPostMetadata.image,
+							articleAuthor: blogPostMetadata.articleAuthor,
+							articlePublishedTime: blogPostMetadata.articlePublishedTime,
+							articleSection: blogPostMetadata.articleSection,
+							articleTag: blogPostMetadata.articleTag
+						};
 					} else {
 						// Fallback metadata for blog posts with invalid slugs
 						return {
 							title: 'David Guras | Blog Post',
 							description: 'Read David Guras\'s latest blog post, offering valuable insights and expert opinions on the latest trends and techniques in web development.',
-							image: `${siteURL}images/opengraphs/blog-post-og.jpg`
+							image: `${siteURL}images/opengraphs/blog-post-og.jpg`,
+							articleAuthor: defaultArticleAuthor,
+							articlePublishedTime: new Date().toISOString(),
+							articleSection: defaultArticleSection,
+							articleTag: defaultArticleTag
 						};
 					}
 				} else {
 					return {
 						title: defaultTitle,
 						description: defaultDescription,
-						image: defaultImage
+						image: defaultImage,
+						articleAuthor: defaultArticleAuthor,
+						articlePublishedTime: new Date().toISOString(),
+						articleSection: defaultArticleSection,
+						articleTag: defaultArticleTag
 					};
 				}
 		}
@@ -90,3 +111,10 @@
 <!--<meta property="twitter:description" content={description} />-->
 <!--<meta property="twitter:image" content={`${siteURL}/opengraph.jpg`} />-->
 <meta name="twitter:card" content="summary_large_image" />
+
+<!-- LinkedIn-specific Open Graph tags -->
+<meta property="og:type" content="article" />
+<meta property="article:author" content={$metadata.articleAuthor} />
+<meta property="article:published_time" content={$metadata.articlePublishedTime} />
+<meta property="article:section" content={$metadata.articleSection} />
+<meta property="article:tag" content={$metadata.articleTag} />
