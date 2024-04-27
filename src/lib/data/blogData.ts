@@ -15,7 +15,7 @@ const mockData: BlogPost[] = [
 			src: '/images/blog/svelteKit-setup-made-simple-thumb.webp',
 			alt: 'SvelteKit Setup Made Simple article thumbnail'
 		},
-		openGraph: '/images/opengraphs/blog-og-setup-made-simple.jpg',
+		openGraph: 'images/opengraphs/blog-og-setup-made-simple.jpg',
 		category: 'SvelteKit',
 		date: '2024-04-27',
 		excerpt:
@@ -219,8 +219,8 @@ export function getBlogPostMetadata(
 			title: `David Guras | ${blogPost.title}`,
 			description: blogPost.excerpt,
 			image: blogPost.openGraph
-				? `${siteURL}${blogPost.openGraph}`
-				: `${siteURL}images/opengraphs/blog-post-og.jpg`,
+				? `${siteURL}/${blogPost.openGraph}`
+				: `${siteURL}/images/opengraphs/blog-post-og.jpg`,
 			articleAuthor: 'David Guras',
 			articlePublishedTime: new Date(blogPost.date).toISOString(), // Convert the date to ISO 8601 format
 			articleSection: 'Web Development',
@@ -232,7 +232,7 @@ export function getBlogPostMetadata(
 			title: 'David Guras | Blog Post',
 			description:
 				"Read David Guras's latest blog post, offering valuable insights and expert opinions on the latest trends and techniques in web development.",
-			image: `${siteURL}images/opengraphs/blog-post-og.jpg`,
+			image: `${siteURL}/images/opengraphs/blog-post-og.jpg`,
 			articleAuthor: 'David Guras',
 			articlePublishedTime: new Date().toISOString(), // Use the current date and time as a fallback
 			articleSection: 'Web Development',
