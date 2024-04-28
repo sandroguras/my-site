@@ -23,7 +23,7 @@
 				ariaLabel: 'View David\'s LinkedIn profile'
 			},
 			{
-				icon: 'at-sign',
+				icon: 'mail',
 				link: '/contact',
 				target: '',
 				ariaLabel: 'Submit a contact form to David'
