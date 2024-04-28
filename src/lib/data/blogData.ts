@@ -4,7 +4,7 @@ const mockData: BlogPost[] = [
 	{
 		slug: 'sveltekit-installation-tutorial',
 		listName: "SvelteKit Setup Made Simple: A Beginner's Guide",
-		title: 'SvelteKit Setup Made Simple',
+		title: 'SvelteKit Setup Made Simple:</br>A Beginner\'s Guide',
 		subtitle:
 			'Unlock the power of SvelteKit by mastering the setup process in this beginner-friendly guide.',
 		cover: {
