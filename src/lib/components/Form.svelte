@@ -168,7 +168,7 @@
 					/>
 					<div class="help-block with-errors"></div>
 				</div>
-				<div class="form-group col-12 col-md-12">
+				<div class="form-group">
 					<textarea
 						class="textarea form-control"
 						id="messageContact"
