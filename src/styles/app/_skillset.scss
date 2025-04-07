@@ -29,6 +29,7 @@
     padding: 1rem;
     color: var(--color-accent);
     transition: transform 0.4s ease-in-out;
+    cursor: pointer;
 
     @media only screen and (max-width: $small) {
       font-size: rem(16px);
