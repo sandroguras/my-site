@@ -15,16 +15,15 @@
 		"@hcaptcha/types": "^1.0.4",
 		"@popperjs/core": "^2.11.8",
 		"@sveltejs/adapter-auto": "^3.3.1",
-		"@sveltejs/kit": "^2.20.4",
+		"@sveltejs/kit": "^2.20.7",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
-		"@types/dompurify": "^3.2.0",
 		"@types/nodemailer": "^6.4.17",
 		"@types/sanitize-html": "^2.15.0",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
 		"bootstrap": "^5.3.5",
-		"dotenv": "^16.4.7",
-		"eslint": "^8.57.1",
+		"dotenv": "^16.5.0",
+		"eslint": "^9.25.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.46.1",
 		"highlight.js": "^11.11.1",
@@ -36,7 +35,7 @@
 		"svelte-highlight": "^7.8.3",
 		"tslib": "^2.8.1",
 		"typescript": "^5.8.3",
-		"vite": "^5.4.17"
+		"vite": "^5.4.18"
 	},
 	"type": "module",
 	"dependencies": {
@@ -44,9 +43,9 @@
 		"@vercel/speed-insights": "^1.2.0",
 		"dompurify": "^3.2.5",
 		"node-fetch": "^3.3.2",
-		"nodemailer": "^6.10.0",
+		"nodemailer": "^6.10.1",
 		"photoswipe": "^5.4.4",
-		"sanitize-html": "^2.15.0",
+		"sanitize-html": "^2.16.0",
 		"swiper": "^11.2.6"
 	}
 }
