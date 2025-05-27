@@ -6,13 +6,13 @@ import type { RequestHandler } from '@sveltejs/kit';
  * @param {Request} param.request - The request object.
  * @returns {Response} - The response object containing the XML sitemap.
  */
-export const GET: RequestHandler = async ({ request }) => {
+export const GET: RequestHandler = async ({ request }: { request: Request }): Promise<Response> => {
 	try {
 		const protocol = import.meta.env.VITE_SITE_PROTOCOL || 'https';
 		const host = request.headers.get('host') || import.meta.env.VITE_SITE_HOST || 'davidguras.dev';
 
 		// ToDo Fetch paths dynamically
-		const dynamicPages = [];
+		//const dynamicPages = [];
 		const pages: string[] = [
 			'/',
 			'/resume',
