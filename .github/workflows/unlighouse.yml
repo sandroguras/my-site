@@ -36,15 +36,6 @@ jobs:
           unlighthouse-ci \
             --site http://localhost:4173 \
             --budget 75 \
-            --upload.target=lhci \
-            --upload.serverBaseUrl=https://lhci-server-crimson-bush-1151.fly.dev \
-            --upload.token=${{ secrets.LHCI_BUILD_TOKEN }}
-
-      - name: Upload Unlighthouse Report
-        uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with:
-          name: unlighthouse-report
-          path: .unlighthouse/**/*
-          include-hidden-files: true
-          retention-days: 30
+            --reporter lighthouseServer \
+            --lhci-host https://lhci-server-crimson-bush-1151.fly.dev \
+            --lhci-build-token ${{ secrets.LHCI_BUILD_TOKEN }}
