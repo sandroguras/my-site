@@ -21,8 +21,8 @@ export default {
 	// ////////////////////////////////////////////////////////////////////////////
 	scanner: {
 		device: 'desktop',
-		throttle: false,
-	//   //dynamicSampling: false, // or any number, default is 5
+		// throttle: false,
+		//   //dynamicSampling: false, // or any number, default is 5
 
 		//   // exclude specific routes
 		//   // exclude: [

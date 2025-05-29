@@ -41,7 +41,7 @@ export default {
 	////////////////////////////////////////////////////////////////////////////
 	scanner: {
 		device: 'mobile',
-		throttle: true
+		// throttle: true
 
 		//   // exclude specific routes
 		//   // exclude: [
