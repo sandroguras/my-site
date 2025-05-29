@@ -35,7 +35,7 @@ jobs:
         run: |
           unlighthouse-ci \
             --site http://localhost:4173 \
-            --config-file mobile-v1.config.ts
+            --config-file mobile-v1.config.ts \
             --reporter lighthouseServer \
             --lhci-host https://lhci-server-crimson-bush-1151.fly.dev \
             --lhci-build-token ${{ secrets.LHCI_BUILD_TOKEN }}
@@ -44,7 +44,7 @@ jobs:
         run: |
           unlighthouse-ci \
             --site http://localhost:4173 \
-            --config-file desktop-v1.config.ts
+            --config-file desktop-v1.config.ts \
             --reporter lighthouseServer \
             --lhci-host https://lhci-server-crimson-bush-1151.fly.dev \
             --lhci-build-token ${{ secrets.LHCI_BUILD_TOKEN }}
