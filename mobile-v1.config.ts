@@ -1,6 +1,11 @@
 // This is the default that always gets used unless a different config file is specified
 export default {
 
+	// Maximum acceptable performance budget score for CI checks
+	ci: {
+		budget: 70
+	},
+
 	// // Increase accuracy by only allowing 1 page to be scanned at a time
 	// puppeteerClusterOptions: {
 	//   // only run 1 worker at a time
@@ -36,18 +41,18 @@ export default {
 	////////////////////////////////////////////////////////////////////////////
 	scanner: {
 		device: 'mobile',
-		throttle: true,
+		throttle: true
 
-		// exclude specific routes
-		// exclude: [
-		//   '/.*?pdf',
-		//   '.*/amp',
-		//   'en-*',
-		// ],
+		//   // exclude specific routes
+		//   // exclude: [
+		//     //   '/.*?pdf',
+		//     //   '.*/amp',
+		//     //   'en-*',
+		//     // ],
 
-		// run lighthouse for each URL 3 times
-		samples: 1,
-	},
+		//     // run lighthouse for each URL 3 times
+		//     // samples: 3,
+	}
 
 	////////////////////////////////////////////////////////////////////////////
 	// Emulate mobile with devtools settings:
@@ -72,6 +77,5 @@ export default {
 	//   throttlingMethod: 'devtools',
 	// },
 
-
 	// debug: true,
-}
+};
