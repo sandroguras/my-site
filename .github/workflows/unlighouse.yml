@@ -19,7 +19,7 @@ jobs:
         run: bun install -g @unlighthouse/cli puppeteer
 
       - name: Build SvelteKit Preview
-        run: make build
+        run: bun run build
 
       # Run build in background and log output
       - name: Start Preview Server
