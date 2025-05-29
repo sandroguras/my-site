@@ -15,8 +15,11 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
-      - name: Install Dependencies
+      - name: Install Global Dependencies
         run: bun install -g @unlighthouse/cli puppeteer
+
+      - name: Install Project Dependencies
+        run: bun install
 
       - name: Build SvelteKit Preview
         run: bun run build
