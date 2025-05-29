@@ -1,9 +1,8 @@
 // This is the default that always gets used unless a different config file is specified
 export default {
-
 	// Maximum acceptable performance budget score for CI checks
 	ci: {
-		budget: 70
+		budget: 10
 	},
 
 	// // Increase accuracy by only allowing 1 page to be scanned at a time
@@ -40,7 +39,7 @@ export default {
 	// (throttling same as PageSpeed simulated Moto 4G Power Slow 4G)
 	////////////////////////////////////////////////////////////////////////////
 	scanner: {
-		device: 'mobile',
+		device: 'mobile'
 		// throttle: true
 
 		//   // exclude specific routes
