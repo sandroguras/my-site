@@ -2,10 +2,10 @@
 export default {
 
 	// // Increase accuracy by only allowing 1 page to be scanned at a time
-	puppeteerClusterOptions: {
-	  // only run 1 worker at a time
-	  maxConcurrency: 1
-	},
+	// puppeteerClusterOptions: {
+	//   // only run 1 worker at a time
+	//   maxConcurrency: 1
+	// },
 
 	// ////////////////////////////////////////////////////////////////////////////
 	// // Emulate desktop in scan:
@@ -46,7 +46,7 @@ export default {
 		// ],
 
 		// run lighthouse for each URL 3 times
-		samples: 3,
+		samples: 1,
 	},
 
 	////////////////////////////////////////////////////////////////////////////
@@ -73,5 +73,5 @@ export default {
 	// },
 
 
-	debug: true,
+	// debug: true,
 }
