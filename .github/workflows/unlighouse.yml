@@ -31,11 +31,22 @@ jobs:
           echo "Waiting for preview to start on port 4173…"
           bunx wait-on http://localhost:4173
 
-      - name: Run Unlighthouse Assertions & Generate Static Report
+      - name: Run Unlighthouse Assertions on Mobile & Generate Static Report
         run: |
           unlighthouse-ci \
             --site http://localhost:4173 \
-            --budget 75 \
+            --config-file mobile-v1.config.ts
+            --budget 30 \
+            --reporter lighthouseServer \
+            --lhci-host https://lhci-server-crimson-bush-1151.fly.dev \
+            --lhci-build-token ${{ secrets.LHCI_BUILD_TOKEN }}
+
+      - name: Run Unlighthouse Assertions on Desktop & Generate Static Report
+        run: |
+          unlighthouse-ci \
+            --site http://localhost:4173 \
+            --config-file desktop-v1.config.ts
+            --budget 30 \
             --reporter lighthouseServer \
             --lhci-host https://lhci-server-crimson-bush-1151.fly.dev \
             --lhci-build-token ${{ secrets.LHCI_BUILD_TOKEN }}
