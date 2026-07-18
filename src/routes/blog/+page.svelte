@@ -3,7 +3,7 @@
 	import { formatDate } from '$lib/utils/dateUtils';
 	import { resolve } from '$app/paths';
 	let { data }: { data: PageData } = $props();
-	const { posts } = data;
+	let posts = $derived(data.posts);
 </script>
 
 <div class="news-grid">

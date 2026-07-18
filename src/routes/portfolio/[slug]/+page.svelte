@@ -9,7 +9,7 @@
 	import { resolve } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
-	const { project } = data;
+	let project = $derived(data.project);
 
 	onMount(() => {
 		let lightbox = new PhotoSwipeLightbox({

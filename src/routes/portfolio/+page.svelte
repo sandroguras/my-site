@@ -3,7 +3,7 @@
 	import { resolve } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
-	const { projects } = data;
+	let projects = $derived(data.projects);
 </script>
 
 <!-- Gallery -->
