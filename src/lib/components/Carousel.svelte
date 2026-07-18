@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { register } from 'swiper/element/bundle';
+	import { register } from 'swiper/element';
+	import { Pagination } from 'swiper/modules';
+	import paginationStyles from 'swiper/element/css/pagination?raw';
 	import type { SwiperContainer } from 'swiper/element';
 	import { asset } from '$app/paths';
 	import Modal from '$lib/components/Modal.svelte';
@@ -31,6 +33,8 @@
 		const swiperEl = document.querySelector<SwiperContainer>(`#${swiperId}`);
 		if (!swiperEl) return;
 		const params = {
+			modules: [Pagination],
+			injectStyles: [paginationStyles],
 			slidesPerView,
 			spaceBetween,
 			speed,
