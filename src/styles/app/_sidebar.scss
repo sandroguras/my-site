@@ -72,37 +72,6 @@
 			margin-bottom: rem(10px);
 		}
 	}
-
-	&__btn {
-		@include position(absolute, $top: 0, $right: 0);
-		border-top-left-radius: 0;
-		border-bottom-right-radius: 0;
-		display: none;
-
-		@media only screen and (max-width: $large-xl) {
-			display: block;
-			padding: rem(10px) rem(16px);
-		}
-
-		@media only screen and (max-width: $small) {
-			padding: rem(10px);
-		}
-	}
-
-	&__btn i {
-		display: none;
-	}
-
-	@media only screen and (max-width: $small) {
-		&__btn i {
-			display: block;
-			margin: 0;
-		}
-
-		&__btn span {
-			display: none;
-		}
-	}
 }
 
 .contacts-block__info {

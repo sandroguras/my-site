@@ -43,13 +43,6 @@ $navbar-height: rem(64px);
 	}
 }
 
-/* When zoom is opened */
-.medium-zoom--opened .nav-container {
-	@media only screen and (max-width: $large) {
-		z-index: 10;
-	}
-}
-
 /* Inner navigation container */
 .nav {
 	@include flex($align: center, $justify: center);

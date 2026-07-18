@@ -60,14 +60,6 @@
 		box-shadow: var(--box-shadow-30);
 	}
 
-	&--icon-left i {
-		margin-right: rem(8px);
-	}
-
-	&--icon-right i {
-		margin-left: rem(8px);
-	}
-
 	@media only screen and (max-width: $small) {
 		font-size: rem(14px);
 		padding: rem(12px) rem(18px);
