@@ -1,12 +1,22 @@
 <script lang="ts">
-	export let isButtonLink: boolean = false;
-	export let text: string = '';
-	export let link: string = '';
-	export let icon: string = '';
-	export let ariaLabel: string = '';
-	export let btnDisbl: boolean = false;
 	import Spinner from '$lib/components/Spinner.svelte';
 	import { asset } from '$app/paths';
+
+	let {
+		isButtonLink = false,
+		text = '',
+		link = '',
+		icon = '',
+		ariaLabel = '',
+		btnDisbl = false
+	}: {
+		isButtonLink?: boolean;
+		text?: string;
+		link?: string;
+		icon?: string;
+		ariaLabel?: string;
+		btnDisbl?: boolean;
+	} = $props();
 </script>
 
 {#if isButtonLink}

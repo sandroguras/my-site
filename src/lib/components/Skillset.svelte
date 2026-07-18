@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Skillset as SkillsetType } from '#types/Skillset';
 
-	export let skills: SkillsetType['skills'] = [];
+	let { skills = [] }: { skills?: SkillsetType['skills'] } = $props();
 </script>
 
 <div class="skillset__grid">

@@ -13,19 +13,31 @@
 		GalleryData as GalleryDataType
 	} from '#types/Carousel';
 
-	export let swiperId: CarouselType['swiperId'] = '';
-	export let slidesPerView: number | 'auto' = 'auto';
-	export let spaceBetween: number = 30;
-	export let centeredSlides: boolean = false;
-	export let speed: number = 500;
-	export let grabCursor: boolean = true;
-	export let watchOverflow: boolean = true;
-	export let pagination: object = {
-		clickable: true
-	};
-	export let breakpoints: CarouselType['breakpoints'] = {};
-	export let injectStylesUrls: string[] = ['/styles/swiper-pagination.css'];
-	export let slides: (ReviewDataType | ClientDataType | GalleryDataType)[] = [];
+	let {
+		swiperId = '',
+		slidesPerView = 'auto',
+		spaceBetween = 30,
+		centeredSlides = false,
+		speed = 500,
+		grabCursor = true,
+		watchOverflow = true,
+		pagination = { clickable: true },
+		breakpoints = {},
+		injectStylesUrls = ['/styles/swiper-pagination.css'],
+		slides = []
+	}: {
+		swiperId?: CarouselType['swiperId'];
+		slidesPerView?: number | 'auto';
+		spaceBetween?: number;
+		centeredSlides?: boolean;
+		speed?: number;
+		grabCursor?: boolean;
+		watchOverflow?: boolean;
+		pagination?: object;
+		breakpoints?: CarouselType['breakpoints'];
+		injectStylesUrls?: string[];
+		slides?: (ReviewDataType | ClientDataType | GalleryDataType)[];
+	} = $props();
 
 	// Swiper initialization and custom style injection
 	onMount(() => {
@@ -58,9 +70,9 @@
 	}
 
 	// Modal setup
-	let showModal: boolean = false; // Boolean to show/hide the modal
-	let modalData: ReviewDataType; // Object to hold data of the clicked carousel item
-	let modalIndex: number; // Index of the clicked carousel item
+	let showModal: boolean = $state(false); // Boolean to show/hide the modal
+	let modalData: ReviewDataType = $state()!; // Object to hold data of the clicked carousel item
+	let modalIndex: number = $state()!; // Index of the clicked carousel item
 
 	function openModal(index: number): void {
 		const slide = slides[index];

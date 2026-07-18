@@ -1,6 +1,7 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import '../app.scss';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import type { NavLink as NavLinkType } from '#types/NavLink';
 	import SEO from '$lib/components/SEO.svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
@@ -25,7 +26,9 @@
 		{ path: '/contact', label: 'Contact' }
 	];
 
-	$: isBlogSubpage = $page.url.pathname.startsWith('/blog/');
+	let { children }: { children: Snippet } = $props();
+
+	let isBlogSubpage = $derived(page.url.pathname.startsWith('/blog/'));
 </script>
 
 <svelte:head>
@@ -42,7 +45,7 @@
 				<div class="box-outer">
 					<NavBar {links} />
 					<PageTitle />
-					<slot />
+					{@render children()}
 				</div>
 			</div>
 		</div>

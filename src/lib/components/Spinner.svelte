@@ -1,10 +1,18 @@
 <script lang="ts">
 	import type { Spinner as SpinnerType } from '#types/Spinner';
-	export let color: SpinnerType['color'] = '#FFDB6E';
-	export let unit: SpinnerType['unit'] = 'px';
-	export let duration: SpinnerType['duration'] = '0.75s';
-	export let size: SpinnerType['size'] = '20';
-	export let pause: SpinnerType['pause'] = false;
+	let {
+		color = '#FFDB6E',
+		unit = 'px',
+		duration = '0.75s',
+		size = '20',
+		pause = false
+	}: {
+		color?: SpinnerType['color'];
+		unit?: SpinnerType['unit'];
+		duration?: SpinnerType['duration'];
+		size?: SpinnerType['size'];
+		pause?: SpinnerType['pause'];
+	} = $props();
 </script>
 
 <div

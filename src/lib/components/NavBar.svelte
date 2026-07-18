@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { NavLink as NavLinkType } from '#types/NavLink';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 
-	export let links: NavLinkType[] = [];
+	let { links = [] }: { links?: NavLinkType[] } = $props();
 
 	// Function to determine if the link is active
 	// considering only the first-degree path segment
@@ -23,7 +23,7 @@
 	<ul class="nav">
 		{#each links as link (link.path)}
 			<li class="nav__item">
-				<a class:active={isActiveLink($page.url.pathname, link.path)} href={resolve(link.path)}
+				<a class:active={isActiveLink(page.url.pathname, link.path)} href={resolve(link.path)}
 					>{link.label}</a
 				>
 			</li>

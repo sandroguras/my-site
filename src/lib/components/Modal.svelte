@@ -1,16 +1,24 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
-	import { browser } from '$app/environment';
 	import { scale } from 'svelte/transition';
 	import { sineOut } from 'svelte/easing';
 	import { formatDate } from '$lib/utils/dateUtils';
 	import type { ReviewData as ReviewDataType } from '#types/Carousel';
-	export let showModal: boolean = false;
-	export let modalData: ReviewDataType;
-	export let modalIndex: number;
-	export let closeModal: () => void;
+
+	let {
+		showModal = false,
+		modalData,
+		modalIndex,
+		closeModal
+	}: {
+		showModal?: boolean;
+		modalData: ReviewDataType;
+		modalIndex: number;
+		closeModal: () => void;
+	} = $props();
+
 	let originalOverflow: string;
-	let closeButtonEl: HTMLButtonElement;
+	let closeButtonEl: HTMLButtonElement | undefined = $state();
 	let triggerEl: Element | null = null;
 
 	function handleClickOutside(event: MouseEvent): void {
@@ -27,34 +35,30 @@
 	}
 
 	onMount(() => {
-		if (browser) {
-			// Only run this code on the client side
-			originalOverflow = document.body.style.overflow;
-		}
+		originalOverflow = document.body.style.overflow;
 
 		return () => {
-			if (browser) {
-				// Cleanup code for client side
-				document.body.style.overflow = originalOverflow;
-			}
+			document.body.style.overflow = originalOverflow;
 		};
 	});
 
-	$: if (browser && showModal) {
-		document.body.style.overflow = 'hidden';
-		triggerEl = document.activeElement;
-		// closeButtonEl isn't bound until the {#if showModal} block finishes
-		// mounting, which happens after this reactive statement runs
-		tick().then(() => closeButtonEl?.focus());
-	} else if (browser) {
-		document.body.style.overflow = originalOverflow;
-		if (triggerEl instanceof HTMLElement) {
-			triggerEl.focus();
+	$effect(() => {
+		if (showModal) {
+			document.body.style.overflow = 'hidden';
+			triggerEl = document.activeElement;
+			// closeButtonEl isn't bound until the {#if showModal} block finishes
+			// mounting, which happens after this effect first runs
+			tick().then(() => closeButtonEl?.focus());
+		} else {
+			document.body.style.overflow = originalOverflow;
+			if (triggerEl instanceof HTMLElement) {
+				triggerEl.focus();
+			}
 		}
-	}
+	});
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window onkeydown={handleKeydown} />
 
 {#if showModal}
 	<!--TODO: Remove empty classes-->
@@ -66,7 +70,7 @@
 	>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="mfp-container mfp-s-ready mfp-inline-holder" on:click={handleClickOutside}>
+		<div class="mfp-container mfp-s-ready mfp-inline-holder" onclick={handleClickOutside}>
 			<div class="mfp-content">
 				<div transition:scale={{ duration: 500, delay: 100, easing: sineOut }}>
 					<!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -76,7 +80,7 @@
 						aria-modal="true"
 						aria-labelledby="review-name-{modalIndex}"
 						tabindex="-1"
-						on:click|stopPropagation
+						onclick={(event) => event.stopPropagation()}
 						class="popup"
 					>
 						<div class="row">
@@ -98,7 +102,7 @@
 							title="Close (Esc)"
 							type="button"
 							class="mfp-close"
-							on:click={closeModal}>×</button
+							onclick={closeModal}>×</button
 						>
 					</div>
 				</div>

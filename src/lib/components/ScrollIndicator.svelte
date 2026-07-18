@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 
-	let scrollPercentage = 0;
+	let scrollPercentage = $state(0);
 
 	function updateScrollProgress() {
 		if (typeof window !== 'undefined') {

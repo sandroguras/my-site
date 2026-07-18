@@ -11,24 +11,26 @@
 		}
 	}
 
-	export let personalInfo: PersonalInfoType = {
-		name: 'David Guras',
-		role: 'Lead Web Developer',
-		socials: [
-			{
-				icon: 'linkedin',
-				link: 'https://www.linkedin.com/in/gurasan/',
-				target: '_blank',
-				ariaLabel: "View David's LinkedIn profile"
-			},
-			{
-				icon: 'mail',
-				link: '/contact',
-				target: '',
-				ariaLabel: 'Submit a contact form to David'
-			}
-		]
-	};
+	let {
+		personalInfo = {
+			name: 'David Guras',
+			role: 'Lead Web Developer',
+			socials: [
+				{
+					icon: 'linkedin',
+					link: 'https://www.linkedin.com/in/gurasan/',
+					target: '_blank',
+					ariaLabel: "View David's LinkedIn profile"
+				},
+				{
+					icon: 'mail',
+					link: '/contact',
+					target: '',
+					ariaLabel: 'Submit a contact form to David'
+				}
+			]
+		}
+	}: { personalInfo?: PersonalInfoType } = $props();
 </script>
 
 <aside class="aside col-12 col-md-12 col-xl-3">

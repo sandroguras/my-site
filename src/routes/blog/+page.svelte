@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import { formatDate } from '$lib/utils/dateUtils';
 	import { resolve } from '$app/paths';
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
 	const { posts } = data;
 </script>
 

@@ -8,7 +8,7 @@
 	import { formatDate, isValidISODateString } from '$lib/utils/dateUtils';
 	import { resolve } from '$app/paths';
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
 	const { project } = data;
 
 	onMount(() => {

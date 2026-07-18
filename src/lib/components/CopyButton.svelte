@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let textToCopy: string = '';
-	let isCopied: boolean = false;
+	let { textToCopy = '' }: { textToCopy?: string } = $props();
+	let isCopied: boolean = $state(false);
 
 	async function copyToClipboard(): Promise<void> {
 		if (textToCopy) {
@@ -18,7 +18,7 @@
 	}
 </script>
 
-<button class="copy-button" aria-label="Copy code" on:click={copyToClipboard}>
+<button class="copy-button" aria-label="Copy code" onclick={copyToClipboard}>
 	{#if isCopied}
 		<svg
 			width="20"

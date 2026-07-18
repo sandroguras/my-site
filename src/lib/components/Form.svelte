@@ -6,9 +6,9 @@
 	import Button from '$lib/components/Button.svelte';
 
 	const hCaptchaSiteKey = '0ac851b0-d0fb-4ecb-afa8-f83139f68766';
-	let messageLength = 0;
+	let messageLength = $state(0);
 	const maxMessageLength = 500;
-	let isSubmitting = false;
+	let isSubmitting = $state(false);
 
 	function sanitize(dirty: string): string {
 		return DOMPurify.sanitize(dirty);
@@ -48,14 +48,14 @@
 		messageLength = formData.message.length;
 	}
 
-	let formData = {
+	let formData = $state({
 		name: '',
 		email: '',
 		message: '',
 		token: ''
-	};
+	});
 
-	let formSubmitted: boolean = false;
+	let formSubmitted: boolean = $state(false);
 
 	// reCaptcha script for contact form
 	onMount(() => {
@@ -138,7 +138,7 @@
 
 {#if !formSubmitted}
 	<div transition:slide={{ duration: 250, delay: 50, easing: sineOut }}>
-		<form id="contact-form" class="contact-form" on:submit|preventDefault={handleSubmit}>
+		<form id="contact-form" class="contact-form" onsubmit={handleSubmit}>
 			<div class="row">
 				<div class="form-group col-12 col-md-6">
 					<input
@@ -150,7 +150,7 @@
 						required
 						autocomplete="on"
 						bind:value={formData.name}
-						on:input={handleNameInput}
+						oninput={handleNameInput}
 					/>
 					<div class="help-block with-errors"></div>
 				</div>
@@ -176,7 +176,7 @@
 						rows="4"
 						required
 						bind:value={formData.message}
-						on:input={handleMessageInput}
+						oninput={handleMessageInput}
 						maxlength={maxMessageLength}
 					></textarea>
 					<div class="help-block with-errors"></div>
@@ -189,7 +189,7 @@
 					{#if isSubmitting}
 						<Button btnDisbl={true} text="Sending..." />
 					{:else}
-						<Button icon="icon-send" text="Send Message" on:click={handleSubmit} />
+						<Button icon="icon-send" text="Send Message" />
 					{/if}
 				</div>
 			</div>

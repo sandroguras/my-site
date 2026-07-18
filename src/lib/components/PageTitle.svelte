@@ -1,31 +1,25 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
-	let pageTitle: string;
-	$: {
-		const rawUrl = $page.url.pathname;
+	let pageTitle = $derived.by(() => {
+		const rawUrl = page.url.pathname;
 		const url = extractFirstPart(rawUrl);
 		switch (url) {
 			case '/':
-				pageTitle = 'About Me';
-				break;
+				return 'About Me';
 			case '/resume':
-				pageTitle = 'Resume';
-				break;
+				return 'Resume';
 			case '/portfolio':
-				pageTitle = 'Portfolio';
-				break;
+				return 'Portfolio';
 			case '/blog':
-				pageTitle = 'Blog';
-				break;
+				return 'Blog';
 			case '/contact':
-				pageTitle = 'Contact Me';
-				break;
+				return 'Contact Me';
 			// Add more cases as needed
 			default:
-				pageTitle = '';
+				return '';
 		}
-	}
+	});
 
 	function extractFirstPart(url: string): string {
 		const urlWithoutProtocol = url.replace(/^(https?:\/\/)?/, '');

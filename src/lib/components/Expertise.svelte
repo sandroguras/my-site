@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Expertise as ExpertiseType } from '#types/Expertise';
-	export let expertiseCases: ExpertiseType['expertiseCases'] = [];
+	let { expertiseCases = [] }: { expertiseCases?: ExpertiseType['expertiseCases'] } = $props();
 </script>
 
 <!-- Expertise -->

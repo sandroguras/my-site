@@ -1,10 +1,9 @@
 <script lang="ts">
 	//TODO need to improve wording and test out the meta tags
-	import { page } from '$app/stores';
-	import { derived } from 'svelte/store';
+	import { page } from '$app/state';
 	import { getBlogPostMetadata } from '$lib/data/blogData';
 
-	const siteURL = $page.url.origin;
+	const siteURL = page.url.origin;
 
 	const defaultTitle: string = 'David Guras | Precision Web Engineering';
 	const defaultSiteName: string = 'David Guras';
@@ -16,8 +15,8 @@
 	const defaultArticleSection: string = 'Web Development';
 	const defaultArticleTag: string = 'Web Development, Programming, Technology';
 
-	const metadata = derived(page, ($page) => {
-		switch ($page.url.pathname) {
+	let metadata = $derived.by(() => {
+		switch (page.url.pathname) {
 			case '/resume':
 				return {
 					title: 'David Guras | My Resume',
@@ -48,9 +47,9 @@
 				};
 			default:
 				// Check if the current page is a blog post
-				if ($page.url.pathname.startsWith('/blog/')) {
+				if (page.url.pathname.startsWith('/blog/')) {
 					// Extract the slug from the URL path
-					const slug = $page.url.pathname.split('/').pop();
+					const slug = page.url.pathname.split('/').pop();
 
 					// Check if slug is defined before calling getBlogPostMetadata
 					if (slug) {
@@ -94,31 +93,31 @@
 </script>
 
 <!-- Various meta tags and link elements -->
-<title>{$metadata.title}</title>
-<meta name="description" content={$metadata.description} />
-<link rel="canonical" href={$page.url.href} />
+<title>{metadata.title}</title>
+<meta name="description" content={metadata.description} />
+<link rel="canonical" href={page.url.href} />
 
 <!-- OpenGraph meta tags -->
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content={$page.url.href} />
-<meta property="og:title" content={$metadata.title} />
+<meta property="og:url" content={page.url.href} />
+<meta property="og:title" content={metadata.title} />
 <meta property="og:site_name" content={defaultSiteName} />
-<meta property="og:description" content={$metadata.description} />
-<meta property="og:image" content={$metadata.image} />
+<meta property="og:description" content={metadata.description} />
+<meta property="og:image" content={metadata.image} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
 <!-- Twitter Card meta tags -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={$page.url.href} />
-<meta property="twitter:title" content={$metadata.title} />
-<meta property="twitter:description" content={$metadata.description} />
-<meta property="twitter:image" content={$metadata.image} />
+<meta property="twitter:url" content={page.url.href} />
+<meta property="twitter:title" content={metadata.title} />
+<meta property="twitter:description" content={metadata.description} />
+<meta property="twitter:image" content={metadata.image} />
 
 <!-- LinkedIn-specific Open Graph tags -->
 <meta property="og:type" content="article" />
-<meta property="article:author" content={$metadata.articleAuthor} />
-<meta property="article:published_time" content={$metadata.articlePublishedTime} />
-<meta property="article:section" content={$metadata.articleSection} />
-<meta property="article:tag" content={$metadata.articleTag} />
+<meta property="article:author" content={metadata.articleAuthor} />
+<meta property="article:published_time" content={metadata.articlePublishedTime} />
+<meta property="article:section" content={metadata.articleSection} />
+<meta property="article:tag" content={metadata.articleTag} />

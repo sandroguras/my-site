@@ -3,9 +3,15 @@
 		Timeline as TimelineType,
 		TimelineEvent as TimelineEventType
 	} from '#types/Timeline';
-	export let heading: TimelineType['heading'] = '';
-	export let logo: TimelineType['logo'] = '';
-	export let timelineEvents: TimelineEventType[] = [];
+	let {
+		heading = '',
+		logo = '',
+		timelineEvents = []
+	}: {
+		heading?: TimelineType['heading'];
+		logo?: TimelineType['logo'];
+		timelineEvents?: TimelineEventType[];
+	} = $props();
 </script>
 
 <h2 class="title title--h2">

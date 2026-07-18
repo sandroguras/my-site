@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import { resolve } from '$app/paths';
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
 	const { projects } = data;
 </script>
 

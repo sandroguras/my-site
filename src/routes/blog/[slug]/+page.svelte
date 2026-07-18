@@ -1,16 +1,16 @@
 <script lang="ts">
-	export let data: PageData;
-
 	import Highlight from 'svelte-highlight';
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import typescript from 'svelte-highlight/languages/typescript';
 	import bash from 'svelte-highlight/languages/bash';
 	import 'svelte-highlight/styles/atom-one-dark-reasonable.css';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import type { PageData } from './$types';
 
+	let { data }: { data: PageData } = $props();
+
 	const { post } = data;
-	const urlToShare = $page.url.href;
+	const urlToShare = page.url.href;
 	// Encoding the URL
 	const encodedURL: string = encodeURIComponent(urlToShare);
 	// Constructing the LinkedIn share link
