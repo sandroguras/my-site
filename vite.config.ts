@@ -7,7 +7,8 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                additionalData: "@use \"src/global.scss\" as *;"
+                loadPaths: ['src'],
+                additionalData: "@use \"global\" as *;"
             }
         }
     }

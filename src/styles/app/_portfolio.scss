@@ -58,7 +58,7 @@
       font-family: 'feather', serif !important;
       font-size: rem(18px);
       color: var(--color-accent) !important;
-      @include flex($align: center, $justify: center);
+      @include flex($align: center, $justify: center, $fix-children: false);
       height: rem(56px);
       margin: auto;
       @include position(absolute, $top: 0, $right: 0, $bottom: 0, $left: 0);

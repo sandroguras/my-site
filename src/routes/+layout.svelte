@@ -31,7 +31,6 @@
 <svelte:head>
 	<SEO />
 </svelte:head>
-<body>
 {#if isBlogSubpage}
 	<ScrollIndicator />
 {/if}
@@ -49,4 +48,3 @@
 		</div>
 	</div>
 </main>
-</body>

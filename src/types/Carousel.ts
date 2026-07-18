@@ -31,5 +31,6 @@ export interface ClientData {
 
 export interface GalleryData {
 	src: string;
-	alt	: string;
+	alt: string;
+	thumb: string;
 }
