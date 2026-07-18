@@ -1,19 +1,24 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { resolve } from '$app/paths';
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
 	const { projects } = data;
-
 </script>
 
 <!-- Gallery -->
 <h2 class="title title--h2">My Work</h2>
 <div class="gallery-grid">
-	{#each projects as project}
+	{#each projects as project (project.slug)}
 		<div class="gallery-grid__item">
-			<a href={`/portfolio/${project.slug}`}>
+			<a href={resolve('/portfolio/[slug]', { slug: project.slug })}>
 				<div class="gallery-grid__image-wrap">
-					<img class="gallery-grid__image cover" src={project.thumb.src} alt={project.thumb.alt} />
+					<img
+						class="gallery-grid__image cover"
+						src={project.thumb.src}
+						alt={project.thumb.alt}
+						loading="lazy"
+					/>
 				</div>
 				<div class="gallery-grid__caption">
 					<h3 class="title gallery-grid__title">{project.listName}</h3>
@@ -24,5 +29,5 @@
 </div>
 
 <style lang="scss">
-  @import '#styles/app/portfolio';
+	@use 'styles/app/portfolio';
 </style>

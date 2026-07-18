@@ -1,16 +1,16 @@
 <script lang="ts">
-	export let data: PageData;
-
 	import Highlight from 'svelte-highlight';
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import typescript from 'svelte-highlight/languages/typescript';
 	import bash from 'svelte-highlight/languages/bash';
 	import 'svelte-highlight/styles/atom-one-dark-reasonable.css';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import type { PageData } from './$types';
 
+	let { data }: { data: PageData } = $props();
+
 	const { post } = data;
-	const urlToShare = $page.url.href;
+	const urlToShare = page.url.href;
 	// Encoding the URL
 	const encodedURL: string = encodeURIComponent(urlToShare);
 	// Constructing the LinkedIn share link
@@ -28,19 +28,22 @@
 				return typescript;
 		}
 	}
-
 </script>
+
 <section class="blogpost">
 	<header class="header-post">
+		<!-- eslint-disable svelte/no-at-html-tags -- post content is static, developer-authored data (src/lib/data/blogData.ts), not user input -->
 		<h1 class="title title--h1">{@html post.title}</h1>
 		<div class="caption-post">
 			{@html post.subtitle}
 		</div>
+		<!-- eslint-enable svelte/no-at-html-tags -->
 		<div class="header-post__image-wrap">
 			<img class="cover" src={post.cover.src} alt={post.cover.alt} />
 		</div>
 	</header>
-	{#each post.content as block}
+	<!-- eslint-disable svelte/no-at-html-tags -- post content is static, developer-authored data (src/lib/data/blogData.ts), not user input -->
+	{#each post.content as block, i (i)}
 		{#if block.type === 'text'}
 			<div class="caption-post">
 				{#if block.subheading}
@@ -50,8 +53,14 @@
 			</div>
 		{:else if block.type === 'image'}
 			<div class="gallery-post">
-				{#each block.images as image}
-					<img class="gallery-post__item cover" src={image.src} data-zoom alt={image.alt} />
+				{#each block.images as image (image.src)}
+					<img
+						class="gallery-post__item cover"
+						src={image.src}
+						data-zoom
+						alt={image.alt}
+						loading="lazy"
+					/>
 				{/each}
 				{#if block.imageCaption}
 					<div class="gallery-post__caption">{block.imageCaption}</div>
@@ -71,16 +80,20 @@
 			</div>
 		{/if}
 	{/each}
+	<!-- eslint-enable svelte/no-at-html-tags -->
 	<footer class="footer-post">
-		<a class="footer-post__share" href={facebookShareLink} target="_blank" rel="noopener noreferrer"><i
-			class="font-icon icon-facebook"></i><span>Facebook</span></a>
-		<a class="footer-post__share" href={twitterShareLink} target="_blank" rel="noopener noreferrer"><i
-			class="font-icon icon-twitter"></i><span>Twitter</span></a>
-		<a class="footer-post__share" href={linkedInShareLink} target="_blank" rel="noopener noreferrer"><i
-			class="font-icon icon-linkedin2"></i><span>Linkedin</span></a>
+		<a class="footer-post__share" href={facebookShareLink} target="_blank" rel="noopener noreferrer"
+			><i class="font-icon icon-facebook"></i><span>Facebook</span></a
+		>
+		<a class="footer-post__share" href={twitterShareLink} target="_blank" rel="noopener noreferrer"
+			><i class="font-icon icon-twitter"></i><span>Twitter</span></a
+		>
+		<a class="footer-post__share" href={linkedInShareLink} target="_blank" rel="noopener noreferrer"
+			><i class="font-icon icon-linkedin2"></i><span>Linkedin</span></a
+		>
 	</footer>
 </section>
 
 <style lang="scss">
-  @import "#styles/app/single-post";
+	@use 'styles/app/single-post';
 </style>

@@ -1,4 +1,4 @@
 export interface NavLink {
-	path: string;
+	path: '/' | '/resume' | '/portfolio' | '/blog' | '/contact';
 	label: string;
 }

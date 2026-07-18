@@ -1,21 +1,22 @@
+@use '../../global' as *;
 /* -----------------------------------------------------------------
     - Project Carousel
 ----------------------------------------------------------------- */
 
 .swiper-slide-project {
-  height: auto;
-  max-width: rem(480px);
-  opacity: .5;
-  overflow: hidden;
-  transition: opacity .3s ease-in-out;
+	height: auto;
+	max-width: rem(480px);
+	opacity: 0.5;
+	overflow: hidden;
+	transition: opacity 0.3s ease-in-out;
 
-  &.swiper-slide-active {
-    opacity: 1;
-  }
+	&.swiper-slide-active {
+		opacity: 1;
+	}
 
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
+	img {
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+	}
 }

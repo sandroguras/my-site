@@ -22,8 +22,8 @@ interface CodeBlock {
 	type: 'code';
 	language: string;
 	code: string;
-	filename?: string;        // Optional filename for the code snippet
-	highlights?: number[];    // Optional line numbers to highlight
+	filename?: string; // Optional filename for the code snippet
+	highlights?: number[]; // Optional line numbers to highlight
 }
 
 type ContentBlock = TextBlock | ImageBlock | QuoteBlock | CodeBlock;

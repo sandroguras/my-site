@@ -3,7 +3,6 @@ import type { Actions } from './$types';
 import sanitizeHtml from 'sanitize-html';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-import fetch from 'node-fetch';
 
 dotenv.config();
 
@@ -18,22 +17,30 @@ interface HCaptchaVerifyResponse {
 }
 
 // Type guard to check if an object is an HCaptchaVerifyResponse
-function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
+function isHCaptchaVerifyResponse(obj: unknown): obj is HCaptchaVerifyResponse {
 	return (
-		typeof obj.success === 'boolean' &&
-		(typeof obj['error-codes'] === 'undefined' || Array.isArray(obj['error-codes']))
+		typeof obj === 'object' &&
+		obj !== null &&
+		typeof (obj as HCaptchaVerifyResponse).success === 'boolean' &&
+		(typeof (obj as HCaptchaVerifyResponse)['error-codes'] === 'undefined' ||
+			Array.isArray((obj as HCaptchaVerifyResponse)['error-codes']))
 	);
 }
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	default: async ({ request, fetch }) => {
 		const formData = await request.formData();
 		const name = formData.get('name');
 		const email = formData.get('email');
 		const message = formData.get('message');
 		const token = formData.get('token');
 
-		if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string' || typeof token !== 'string') {
+		if (
+			typeof name !== 'string' ||
+			typeof email !== 'string' ||
+			typeof message !== 'string' ||
+			typeof token !== 'string'
+		) {
 			return fail(400, { message: 'Form data validation failed' });
 		}
 

@@ -1,12 +1,18 @@
 <script lang="ts">
 	import type { Expertise as ExpertiseType } from '#types/Expertise';
-	export let expertiseCases: ExpertiseType['expertiseCases'] = [];
+	let { expertiseCases = [] }: { expertiseCases?: ExpertiseType['expertiseCases'] } = $props();
 </script>
+
 <!-- Expertise -->
 {#each expertiseCases as expertiseCase (expertiseCase['name'])}
 	<div class="col-12 col-lg-6">
 		<div class="expertise box box-inner">
-			<img class="expertise__icon" src={expertiseCase.icon} alt={expertiseCase.iconAlt} />
+			<img
+				class="expertise__icon"
+				src={expertiseCase.icon}
+				alt={expertiseCase.iconAlt}
+				loading="lazy"
+			/>
 			<div>
 				<h3 class="title title--h3">{expertiseCase.name}</h3>
 				<p class="expertise__caption">{expertiseCase.description}</p>
@@ -16,5 +22,5 @@
 {/each}
 
 <style lang="scss">
-  @import '#styles/app/expertise';
+	@use 'styles/app/expertise';
 </style>

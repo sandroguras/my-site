@@ -1,1 +1,1 @@
-import "@hcaptcha/types";
+import '@hcaptcha/types';

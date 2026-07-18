@@ -1,68 +1,99 @@
+@use './vars' as *;
+
 // Flexbox
-@mixin flex-variant($display, $direction: false, $align: false, $justify: false, $wrap: false) {
-  display: $display;
+@mixin flex-variant(
+	$display,
+	$direction: false,
+	$align: false,
+	$justify: false,
+	$wrap: false,
+	$fix-children: true
+) {
+	display: $display;
 
-  @if $direction {
-    flex-direction: $direction;
-  }
+	@if $direction {
+		flex-direction: $direction;
+	}
 
-  @if $align {
-    align-items: $align;
-  }
+	@if $align {
+		align-items: $align;
+	}
 
-  @if $justify {
-    justify-content: $justify;
-  }
+	@if $justify {
+		justify-content: $justify;
+	}
 
-  @if $wrap {
-    flex-wrap: $wrap;
-  }
+	@if $wrap {
+		flex-wrap: $wrap;
+	}
 
-  // fix
-  & > * {
-    min-width: 0;
-  }
+	// fix
+	@if $fix-children {
+		& > * {
+			min-width: 0;
+		}
+	}
 }
 
-@mixin flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
+@mixin flex($direction: false, $align: false, $justify: false, $wrap: false, $fix-children: true) {
+	@include flex-variant(
+		flex,
+		$direction: $direction,
+		$align: $align,
+		$justify: $justify,
+		$wrap: $wrap,
+		$fix-children: $fix-children
+	);
 }
 
-@mixin inline-flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(inline-flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
+@mixin inline-flex(
+	$direction: false,
+	$align: false,
+	$justify: false,
+	$wrap: false,
+	$fix-children: true
+) {
+	@include flex-variant(
+		inline-flex,
+		$direction: $direction,
+		$align: $align,
+		$justify: $justify,
+		$wrap: $wrap,
+		$fix-children: $fix-children
+	);
 }
 
 // px to rem
 @function rem($pixels, $context: $baseSystemFontSize) {
-  @if (unitless($pixels)) {
-    $pixels: $pixels * 1px;
-  }
-  @if (unitless($context)) {
-    $context: $context * 1px;
-  }
-  @return calc($pixels / $context) * 1rem;
+	@if (unitless($pixels)) {
+		$pixels: $pixels * 1px;
+	}
+	@if (unitless($context)) {
+		$context: $context * 1px;
+	}
+	@return calc($pixels / $context) * 1rem;
 }
 
 // size to one line
 @mixin size($width, $height: $width) {
-  width: $width;
-  height: $height;
+	width: $width;
+	height: $height;
 }
 
 // Position
 @mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
-  position: $position;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
+	position: $position;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
 }
 
 // Navbar link styles
 @mixin link-style {
-  color: var(--color-paragraph);
-  -webkit-text-fill-color: inherit;
-  font-weight: 500;
-  opacity: 0.6;
-  transition: all 0.3s ease-in-out;
+	color: var(--color-paragraph);
+	-webkit-text-fill-color: inherit;
+	font-weight: 500;
+	opacity: 0.6;
+	transition: all 0.3s ease-in-out;
 }

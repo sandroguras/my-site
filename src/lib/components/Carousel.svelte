@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { register } from 'swiper/element/bundle';
+	import { register } from 'swiper/element';
+	import { Pagination } from 'swiper/modules';
+	import paginationStyles from 'swiper/element/css/pagination?raw';
+	import type { SwiperContainer } from 'swiper/element';
+	import { asset } from '$app/paths';
 	import Modal from '$lib/components/Modal.svelte';
 	import type {
 		Carousel as CarouselType,
@@ -9,25 +13,40 @@
 		GalleryData as GalleryDataType
 	} from '#types/Carousel';
 
-	export let swiperId: CarouselType['swiperId'] = '';
-	export let slidesPerView: number | 'auto' = 'auto';
-	export let spaceBetween: number = 30;
-	export let centeredSlides: boolean = false;
-	export let speed: number = 500;
-	export let grabCursor: boolean = true;
-	export let watchOverflow: boolean = true;
-	export let pagination: object = {
-		clickable: true
-	};
-	export let breakpoints: CarouselType['breakpoints'] = {};
-	export let injectStylesUrls: string[] = ['/styles/swiper-pagination.css'];
-	export let slides: (ReviewDataType | ClientDataType | GalleryDataType)[] = [];
+	let {
+		swiperId = '',
+		slidesPerView = 'auto',
+		spaceBetween = 30,
+		centeredSlides = false,
+		speed = 500,
+		grabCursor = true,
+		watchOverflow = true,
+		pagination = { clickable: true },
+		breakpoints = {},
+		injectStylesUrls = ['/styles/swiper-pagination.css'],
+		slides = []
+	}: {
+		swiperId?: CarouselType['swiperId'];
+		slidesPerView?: number | 'auto';
+		spaceBetween?: number;
+		centeredSlides?: boolean;
+		speed?: number;
+		grabCursor?: boolean;
+		watchOverflow?: boolean;
+		pagination?: object;
+		breakpoints?: CarouselType['breakpoints'];
+		injectStylesUrls?: string[];
+		slides?: (ReviewDataType | ClientDataType | GalleryDataType)[];
+	} = $props();
 
 	// Swiper initialization and custom style injection
 	onMount(() => {
 		register();
-		const swiperEl = document.querySelector(`#${swiperId}`);
+		const swiperEl = document.querySelector<SwiperContainer>(`#${swiperId}`);
+		if (!swiperEl) return;
 		const params = {
+			modules: [Pagination],
+			injectStyles: [paginationStyles],
 			slidesPerView,
 			spaceBetween,
 			speed,
@@ -44,14 +63,16 @@
 	});
 
 	// Type guard function to check if a slide is of type ReviewDataType
-	function isReviewData(slide: ReviewDataType | ClientDataType | GalleryDataType): slide is ReviewDataType {
+	function isReviewData(
+		slide: ReviewDataType | ClientDataType | GalleryDataType
+	): slide is ReviewDataType {
 		return 'shortCopy' in slide;
 	}
 
 	// Modal setup
-	let showModal: boolean = false; // Boolean to show/hide the modal
-	let modalData: ReviewDataType; // Object to hold data of the clicked carousel item
-	let modalIndex: number; // Index of the clicked carousel item
+	let showModal: boolean = $state(false); // Boolean to show/hide the modal
+	let modalData: ReviewDataType = $state()!; // Object to hold data of the clicked carousel item
+	let modalIndex: number = $state()!; // Index of the clicked carousel item
 
 	function openModal(index: number): void {
 		const slide = slides[index];
@@ -68,34 +89,41 @@
 </script>
 
 <swiper-container id={swiperId} init="false">
-	{#each slides as slide, i}
+	{#each slides as slide, i (i)}
 		{#if swiperId === 'swiper-clients' && 'logo' in slide}
 			<swiper-slide class="js-carousel-clients">
 				<figure class="swiper-slide">
-					<a href={slide.link} target="_blank">
-						<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
+					<a href={slide.link} target="_blank" rel="external">
+						<img class="logo-client" src={slide.logo} alt={slide.logoAlt} loading="lazy" />
 					</a>
 				</figure>
 			</swiper-slide>
 		{/if}
 
 		{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
-			<swiper-slide class="review-item box box-inner"
-										on:click={() => openModal(i) }>
-				<figure class="box box-avatar">
-					<img src={slide.image} alt={slide.imageAlt} />
-				</figure>
-				<h3 class="title title--h3">{slide.name}</h3>
-				<p class="review-item__caption">{slide.shortCopy}</p>
+			<swiper-slide class="review-item box box-inner">
+				<button type="button" class="review-item__trigger" onclick={() => openModal(i)}>
+					<figure class="box box-avatar">
+						<img src={slide.image} alt={slide.imageAlt} loading="lazy" />
+					</figure>
+					<h3 class="title title--h3">{slide.name}</h3>
+					<p class="review-item__caption">{slide.shortCopy}</p>
+				</button>
 			</swiper-slide>
 		{/if}
 
 		{#if swiperId === 'swiper-gallery' && 'src' in slide}
 			<swiper-slide class="swiper-slide-project">
 				<figure class="swiper-slide">
-					<a title="click to zoom-in" href={slide.src} data-pswp-width='1680' data-pswp-height='945' target="_blank"
-						 rel="noreferrer">
-						<img src={slide.thumb} alt={slide.alt} />
+					<a
+						title="click to zoom-in"
+						href={asset(slide.src)}
+						data-pswp-width="1680"
+						data-pswp-height="945"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src={slide.thumb} alt={slide.alt} loading="lazy" />
 					</a>
 				</figure>
 			</swiper-slide>
@@ -105,19 +133,19 @@
 
 {#if swiperId === 'swiper-clients'}
 	<style lang="scss">
-    @import '#styles/app/carousel-clients';
+		@use 'styles/app/carousel-clients';
 	</style>
 {/if}
 
 {#if swiperId === 'swiper-testimonials'}
 	<Modal {modalData} {modalIndex} {showModal} {closeModal} />
 	<style lang="scss">
-    @import '#styles/app/testimonials';
+		@use 'styles/app/testimonials';
 	</style>
 {/if}
 
 {#if swiperId === 'swiper-gallery'}
 	<style lang="scss">
-    @import '#styles/app/carousel-projects';
+		@use 'styles/app/carousel-projects';
 	</style>
 {/if}

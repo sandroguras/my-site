@@ -4,11 +4,12 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [sveltekit()],
 
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: "@use \"src/global.scss\" as *;"
-            }
-        }
-    }
+	css: {
+		preprocessorOptions: {
+			scss: {
+				loadPaths: ['src'],
+				additionalData: '@use "global" as *;'
+			}
+		}
+	}
 });
