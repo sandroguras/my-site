@@ -3,7 +3,6 @@ import type { Actions } from './$types';
 import sanitizeHtml from 'sanitize-html';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-import fetch from 'node-fetch';
 
 dotenv.config();
 
@@ -29,7 +28,7 @@ function isHCaptchaVerifyResponse(obj: unknown): obj is HCaptchaVerifyResponse {
 }
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	default: async ({ request, fetch }) => {
 		const formData = await request.formData();
 		const name = formData.get('name');
 		const email = formData.get('email');

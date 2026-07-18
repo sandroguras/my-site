@@ -45,7 +45,6 @@
 		"@vercel/analytics": "^1.5.0",
 		"@vercel/speed-insights": "^1.2.0",
 		"dompurify": "^3.2.5",
-		"node-fetch": "^3.3.2",
 		"nodemailer": "^6.10.1",
 		"photoswipe": "^5.4.4",
 		"sanitize-html": "^2.16.0",
