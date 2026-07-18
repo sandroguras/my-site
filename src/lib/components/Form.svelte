@@ -55,7 +55,7 @@
 		token: ''
 	};
 
-	$: formSubmitted = false;
+	let formSubmitted: boolean = false;
 
 	// reCaptcha script for contact form
 	onMount(() => {

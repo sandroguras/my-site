@@ -171,12 +171,12 @@
 
 <!-- Experience -->
 <section class="experience">
-	<Timeline heading={'Experience'} logo={'feathericon-briefcase'} timelineEvents={experience} />
+	<Timeline heading="Experience" logo="feathericon-briefcase" timelineEvents={experience} />
 </section>
 
 <!-- Education -->
 <section class="education">
-	<Timeline heading={'Education'} logo={'feathericon-book-open'} timelineEvents={education} />
+	<Timeline heading="Education" logo="feathericon-book-open" timelineEvents={education} />
 </section>
 
 <!-- Skillset -->

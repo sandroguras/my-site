@@ -32,15 +32,18 @@
 </script>
 <section class="blogpost">
 	<header class="header-post">
+		<!-- eslint-disable svelte/no-at-html-tags -- post content is static, developer-authored data (src/lib/data/blogData.ts), not user input -->
 		<h1 class="title title--h1">{@html post.title}</h1>
 		<div class="caption-post">
 			{@html post.subtitle}
 		</div>
+		<!-- eslint-enable svelte/no-at-html-tags -->
 		<div class="header-post__image-wrap">
 			<img class="cover" src={post.cover.src} alt={post.cover.alt} />
 		</div>
 	</header>
-	{#each post.content as block}
+	<!-- eslint-disable svelte/no-at-html-tags -- post content is static, developer-authored data (src/lib/data/blogData.ts), not user input -->
+	{#each post.content as block, i (i)}
 		{#if block.type === 'text'}
 			<div class="caption-post">
 				{#if block.subheading}
@@ -50,7 +53,7 @@
 			</div>
 		{:else if block.type === 'image'}
 			<div class="gallery-post">
-				{#each block.images as image}
+				{#each block.images as image (image.src)}
 					<img class="gallery-post__item cover" src={image.src} data-zoom alt={image.alt} />
 				{/each}
 				{#if block.imageCaption}
@@ -71,6 +74,7 @@
 			</div>
 		{/if}
 	{/each}
+	<!-- eslint-enable svelte/no-at-html-tags -->
 	<footer class="footer-post">
 		<a class="footer-post__share" href={facebookShareLink} target="_blank" rel="noopener noreferrer"><i
 			class="font-icon icon-facebook"></i><span>Facebook</span></a>

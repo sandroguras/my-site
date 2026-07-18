@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { register } from 'swiper/element/bundle';
+	import type { SwiperContainer } from 'swiper/element';
+	import { asset } from '$app/paths';
 	import Modal from '$lib/components/Modal.svelte';
 	import type {
 		Carousel as CarouselType,
@@ -26,7 +28,8 @@
 	// Swiper initialization and custom style injection
 	onMount(() => {
 		register();
-		const swiperEl = document.querySelector(`#${swiperId}`);
+		const swiperEl = document.querySelector<SwiperContainer>(`#${swiperId}`);
+		if (!swiperEl) return;
 		const params = {
 			slidesPerView,
 			spaceBetween,
@@ -68,11 +71,11 @@
 </script>
 
 <swiper-container id={swiperId} init="false">
-	{#each slides as slide, i}
+	{#each slides as slide, i (i)}
 		{#if swiperId === 'swiper-clients' && 'logo' in slide}
 			<swiper-slide class="js-carousel-clients">
 				<figure class="swiper-slide">
-					<a href={slide.link} target="_blank">
+					<a href={slide.link} target="_blank" rel="external">
 						<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
 					</a>
 				</figure>
@@ -93,7 +96,7 @@
 		{#if swiperId === 'swiper-gallery' && 'src' in slide}
 			<swiper-slide class="swiper-slide-project">
 				<figure class="swiper-slide">
-					<a title="click to zoom-in" href={slide.src} data-pswp-width='1680' data-pswp-height='945' target="_blank"
+					<a title="click to zoom-in" href={asset(slide.src)} data-pswp-width='1680' data-pswp-height='945' target="_blank"
 						 rel="noreferrer">
 						<img src={slide.thumb} alt={slide.alt} />
 					</a>

@@ -44,7 +44,8 @@
 				<div class="badge">{personalInfo.role}</div>
 				<!-- Social -->
 				<div class="social">
-					{#each personalInfo.socials as social}
+					{#each personalInfo.socials as social (social.icon)}
+						<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- social.link mixes external URLs (LinkedIn) and internal routes (/contact); each is a literal defined above -->
 						<a class="social__link" href={social.link} {...isLocalLink(social.target)} aria-label={social.ariaLabel}>
 							<i class={`feathericon-${social.icon}`} />
 						</a>

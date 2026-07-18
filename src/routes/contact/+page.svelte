@@ -14,6 +14,7 @@
 <!-- About -->
 <section class="copy">
 	<Copy>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -- Conclusion.copy is a static literal defined above, not user input -->
 		{@html Conclusion.copy}
 	</Copy>
 </section>

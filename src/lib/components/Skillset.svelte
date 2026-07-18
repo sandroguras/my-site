@@ -6,7 +6,7 @@
 
 
 <div class="skillset__grid">
-	{#each skills as skill}
+	{#each skills as skill (skill.name)}
 		<span class="skillset__skill">{skill.name}</span>
 	{/each}
 </div>

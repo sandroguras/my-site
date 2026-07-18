@@ -6,10 +6,11 @@
 	export let ariaLabel: string = '';
 	export let btnDisbl: boolean = false;
 	import Spinner from '$lib/components/Spinner.svelte';
+	import { asset } from '$app/paths';
 </script>
 
 {#if isButtonLink}
-	<a href={link} download class="btn" aria-label={ariaLabel}><i class="font-icon {icon}"></i>{text}</a>
+	<a href={asset(link)} download class="btn" aria-label={ariaLabel}><i class="font-icon {icon}"></i>{text}</a>
 {:else if btnDisbl}
 	<button disabled={btnDisbl} type="submit" class="btn"><Spinner />{text}</button>
 {:else}

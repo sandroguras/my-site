@@ -135,6 +135,7 @@
 <!-- About -->
 <section class="about">
 	<Copy>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -- Introduction.copy is a static literal defined above, not user input -->
 		{@html Introduction.copy}
 	</Copy>
 </section>

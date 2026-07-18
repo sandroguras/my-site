@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { NavLink as NavLinkType } from '#types/NavLink';
 	import { page } from '$app/stores';
+	import { resolve } from '$app/paths';
 
 	export let links: NavLinkType[] = [];
 
@@ -18,9 +19,9 @@
 
 <div class="nav-container">
 	<ul class="nav">
-		{#each links as link}
+		{#each links as link (link.path)}
 			<li class="nav__item">
-				<a class:active={isActiveLink($page.url.pathname, link.path)} href="{link.path}">{link.label}</a>
+				<a class:active={isActiveLink($page.url.pathname, link.path)} href={resolve(link.path)}>{link.label}</a>
 			</li>
 		{/each}
 	</ul>

@@ -18,10 +18,13 @@ interface HCaptchaVerifyResponse {
 }
 
 // Type guard to check if an object is an HCaptchaVerifyResponse
-function isHCaptchaVerifyResponse(obj: any): obj is HCaptchaVerifyResponse {
+function isHCaptchaVerifyResponse(obj: unknown): obj is HCaptchaVerifyResponse {
 	return (
-		typeof obj.success === 'boolean' &&
-		(typeof obj['error-codes'] === 'undefined' || Array.isArray(obj['error-codes']))
+		typeof obj === 'object' &&
+		obj !== null &&
+		typeof (obj as HCaptchaVerifyResponse).success === 'boolean' &&
+		(typeof (obj as HCaptchaVerifyResponse)['error-codes'] === 'undefined' ||
+			Array.isArray((obj as HCaptchaVerifyResponse)['error-codes']))
 	);
 }
 

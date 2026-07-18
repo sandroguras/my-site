@@ -61,6 +61,7 @@
 							<div class="col-12 col-sm-10 full-rewiew-con-text">
 								<h2 class="title title--h2">{modalData.name}</h2>
 								<span class="review-date">{formatDate(modalData.reviewDate)}</span>
+								<!-- eslint-disable-next-line svelte/no-at-html-tags -- modalData.copy is static, developer-authored testimonial data (src/routes/+page.svelte), not user input -->
 								{@html modalData.copy}
 							</div>
 						</div>

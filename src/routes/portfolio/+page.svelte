@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { resolve } from '$app/paths';
 
 	export let data: PageData;
 	const { projects } = data;
@@ -9,9 +10,9 @@
 <!-- Gallery -->
 <h2 class="title title--h2">My Work</h2>
 <div class="gallery-grid">
-	{#each projects as project}
+	{#each projects as project (project.slug)}
 		<div class="gallery-grid__item">
-			<a href={`/portfolio/${project.slug}`}>
+			<a href={resolve('/portfolio/[slug]', { slug: project.slug })}>
 				<div class="gallery-grid__image-wrap">
 					<img class="gallery-grid__image cover" src={project.thumb.src} alt={project.thumb.alt} />
 				</div>
