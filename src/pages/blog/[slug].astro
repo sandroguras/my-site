@@ -1,0 +1,127 @@
+---
+import 'svelte-highlight/styles/atom-one-dark-reasonable.css';
+import Highlight from 'svelte-highlight';
+import typescript from 'svelte-highlight/languages/typescript';
+import bash from 'svelte-highlight/languages/bash';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CopyButton from '$lib/components/CopyButton.svelte';
+import { fetchAllPosts, fetchBlogDataBySlug } from '$lib/data/blogData';
+
+export async function getStaticPaths() {
+	const allPosts = await fetchAllPosts();
+	return allPosts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = fetchBlogDataBySlug(slug!);
+
+if (!post) {
+	throw new Error('Invalid slug');
+}
+
+const urlToShare = Astro.url.href;
+const encodedURL = encodeURIComponent(urlToShare);
+const linkedInShareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedURL}`;
+const twitterShareLink = `https://twitter.com/intent/tweet?url=${encodedURL}`;
+const facebookShareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
+
+function langSelect(language: string) {
+	switch (language) {
+		case 'typescript':
+			return typescript;
+		case 'bash':
+			return bash;
+		default:
+			return typescript;
+	}
+}
+---
+
+<BaseLayout>
+	<section class="blogpost">
+		<header class="header-post">
+			<h1 class="title title--h1" set:html={post.title} />
+			<div class="caption-post" set:html={post.subtitle} />
+			<div class="header-post__image-wrap">
+				<img class="cover" src={post.cover.src} alt={post.cover.alt} />
+			</div>
+		</header>
+		{
+			post.content.map((block) => {
+				if (block.type === 'text') {
+					return (
+						<div class="caption-post">
+							{block.subheading && <h2 class="title title--h2">{block.subheading}</h2>}
+							<Fragment set:html={block.copy} />
+						</div>
+					);
+				}
+				if (block.type === 'image') {
+					return (
+						<div class="gallery-post">
+							{block.images.map((image) => (
+								<img
+									class="gallery-post__item cover"
+									src={image.src}
+									data-zoom
+									alt={image.alt}
+									loading="lazy"
+								/>
+							))}
+							{block.imageCaption && <div class="gallery-post__caption">{block.imageCaption}</div>}
+						</div>
+					);
+				}
+				if (block.type === 'quote') {
+					return (
+						<div class="caption-post">
+							<blockquote class="block-quote">
+								<Fragment set:html={block.copy} />
+								<cite class="block-quote__author">{block.author}</cite>
+							</blockquote>
+						</div>
+					);
+				}
+				if (block.type === 'code') {
+					return (
+						<div class="caption-post">
+							<CopyButton client:visible textToCopy={block.code} />
+							<Highlight language={langSelect(block.language)} code={block.code} />
+						</div>
+					);
+				}
+				return null;
+			})
+		}
+		<footer class="footer-post">
+			<a
+				class="footer-post__share"
+				href={facebookShareLink}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<i class="font-icon icon-facebook"></i><span>Facebook</span>
+			</a>
+			<a
+				class="footer-post__share"
+				href={twitterShareLink}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<i class="font-icon icon-twitter"></i><span>Twitter</span>
+			</a>
+			<a
+				class="footer-post__share"
+				href={linkedInShareLink}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<i class="font-icon icon-linkedin2"></i><span>Linkedin</span>
+			</a>
+		</footer>
+	</section>
+</BaseLayout>
+
+<style lang="scss">
+	@use 'styles/app/single-post';
+</style>

@@ -4,7 +4,6 @@
 	import { Pagination } from 'swiper/modules';
 	import paginationStyles from 'swiper/element/css/pagination?raw';
 	import type { SwiperContainer } from 'swiper/element';
-	import { asset } from '$app/paths';
 	import Modal from '$lib/components/Modal.svelte';
 	import type {
 		Carousel as CarouselType,
@@ -104,7 +103,7 @@
 			<swiper-slide class="review-item box box-inner">
 				<button type="button" class="review-item__trigger" onclick={() => openModal(i)}>
 					<figure class="box box-avatar">
-						<img src={slide.image} alt={slide.imageAlt} loading="lazy" />
+						<img src={slide.image} alt={slide.imageAlt} />
 					</figure>
 					<h3 class="title title--h3">{slide.name}</h3>
 					<p class="review-item__caption">{slide.shortCopy}</p>
@@ -117,7 +116,7 @@
 				<figure class="swiper-slide">
 					<a
 						title="click to zoom-in"
-						href={asset(slide.src)}
+						href={slide.src}
 						data-pswp-width="1680"
 						data-pswp-height="945"
 						target="_blank"

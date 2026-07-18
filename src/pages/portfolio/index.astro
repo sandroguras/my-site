@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchAllProjects } from '$lib/data/portfolioData';
+
+const allProjects = await fetchAllProjects();
+const projects = allProjects.map(({ slug, listName, thumb }) => ({ slug, listName, thumb }));
+---
+
+<BaseLayout>
+	<h2 class="title title--h2">My Work</h2>
+	<div class="gallery-grid">
+		{
+			projects.map((project) => (
+				<div class="gallery-grid__item">
+					<a href={`/portfolio/${project.slug}`}>
+						<div class="gallery-grid__image-wrap">
+							<img
+								class="gallery-grid__image cover"
+								src={project.thumb.src}
+								alt={project.thumb.alt}
+								loading="lazy"
+							/>
+						</div>
+						<div class="gallery-grid__caption">
+							<h3 class="title gallery-grid__title">{project.listName}</h3>
+						</div>
+					</a>
+				</div>
+			))
+		}
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	@use 'styles/app/portfolio';
+</style>

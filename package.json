@@ -3,33 +3,38 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "vercel dev",
+		"check": "astro check && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "astro check --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@astrojs/check": "^0.9.9",
+		"@astrojs/sitemap": "^3.7.3",
+		"@astrojs/svelte": "^9.0.1",
+		"@astrojs/vercel": "^11.0.3",
 		"@eslint/js": "^9.39.5",
 		"@hcaptcha/types": "^1.0.4",
 		"@popperjs/core": "^2.11.8",
-		"@sveltejs/adapter-auto": "^7.0.1",
-		"@sveltejs/kit": "^2.70.0",
-		"@sveltejs/vite-plugin-svelte": "^7.2.0",
 		"@types/nodemailer": "^6.4.17",
 		"@types/sanitize-html": "^2.15.0",
 		"@typescript-eslint/eslint-plugin": "^8.64.0",
 		"@typescript-eslint/parser": "^8.64.0",
+		"astro": "^7.1.1",
 		"bootstrap": "^5.3.5",
 		"dotenv": "^16.5.0",
-		"eslint": "^9.25.0",
+		"eslint": "^10.7.0",
 		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-astro": "^3.0.1",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-svelte": "^3.20.0",
 		"globals": "^17.7.0",
 		"highlight.js": "^11.11.1",
 		"prettier": "^3.5.3",
+		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-svelte": "^3.3.3",
 		"sass": "^1.86.3",
 		"svelte": "^5.56.6",
@@ -37,13 +42,12 @@
 		"svelte-eslint-parser": "^1.8.0",
 		"svelte-highlight": "^7.8.3",
 		"tslib": "^2.8.1",
-		"typescript": "^5.8.3",
-		"vite": "^8.1.5"
+		"typescript": "^5.8.3"
 	},
 	"type": "module",
 	"dependencies": {
-		"@vercel/analytics": "^1.5.0",
-		"@vercel/speed-insights": "^1.2.0",
+		"@vercel/analytics": "^2.0.1",
+		"@vercel/speed-insights": "^2.0.0",
 		"dompurify": "^3.2.5",
 		"nodemailer": "^6.10.1",
 		"photoswipe": "^5.4.4",
@@ -51,6 +55,7 @@
 		"swiper": "^11.2.6"
 	},
 	"trustedDependencies": [
-		"@parcel/watcher"
+		"@parcel/watcher",
+		"esbuild"
 	]
 }

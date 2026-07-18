@@ -1,0 +1,33 @@
+---
+function extractFirstPart(url: string): string {
+	const urlWithoutProtocol = url.replace(/^(https?:\/\/)?/, '');
+	const parts = urlWithoutProtocol.split('/', 2);
+	if (parts.length === 1) {
+		return '/';
+	}
+	return '/' + parts[1];
+}
+
+function getPageTitle(pathname: string): string {
+	switch (extractFirstPart(pathname)) {
+		case '/':
+			return 'About Me';
+		case '/resume':
+			return 'Resume';
+		case '/portfolio':
+			return 'Portfolio';
+		case '/blog':
+			return 'Blog';
+		case '/contact':
+			return 'Contact Me';
+		default:
+			return '';
+	}
+}
+
+const pageTitle = getPageTitle(Astro.url.pathname);
+---
+
+<div class="gutter-bottom--small">
+	<h1 class="title title--h1 title__separate">{pageTitle}</h1>
+</div>
