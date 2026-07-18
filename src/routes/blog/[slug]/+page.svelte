@@ -54,7 +54,13 @@
 		{:else if block.type === 'image'}
 			<div class="gallery-post">
 				{#each block.images as image (image.src)}
-					<img class="gallery-post__item cover" src={image.src} data-zoom alt={image.alt} />
+					<img
+						class="gallery-post__item cover"
+						src={image.src}
+						data-zoom
+						alt={image.alt}
+						loading="lazy"
+					/>
 				{/each}
 				{#if block.imageCaption}
 					<div class="gallery-post__caption">{block.imageCaption}</div>

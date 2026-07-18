@@ -12,7 +12,7 @@
 		<article class="news-item box">
 			<div class="news-item__image-wrap">
 				<a class="news-item__link" href={resolve('/blog/[slug]', { slug: post.slug })}>
-					<img class="cover" src={post.thumb.src} alt={post.thumb.alt} />
+					<img class="cover" src={post.thumb.src} alt={post.thumb.alt} loading="lazy" />
 				</a>
 			</div>
 			<div class="news-item__caption">

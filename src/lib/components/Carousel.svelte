@@ -82,7 +82,7 @@
 			<swiper-slide class="js-carousel-clients">
 				<figure class="swiper-slide">
 					<a href={slide.link} target="_blank" rel="external">
-						<img class="logo-client" src={slide.logo} alt={slide.logoAlt} />
+						<img class="logo-client" src={slide.logo} alt={slide.logoAlt} loading="lazy" />
 					</a>
 				</figure>
 			</swiper-slide>
@@ -91,7 +91,7 @@
 		{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
 			<swiper-slide class="review-item box box-inner" on:click={() => openModal(i)}>
 				<figure class="box box-avatar">
-					<img src={slide.image} alt={slide.imageAlt} />
+					<img src={slide.image} alt={slide.imageAlt} loading="lazy" />
 				</figure>
 				<h3 class="title title--h3">{slide.name}</h3>
 				<p class="review-item__caption">{slide.shortCopy}</p>
@@ -109,7 +109,7 @@
 						target="_blank"
 						rel="noreferrer"
 					>
-						<img src={slide.thumb} alt={slide.alt} />
+						<img src={slide.thumb} alt={slide.alt} loading="lazy" />
 					</a>
 				</figure>
 			</swiper-slide>

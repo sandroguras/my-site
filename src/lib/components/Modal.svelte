@@ -54,7 +54,7 @@
 						<div class="row">
 							<div class="col-12 col-sm-2 full-rewiew-con-avatar">
 								<figure class="box box-avatar">
-									<img src={modalData.image} alt={modalData.imageAlt} />
+									<img src={modalData.image} alt={modalData.imageAlt} loading="lazy" />
 								</figure>
 								<div class="review-icon-quote"></div>
 							</div>
