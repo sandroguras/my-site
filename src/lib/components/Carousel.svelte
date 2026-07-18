@@ -89,12 +89,14 @@
 		{/if}
 
 		{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
-			<swiper-slide class="review-item box box-inner" on:click={() => openModal(i)}>
-				<figure class="box box-avatar">
-					<img src={slide.image} alt={slide.imageAlt} loading="lazy" />
-				</figure>
-				<h3 class="title title--h3">{slide.name}</h3>
-				<p class="review-item__caption">{slide.shortCopy}</p>
+			<swiper-slide class="review-item box box-inner">
+				<button type="button" class="review-item__trigger" onclick={() => openModal(i)}>
+					<figure class="box box-avatar">
+						<img src={slide.image} alt={slide.imageAlt} loading="lazy" />
+					</figure>
+					<h3 class="title title--h3">{slide.name}</h3>
+					<p class="review-item__caption">{slide.shortCopy}</p>
+				</button>
 			</swiper-slide>
 		{/if}
 
