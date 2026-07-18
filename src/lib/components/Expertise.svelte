@@ -17,5 +17,5 @@
 {/each}
 
 <style lang="scss">
-	@import '#styles/app/expertise';
+	@use 'styles/app/expertise';
 </style>

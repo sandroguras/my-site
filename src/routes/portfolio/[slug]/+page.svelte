@@ -73,7 +73,7 @@
 </article>
 
 <style lang="scss">
-	@import '#styles/app/single-project';
+	@use 'styles/app/single-project';
 
 	.details-info {
 		margin-bottom: 1.5rem;

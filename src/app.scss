@@ -1,3 +1,65 @@
+// Boostrap
+// Bootstrap's own component partials assume @import's shared-scope model
+// (see src/global.scss), so they're loaded the same way here.
+//@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+//@import 'bootstrap/scss/type';
+//@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+//@import 'bootstrap/scss/tables';
+//@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/buttons';
+//@import 'bootstrap/scss/transitions';
+//@import 'bootstrap/scss/dropdown';
+//@import 'bootstrap/scss/button-group';
+@import 'bootstrap/scss/nav';
+//@import 'bootstrap/scss/navbar';
+//@import 'bootstrap/scss/card';
+//@import 'bootstrap/scss/accordion';
+//@import 'bootstrap/scss/breadcrumb';
+//@import 'bootstrap/scss/pagination';
+@import 'bootstrap/scss/badge';
+//@import 'bootstrap/scss/alert';
+//@import 'bootstrap/scss/progress';
+//@import 'bootstrap/scss/list-group';
+//@import 'bootstrap/scss/close';
+//@import 'bootstrap/scss/toasts';
+//@import 'bootstrap/scss/modal';
+@import 'bootstrap/scss/tooltip';
+//@import 'bootstrap/scss/popover';
+//@import 'bootstrap/scss/carousel';
+//@import 'bootstrap/scss/spinners';
+//@import 'bootstrap/scss/offcanvas';
+//@import 'bootstrap/scss/placeholders';
+//@import 'bootstrap/scss/helpers';
+//@import 'bootstrap/scss/utilities/api';
+
+// General settings
+@import './styles/app/general';
+@import './styles/app/typography';
+
+// Components
+//@import './styles/app/form';
+//@import './styles/app/button';
+//@import './styles/app/sidebar';
+@import './styles/app/sections';
+//@import './styles/app/navbar';
+//@import './styles/app/popup';
+
+// Pages, layouts
+//@import './styles/app/cases';
+//@import './styles/app/clients';
+//@import './styles/app/contact';
+//@import './styles/app/portfolio';
+//@import './styles/app/news';
+//@import './styles/app/single-news';
+//@import './styles/app/single-project';
+//@import './styles/app/testimonials';
+//@import './styles/app/timeline';
+
+@import './styles/app/other';
+
 $version: '1.5.0';
 
 /* ------------------------------------------------
@@ -37,41 +99,6 @@ $version: '1.5.0';
 
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */ /* Import only what you need from Bootstrap */
 
-// Boostrap
-//@import "bootstrap/scss/root";
-@import 'bootstrap/scss/reboot';
-//@import "bootstrap/scss/type";
-//@import "bootstrap/scss/images";
-@import 'bootstrap/scss/containers';
-@import 'bootstrap/scss/grid';
-//@import "bootstrap/scss/tables";
-//@import "bootstrap/scss/forms";
-@import 'bootstrap/scss/buttons';
-//@import "bootstrap/scss/transitions";
-//@import "bootstrap/scss/dropdown";
-//@import "bootstrap/scss/button-group";
-@import 'bootstrap/scss/nav';
-//@import "bootstrap/scss/navbar";
-//@import "bootstrap/scss/card";
-//@import "bootstrap/scss/accordion";
-//@import "bootstrap/scss/breadcrumb";
-//@import "bootstrap/scss/pagination";
-@import 'bootstrap/scss/badge';
-//@import "bootstrap/scss/alert";
-//@import "bootstrap/scss/progress";
-//@import "bootstrap/scss/list-group";
-//@import "bootstrap/scss/close";
-//@import "bootstrap/scss/toasts";
-//@import "bootstrap/scss/modal";
-@import 'bootstrap/scss/tooltip';
-//@import "bootstrap/scss/popover";
-//@import "bootstrap/scss/carousel";
-//@import "bootstrap/scss/spinners";
-//@import "bootstrap/scss/offcanvas";
-//@import "bootstrap/scss/placeholders";
-//@import "bootstrap/scss/helpers";
-//@import "bootstrap/scss/utilities/api";
-
 // Vendors
 //@import url('./styles/vendors/swiper.min.css');
 //@import url('./styles/vendors/simplebar.min.css');
@@ -82,28 +109,3 @@ $version: '1.5.0';
 // Font Icons
 @import url('assets/icons/style-custome-icons.css');
 @import url('assets/icons/feather.css');
-
-// General settings
-@import './styles/app/general';
-@import './styles/app/typography';
-
-// Components
-//@import './styles/app/form';
-//@import './styles/app/button';
-//@import './styles/app/sidebar';
-@import './styles/app/sections';
-//@import './styles/app/navbar';
-//@import './styles/app/popup';
-
-// Pages, layouts
-//@import './styles/app/cases';
-//@import './styles/app/clients';
-//@import './styles/app/contact';
-//@import './styles/app/portfolio';
-//@import './styles/app/news';
-//@import './styles/app/single-news';
-//@import './styles/app/single-project';
-//@import './styles/app/testimonials';
-//@import './styles/app/timeline';
-
-@import './styles/app/other';

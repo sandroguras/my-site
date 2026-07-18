@@ -89,5 +89,5 @@
 </section>
 
 <style lang="scss">
-	@import '#styles/app/single-post';
+	@use 'styles/app/single-post';
 </style>

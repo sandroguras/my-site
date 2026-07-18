@@ -32,5 +32,5 @@
 </div>
 
 <style lang="scss">
-	@import '#styles/app/navbar';
+	@use 'styles/app/navbar';
 </style>

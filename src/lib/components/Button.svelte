@@ -20,5 +20,5 @@
 {/if}
 
 <style lang="scss">
-	@import '#styles/app/button';
+	@use 'styles/app/button';
 </style>

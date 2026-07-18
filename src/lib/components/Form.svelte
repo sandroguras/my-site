@@ -196,7 +196,7 @@
 		</form>
 	</div>
 	<style lang="scss">
-		@import '#styles/app/form';
+		@use 'styles/app/form';
 	</style>
 {:else}
 	<div transition:slide={{ duration: 250, delay: 200, easing: sineOut }}>
@@ -212,6 +212,6 @@
 	</div>
 
 	<style lang="scss">
-		@import '#styles/app/testimonials';
+		@use 'styles/app/testimonials';
 	</style>
 {/if}

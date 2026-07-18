@@ -1,12 +1,16 @@
 /* Variables and mixins declared here will be available in all other SCSS files */
+// Template variables
+@forward './styles/variables/vars';
+@forward './styles/variables/mixins';
+@forward './styles/variables/media';
+
+// Bootstrap's own partials assume @import's shared-scope model throughout
+// (e.g. _variables.scss references mixins that only exist via implicit
+// import order, not real module isolation), so they can't be cherry-picked
+// via @use the way our own SCSS can.
 @import 'bootstrap/scss/functions'; /* Override Bootstrap's variables here */
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/variables-dark';
 @import 'bootstrap/scss/maps';
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/utilities';
-
-// Template variables
-@import './styles/variables/vars';
-@import './styles/variables/mixins';
-@import './styles/variables/media';

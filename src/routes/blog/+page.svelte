@@ -27,5 +27,5 @@
 </div>
 
 <style lang="scss">
-	@import '#styles/app/news';
+	@use 'styles/app/news';
 </style>

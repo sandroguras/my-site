@@ -52,5 +52,5 @@
 </button>
 
 <style lang="scss">
-	@import '#styles/app/copy-button.scss';
+	@use 'styles/app/copy-button';
 </style>

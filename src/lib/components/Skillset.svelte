@@ -11,5 +11,5 @@
 </div>
 
 <style lang="scss">
-	@import '#styles/app/skillset';
+	@use 'styles/app/skillset';
 </style>

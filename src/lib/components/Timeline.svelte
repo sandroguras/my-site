@@ -26,5 +26,5 @@
 </div>
 
 <style lang="scss">
-	@import '#styles/app/timeline';
+	@use 'styles/app/timeline';
 </style>

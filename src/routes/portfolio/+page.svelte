@@ -24,5 +24,5 @@
 </div>
 
 <style lang="scss">
-	@import '#styles/app/portfolio';
+	@use 'styles/app/portfolio';
 </style>

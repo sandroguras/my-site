@@ -119,19 +119,19 @@
 
 {#if swiperId === 'swiper-clients'}
 	<style lang="scss">
-		@import '#styles/app/carousel-clients';
+		@use 'styles/app/carousel-clients';
 	</style>
 {/if}
 
 {#if swiperId === 'swiper-testimonials'}
 	<Modal {modalData} {modalIndex} {showModal} {closeModal} />
 	<style lang="scss">
-		@import '#styles/app/testimonials';
+		@use 'styles/app/testimonials';
 	</style>
 {/if}
 
 {#if swiperId === 'swiper-gallery'}
 	<style lang="scss">
-		@import '#styles/app/carousel-projects';
+		@use 'styles/app/carousel-projects';
 	</style>
 {/if}

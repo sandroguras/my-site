@@ -71,5 +71,5 @@
 </aside>
 
 <style lang="scss">
-	@import '#styles/app/sidebar';
+	@use 'styles/app/sidebar';
 </style>
