@@ -9,7 +9,7 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const { post } = data;
+	let post = $derived(data.post);
 	const urlToShare = page.url.href;
 	// Encoding the URL
 	const encodedURL: string = encodeURIComponent(urlToShare);
