@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Spinner from '$lib/components/Spinner.svelte';
-	import { asset } from '$app/paths';
 
 	let {
 		isButtonLink = false,
@@ -20,7 +19,7 @@
 </script>
 
 {#if isButtonLink}
-	<a href={asset(link)} download class="btn" aria-label={ariaLabel}
+	<a href={link} download class="btn" aria-label={ariaLabel}
 		><i class="font-icon {icon}"></i>{text}</a
 	>
 {:else if btnDisbl}

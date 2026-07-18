@@ -110,7 +110,7 @@
 			formDataToSend.append('token', formData.token);
 
 			// Endpoint here for form submission
-			const response = await fetch('/contact', {
+			const response = await fetch('/api/contact', {
 				method: 'POST',
 				body: formDataToSend
 			});

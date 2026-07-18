@@ -3,6 +3,7 @@ import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import svelte from 'eslint-plugin-svelte';
 import svelteParser from 'svelte-eslint-parser';
+import astro from 'eslint-plugin-astro';
 import prettier from 'eslint-config-prettier';
 import globals from 'globals';
 
@@ -10,6 +11,7 @@ export default [
 	js.configs.recommended,
 	...tseslint.configs['flat/recommended'],
 	...svelte.configs['flat/recommended'],
+	...astro.configs['flat/recommended'],
 	prettier,
 	{
 		languageOptions: {
@@ -29,6 +31,10 @@ export default [
 			parserOptions: {
 				parser: tsParser
 			}
+		},
+		rules: {
+			// This project runs on Astro, not SvelteKit — there's no resolve() to call.
+			'svelte/no-navigation-without-resolve': 'off'
 		}
 	},
 	{
@@ -36,11 +42,13 @@ export default [
 			'.DS_Store',
 			'node_modules/**',
 			'build/**',
-			'.svelte-kit/**',
-			'package/**',
+			'dist/**',
+			'.astro/**',
+			'.vercel/**',
 			'.env',
 			'.env.*',
 			'!.env.example',
+			'bun.lock',
 			'pnpm-lock.yaml',
 			'package-lock.json',
 			'yarn.lock'

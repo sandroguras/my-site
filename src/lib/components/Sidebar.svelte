@@ -1,6 +1,5 @@
 ﻿<script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import avatar from '#images/headshot.webp';
 	import type { PersonalInfo as PersonalInfoType } from '#types/PersonalInfo';
 
 	function isLocalLink(target: string): { target?: string; rel?: string } {
@@ -12,6 +11,9 @@
 	}
 
 	let {
+		avatarSrc,
+		avatarWidth,
+		avatarHeight,
 		personalInfo = {
 			name: 'David Guras',
 			role: 'Lead Web Developer',
@@ -30,7 +32,12 @@
 				}
 			]
 		}
-	}: { personalInfo?: PersonalInfoType } = $props();
+	}: {
+		avatarSrc: string;
+		avatarWidth: number;
+		avatarHeight: number;
+		personalInfo?: PersonalInfoType;
+	} = $props();
 </script>
 
 <aside class="aside col-12 col-md-12 col-xl-3">
@@ -38,7 +45,7 @@
 		<!-- My photo -->
 		<div class="sidebar__base-info">
 			<figure class="avatar-box">
-				<img src={avatar} alt={personalInfo.name} />
+				<img src={avatarSrc} width={avatarWidth} height={avatarHeight} alt={personalInfo.name} />
 			</figure>
 
 			<div class="copy-box">
@@ -47,16 +54,14 @@
 				<!-- Social -->
 				<div class="social">
 					{#each personalInfo.socials as social (social.icon)}
-						<!-- eslint-disable svelte/no-navigation-without-resolve -- social.link mixes external URLs (LinkedIn) and internal routes (/contact); each is a literal defined above -->
 						<a
 							class="social__link"
 							href={social.link}
 							{...isLocalLink(social.target)}
 							aria-label={social.ariaLabel}
 						>
-							<i class={`feathericon-${social.icon}`} />
+							<i class={`feathericon-${social.icon}`}></i>
 						</a>
-						<!-- eslint-enable svelte/no-navigation-without-resolve -->
 					{/each}
 				</div>
 			</div>

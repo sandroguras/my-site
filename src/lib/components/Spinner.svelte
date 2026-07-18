@@ -19,7 +19,7 @@
 	class="circle"
 	class:pause-animation={pause}
 	style="--size: {size}{unit}; --color: {color}; --duration: {duration}"
-/>
+></div>
 
 <style>
 	.circle {
