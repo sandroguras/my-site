@@ -3,146 +3,146 @@
 ----------------------------------------------------------------- */
 
 .sidebar {
-  z-index: 10;
+	z-index: 10;
 
-  @media only screen and (min-width: $large-xl) {
-    position: sticky;
-    top: rem(30px); /* Adjust if you want some space at the top */
-  }
+	@media only screen and (min-width: $large-xl) {
+		position: sticky;
+		top: rem(30px); /* Adjust if you want some space at the top */
+	}
 
-  @media only screen and (max-width: $large-xl) {
-    margin-bottom: rem(30px);
-  }
+	@media only screen and (max-width: $large-xl) {
+		margin-bottom: rem(30px);
+	}
 
-  @media only screen and (max-width: $small) {
-    margin-bottom: rem(16px);
-  }
+	@media only screen and (max-width: $small) {
+		margin-bottom: rem(16px);
+	}
 
-  &__base-info {
-    @media only screen and (max-width: $large-xl) {
-      @include flex($align: center);
-    }
-  }
+	&__base-info {
+		@media only screen and (max-width: $large-xl) {
+			@include flex($align: center);
+		}
+	}
 
-  .avatar-box {
-    background: var(--color-gradient-gray);
-    border-radius: var(--radius-32);
-    margin: rem(30px) rem(30px) rem(20px);
-    overflow: hidden;
-    height: auto;
-    width: calc(100% - #{rem(60px)});
-    transition: all 0.3s ease-in-out;
+	.avatar-box {
+		background: var(--color-gradient-gray);
+		border-radius: var(--radius-32);
+		margin: rem(30px) rem(30px) rem(20px);
+		overflow: hidden;
+		height: auto;
+		width: calc(100% - #{rem(60px)});
+		transition: all 0.3s ease-in-out;
 
-    @media only screen and (max-width: $large-xl) {
-      flex-shrink: 0;
-      margin: 0 rem(24px) 0 0;
-      width: rem(150px);
-    }
+		@media only screen and (max-width: $large-xl) {
+			flex-shrink: 0;
+			margin: 0 rem(24px) 0 0;
+			width: rem(150px);
+		}
 
-    @media only screen and (max-width: $small) {
-      border-radius: var(--radius-20);
-      margin: 0 rem(16px) 0 0;
-      width: rem(120px);
-    }
-  }
-  
-  .copy-box {
-    text-align: center;
+		@media only screen and (max-width: $small) {
+			border-radius: var(--radius-20);
+			margin: 0 rem(16px) 0 0;
+			width: rem(120px);
+		}
+	}
 
-    @media only screen and (max-width: $large-xl) {
-      text-align: left;
-    }
-  }
+	.copy-box {
+		text-align: center;
 
-  .avatar-box img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1;
-  }
+		@media only screen and (max-width: $large-xl) {
+			text-align: left;
+		}
+	}
 
-  &__name {
-    font-size: rem(26px);
-    font-weight: 500;
-    margin-bottom: rem(16px);
-    position: relative;
+	.avatar-box img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1;
+	}
 
-    @media only screen and (max-width: $small) {
-      font-size: rem(17px);
-      margin-bottom: rem(10px);
-    }
-  }
+	&__name {
+		font-size: rem(26px);
+		font-weight: 500;
+		margin-bottom: rem(16px);
+		position: relative;
 
-  &__btn {
-    @include position(absolute, $top: 0, $right: 0);
-    border-top-left-radius: 0;
-    border-bottom-right-radius: 0;
-    display: none;
+		@media only screen and (max-width: $small) {
+			font-size: rem(17px);
+			margin-bottom: rem(10px);
+		}
+	}
 
-    @media only screen and (max-width: $large-xl) {
-      display: block;
-      padding: rem(10px) rem(16px);
-    }
+	&__btn {
+		@include position(absolute, $top: 0, $right: 0);
+		border-top-left-radius: 0;
+		border-bottom-right-radius: 0;
+		display: none;
 
-    @media only screen and (max-width: $small) {
-      padding: rem(10px);
-    }
-  }
+		@media only screen and (max-width: $large-xl) {
+			display: block;
+			padding: rem(10px) rem(16px);
+		}
 
-  &__btn i {
-    display: none;
-  }
+		@media only screen and (max-width: $small) {
+			padding: rem(10px);
+		}
+	}
 
-  @media only screen and (max-width: $small) {
-    &__btn i {
-      display: block;
-      margin: 0;
-    }
+	&__btn i {
+		display: none;
+	}
 
-    &__btn span {
-      display: none;
-    }
-  }
+	@media only screen and (max-width: $small) {
+		&__btn i {
+			display: block;
+			margin: 0;
+		}
+
+		&__btn span {
+			display: none;
+		}
+	}
 }
 
 .contacts-block__info {
-  flex: 1;
+	flex: 1;
 }
 
 /* Social */
 .social {
-  margin-top: rem(16px);
-  display: flex;
-  justify-content: center;
-  gap: 7%;
+	margin-top: rem(16px);
+	display: flex;
+	justify-content: center;
+	gap: 7%;
 
-  @media only screen and (max-width: $large-xl) {
-    justify-content: left;
-    gap: 10%;
-  }
+	@media only screen and (max-width: $large-xl) {
+		justify-content: left;
+		gap: 10%;
+	}
 
-  &__link {
-    font-size: rem(20px);
-    color: var(--color-heading);
-    -webkit-text-fill-color: inherit;
-    opacity: 0.6;
-    transition: all 0.3s ease-in-out;
-  }
+	&__link {
+		font-size: rem(20px);
+		color: var(--color-heading);
+		-webkit-text-fill-color: inherit;
+		opacity: 0.6;
+		transition: all 0.3s ease-in-out;
+	}
 
-  &__link:hover {
-    opacity: 1;
-    text-decoration: none;
-  }
+	&__link:hover {
+		opacity: 1;
+		text-decoration: none;
+	}
 
-  @media only screen and (max-width: $large-xl) {
-    text-align: left;
-  }
+	@media only screen and (max-width: $large-xl) {
+		text-align: left;
+	}
 }
 
 .sticky-column {
-  margin-top: 0;
-  transition: all 0.3s ease-in-out;
+	margin-top: 0;
+	transition: all 0.3s ease-in-out;
 }
 
 .sticky-column.is_stuck {
-  margin-top: rem(30px);
+	margin-top: rem(30px);
 }

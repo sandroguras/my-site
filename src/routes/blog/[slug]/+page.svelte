@@ -28,8 +28,8 @@
 				return typescript;
 		}
 	}
-
 </script>
+
 <section class="blogpost">
 	<header class="header-post">
 		<!-- eslint-disable svelte/no-at-html-tags -- post content is static, developer-authored data (src/lib/data/blogData.ts), not user input -->
@@ -76,15 +76,18 @@
 	{/each}
 	<!-- eslint-enable svelte/no-at-html-tags -->
 	<footer class="footer-post">
-		<a class="footer-post__share" href={facebookShareLink} target="_blank" rel="noopener noreferrer"><i
-			class="font-icon icon-facebook"></i><span>Facebook</span></a>
-		<a class="footer-post__share" href={twitterShareLink} target="_blank" rel="noopener noreferrer"><i
-			class="font-icon icon-twitter"></i><span>Twitter</span></a>
-		<a class="footer-post__share" href={linkedInShareLink} target="_blank" rel="noopener noreferrer"><i
-			class="font-icon icon-linkedin2"></i><span>Linkedin</span></a>
+		<a class="footer-post__share" href={facebookShareLink} target="_blank" rel="noopener noreferrer"
+			><i class="font-icon icon-facebook"></i><span>Facebook</span></a
+		>
+		<a class="footer-post__share" href={twitterShareLink} target="_blank" rel="noopener noreferrer"
+			><i class="font-icon icon-twitter"></i><span>Twitter</span></a
+		>
+		<a class="footer-post__share" href={linkedInShareLink} target="_blank" rel="noopener noreferrer"
+			><i class="font-icon icon-linkedin2"></i><span>Linkedin</span></a
+		>
 	</footer>
 </section>
 
 <style lang="scss">
-  @import "#styles/app/single-post";
+	@import '#styles/app/single-post';
 </style>

@@ -4,16 +4,14 @@
 	import Carousel from '$lib/components/Carousel.svelte';
 	import type { Copy as CopyType } from '#types/Copy';
 	import type { Expertise as ExpertiseType } from '../types/Expertise';
-	import type {
-		ReviewData as ReviewDataType,
-		ClientData as ClientType
-	} from '#types/Carousel';
+	import type { ReviewData as ReviewDataType, ClientData as ClientType } from '#types/Carousel';
 
 	const Introduction: CopyType = {
-		copy: '<p>With over a decade of experience as a Lead Web Developer, I oversee a team of talented web artisans who create high-quality websites for clients across various industries. We aim to transform complex ideas into clean, user-friendly designs that engage audiences and drive results.</p>\n' +
-			'<p>Based in Washington DC, I\'ve been assisting US businesses in establishing a robust online presence. With every project, I dedicate myself to crafting digital masterpieces that combine technical proficiency, creative flair, and a steadfast commitment to understanding my client\'s requirements.</p>\n' +
+		copy:
+			'<p>With over a decade of experience as a Lead Web Developer, I oversee a team of talented web artisans who create high-quality websites for clients across various industries. We aim to transform complex ideas into clean, user-friendly designs that engage audiences and drive results.</p>\n' +
+			"<p>Based in Washington DC, I've been assisting US businesses in establishing a robust online presence. With every project, I dedicate myself to crafting digital masterpieces that combine technical proficiency, creative flair, and a steadfast commitment to understanding my client's requirements.</p>\n" +
 			'<p>My unwavering passion for staying at the forefront of the latest web development technologies and trends is not just a personal interest, but a commitment to providing my clients with the most innovative solutions. This dedication to innovation and my aspiration to create seamless user experiences have been instrumental in the growth and success of my company.</p>\n' +
-			'<p>Together, we take a comprehensive approach to each project, paying close attention to detail and working to translate clients\' visions into impactful online experiences effectively. But our commitment doesn\'t end with the project\'s completion. We value building long-term relationships with our clients, founded on trust and a shared goal of achieving solid results in the digital space, ensuring their continued success.</p>\n'
+			"<p>Together, we take a comprehensive approach to each project, paying close attention to detail and working to translate clients' visions into impactful online experiences effectively. But our commitment doesn't end with the project's completion. We value building long-term relationships with our clients, founded on trust and a shared goal of achieving solid results in the digital space, ensuring their continued success.</p>\n"
 	};
 	const expertise: ExpertiseType = {
 		heading: 'My Expertise',
@@ -51,7 +49,8 @@
 			imageAlt: 'Chris Bartlett',
 			shortCopy:
 				'It has been an absolute pleasure in working for David at Bullishfor the last two years...',
-			copy: 'It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.</p>\n' +
+			copy:
+				'It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.</p>\n' +
 				'\n' +
 				'<p>David is able to communicate at all levels from complex discussions with developers to distilling technical ideas and conveying them to non-technical C-level executives.</p>\n' +
 				'\n' +
@@ -61,16 +60,16 @@
 				'\n' +
 				'<p>Not only is David a great manager but David is still a great developer too and will often help out whenever we needed help and always keeps up to date with the latest technology.</p>\n' +
 				'\n' +
-				'<p>I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David\'s abilities he would surely lead any team to success.</p>',
+				"<p>I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David's abilities he would surely lead any team to success.</p>",
 			reviewDate: '2023-03-09'
 		},
 		{
 			name: 'Alex Radulescu',
 			image: './images/testimonials/Alex_R.webp',
 			imageAlt: 'Alex Radulescu',
-			shortCopy:
-				'It has been a pleasure working with David and I strongly recommend him....',
-			copy: '<p>It has been a pleasure working with David and I strongly recommend him.\n' +
+			shortCopy: 'It has been a pleasure working with David and I strongly recommend him....',
+			copy:
+				'<p>It has been a pleasure working with David and I strongly recommend him.\n' +
 				'He joined my team with an open mind, took on the challenge of managing new people and thanks to him delivered on time multiple major web projects.</p>\n' +
 				'\n' +
 				'<p>He also successfully linked stakeholders and architected a robust and elegant top of the line headless wordpress setup with nextjs, graphql and typescript.\n' +
@@ -81,8 +80,7 @@
 			name: 'Mike Dulik',
 			image: './images/testimonials/Mike_D.webp',
 			imageAlt: 'Mike Dulik',
-			shortCopy:
-				'I had the pleasure of working alongside Dave as a web developer at Grafik...',
+			shortCopy: 'I had the pleasure of working alongside Dave as a web developer at Grafik...',
 			copy: '<p>I had the pleasure of working alongside Dave as a web developer at Grafik, a digital branding agency based in Alexandria. Dave exhibited many traits that are essential to the making of a great developer. His innovative nature helped to transform our dev practice, and many of his findings are still helping us to work better as a team. I would be very lucky to have the opportunity to collaborate with him again one day.</p>',
 			reviewDate: '2019-04-30'
 		},
@@ -90,9 +88,9 @@
 			name: 'Simion Nacu',
 			image: './images/testimonials/Simion_N.webp',
 			imageAlt: 'Simion Nacu',
-			shortCopy:
-				' I\'ve had the opportunity to work with David, for about six years...',
-			copy: '<p>I\'ve had the opportunity to work with David, for about six years in both a professional and personal level. I have always felt confident that things would be handled in a timely manner and that he was willing to go up and above when necessary.</p>\n' +
+			shortCopy: " I've had the opportunity to work with David, for about six years...",
+			copy:
+				"<p>I've had the opportunity to work with David, for about six years in both a professional and personal level. I have always felt confident that things would be handled in a timely manner and that he was willing to go up and above when necessary.</p>\n" +
 				'\n' +
 				'<p>He proved to be always eager for new knowledge and flexible enough to embrace new technologies and work flows. He will make a very good addition to any team looking for a strong creative professional.</p>',
 			reviewDate: '2021-01-01'
@@ -155,29 +153,29 @@
 		swiperId="swiper-testimonials"
 		slides={testimonials}
 		breakpoints={{
-		580: { slidesPerView: 1, spaceBetween: 20 },
-		991: { slidesPerView: 2 }
-	}}
+			580: { slidesPerView: 1, spaceBetween: 20 },
+			991: { slidesPerView: 2 }
+		}}
 	/>
 </section>
 
 <!-- Clients -->
 <section class="swiper-clients">
 	<h2 class="title title--h2">Clients</h2>
-<Carousel
-	swiperId="swiper-clients"
-	slides={clients}
-	breakpoints={{
-		320: { slidesPerView: 2, spaceBetween: 0 },
-		580: { slidesPerView: 3, spaceBetween: 30 },
-		991: { slidesPerView: 4, spaceBetween: 30 }
-	}}
-/>
+	<Carousel
+		swiperId="swiper-clients"
+		slides={clients}
+		breakpoints={{
+			320: { slidesPerView: 2, spaceBetween: 0 },
+			580: { slidesPerView: 3, spaceBetween: 30 },
+			991: { slidesPerView: 4, spaceBetween: 30 }
+		}}
+	/>
 </section>
 
 <style lang="scss">
 	.about {
-    margin-bottom: 2.5rem;
+		margin-bottom: 2.5rem;
 	}
 	.expertise {
 		margin-bottom: 1rem;

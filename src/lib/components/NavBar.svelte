@@ -13,7 +13,9 @@
 		const linkSegments = linkPath.split('/').filter(Boolean);
 
 		// Check if the first segment of the current path matches the first segment of the link path
-		return linkSegments.length === 0 ? currentPath === linkPath : currentSegments[0] === linkSegments[0];
+		return linkSegments.length === 0
+			? currentPath === linkPath
+			: currentSegments[0] === linkSegments[0];
 	}
 </script>
 
@@ -21,12 +23,14 @@
 	<ul class="nav">
 		{#each links as link (link.path)}
 			<li class="nav__item">
-				<a class:active={isActiveLink($page.url.pathname, link.path)} href={resolve(link.path)}>{link.label}</a>
+				<a class:active={isActiveLink($page.url.pathname, link.path)} href={resolve(link.path)}
+					>{link.label}</a
+				>
 			</li>
 		{/each}
 	</ul>
 </div>
 
 <style lang="scss">
-  @import '#styles/app/navbar';
+	@import '#styles/app/navbar';
 </style>

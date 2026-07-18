@@ -4,42 +4,46 @@
 	import { derived } from 'svelte/store';
 	import { getBlogPostMetadata } from '$lib/data/blogData';
 
-
 	const siteURL = $page.url.origin;
 
 	const defaultTitle: string = 'David Guras | Precision Web Engineering';
 	const defaultSiteName: string = 'David Guras';
-	const defaultDescription: string = 'David Guras: Expert Web Developer, crafting large-scale, precise solutions. Ensures fast, responsive, accessible projects with unmatched quality.';
+	const defaultDescription: string =
+		'David Guras: Expert Web Developer, crafting large-scale, precise solutions. Ensures fast, responsive, accessible projects with unmatched quality.';
 	const defaultImage = `${siteURL}/images/opengraphs/default-og.jpg`;
 
 	const defaultArticleAuthor: string = 'David Guras';
 	const defaultArticleSection: string = 'Web Development';
 	const defaultArticleTag: string = 'Web Development, Programming, Technology';
 
-	const metadata = derived(page, $page => {
+	const metadata = derived(page, ($page) => {
 		switch ($page.url.pathname) {
 			case '/resume':
 				return {
 					title: 'David Guras | My Resume',
-					description: 'Discover the professional journey of David Guras. From innovative projects to technical expertise, explore a resume that showcases a commitment to excellence.',
+					description:
+						'Discover the professional journey of David Guras. From innovative projects to technical expertise, explore a resume that showcases a commitment to excellence.',
 					image: `${siteURL}/images/opengraphs/resume-og.jpg`
 				};
 			case '/portfolio':
 				return {
 					title: 'David Guras | Portfolio',
-					description: 'Explore the portfolio of David Guras, where each project is a testament to innovation, skill, and dedication in the field of web development and design.',
+					description:
+						'Explore the portfolio of David Guras, where each project is a testament to innovation, skill, and dedication in the field of web development and design.',
 					image: `${siteURL}/images/opengraphs/portfolio-og.jpg`
 				};
 			case '/blog':
 				return {
 					title: 'David Guras | Blog',
-					description: 'Explore David Guras\'s insights into web development. Dive deep into trends, tips, and personal reflections in a blog crafted for the web professionals.',
+					description:
+						"Explore David Guras's insights into web development. Dive deep into trends, tips, and personal reflections in a blog crafted for the web professionals.",
 					image: `${siteURL}/images/opengraphs/blog-og.jpg`
 				};
 			case '/contact':
 				return {
 					title: 'David Guras | Contact Me',
-					description: 'Interested in collaboration or have questions? Connect with David Guras to transform your ideas into unique and impactful web development solutions. Contact now!',
+					description:
+						'Interested in collaboration or have questions? Connect with David Guras to transform your ideas into unique and impactful web development solutions. Contact now!',
 					image: `${siteURL}/images/opengraphs/contact-og.jpg`
 				};
 			default:
@@ -65,7 +69,8 @@
 						// Fallback metadata for blog posts with invalid slugs
 						return {
 							title: 'David Guras | Blog Post',
-							description: 'Read David Guras\'s latest blog post, offering valuable insights and expert opinions on the latest trends and techniques in web development.',
+							description:
+								"Read David Guras's latest blog post, offering valuable insights and expert opinions on the latest trends and techniques in web development.",
 							image: `${siteURL}/images/opengraphs/blog-post-og.jpg`,
 							articleAuthor: defaultArticleAuthor,
 							articlePublishedTime: new Date().toISOString(),
@@ -91,7 +96,7 @@
 <!-- Various meta tags and link elements -->
 <title>{$metadata.title}</title>
 <meta name="description" content={$metadata.description} />
-<link rel="canonical" href="{$page.url.href}" />
+<link rel="canonical" href={$page.url.href} />
 
 <!-- OpenGraph meta tags -->
 <meta property="og:locale" content="en_US" />
@@ -103,7 +108,6 @@
 <meta property="og:image" content={$metadata.image} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-
 
 <!-- Twitter Card meta tags -->
 <meta name="twitter:card" content="summary_large_image" />

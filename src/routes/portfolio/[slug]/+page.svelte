@@ -23,7 +23,9 @@
 </script>
 
 <article class="project">
-	<a class="btn-back" href={resolve('/portfolio')}><i class="feathericon-arrow-left"></i>Back to Portfolio</a>
+	<a class="btn-back" href={resolve('/portfolio')}
+		><i class="feathericon-arrow-left"></i>Back to Portfolio</a
+	>
 
 	<header class="header-project">
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -- project.pageTitle is static, developer-authored data (src/lib/data/portfolioData.ts), not user input -->
@@ -39,7 +41,7 @@
 				<span class="box icon-box"><i class="font-icon {infoBlock.icon}"></i></span>
 				<div class="details-info__info">
 					<span class="overhead">{infoBlock.title}</span>
-					{#if (isValidISODateString(infoBlock.content))}
+					{#if isValidISODateString(infoBlock.content)}
 						<span>{formatDate(infoBlock.content)}</span>
 					{:else}
 						<span>{infoBlock.content}</span>
@@ -52,13 +54,13 @@
 	<section class="carousel">
 		<Carousel
 			swiperId="swiper-gallery"
-			slidesPerView='auto'
+			slidesPerView="auto"
 			slides={project.images}
 			centeredSlides={true}
 			speed={300}
 			breakpoints={{
-			580: { slidesPerView: 'auto', spaceBetween: 20 }
-		}}
+				580: { slidesPerView: 'auto', spaceBetween: 20 }
+			}}
 		/>
 	</section>
 
@@ -68,23 +70,22 @@
 			{@html project.description}
 		</Copy>
 	</section>
-
 </article>
 
 <style lang="scss">
-  @import "#styles/app/single-project";
+	@import '#styles/app/single-project';
 
-  .details-info {
-    margin-bottom: 1.5rem;
-    @media only screen and (max-width: $small) {
-      margin-bottom: 1rem;
-    }
-  }
+	.details-info {
+		margin-bottom: 1.5rem;
+		@media only screen and (max-width: $small) {
+			margin-bottom: 1rem;
+		}
+	}
 
-  .carousel {
-    margin-bottom: 2rem;
-    @media only screen and (max-width: $small) {
-      margin-bottom: 1rem;
-    }
-  }
+	.carousel {
+		margin-bottom: 2rem;
+		@media only screen and (max-width: $small) {
+			margin-bottom: 1rem;
+		}
+	}
 </style>

@@ -30,11 +30,11 @@
 <div class="scroll-indicator" style="width: {scrollPercentage}%"></div>
 
 <style lang="scss">
-  .scroll-indicator {
-    background: var(--color-gradient);
-    height: rem(3px);
-    @include position(fixed, $top: 0);
-    width: 0;
-    z-index: 3;
-  }
+	.scroll-indicator {
+		background: var(--color-gradient);
+		height: rem(3px);
+		@include position(fixed, $top: 0);
+		width: 0;
+		z-index: 3;
+	}
 </style>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	import { scale } from 'svelte/transition'
-	import { sineOut } from 'svelte/easing'
+	import { scale } from 'svelte/transition';
+	import { sineOut } from 'svelte/easing';
 	import { formatDate } from '$lib/utils/dateUtils';
 	import type { ReviewData as ReviewDataType } from '#types/Carousel';
 	export let showModal: boolean = false;
@@ -49,7 +49,7 @@
 	>
 		<div class="mfp-container mfp-s-ready mfp-inline-holder" on:click={handleClickOutside}>
 			<div class="mfp-content">
-				<div transition:scale={{duration: 500, delay: 100, easing: sineOut}}>
+				<div transition:scale={{ duration: 500, delay: 100, easing: sineOut }}>
 					<div id="review-{modalIndex}" on:click|stopPropagation class="popup">
 						<div class="row">
 							<div class="col-12 col-sm-2 full-rewiew-con-avatar">

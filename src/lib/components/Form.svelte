@@ -70,7 +70,6 @@
 				window.hcaptcha.render('h-captcha', { sitekey: hCaptchaSiteKey });
 			};
 		}
-
 	});
 
 	async function handleSubmit(event: Event) {
@@ -138,7 +137,7 @@
 </script>
 
 {#if !formSubmitted}
-	<div transition:slide={{duration: 250, delay: 50, easing: sineOut}}>
+	<div transition:slide={{ duration: 250, delay: 50, easing: sineOut }}>
 		<form id="contact-form" class="contact-form" on:submit|preventDefault={handleSubmit}>
 			<div class="row">
 				<div class="form-group col-12 col-md-6">
@@ -197,10 +196,10 @@
 		</form>
 	</div>
 	<style lang="scss">
-    @import '#styles/app/form';
+		@import '#styles/app/form';
 	</style>
 {:else}
-	<div transition:slide={{duration: 250, delay: 200, easing: sineOut}}>
+	<div transition:slide={{ duration: 250, delay: 200, easing: sineOut }}>
 		<div class="thank-you-message">
 			<div class="review-item box box-inner">
 				<figure class="box box-avatar">
@@ -213,6 +212,6 @@
 	</div>
 
 	<style lang="scss">
-    @import '#styles/app/testimonials';
+		@import '#styles/app/testimonials';
 	</style>
 {/if}

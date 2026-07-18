@@ -110,7 +110,6 @@ $size-avatar: rem(80px);
 	display: flex;
 	justify-content: center;
 
-
 	@media only screen and (max-width: $small) {
 		margin: 3rem auto;
 	}
@@ -123,7 +122,6 @@ $size-avatar: rem(80px);
 			font-size: rem(40px);
 		}
 	}
-
 }
 
 /* Carousel pagination */

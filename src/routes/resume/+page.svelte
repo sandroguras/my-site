@@ -95,7 +95,8 @@
 	let experience: TimelineType['events'] = [
 		{
 			id: 7,
-			institution: '<a href="https://greymass.com/" target="_blank" aria-label="Greymass Website" rel="noopener noreferrer">Greymass</a>',
+			institution:
+				'<a href="https://greymass.com/" target="_blank" aria-label="Greymass Website" rel="noopener noreferrer">Greymass</a>',
 			position: 'Project Manager, Web Developer',
 			period: 'July 2023 — Present',
 			description:
@@ -103,10 +104,12 @@
 		},
 		{
 			id: 6,
-			institution: '<a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish</a>',
+			institution:
+				'<a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish</a>',
 			position: 'Manager: Web Engineering',
 			period: 'Feb 2020 — June 2023',
-			description: '- Led the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> development, achieving completion 2 weeks ahead of schedule.<br>' +
+			description:
+				'- Led the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> development, achieving completion 2 weeks ahead of schedule.<br>' +
 				'- Upgraded the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> to a headless CMS and NEXT.js, resulting in a 390% improvement in load time.<br>' +
 				'- Eliminated the backend dependency of the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> by leveraging GCP<br>' +
 				'- Incorporated automated selenium tests into the development workflow.\n<br>' +
@@ -127,10 +130,12 @@
 		},
 		{
 			id: 4,
-			institution: '<a href="https://grafik.agency/" target="_blank" aria-label="Grafik Agency Website" rel="noopener noreferrer">Grafik</a>',
+			institution:
+				'<a href="https://grafik.agency/" target="_blank" aria-label="Grafik Agency Website" rel="noopener noreferrer">Grafik</a>',
 			position: 'Backend Developer',
 			period: 'Jul 2018 — Mar 2019',
-			description: '- <a href="https://vanmetrehomes.com/" target="_blank" aria-label="Van Meter Homes Website" rel="noopener noreferrer">Van Metre Homes</a> – Backend developer, bug fixing. Utilized Symfony/Pimcore<br>' +
+			description:
+				'- <a href="https://vanmetrehomes.com/" target="_blank" aria-label="Van Meter Homes Website" rel="noopener noreferrer">Van Metre Homes</a> – Backend developer, bug fixing. Utilized Symfony/Pimcore<br>' +
 				'- <a href="https://vanmetrecommercial.com/" target="_blank" aria-label="Van Meter Commercials Website" rel="noopener noreferrer">Van Metre Commercials</a> – Fullstack developer, bug fixing. Utilized Symfony/Pimcore<br>' +
 				'- <a href="https://www.multiplyinggood.org/" target="_blank" aria-label="Multiplying Good Website" rel="noopener noreferrer">Multiplying Good</a> – Fullstack developer, bug fixing. Utilized Symfony/Pimcore<br>' +
 				'- <a href="https://grafik.agency/" target="_blank" aria-label="Grafik Agency Website" rel="noopener noreferrer">Grafik Agency</a> – Backend for new landing page for Grafik website. Utilized WordPress, ACF'
@@ -147,7 +152,8 @@
 			institution: 'Endava',
 			position: 'Backend Developer',
 			period: 'Oct 2013 — Sep 2015',
-			description: '- Backend development utilizing Symfony, MySQL, PostgreSQL, PHPUnit\n' +
+			description:
+				'- Backend development utilizing Symfony, MySQL, PostgreSQL, PHPUnit\n' +
 				'Developed solutions for internal company use.'
 		},
 		{
@@ -190,22 +196,22 @@
 </section>
 
 <style lang="scss">
-  section:nth-of-type(3) {
-    margin-bottom: 3rem;
-    @media only screen and (max-width: $small) {
-      margin-bottom: 2.5rem;
-    }
-  }
+	section:nth-of-type(3) {
+		margin-bottom: 3rem;
+		@media only screen and (max-width: $small) {
+			margin-bottom: 2.5rem;
+		}
+	}
 
-  section:nth-of-type(4) {
-    margin-bottom: 0;
-  }
+	section:nth-of-type(4) {
+		margin-bottom: 0;
+	}
 
-  .education {
-    margin-bottom: 3rem;
+	.education {
+		margin-bottom: 3rem;
 
-    @media only screen and (max-width: $small) {
-      margin-bottom: 2.5rem;
-    }
-  }
+		@media only screen and (max-width: $small) {
+			margin-bottom: 2.5rem;
+		}
+	}
 </style>

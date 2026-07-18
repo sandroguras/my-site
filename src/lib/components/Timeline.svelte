@@ -1,12 +1,17 @@
 <script lang="ts">
-	import type { Timeline as TimelineType, TimelineEvent as TimelineEventType } from '#types/Timeline';
+	import type {
+		Timeline as TimelineType,
+		TimelineEvent as TimelineEventType
+	} from '#types/Timeline';
 	export let heading: TimelineType['heading'] = '';
-    export let logo: TimelineType['logo'] = '';
-    export let timelineEvents: TimelineEventType[] = [];
+	export let logo: TimelineType['logo'] = '';
+	export let timelineEvents: TimelineEventType[] = [];
 </script>
 
-<h2 class="title title--h2"><span class="box icon-box"><i class="font-icon {logo}"></i></span>{heading}</h2>
-	<div class="timeline">
+<h2 class="title title--h2">
+	<span class="box icon-box"><i class="font-icon {logo}"></i></span>{heading}
+</h2>
+<div class="timeline">
 	<!-- Item -->
 	<!-- eslint-disable svelte/no-at-html-tags -- timelineEvent fields are static, developer-authored data (src/routes/resume/+page.svelte), not user input -->
 	{#each timelineEvents as timelineEvent (timelineEvent.id)}
@@ -21,5 +26,5 @@
 </div>
 
 <style lang="scss">
-    @import '#styles/app/timeline';
+	@import '#styles/app/timeline';
 </style>

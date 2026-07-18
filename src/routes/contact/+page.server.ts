@@ -36,7 +36,12 @@ export const actions: Actions = {
 		const message = formData.get('message');
 		const token = formData.get('token');
 
-		if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string' || typeof token !== 'string') {
+		if (
+			typeof name !== 'string' ||
+			typeof email !== 'string' ||
+			typeof message !== 'string' ||
+			typeof token !== 'string'
+		) {
 			return fail(400, { message: 'Form data validation failed' });
 		}
 

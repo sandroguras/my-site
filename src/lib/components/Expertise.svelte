@@ -2,6 +2,7 @@
 	import type { Expertise as ExpertiseType } from '#types/Expertise';
 	export let expertiseCases: ExpertiseType['expertiseCases'] = [];
 </script>
+
 <!-- Expertise -->
 {#each expertiseCases as expertiseCase (expertiseCase['name'])}
 	<div class="col-12 col-lg-6">
@@ -16,5 +17,5 @@
 {/each}
 
 <style lang="scss">
-  @import '#styles/app/expertise';
+	@import '#styles/app/expertise';
 </style>

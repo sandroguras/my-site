@@ -4,7 +4,6 @@
 
 	export let data: PageData;
 	const { projects } = data;
-
 </script>
 
 <!-- Gallery -->
@@ -25,5 +24,5 @@
 </div>
 
 <style lang="scss">
-  @import '#styles/app/portfolio';
+	@import '#styles/app/portfolio';
 </style>

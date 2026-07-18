@@ -47,7 +47,9 @@
 	});
 
 	// Type guard function to check if a slide is of type ReviewDataType
-	function isReviewData(slide: ReviewDataType | ClientDataType | GalleryDataType): slide is ReviewDataType {
+	function isReviewData(
+		slide: ReviewDataType | ClientDataType | GalleryDataType
+	): slide is ReviewDataType {
 		return 'shortCopy' in slide;
 	}
 
@@ -83,8 +85,7 @@
 		{/if}
 
 		{#if swiperId === 'swiper-testimonials' && 'shortCopy' in slide}
-			<swiper-slide class="review-item box box-inner"
-										on:click={() => openModal(i) }>
+			<swiper-slide class="review-item box box-inner" on:click={() => openModal(i)}>
 				<figure class="box box-avatar">
 					<img src={slide.image} alt={slide.imageAlt} />
 				</figure>
@@ -96,8 +97,14 @@
 		{#if swiperId === 'swiper-gallery' && 'src' in slide}
 			<swiper-slide class="swiper-slide-project">
 				<figure class="swiper-slide">
-					<a title="click to zoom-in" href={asset(slide.src)} data-pswp-width='1680' data-pswp-height='945' target="_blank"
-						 rel="noreferrer">
+					<a
+						title="click to zoom-in"
+						href={asset(slide.src)}
+						data-pswp-width="1680"
+						data-pswp-height="945"
+						target="_blank"
+						rel="noreferrer"
+					>
 						<img src={slide.thumb} alt={slide.alt} />
 					</a>
 				</figure>
@@ -108,19 +115,19 @@
 
 {#if swiperId === 'swiper-clients'}
 	<style lang="scss">
-    @import '#styles/app/carousel-clients';
+		@import '#styles/app/carousel-clients';
 	</style>
 {/if}
 
 {#if swiperId === 'swiper-testimonials'}
 	<Modal {modalData} {modalIndex} {showModal} {closeModal} />
 	<style lang="scss">
-    @import '#styles/app/testimonials';
+		@import '#styles/app/testimonials';
 	</style>
 {/if}
 
 {#if swiperId === 'swiper-gallery'}
 	<style lang="scss">
-    @import '#styles/app/carousel-projects';
+		@import '#styles/app/carousel-projects';
 	</style>
 {/if}

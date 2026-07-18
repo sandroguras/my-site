@@ -4,8 +4,8 @@
 	import { resolve } from '$app/paths';
 	export let data: PageData;
 	const { posts } = data;
-
 </script>
+
 <div class="news-grid">
 	<!-- Post -->
 	{#each posts as post (post.slug)}
@@ -17,7 +17,9 @@
 			</div>
 			<div class="news-item__caption">
 				<div class="news-item__date"><span>{post.category}</span>{formatDate(post.date)}</div>
-				<h2 class="title title--h2"><a href={resolve('/blog/[slug]', { slug: post.slug })}>{post.listName}</a></h2>
+				<h2 class="title title--h2">
+					<a href={resolve('/blog/[slug]', { slug: post.slug })}>{post.listName}</a>
+				</h2>
 				<p>{post.excerpt}</p>
 			</div>
 		</article>
@@ -25,5 +27,5 @@
 </div>
 
 <style lang="scss">
-  @import "#styles/app/news";
+	@import '#styles/app/news';
 </style>

@@ -26,8 +26,8 @@
 	];
 
 	$: isBlogSubpage = $page.url.pathname.startsWith('/blog/');
-
 </script>
+
 <svelte:head>
 	<SEO />
 </svelte:head>
