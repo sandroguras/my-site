@@ -103,9 +103,38 @@ const modalId = `review-modal-${index}`;
 		lastFocusedTrigger?.focus();
 	}
 
+	function getFocusableElements(modal: HTMLElement): HTMLElement[] {
+		return Array.from(
+			modal.querySelectorAll<HTMLElement>(
+				'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+			)
+		).filter((el) => el.offsetParent !== null);
+	}
+
 	function handleKeydown(event: KeyboardEvent): void {
-		if (event.key !== 'Escape') return;
-		document.querySelectorAll<HTMLElement>('[data-modal]:not([hidden])').forEach(closeModal);
+		const openModal = document.querySelector<HTMLElement>('[data-modal]:not([hidden])');
+		if (!openModal) return;
+
+		if (event.key === 'Escape') {
+			closeModal(openModal);
+			return;
+		}
+
+		if (event.key !== 'Tab') return;
+
+		// Trap focus inside the modal while it's open.
+		const focusable = getFocusableElements(openModal);
+		if (focusable.length === 0) return;
+		const first = focusable[0];
+		const last = focusable[focusable.length - 1];
+
+		if (event.shiftKey && document.activeElement === first) {
+			event.preventDefault();
+			last.focus();
+		} else if (!event.shiftKey && document.activeElement === last) {
+			event.preventDefault();
+			first.focus();
+		}
 	}
 
 	function initModals(): void {

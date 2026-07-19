@@ -132,30 +132,50 @@ const swiperConfig = JSON.stringify({
 </style>
 
 <script>
-	import { register } from 'swiper/element';
-	import { Pagination } from 'swiper/modules';
-	import paginationStyles from 'swiper/element/css/pagination?raw';
 	import type { SwiperContainer } from 'swiper/element';
 
-	function initCarousels(): void {
+	let observer: IntersectionObserver | null = null;
+
+	// Swiper's own JS (register/Pagination/pagination CSS) is only fetched
+	// once a carousel actually scrolls into view, matching the deferred-load
+	// behavior client:visible used to give us before this went pure Astro.
+	async function loadAndInitSwiper(swiperEl: SwiperContainer): Promise<void> {
+		const [{ register }, { Pagination }, { default: paginationStyles }] = await Promise.all([
+			import('swiper/element'),
+			import('swiper/modules'),
+			import('swiper/element/css/pagination?raw')
+		]);
+
 		// swiper/element's register() already no-ops if the custom elements
-		// are defined, so calling it again on every astro:page-load is safe.
+		// are defined, so calling it again for every lazily-loaded carousel is safe.
 		register();
+
+		const config = JSON.parse(swiperEl.getAttribute('data-swiper-config') ?? '{}');
+		Object.assign(swiperEl, {
+			modules: [Pagination],
+			injectStyles: [paginationStyles],
+			...config
+		});
+		swiperEl.initialize();
+		swiperEl.setAttribute('data-swiper-ready', 'true');
+	}
+
+	function initCarousels(): void {
+		observer?.disconnect();
+		observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
+				const swiperEl = entry.target as SwiperContainer;
+				observer?.unobserve(swiperEl);
+				loadAndInitSwiper(swiperEl);
+			});
+		});
 
 		document
 			.querySelectorAll<SwiperContainer>(
 				'swiper-container[data-swiper-config]:not([data-swiper-ready])'
 			)
-			.forEach((swiperEl) => {
-				const config = JSON.parse(swiperEl.getAttribute('data-swiper-config') ?? '{}');
-				Object.assign(swiperEl, {
-					modules: [Pagination],
-					injectStyles: [paginationStyles],
-					...config
-				});
-				swiperEl.initialize();
-				swiperEl.setAttribute('data-swiper-ready', 'true');
-			});
+			.forEach((swiperEl) => observer?.observe(swiperEl));
 	}
 
 	document.addEventListener('astro:page-load', initCarousels);
