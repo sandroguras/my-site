@@ -72,7 +72,7 @@
 			link="/David_Guras_resume.pdf"
 			icon="icon-download"
 			text="Download CV"
-			ariaLabel="Download David's resume PDF, 266KB"
+			ariaLabel="Download CV - David's resume PDF, 266KB"
 		/>
 	</div>
 </aside>

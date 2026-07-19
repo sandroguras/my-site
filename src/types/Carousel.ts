@@ -17,6 +17,8 @@ interface Options {
 export interface ReviewData {
 	name: string;
 	image: string;
+	imageWidth: number;
+	imageHeight: number;
 	imageAlt: string;
 	shortCopy: string;
 	copy: string;

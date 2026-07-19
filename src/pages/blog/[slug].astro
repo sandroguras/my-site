@@ -43,7 +43,13 @@ function langSelect(language: string) {
 			<h1 class="title title--h1" set:html={post.title} />
 			<div class="caption-post" set:html={post.subtitle} />
 			<div class="header-post__image-wrap">
-				<img class="cover" src={post.cover.src} alt={post.cover.alt} />
+				<img
+					class="cover"
+					src={post.cover.src}
+					alt={post.cover.alt}
+					width={post.cover.width}
+					height={post.cover.height}
+				/>
 			</div>
 		</header>
 		{
@@ -99,6 +105,7 @@ function langSelect(language: string) {
 				href={facebookShareLink}
 				target="_blank"
 				rel="noopener noreferrer"
+				aria-label="Share Facebook"
 			>
 				<i class="font-icon icon-facebook"></i><span>Facebook</span>
 			</a>
@@ -107,6 +114,7 @@ function langSelect(language: string) {
 				href={twitterShareLink}
 				target="_blank"
 				rel="noopener noreferrer"
+				aria-label="Share Twitter"
 			>
 				<i class="font-icon icon-twitter"></i><span>Twitter</span>
 			</a>
@@ -115,6 +123,7 @@ function langSelect(language: string) {
 				href={linkedInShareLink}
 				target="_blank"
 				rel="noopener noreferrer"
+				aria-label="Share Linkedin"
 			>
 				<i class="font-icon icon-linkedin2"></i><span>Linkedin</span>
 			</a>
@@ -124,4 +133,10 @@ function langSelect(language: string) {
 
 <style lang="scss">
 	@use 'styles/app/single-post';
+
+	// atom-one-dark-reasonable's keyword color fails WCAG contrast (3.7:1
+	// against the theme's background); lighten it to pass 4.5:1.
+	:global(.hljs-keyword) {
+		color: #ff7aa2;
+	}
 </style>

@@ -1,5 +1,6 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+// Fonts are preconnected/preloaded from BaseLayout.astro's <head> instead of
+// @imported here, so the browser can discover the request without first
+// waiting for this stylesheet to download and parse.
 
 $baseSystemFontSize: 16px;
 

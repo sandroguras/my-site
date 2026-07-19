@@ -1,6 +1,7 @@
 ---
 import '../app.scss';
 import { getImage } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import type { NavLink as NavLinkType } from '#types/NavLink';
@@ -30,6 +31,12 @@ const isBlogSubpage = currentPath.startsWith('/blog/');
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+		/>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -38,6 +45,7 @@ const isBlogSubpage = currentPath.startsWith('/blog/');
 		<meta name="msapplication-TileColor" content="#da532c" />
 		<meta name="theme-color" content="#ffffff" />
 		<SEO />
+		<ClientRouter />
 	</head>
 	<body>
 		{isBlogSubpage && <ScrollIndicator client:load />}

@@ -21,7 +21,14 @@ const posts = allPosts.map(({ slug, listName, thumb, category, date, excerpt }) 
 				<article class="news-item box">
 					<div class="news-item__image-wrap">
 						<a class="news-item__link" href={`/blog/${post.slug}`}>
-							<img class="cover" src={post.thumb.src} alt={post.thumb.alt} loading="lazy" />
+							<img
+								class="cover"
+								src={post.thumb.src}
+								alt={post.thumb.alt}
+								width={post.thumb.width}
+								height={post.thumb.height}
+								loading="lazy"
+							/>
 						</a>
 					</div>
 					<div class="news-item__caption">

@@ -9,11 +9,15 @@ const mockData: BlogPost[] = [
 			'Unlock the power of SvelteKit by mastering the setup process in this beginner-friendly guide.',
 		cover: {
 			src: '/images/blog/svelteKit-setup-made-simple-cover.webp',
-			alt: 'SvelteKit Setup Made Simple article cover image'
+			alt: 'SvelteKit Setup Made Simple article cover image',
+			width: 1500,
+			height: 639
 		},
 		thumb: {
 			src: '/images/blog/svelteKit-setup-made-simple-thumb.webp',
-			alt: 'SvelteKit Setup Made Simple article thumbnail'
+			alt: 'SvelteKit Setup Made Simple article thumbnail',
+			width: 600,
+			height: 314
 		},
 		openGraph: 'images/opengraphs/blog-og-setup-made-simple.jpg',
 		category: 'SvelteKit',

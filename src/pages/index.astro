@@ -1,10 +1,19 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Expertise from '$lib/components/Expertise.svelte';
 import Carousel from '$lib/components/Carousel.svelte';
 import type { Copy as CopyType } from '#types/Copy';
 import type { Expertise as ExpertiseType } from '#types/Expertise';
 import type { ReviewData as ReviewDataType, ClientData as ClientType } from '#types/Carousel';
+import chrisB from '#images/testimonials/Chris_B.webp';
+import alexR from '#images/testimonials/Alex_R.webp';
+import mikeD from '#images/testimonials/Mike_D.webp';
+import simionN from '#images/testimonials/Simion_N.webp';
+
+const [chrisBAvatar, alexRAvatar, mikeDAvatar, simionNAvatar] = await Promise.all(
+	[chrisB, alexR, mikeD, simionN].map((src) => getImage({ src, width: 160, height: 160 }))
+);
 
 const Introduction: CopyType = {
 	copy:
@@ -45,7 +54,9 @@ const expertise: ExpertiseType = {
 const testimonials: ReviewDataType[] = [
 	{
 		name: 'Chris Bartlett',
-		image: './images/testimonials/Chris_B.webp',
+		image: chrisBAvatar.src,
+		imageWidth: chrisBAvatar.attributes.width,
+		imageHeight: chrisBAvatar.attributes.height,
 		imageAlt: 'Chris Bartlett',
 		shortCopy:
 			'It has been an absolute pleasure in working for David at Bullishfor the last two years...',
@@ -64,7 +75,9 @@ const testimonials: ReviewDataType[] = [
 	},
 	{
 		name: 'Alex Radulescu',
-		image: './images/testimonials/Alex_R.webp',
+		image: alexRAvatar.src,
+		imageWidth: alexRAvatar.attributes.width,
+		imageHeight: alexRAvatar.attributes.height,
 		imageAlt: 'Alex Radulescu',
 		shortCopy: 'It has been a pleasure working with David and I strongly recommend him....',
 		copy:
@@ -77,7 +90,9 @@ const testimonials: ReviewDataType[] = [
 	},
 	{
 		name: 'Mike Dulik',
-		image: './images/testimonials/Mike_D.webp',
+		image: mikeDAvatar.src,
+		imageWidth: mikeDAvatar.attributes.width,
+		imageHeight: mikeDAvatar.attributes.height,
 		imageAlt: 'Mike Dulik',
 		shortCopy: 'I had the pleasure of working alongside Dave as a web developer at Grafik...',
 		copy: '<p>I had the pleasure of working alongside Dave as a web developer at Grafik, a digital branding agency based in Alexandria. Dave exhibited many traits that are essential to the making of a great developer. His innovative nature helped to transform our dev practice, and many of his findings are still helping us to work better as a team. I would be very lucky to have the opportunity to collaborate with him again one day.</p>',
@@ -85,7 +100,9 @@ const testimonials: ReviewDataType[] = [
 	},
 	{
 		name: 'Simion Nacu',
-		image: './images/testimonials/Simion_N.webp',
+		image: simionNAvatar.src,
+		imageWidth: simionNAvatar.attributes.width,
+		imageHeight: simionNAvatar.attributes.height,
 		imageAlt: 'Simion Nacu',
 		shortCopy: " I've had the opportunity to work with David, for about six years...",
 		copy:

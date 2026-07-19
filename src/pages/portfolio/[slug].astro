@@ -26,11 +26,17 @@ if (!project) {
 		<header class="header-project">
 			<h1 class="title title--h1" set:html={project.pageTitle} />
 			<div class="header-project__image-wrap">
-				<img class="cover" src={project.cover.src} alt={project.cover.alt} />
+				<img
+					class="cover"
+					src={project.cover.src}
+					alt={project.cover.alt}
+					width={project.cover.width}
+					height={project.cover.height}
+				/>
 			</div>
 		</header>
 
-		<section class="details-info details-info--inline">
+		<ul class="details-info details-info--inline">
 			{
 				project.infoBlocks.map((infoBlock) => (
 					<li class="details-info__item">
@@ -48,7 +54,7 @@ if (!project) {
 					</li>
 				))
 			}
-		</section>
+		</ul>
 
 		<section class="carousel">
 			<Carousel

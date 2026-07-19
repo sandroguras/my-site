@@ -18,6 +18,8 @@ const projects = allProjects.map(({ slug, listName, thumb }) => ({ slug, listNam
 								class="gallery-grid__image cover"
 								src={project.thumb.src}
 								alt={project.thumb.alt}
+								width={project.thumb.width}
+								height={project.thumb.height}
 								loading="lazy"
 							/>
 						</div>
