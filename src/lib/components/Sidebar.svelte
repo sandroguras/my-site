@@ -16,7 +16,7 @@
 		avatarHeight,
 		personalInfo = {
 			name: 'David Guras',
-			role: 'Lead Web Developer',
+			role: 'AI Orchestrator & Web Developer',
 			socials: [
 				{
 					icon: 'linkedin',
