@@ -1,17 +1,17 @@
 ---
 import 'photoswipe/style.css';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Carousel from '$lib/components/Carousel.svelte';
-import { fetchAllProjects, fetchProjectDataBySlug } from '$lib/data/portfolioData';
 import { formatDate, isValidISODateString } from '$lib/utils/dateUtils';
 
 export async function getStaticPaths() {
-	const allProjects = await fetchAllProjects();
-	return allProjects.map((project) => ({ params: { slug: project.slug } }));
+	const allProjects = await getCollection('portfolio');
+	return allProjects.map((project) => ({ params: { slug: project.id } }));
 }
 
 const { slug } = Astro.params;
-const project = fetchProjectDataBySlug(slug!);
+const project = await getEntry('portfolio', slug!);
 
 if (!project) {
 	throw new Error('Invalid slug');
@@ -24,21 +24,28 @@ if (!project) {
 		>
 
 		<header class="header-project">
-			<h1 class="title title--h1" set:html={project.pageTitle} />
+			<h1 class="title title--h1">
+				<a
+					href={project.data.websiteUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label={`View ${project.data.listName} website`}>{project.data.listName}</a
+				>
+			</h1>
 			<div class="header-project__image-wrap">
 				<img
 					class="cover"
-					src={project.cover.src}
-					alt={project.cover.alt}
-					width={project.cover.width}
-					height={project.cover.height}
+					src={project.data.cover.src}
+					alt={project.data.cover.alt}
+					width={project.data.cover.width}
+					height={project.data.cover.height}
 				/>
 			</div>
 		</header>
 
 		<ul class="details-info details-info--inline">
 			{
-				project.infoBlocks.map((infoBlock) => (
+				project.data.infoBlocks.map((infoBlock) => (
 					<li class="details-info__item">
 						<span class="box icon-box">
 							<i class={`font-icon ${infoBlock.icon}`} />
@@ -61,7 +68,7 @@ if (!project) {
 				client:visible
 				swiperId="swiper-gallery"
 				slidesPerView="auto"
-				slides={project.images}
+				slides={project.data.images}
 				centeredSlides={true}
 				speed={300}
 				breakpoints={{
@@ -70,7 +77,7 @@ if (!project) {
 			/>
 		</section>
 
-		<section class="project-copy" set:html={project.description} />
+		<section class="project-copy" set:html={project.rendered?.html} />
 	</article>
 </BaseLayout>
 

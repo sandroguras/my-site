@@ -1,5 +1,5 @@
 ---
-import { getBlogPostMetadata } from '../data/blogData';
+import { getEntry } from 'astro:content';
 
 const siteURL = Astro.url.origin;
 const pathname = Astro.url.pathname;
@@ -14,7 +14,7 @@ const defaultArticleAuthor = 'David Guras';
 const defaultArticleSection = 'Web Development';
 const defaultArticleTag = 'Web Development, Programming, Technology';
 
-function getMetadata() {
+async function getMetadata() {
 	switch (pathname) {
 		case '/resume':
 			return {
@@ -47,16 +47,16 @@ function getMetadata() {
 		default:
 			if (pathname.startsWith('/blog/')) {
 				const slug = pathname.split('/').pop();
-				if (slug) {
-					const blogPostMetadata = getBlogPostMetadata(slug, siteURL);
+				const blogPost = slug ? await getEntry('blog', slug) : undefined;
+				if (blogPost) {
 					return {
-						title: blogPostMetadata.title,
-						description: blogPostMetadata.description,
-						image: blogPostMetadata.image,
-						articleAuthor: blogPostMetadata.articleAuthor,
-						articlePublishedTime: blogPostMetadata.articlePublishedTime,
-						articleSection: blogPostMetadata.articleSection,
-						articleTag: blogPostMetadata.articleTag
+						title: `David Guras | ${blogPost.data.listName}`,
+						description: blogPost.data.excerpt,
+						image: `${siteURL}/${blogPost.data.openGraph}`,
+						articleAuthor: defaultArticleAuthor,
+						articlePublishedTime: new Date(blogPost.data.date).toISOString(),
+						articleSection: defaultArticleSection,
+						articleTag: defaultArticleTag
 					};
 				}
 				return {
@@ -82,7 +82,7 @@ function getMetadata() {
 	}
 }
 
-const metadata = getMetadata();
+const metadata = await getMetadata();
 ---
 
 <title>{metadata.title}</title>

@@ -19,16 +19,23 @@
 </h2>
 <div class="timeline">
 	<!-- Item -->
-	<!-- eslint-disable svelte/no-at-html-tags -- timelineEvent fields are static, developer-authored data (src/routes/resume/+page.svelte), not user input -->
 	{#each timelineEvents as timelineEvent (timelineEvent.id)}
 		<article class="timeline__event">
-			<h3 class="title title--h3 timeline__institution">{@html timelineEvent.institution}</h3>
+			<h3 class="title title--h3 timeline__institution">
+				{#if timelineEvent.institutionUrl}
+					<a href={timelineEvent.institutionUrl} target="_blank" rel="noopener noreferrer"
+						>{timelineEvent.institution}</a
+					>
+				{:else}
+					{timelineEvent.institution}
+				{/if}
+			</h3>
 			<h4 class="title title--h4 timeline__position">{timelineEvent.position}</h4>
 			<span class="timeline__period">{timelineEvent.period}</span>
-			<p class="timeline__description">{@html timelineEvent.description}</p>
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -- timelineEvent.description is rendered Markdown from src/content/timeline, not user input -->
+			<div class="timeline__description">{@html timelineEvent.description}</div>
 		</article>
 	{/each}
-	<!-- eslint-enable svelte/no-at-html-tags -->
 </div>
 
 <style lang="scss">

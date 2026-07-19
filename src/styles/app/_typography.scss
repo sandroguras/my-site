@@ -140,7 +140,7 @@ h6 {
 	white-space: nowrap;
 }
 
-.block-quote {
+blockquote {
 	font: {
 		size: rem(20px);
 		weight: 400;
@@ -181,7 +181,9 @@ h6 {
 		}
 	}
 
-	&__author {
+	// Last paragraph in the blockquote is the attribution line, e.g.
+	// "> \n> — Author Name" in the source Markdown.
+	p:last-child {
 		font: {
 			size: rem(14px);
 			style: normal;

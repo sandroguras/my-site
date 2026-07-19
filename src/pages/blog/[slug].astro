@@ -1,19 +1,14 @@
 ---
-import 'svelte-highlight/styles/atom-one-dark-reasonable.css';
-import Highlight from 'svelte-highlight';
-import typescript from 'svelte-highlight/languages/typescript';
-import bash from 'svelte-highlight/languages/bash';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CopyButton from '$lib/components/CopyButton.svelte';
-import { fetchAllPosts, fetchBlogDataBySlug } from '$lib/data/blogData';
 
 export async function getStaticPaths() {
-	const allPosts = await fetchAllPosts();
-	return allPosts.map((post) => ({ params: { slug: post.slug } }));
+	const allPosts = await getCollection('blog');
+	return allPosts.map((post) => ({ params: { slug: post.id } }));
 }
 
 const { slug } = Astro.params;
-const post = fetchBlogDataBySlug(slug!);
+const post = await getEntry('blog', slug!);
 
 if (!post) {
 	throw new Error('Invalid slug');
@@ -24,81 +19,24 @@ const encodedURL = encodeURIComponent(urlToShare);
 const linkedInShareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedURL}`;
 const twitterShareLink = `https://twitter.com/intent/tweet?url=${encodedURL}`;
 const facebookShareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
-
-function langSelect(language: string) {
-	switch (language) {
-		case 'typescript':
-			return typescript;
-		case 'bash':
-			return bash;
-		default:
-			return typescript;
-	}
-}
 ---
 
 <BaseLayout>
 	<section class="blogpost">
 		<header class="header-post">
-			<h1 class="title title--h1" set:html={post.title} />
-			<div class="caption-post" set:html={post.subtitle} />
+			<h1 class="title title--h1" set:html={post.data.title} />
+			<div class="caption-post" set:html={post.data.subtitle} />
 			<div class="header-post__image-wrap">
 				<img
 					class="cover"
-					src={post.cover.src}
-					alt={post.cover.alt}
-					width={post.cover.width}
-					height={post.cover.height}
+					src={post.data.cover.src}
+					alt={post.data.cover.alt}
+					width={post.data.cover.width}
+					height={post.data.cover.height}
 				/>
 			</div>
 		</header>
-		{
-			post.content.map((block) => {
-				if (block.type === 'text') {
-					return (
-						<div class="caption-post">
-							{block.subheading && <h2 class="title title--h2">{block.subheading}</h2>}
-							<Fragment set:html={block.copy} />
-						</div>
-					);
-				}
-				if (block.type === 'image') {
-					return (
-						<div class="gallery-post">
-							{block.images.map((image) => (
-								<img
-									class="gallery-post__item cover"
-									src={image.src}
-									data-zoom
-									alt={image.alt}
-									loading="lazy"
-								/>
-							))}
-							{block.imageCaption && <div class="gallery-post__caption">{block.imageCaption}</div>}
-						</div>
-					);
-				}
-				if (block.type === 'quote') {
-					return (
-						<div class="caption-post">
-							<blockquote class="block-quote">
-								<Fragment set:html={block.copy} />
-								<cite class="block-quote__author">{block.author}</cite>
-							</blockquote>
-						</div>
-					);
-				}
-				if (block.type === 'code') {
-					return (
-						<div class="caption-post">
-							<CopyButton client:visible textToCopy={block.code} />
-							<Highlight language={langSelect(block.language)} code={block.code} />
-						</div>
-					);
-				}
-				return null;
-			})
-		}
+		<div class="caption-post" set:html={post.rendered?.html} />
 		<footer class="footer-post">
 			<a
 				class="footer-post__share"
@@ -131,12 +69,51 @@ function langSelect(language: string) {
 	</section>
 </BaseLayout>
 
+<script>
+	const COPY_ICON =
+		'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+	const CHECK_ICON =
+		'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg>';
+
+	document.querySelectorAll<HTMLPreElement>('.blogpost pre').forEach((pre) => {
+		const button = document.createElement('button');
+		button.className = 'copy-button';
+		button.type = 'button';
+		button.setAttribute('aria-label', 'Copy code');
+		button.innerHTML = COPY_ICON;
+
+		button.addEventListener('click', () => {
+			const code = pre.querySelector('code')?.textContent ?? '';
+			navigator.clipboard.writeText(code).then(() => {
+				button.innerHTML = CHECK_ICON;
+				setTimeout(() => {
+					button.innerHTML = COPY_ICON;
+				}, 3000);
+			});
+		});
+
+		pre.appendChild(button);
+	});
+</script>
+
 <style lang="scss">
 	@use 'styles/app/single-post';
+</style>
 
-	// atom-one-dark-reasonable's keyword color fails WCAG contrast (3.7:1
-	// against the theme's background); lighten it to pass 4.5:1.
-	:global(.hljs-keyword) {
-		color: #ff7aa2;
+<style lang="scss" is:global>
+	// The copy button is created client-side via vanilla JS (see the
+	// <script> above), so it never gets Astro's scoped data-astro-cid
+	// attribute — this stylesheet has to be global to reach it.
+	@use 'styles/app/copy-button';
+
+	// Same reasoning: this targets Markdown-rendered code blocks injected
+	// via set:html, which never carry the scoped style attribute either.
+	.caption-post pre {
+		position: relative;
+		// Extra top padding keeps the copy button (top:0; right:0) from
+		// overlapping short, single-line snippets.
+		padding: rem(56px) rem(16px) rem(16px);
+		border-radius: var(--radius-8);
+		overflow-x: auto;
 	}
 </style>

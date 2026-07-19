@@ -7,6 +7,7 @@ export interface Timeline {
 export interface TimelineEvent {
 	id: number;
 	institution: string;
+	institutionUrl?: string;
 	position: string;
 	period: string;
 	description: string;
