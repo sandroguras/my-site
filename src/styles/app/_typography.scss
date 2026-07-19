@@ -235,6 +235,14 @@ a {
 	}
 }
 
+// Links inline with body copy need an underline, not just color, to be
+// distinguishable from the surrounding text (WCAG 1.4.1).
+.caption-post a,
+.timeline__description a,
+.project-copy a {
+	text-decoration: underline;
+}
+
 .description {
 	color: var(--color-paragraph);
 	margin-bottom: rem(30px);

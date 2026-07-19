@@ -8,11 +8,15 @@ const mockData: PortfolioProject[] = [
 			'<a href="https://bullish.com" target="_blank" rel="noopener noreferrer" aria-label="View bullish.com website">BULLISH.COM</a>',
 		cover: {
 			src: '/images/portfolio/bullish/bullish-cover-image.webp',
-			alt: 'bullish.com cover image'
+			alt: 'bullish.com cover image',
+			width: 1500,
+			height: 639
 		},
 		thumb: {
 			src: '/images/portfolio/bullish/bullish-thumb.webp',
-			alt: 'bullish.com thumbnail'
+			alt: 'bullish.com thumbnail',
+			width: 500,
+			height: 356
 		},
 		infoBlocks: [
 			{
@@ -80,8 +84,18 @@ const mockData: PortfolioProject[] = [
 		listName: 'EOS.IO',
 		pageTitle:
 			'<a href="https://eos.io" target="_blank" rel="noopener noreferrer" aria-label="View eosio website">EOS.IO</a>',
-		cover: { src: '/images/portfolio/eosio/eosio-cover-image.webp', alt: 'EOS.IO cover image' },
-		thumb: { src: '/images/portfolio/eosio/eosio-thumb.webp', alt: 'EOS.IO thumbnail' },
+		cover: {
+			src: '/images/portfolio/eosio/eosio-cover-image.webp',
+			alt: 'EOS.IO cover image',
+			width: 1500,
+			height: 638
+		},
+		thumb: {
+			src: '/images/portfolio/eosio/eosio-thumb.webp',
+			alt: 'EOS.IO thumbnail',
+			width: 500,
+			height: 356
+		},
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -152,8 +166,18 @@ const mockData: PortfolioProject[] = [
 		listName: 'BLOCK.ONE',
 		pageTitle:
 			'<a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View block.one website">BLOCK.ONE</a>',
-		cover: { src: '/images/portfolio/b1/b1-cover-image.webp', alt: 'BLOCK.ONE cover image' },
-		thumb: { src: '/images/portfolio/b1/b1-thumb.webp', alt: 'BLOCK.ONE thumbnail' },
+		cover: {
+			src: '/images/portfolio/b1/b1-cover-image.webp',
+			alt: 'BLOCK.ONE cover image',
+			width: 750,
+			height: 319
+		},
+		thumb: {
+			src: '/images/portfolio/b1/b1-thumb.webp',
+			alt: 'BLOCK.ONE thumbnail',
+			width: 500,
+			height: 356
+		},
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
@@ -199,7 +223,7 @@ const mockData: PortfolioProject[] = [
 			}
 		],
 		description:
-			'<p>As the laed web developer for the <a href="https://b1.com" target="_blank" rel="noopener noreferrer" aria-label="View BLOCK.ONE website">B1.COM</a> website project, I oversaw the site\'s development and managed two visual iterations. I implemented a 3-stage deployment system that enabled continuous development and rapid deployments.</p>\n' +
+			'<p>As the lead web developer for the <a href="https://b1.com" target="_blank" rel="noopener noreferrer">B1.COM</a> website project, I oversaw the site\'s development and managed two visual iterations. I implemented a 3-stage deployment system that enabled continuous development and rapid deployments.</p>\n' +
 			'\n' +
 			"<p>In the site's current iteration, I led a team that delivered the final product in just three days, collaborating with two outsourced agencies. This swift turnaround showcased my ability to effectively manage resources and maintain a high pace of development without compromising quality.</p>\n" +
 			'\n' +
@@ -210,8 +234,18 @@ const mockData: PortfolioProject[] = [
 		listName: 'VOICE.COM',
 		pageTitle:
 			'<a href="https://voice.com" target="_blank" rel="noopener noreferrer" aria-label="View voice.com website">VOICE.COM</a>',
-		cover: { src: '/images/portfolio/voice/voice-cover-image.webp', alt: 'VOICE.COM cover image' },
-		thumb: { src: '/images/portfolio/voice/voice-thumb.webp', alt: 'VOICE.COM thumbnail' },
+		cover: {
+			src: '/images/portfolio/voice/voice-cover-image.webp',
+			alt: 'VOICE.COM cover image',
+			width: 1500,
+			height: 638
+		},
+		thumb: {
+			src: '/images/portfolio/voice/voice-thumb.webp',
+			alt: 'VOICE.COM thumbnail',
+			width: 500,
+			height: 356
+		},
 		infoBlocks: [
 			{
 				icon: 'feathericon-user',
