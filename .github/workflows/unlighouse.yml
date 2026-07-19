@@ -21,13 +21,14 @@ jobs:
       - name: Install Project Dependencies
         run: bun install
 
-      - name: Build SvelteKit Preview
+      - name: Build Astro Site
         run: bun run build
 
-      # Run build in background and log output
+      # Astro's Vercel adapter doesn't support `astro preview`, so serve the
+      # static output directly instead of running it through the app itself.
       - name: Start Preview Server
         run: |
-          bun run preview --port 4173 &
+          bunx serve dist/client -l 4173 &
           echo "Waiting for preview to start on port 4173…"
           bunx wait-on http://localhost:4173
 
