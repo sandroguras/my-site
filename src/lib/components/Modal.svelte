@@ -99,7 +99,7 @@
 							<div class="col-12 col-sm-10 full-rewiew-con-text">
 								<h2 id="review-name-{modalIndex}" class="title title--h2">{modalData.name}</h2>
 								<span class="review-date">{formatDate(modalData.reviewDate)}</span>
-								<!-- eslint-disable-next-line svelte/no-at-html-tags -- modalData.copy is static, developer-authored testimonial data (src/routes/+page.svelte), not user input -->
+								<!-- eslint-disable-next-line svelte/no-at-html-tags -- modalData.copy is rendered Markdown from src/content/testimonials, not user input -->
 								{@html modalData.copy}
 							</div>
 						</div>
