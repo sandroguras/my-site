@@ -1,0 +1,17 @@
+---
+import type { Skillset as SkillsetType } from '#types/Skillset';
+
+interface Props {
+	skills?: SkillsetType['skills'];
+}
+
+const { skills = [] }: Props = Astro.props;
+---
+
+<div class="skillset__grid">
+	{skills.map((skill) => <span class="skillset__skill">{skill.name}</span>)}
+</div>
+
+<style lang="scss">
+	@use 'styles/app/skillset';
+</style>

@@ -1,0 +1,41 @@
+---
+import type { Timeline as TimelineType, TimelineEvent as TimelineEventType } from '#types/Timeline';
+
+interface Props {
+	heading?: TimelineType['heading'];
+	logo?: TimelineType['logo'];
+	timelineEvents?: TimelineEventType[];
+}
+
+const { heading = '', logo = '', timelineEvents = [] }: Props = Astro.props;
+---
+
+<h2 class="title title--h2">
+	<span class="box icon-box">
+		<i class={`font-icon ${logo}`}></i>
+	</span>{heading}
+</h2>
+<div class="timeline">
+	{
+		timelineEvents.map((timelineEvent) => (
+			<article class="timeline__event">
+				<h3 class="title title--h3 timeline__institution">
+					{timelineEvent.institutionUrl ? (
+						<a href={timelineEvent.institutionUrl} target="_blank" rel="noopener noreferrer">
+							{timelineEvent.institution}
+						</a>
+					) : (
+						timelineEvent.institution
+					)}
+				</h3>
+				<h4 class="title title--h4 timeline__position">{timelineEvent.position}</h4>
+				<span class="timeline__period">{timelineEvent.period}</span>
+				<div class="timeline__description" set:html={timelineEvent.description} />
+			</article>
+		))
+	}
+</div>
+
+<style lang="scss">
+	@use 'styles/app/timeline';
+</style>
