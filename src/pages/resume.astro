@@ -1,9 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Timeline from '$lib/components/Timeline.svelte';
 import Skillset from '$lib/components/Skillset.svelte';
 import type { Skillset as SkillsetType } from '#types/Skillset';
-import type { Timeline as TimelineType } from '#types/Timeline';
+import type { TimelineEvent as TimelineEventType } from '#types/Timeline';
 
 const softSkills: SkillsetType['skills'] = [
 	{ name: 'Team Coordination' },
@@ -37,87 +39,27 @@ const hardSkills: SkillsetType['skills'] = [
 	{ name: 'PostgreSQL' },
 	{ name: 'MongoDB' }
 ];
-const experience: TimelineType['events'] = [
-	{
-		id: 7,
-		institution:
-			'<a href="https://greymass.com/" target="_blank" aria-label="Greymass Website" rel="noopener noreferrer">Greymass</a>',
-		position: 'Project Manager, Web Developer',
-		period: 'July 2023 — Present',
-		description:
-			'Provide project management and web development services for a blockchain-focused enterprise dedicated to the public good. Streamline the development of a <a href="https://wharfkit.com/" target="_blank" rel="noopener noreferrer">modular SDK for Antelope Web Apps</a> and support the advancement of the blockchain game project <a href="https://shiploadgame.com/" target="_blank" aria-label="Shipload Game Website" rel="noopener noreferrer">Shipload</a>.'
-	},
-	{
-		id: 6,
-		institution:
-			'<a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish</a>',
-		position: 'Manager: Web Engineering',
-		period: 'Feb 2020 — June 2023',
-		description:
-			'- Led the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> development, achieving completion 2 weeks ahead of schedule.<br>' +
-			'- Upgraded the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> to a headless CMS and NEXT.js, resulting in a 390% improvement in load time.<br>' +
-			'- Eliminated the backend dependency of the <a href="https://bullish.com/" target="_blank" aria-label="Bullish Website" rel="noopener noreferrer">Bullish website</a> by leveraging GCP<br>' +
-			'- Incorporated automated selenium tests into the development workflow.\n<br>' +
-			'- Created an in-house SaaS intranet platform to reduce costs.<br>' +
-			'- Directed the development of the <a href="https://b1.com/" target="_blank" rel="noopener noreferrer">B1 Corporation</a> website, successfully launching within 7 days.<br>' +
-			'- Oversaw a team of developers in India, enhancing productivity and code quality through Scrum/Jira.<br>' +
-			'- Developed and maintained five web properties: <a href="https://b1.com/" target="_blank" rel="noopener noreferrer">b1.com</a>, <a href="https://eos.io/" target="_blank" rel="noopener noreferrer">eos.io</a>, <a href="https://voice.com/" target="_blank" rel="noopener noreferrer">voice.com</a>, <a href="https://vc.eos.io/" target="_blank" rel="noopener noreferrer">vc.eos.io</a>, <a href="https://hackathon.eos.io/" target="_blank" rel="noopener noreferrer">hackathon.eos.io</a>'
-	},
-	{
-		id: 5,
-		institution: 'SDG Agency',
-		position: 'Lead Web Developer',
-		period: '2019 — Feb 2020',
-		description:
-			'- Led a geographically dispersed web development team in servicing two US companies <a href="https://dgci.com" target="_blank" rel="noopener noreferrer">DGC International</a> and <a href="https://petromg.com/" target="_blank" rel="noopener noreferrer">Petrolium Marketing Group</a><br>' +
-			'- Reviewed and maintained the codebase of web resources<br>' +
-			'- Create automated tool for updating property locations on the map from a list of addresses leveraging GCP'
-	},
-	{
-		id: 4,
-		institution:
-			'<a href="https://grafik.agency/" target="_blank" aria-label="Grafik Agency Website" rel="noopener noreferrer">Grafik</a>',
-		position: 'Backend Developer',
-		period: 'Jul 2018 — Mar 2019',
-		description:
-			'- <a href="https://vanmetrehomes.com/" target="_blank" rel="noopener noreferrer">Van Metre Homes</a> – Backend developer, bug fixing. Utilized Symfony/Pimcore<br>' +
-			'- <a href="https://vanmetrecommercial.com/" target="_blank" rel="noopener noreferrer">Van Metre Commercials</a> – Fullstack developer, bug fixing. Utilized Symfony/Pimcore<br>' +
-			'- <a href="https://www.multiplyinggood.org/" target="_blank" aria-label="Multiplying Good Website" rel="noopener noreferrer">Multiplying Good</a> – Fullstack developer, bug fixing. Utilized Symfony/Pimcore<br>' +
-			'- <a href="https://grafik.agency/" target="_blank" aria-label="Grafik Agency Website" rel="noopener noreferrer">Grafik Agency</a> – Backend for new landing page for Grafik website. Utilized WordPress, ACF'
-	},
-	{
-		id: 3,
-		institution: '3Men Team',
-		position: 'Lead WordPress Developer',
-		period: 'Nov 2015 — Apr 2018',
-		description: '- Led a geographically dispersed team specializing in WordPress CMS'
-	},
-	{
-		id: 2,
-		institution: 'Endava',
-		position: 'Backend Developer',
-		period: 'Oct 2013 — Sep 2015',
-		description:
-			'- Backend development utilizing Symfony, MySQL, PostgreSQL, PHPUnit\n' +
-			'Developed solutions for internal company use.'
-	},
-	{
-		id: 1,
-		institution: 'Magicindie Softworks',
-		position: 'Unity Developer',
-		period: 'Aug 2008 — Sep 2013',
-		description: 'Developed games for PC/MAC/Mobile utilizing C# and Unity Engine'
-	}
-];
-const education: TimelineType['events'] = [
-	{
-		id: 1,
-		institution: 'Moldova State University',
-		position: 'Student',
-		period: '2004 — 2008',
-		description: 'Bachelor of Computer Science'
-	}
-];
+
+function toTimelineEvent(entry: CollectionEntry<'timeline'>): TimelineEventType {
+	return {
+		id: entry.data.order,
+		institution: entry.data.institution,
+		institutionUrl: entry.data.institutionUrl,
+		position: entry.data.position,
+		period: entry.data.period,
+		description: entry.rendered?.html ?? ''
+	};
+}
+
+const allTimelineEntries = await getCollection('timeline');
+const experience = allTimelineEntries
+	.filter((entry) => entry.data.section === 'experience')
+	.sort((a, b) => b.data.order - a.data.order)
+	.map(toTimelineEvent);
+const education = allTimelineEntries
+	.filter((entry) => entry.data.section === 'education')
+	.sort((a, b) => b.data.order - a.data.order)
+	.map(toTimelineEvent);
 ---
 
 <BaseLayout>

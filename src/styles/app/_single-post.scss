@@ -59,6 +59,11 @@
 	@media only screen and (max-width: $small) {
 		margin-bottom: rem(19px);
 	}
+
+	// `pre` styling for rendered Markdown code blocks lives in the global
+	// style block in blog/[slug].astro instead of here: this content is
+	// injected via set:html, so Astro's scoped <style> attribute never
+	// reaches it and a scoped rule here would silently do nothing.
 }
 
 .gallery-post {

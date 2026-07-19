@@ -1,9 +1,13 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { fetchAllProjects } from '$lib/data/portfolioData';
 
-const allProjects = await fetchAllProjects();
-const projects = allProjects.map(({ slug, listName, thumb }) => ({ slug, listName, thumb }));
+const allProjects = await getCollection('portfolio');
+const projects = allProjects.map((entry) => ({
+	slug: entry.id,
+	listName: entry.data.listName,
+	thumb: entry.data.thumb
+}));
 ---
 
 <BaseLayout>

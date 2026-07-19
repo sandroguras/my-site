@@ -7,6 +7,11 @@ export default defineConfig({
 	site: 'https://davidguras.dev',
 	adapter: vercel(),
 	integrations: [svelte({ preprocess: vitePreprocess() }), sitemap()],
+	markdown: {
+		shikiConfig: {
+			theme: 'one-dark-pro'
+		}
+	},
 	vite: {
 		css: {
 			preprocessorOptions: {

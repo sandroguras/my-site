@@ -1,27 +1,14 @@
 ---
 import { getImage } from 'astro:assets';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Expertise from '$lib/components/Expertise.svelte';
 import Carousel from '$lib/components/Carousel.svelte';
-import type { Copy as CopyType } from '#types/Copy';
 import type { Expertise as ExpertiseType } from '#types/Expertise';
 import type { ReviewData as ReviewDataType, ClientData as ClientType } from '#types/Carousel';
-import chrisB from '#images/testimonials/Chris_B.webp';
-import alexR from '#images/testimonials/Alex_R.webp';
-import mikeD from '#images/testimonials/Mike_D.webp';
-import simionN from '#images/testimonials/Simion_N.webp';
 
-const [chrisBAvatar, alexRAvatar, mikeDAvatar, simionNAvatar] = await Promise.all(
-	[chrisB, alexR, mikeD, simionN].map((src) => getImage({ src, width: 160, height: 160 }))
-);
+const aboutEntry = await getEntry('site', 'about');
 
-const Introduction: CopyType = {
-	copy:
-		'<p>With over a decade of experience as a Lead Web Developer, I oversee a team of talented web artisans who create high-quality websites for clients across various industries. We aim to transform complex ideas into clean, user-friendly designs that engage audiences and drive results.</p>\n' +
-		"<p>Based in Washington DC, I've been assisting US businesses in establishing a robust online presence. With every project, I dedicate myself to crafting digital masterpieces that combine technical proficiency, creative flair, and a steadfast commitment to understanding my client's requirements.</p>\n" +
-		'<p>My unwavering passion for staying at the forefront of the latest web development technologies and trends is not just a personal interest, but a commitment to providing my clients with the most innovative solutions. This dedication to innovation and my aspiration to create seamless user experiences have been instrumental in the growth and success of my company.</p>\n' +
-		"<p>Together, we take a comprehensive approach to each project, paying close attention to detail and working to translate clients' visions into impactful online experiences effectively. But our commitment doesn't end with the project's completion. We value building long-term relationships with our clients, founded on trust and a shared goal of achieving solid results in the digital space, ensuring their continued success.</p>\n"
-};
 const expertise: ExpertiseType = {
 	heading: 'My Expertise',
 	expertiseCases: [
@@ -51,67 +38,26 @@ const expertise: ExpertiseType = {
 		}
 	]
 };
-const testimonials: ReviewDataType[] = [
-	{
-		name: 'Chris Bartlett',
-		image: chrisBAvatar.src,
-		imageWidth: chrisBAvatar.attributes.width,
-		imageHeight: chrisBAvatar.attributes.height,
-		imageAlt: 'Chris Bartlett',
-		shortCopy:
-			'It has been an absolute pleasure in working for David at Bullishfor the last two years...',
-		copy:
-			'It has been an absolute pleasure in working for David at Bullish (and Block.one) for the last two years. He is an exceptional manager in terms of web development knowledge, leadership skills, project and product management skills and also people skills.</p>\n' +
-			'\n' +
-			'<p>David is able to communicate at all levels from complex discussions with developers to distilling technical ideas and conveying them to non-technical C-level executives.</p>\n' +
-			'\n' +
-			'<p>David would liaise with all departments including security, procurement, design, product managers, sales and more and would ensure all our projects were not only delivered on time but to budget and to spec. He led the Web Development department of several developers and contractors to many successes, including but not limited to, the new Block.one site, the Full Marketing site for the Bullish exchange, the Investor Relations site and several other sites. David is comfortable working in multiple methodologies including waterfall, agile and in-between.</p>\n' +
-			'\n' +
-			'<p>David was instrumental in updating the tech stack of Bullish moving from just WordPress sites to decoupled WordPress CMS and React (Next,js), Typescript and GraphQL frontend, which vastly increased speed time for the end user by 390% and reducing deployment time from 30 minutes to just a few.</p>\n' +
-			'\n' +
-			'<p>Not only is David a great manager but David is still a great developer too and will often help out whenever we needed help and always keeps up to date with the latest technology.</p>\n' +
-			"<p>I would highly recommend David as Web Development Manager and hope our paths cross in future again. With David's abilities he would surely lead any team to success.</p>",
-		reviewDate: '2023-03-09'
-	},
-	{
-		name: 'Alex Radulescu',
-		image: alexRAvatar.src,
-		imageWidth: alexRAvatar.attributes.width,
-		imageHeight: alexRAvatar.attributes.height,
-		imageAlt: 'Alex Radulescu',
-		shortCopy: 'It has been a pleasure working with David and I strongly recommend him....',
-		copy:
-			'<p>It has been a pleasure working with David and I strongly recommend him.\n' +
-			'He joined my team with an open mind, took on the challenge of managing new people and thanks to him delivered on time multiple major web projects.</p>\n' +
-			'\n' +
-			'<p>He also successfully linked stakeholders and architected a robust and elegant top of the line headless wordpress setup with nextjs, graphql and typescript.\n' +
-			'He continuously improved the system, bringing down release downtimes from 30-40 minutes to 0 seconds, faster loading time (390%) and smoother experience.</p>',
-		reviewDate: '2023-03-09'
-	},
-	{
-		name: 'Mike Dulik',
-		image: mikeDAvatar.src,
-		imageWidth: mikeDAvatar.attributes.width,
-		imageHeight: mikeDAvatar.attributes.height,
-		imageAlt: 'Mike Dulik',
-		shortCopy: 'I had the pleasure of working alongside Dave as a web developer at Grafik...',
-		copy: '<p>I had the pleasure of working alongside Dave as a web developer at Grafik, a digital branding agency based in Alexandria. Dave exhibited many traits that are essential to the making of a great developer. His innovative nature helped to transform our dev practice, and many of his findings are still helping us to work better as a team. I would be very lucky to have the opportunity to collaborate with him again one day.</p>',
-		reviewDate: '2019-04-30'
-	},
-	{
-		name: 'Simion Nacu',
-		image: simionNAvatar.src,
-		imageWidth: simionNAvatar.attributes.width,
-		imageHeight: simionNAvatar.attributes.height,
-		imageAlt: 'Simion Nacu',
-		shortCopy: " I've had the opportunity to work with David, for about six years...",
-		copy:
-			"<p>I've had the opportunity to work with David, for about six years in both a professional and personal level. I have always felt confident that things would be handled in a timely manner and that he was willing to go up and above when necessary.</p>\n" +
-			'\n' +
-			'<p>He proved to be always eager for new knowledge and flexible enough to embrace new technologies and work flows. He will make a very good addition to any team looking for a strong creative professional.</p>',
-		reviewDate: '2021-01-01'
-	}
-];
+
+const testimonialEntries = (await getCollection('testimonials')).sort(
+	(a, b) => a.data.order - b.data.order
+);
+const testimonials: ReviewDataType[] = await Promise.all(
+	testimonialEntries.map(async (entry) => {
+		const avatar = await getImage({ src: entry.data.image, width: 160, height: 160 });
+		return {
+			name: entry.data.name,
+			image: avatar.src,
+			imageWidth: avatar.attributes.width,
+			imageHeight: avatar.attributes.height,
+			imageAlt: entry.data.imageAlt,
+			shortCopy: entry.data.shortCopy,
+			copy: entry.rendered?.html ?? '',
+			reviewDate: entry.data.reviewDate
+		};
+	})
+);
+
 const clients: ClientType[] = [
 	{
 		link: 'https://greymass.com/',
@@ -147,7 +93,7 @@ const clients: ClientType[] = [
 ---
 
 <BaseLayout>
-	<section class="about" set:html={Introduction.copy} />
+	<section class="about" set:html={aboutEntry?.rendered?.html} />
 
 	<section class="expertise">
 		<h2 class="title title--h2">{expertise.heading}</h2>

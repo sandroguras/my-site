@@ -1,17 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { fetchAllPosts } from '$lib/data/blogData';
 import { formatDate } from '$lib/utils/dateUtils';
 
-const allPosts = await fetchAllPosts();
-const posts = allPosts.map(({ slug, listName, thumb, category, date, excerpt }) => ({
-	slug,
-	listName,
-	thumb,
-	category,
-	date,
-	excerpt
-}));
+const allPosts = await getCollection('blog');
+const posts = allPosts
+	.map((entry) => ({
+		slug: entry.id,
+		listName: entry.data.listName,
+		thumb: entry.data.thumb,
+		category: entry.data.category,
+		date: entry.data.date,
+		excerpt: entry.data.excerpt
+	}))
+	.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <BaseLayout>
