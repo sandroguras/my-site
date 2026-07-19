@@ -1,19 +1,17 @@
 ---
+import { Image } from 'astro:assets';
 import Button from '$lib/components/Button.svelte';
+import type { ImageMetadata } from 'astro';
 import type { PersonalInfo as PersonalInfoType } from '#types/PersonalInfo';
 
 interface Props {
-	avatarSrc: string;
-	avatarWidth: number;
-	avatarHeight: number;
+	avatarSrc: ImageMetadata;
 	cvHref?: string;
 	personalInfo?: PersonalInfoType;
 }
 
 const {
 	avatarSrc,
-	avatarWidth,
-	avatarHeight,
 	cvHref = '/David_Guras_resume.pdf',
 	personalInfo = {
 		name: 'David Guras',
@@ -49,7 +47,14 @@ function isLocalLink(target: string): { target?: string; rel?: string } {
 		<!-- My photo -->
 		<div class="sidebar__base-info">
 			<figure class="avatar-box">
-				<img src={avatarSrc} width={avatarWidth} height={avatarHeight} alt={personalInfo.name} />
+				<Image
+					src={avatarSrc}
+					alt={personalInfo.name}
+					width={240}
+					height={240}
+					layout="constrained"
+					priority
+				/>
 			</figure>
 
 			<div class="copy-box">
