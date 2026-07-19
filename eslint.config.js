@@ -20,7 +20,9 @@ export default [
 			globals: {
 				...globals.browser,
 				...globals.es2017,
-				...globals.node
+				...globals.node,
+				// Injected by astro.config.mjs's vite.define
+				__BUILD_TIME__: 'readonly'
 			}
 		}
 	},
