@@ -13,6 +13,9 @@ export default defineConfig({
 		}
 	},
 	vite: {
+		define: {
+			__BUILD_TIME__: JSON.stringify(Date.now())
+		},
 		css: {
 			preprocessorOptions: {
 				scss: {

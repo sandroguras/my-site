@@ -14,6 +14,7 @@
 		avatarSrc,
 		avatarWidth,
 		avatarHeight,
+		cvHref = '/David_Guras_resume.pdf',
 		personalInfo = {
 			name: 'David Guras',
 			role: 'AI Orchestrator',
@@ -36,6 +37,7 @@
 		avatarSrc: string;
 		avatarWidth: number;
 		avatarHeight: number;
+		cvHref?: string;
 		personalInfo?: PersonalInfoType;
 	} = $props();
 </script>
@@ -69,7 +71,7 @@
 		<div class="separation"></div>
 		<Button
 			isButtonLink={true}
-			link="/David_Guras_resume.pdf"
+			link={cvHref}
 			icon="icon-download"
 			text="Download CV"
 			ariaLabel="Download CV - David's resume PDF, 266KB"
