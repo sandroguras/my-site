@@ -110,10 +110,18 @@ const facebookShareLink = `https://www.facebook.com/sharer/sharer.php?u=${encode
 	// via set:html, which never carry the scoped style attribute either.
 	.caption-post pre {
 		position: relative;
-		// Extra top padding keeps the copy button (top:0; right:0) from
-		// overlapping short, single-line snippets.
-		padding: rem(56px) rem(16px) rem(16px);
+		padding: rem(16px);
 		border-radius: var(--radius-8);
 		overflow-x: auto;
+
+		// Reserve room for the copy button (top:0; right:0) on the first
+		// line only, instead of padding the whole block — otherwise every
+		// code block gets a dead gap up top regardless of how short it is.
+		code > .line:first-child {
+			display: inline-block;
+			box-sizing: border-box;
+			width: 100%;
+			padding-right: rem(48px);
+		}
 	}
 </style>
