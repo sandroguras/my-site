@@ -1,0 +1,38 @@
+---
+
+---
+
+<div class="scroll-indicator"></div>
+
+<script>
+	function updateScrollProgress() {
+		const indicator = document.querySelector<HTMLElement>('.scroll-indicator');
+		if (!indicator) return;
+		const scrollTop = window.scrollY;
+		const docHeight = document.documentElement.scrollHeight;
+		const winHeight = window.innerHeight;
+		const scrollPercentage = (scrollTop / Math.max(1, docHeight - winHeight)) * 100;
+		indicator.style.width = `${scrollPercentage}%`;
+	}
+
+	function initScrollIndicator() {
+		// Idempotent re-bind: astro:page-load can fire again on the same
+		// page, and window listeners aren't cleaned up by a DOM swap.
+		window.removeEventListener('scroll', updateScrollProgress);
+		if (!document.querySelector('.scroll-indicator')) return;
+		updateScrollProgress();
+		window.addEventListener('scroll', updateScrollProgress);
+	}
+
+	document.addEventListener('astro:page-load', initScrollIndicator);
+</script>
+
+<style lang="scss">
+	.scroll-indicator {
+		background: var(--color-gradient);
+		height: rem(3px);
+		@include position(fixed, $top: 0);
+		width: 0;
+		z-index: 3;
+	}
+</style>

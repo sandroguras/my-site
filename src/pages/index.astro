@@ -3,7 +3,7 @@ import { getImage } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Expertise from '$lib/components/Expertise.astro';
-import Carousel from '$lib/components/Carousel.svelte';
+import Carousel from '$lib/components/Carousel.astro';
 import type { Expertise as ExpertiseType } from '#types/Expertise';
 import type { ReviewData as ReviewDataType, ClientData as ClientType } from '#types/Carousel';
 
@@ -105,7 +105,6 @@ const clients: ClientType[] = [
 	<section class="swiper-testimonials">
 		<h2 class="title title--h2">Testimonials</h2>
 		<Carousel
-			client:visible
 			swiperId="swiper-testimonials"
 			slides={testimonials}
 			breakpoints={{
@@ -118,7 +117,6 @@ const clients: ClientType[] = [
 	<section class="swiper-clients">
 		<h2 class="title title--h2">Clients</h2>
 		<Carousel
-			client:visible
 			swiperId="swiper-clients"
 			slides={clients}
 			breakpoints={{

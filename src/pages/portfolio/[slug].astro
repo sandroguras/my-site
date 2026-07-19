@@ -2,7 +2,7 @@
 import 'photoswipe/style.css';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Carousel from '$lib/components/Carousel.svelte';
+import Carousel from '$lib/components/Carousel.astro';
 import { formatDate, isValidISODateString } from '$lib/utils/dateUtils';
 
 export async function getStaticPaths() {
@@ -65,7 +65,6 @@ if (!project) {
 
 		<section class="carousel">
 			<Carousel
-				client:visible
 				swiperId="swiper-gallery"
 				slidesPerView="auto"
 				slides={project.data.images}
@@ -84,13 +83,24 @@ if (!project) {
 <script>
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
-	const lightbox = new PhotoSwipeLightbox({
-		gallery: '#swiper-gallery',
-		children: 'a',
-		showHideAnimationType: 'fade',
-		pswpModule: () => import('photoswipe')
-	});
-	lightbox.init();
+	let lightbox: PhotoSwipeLightbox | null = null;
+
+	function initLightbox(): void {
+		if (!document.querySelector('#swiper-gallery')) return;
+
+		// astro:page-load can fire again for a page that's still showing
+		// (e.g. back/forward), so tear down any previous instance first.
+		lightbox?.destroy();
+		lightbox = new PhotoSwipeLightbox({
+			gallery: '#swiper-gallery',
+			children: 'a',
+			showHideAnimationType: 'fade',
+			pswpModule: () => import('photoswipe')
+		});
+		lightbox.init();
+	}
+
+	document.addEventListener('astro:page-load', initLightbox);
 </script>
 
 <style lang="scss">

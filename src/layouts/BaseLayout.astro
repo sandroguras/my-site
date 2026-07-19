@@ -9,7 +9,7 @@ import SEO from '$lib/components/SEO.astro';
 import NavBar from '$lib/components/NavBar.astro';
 import Sidebar from '$lib/components/Sidebar.astro';
 import PageTitle from '$lib/components/PageTitle.astro';
-import ScrollIndicator from '$lib/components/ScrollIndicator.svelte';
+import ScrollIndicator from '$lib/components/ScrollIndicator.astro';
 import headshot from '#images/headshot.webp';
 
 const avatar = await getImage({ src: headshot, width: 400, height: 400 });
@@ -54,7 +54,7 @@ const isBlogSubpage = currentPath.startsWith('/blog/');
 		<ClientRouter />
 	</head>
 	<body>
-		{isBlogSubpage && <ScrollIndicator client:load />}
+		{isBlogSubpage && <ScrollIndicator />}
 		<main class="main">
 			<div class="container gutter-top gutter-bottom">
 				<div class="row sticky-parent">
