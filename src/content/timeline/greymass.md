@@ -7,4 +7,4 @@ period: 'July 2023 — Present'
 order: 7
 ---
 
-Provide project management and web development services for a blockchain-focused enterprise dedicated to the public good. Streamline the development of a [modular SDK for Antelope Web Apps](https://wharfkit.com/) and support the advancement of the blockchain game project [Shipload](https://shiploadgame.com/).
+Provide project management and web development services for a blockchain-focused enterprise dedicated to the public good. Streamline the development of a [modular SDK for Antelope Web Apps](https://wharfkit.com/) and support the advancement of the blockchain game project [Shipload](https://shiploadgame.com/). More recently, orchestrate AI coding agents to accelerate delivery on these projects — reviewing and directing their output to keep quality and architecture on track.

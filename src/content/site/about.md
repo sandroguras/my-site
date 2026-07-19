@@ -1,10 +1,10 @@
 ---
 ---
 
-With over a decade of experience as a Lead Web Developer, I oversee a team of talented web artisans who create high-quality websites for clients across various industries. We aim to transform complex ideas into clean, user-friendly designs that engage audiences and drive results.
+With a solid background in web and web application development, I've shifted how I build: today I work as an AI orchestrator, directing AI coding agents like Claude Code to design, build, and ship real production projects. I stay in the loop at every step — reviewing what the AI produces, correcting course, and steering the architecture — which lets me move faster without giving up quality or control.
 
-Based in Washington DC, I've been assisting US businesses in establishing a robust online presence. With every project, I dedicate myself to crafting digital masterpieces that combine technical proficiency, creative flair, and a steadfast commitment to understanding my client's requirements.
+Based in Washington DC, I bring this AI-augmented workflow to web and web application projects for clients across industries, combining hands-on technical experience with a fast-moving, review-driven process.
 
-My unwavering passion for staying at the forefront of the latest web development technologies and trends is not just a personal interest, but a commitment to providing my clients with the most innovative solutions. This dedication to innovation and my aspiration to create seamless user experiences have been instrumental in the growth and success of my company.
+My focus isn't just using AI tools — it's making sure they're used well. Every project still goes through the same scrutiny a hand-written one would: I read the code, question the decisions, and ship only what holds up.
 
-Together, we take a comprehensive approach to each project, paying close attention to detail and working to translate clients' visions into impactful online experiences effectively. But our commitment doesn't end with the project's completion. We value building long-term relationships with our clients, founded on trust and a shared goal of achieving solid results in the digital space, ensuring their continued success.
+I'm always refining this process, since the tools and best practices around AI-assisted development are moving quickly — staying sharp here means staying useful to the people I build for.
