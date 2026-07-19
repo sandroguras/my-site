@@ -1,0 +1,162 @@
+---
+import Modal from '$lib/components/Modal.astro';
+import type {
+	Carousel as CarouselType,
+	ReviewData as ReviewDataType,
+	ClientData as ClientDataType,
+	GalleryData as GalleryDataType
+} from '#types/Carousel';
+
+interface Props {
+	swiperId?: CarouselType['swiperId'];
+	slidesPerView?: number | 'auto';
+	spaceBetween?: number;
+	centeredSlides?: boolean;
+	speed?: number;
+	grabCursor?: boolean;
+	watchOverflow?: boolean;
+	pagination?: object;
+	breakpoints?: CarouselType['breakpoints'];
+	injectStylesUrls?: string[];
+	slides?: (ReviewDataType | ClientDataType | GalleryDataType)[];
+}
+
+const {
+	swiperId = '',
+	slidesPerView = 'auto',
+	spaceBetween = 30,
+	centeredSlides = false,
+	speed = 500,
+	grabCursor = true,
+	watchOverflow = true,
+	pagination = { clickable: true },
+	breakpoints = {},
+	injectStylesUrls = ['/styles/swiper-pagination.css'],
+	slides = []
+}: Props = Astro.props;
+
+// Type guard function to check if a slide is of type ReviewDataType
+function isReviewData(
+	slide: ReviewDataType | ClientDataType | GalleryDataType
+): slide is ReviewDataType {
+	return 'shortCopy' in slide;
+}
+
+// Everything here is JSON-serializable — passed to the client via a data
+// attribute and read by the shared init script below. Non-serializable
+// Swiper config (modules, injectStyles) is added back in on the client.
+const swiperConfig = JSON.stringify({
+	slidesPerView,
+	spaceBetween,
+	speed,
+	grabCursor,
+	centeredSlides,
+	watchOverflow,
+	pagination,
+	breakpoints,
+	injectStylesUrls,
+	loop: true
+});
+---
+
+<swiper-container id={swiperId} init="false" data-swiper-config={swiperConfig}>
+	{
+		slides.map(
+			(slide, i) =>
+				(swiperId === 'swiper-clients' && 'logo' in slide && (
+					<swiper-slide class="js-carousel-clients">
+						<figure class="swiper-slide">
+							<a href={slide.link} target="_blank" rel="external">
+								<img
+									class="logo-client"
+									src={slide.logo}
+									alt={slide.logoAlt}
+									width="200"
+									height="130"
+									loading="lazy"
+								/>
+							</a>
+						</figure>
+					</swiper-slide>
+				)) ||
+				(swiperId === 'swiper-testimonials' && isReviewData(slide) && (
+					<swiper-slide class="review-item box box-inner">
+						<button
+							type="button"
+							class="review-item__trigger"
+							data-modal-trigger={`review-modal-${i}`}
+						>
+							<figure class="box box-avatar">
+								<img
+									src={slide.image}
+									width={slide.imageWidth}
+									height={slide.imageHeight}
+									alt={slide.imageAlt}
+								/>
+							</figure>
+							<h3 class="title title--h3">{slide.name}</h3>
+							<p class="review-item__caption">{slide.shortCopy}</p>
+						</button>
+					</swiper-slide>
+				)) ||
+				(swiperId === 'swiper-gallery' && 'src' in slide && (
+					<swiper-slide class="swiper-slide-project">
+						<figure class="swiper-slide">
+							<a
+								title="click to zoom-in"
+								href={slide.src}
+								data-pswp-width="1680"
+								data-pswp-height="945"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<img src={slide.thumb} alt={slide.alt} width="720" height="405" loading="lazy" />
+							</a>
+						</figure>
+					</swiper-slide>
+				)) ||
+				null
+		)
+	}
+</swiper-container>
+
+{
+	swiperId === 'swiper-testimonials' &&
+		slides.map((slide, i) => (isReviewData(slide) && <Modal slide={slide} index={i} />) || null)
+}
+
+<style lang="scss">
+	@use 'styles/app/carousel-clients';
+	@use 'styles/app/testimonials';
+	@use 'styles/app/carousel-projects';
+</style>
+
+<script>
+	import { register } from 'swiper/element';
+	import { Pagination } from 'swiper/modules';
+	import paginationStyles from 'swiper/element/css/pagination?raw';
+	import type { SwiperContainer } from 'swiper/element';
+
+	function initCarousels(): void {
+		// swiper/element's register() already no-ops if the custom elements
+		// are defined, so calling it again on every astro:page-load is safe.
+		register();
+
+		document
+			.querySelectorAll<SwiperContainer>(
+				'swiper-container[data-swiper-config]:not([data-swiper-ready])'
+			)
+			.forEach((swiperEl) => {
+				const config = JSON.parse(swiperEl.getAttribute('data-swiper-config') ?? '{}');
+				Object.assign(swiperEl, {
+					modules: [Pagination],
+					injectStyles: [paginationStyles],
+					...config
+				});
+				swiperEl.initialize();
+				swiperEl.setAttribute('data-swiper-ready', 'true');
+			});
+	}
+
+	document.addEventListener('astro:page-load', initCarousels);
+</script>

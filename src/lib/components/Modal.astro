@@ -1,0 +1,138 @@
+---
+import { formatDate } from '$lib/utils/dateUtils';
+import type { ReviewData as ReviewDataType } from '#types/Carousel';
+
+interface Props {
+	slide: ReviewDataType;
+	index: number;
+}
+
+const { slide, index }: Props = Astro.props;
+const modalId = `review-modal-${index}`;
+---
+
+<div id={modalId} class="modal-root" data-modal hidden>
+	<!--TODO: Remove empty classes-->
+	<div class="mfp-bg mfp-zoom-out mfp-ready"></div>
+	<div
+		class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-zoom-out mfp-ready"
+		tabindex="-1"
+		style="overflow: hidden auto;"
+	>
+		<div class="mfp-container mfp-s-ready mfp-inline-holder" data-modal-overlay>
+			<div class="mfp-content">
+				<div class="modal-scale">
+					<div
+						id={`review-${index}`}
+						role="dialog"
+						aria-modal="true"
+						aria-labelledby={`review-name-${index}`}
+						tabindex="-1"
+						class="popup"
+					>
+						<div class="row">
+							<div class="col-12 col-sm-2 full-rewiew-con-avatar">
+								<figure class="box box-avatar">
+									<img
+										src={slide.image}
+										width={slide.imageWidth}
+										height={slide.imageHeight}
+										alt={slide.imageAlt}
+										loading="lazy"
+									/>
+								</figure>
+								<div class="review-icon-quote"></div>
+							</div>
+							<div class="col-12 col-sm-10 full-rewiew-con-text">
+								<h2 id={`review-name-${index}`} class="title title--h2">
+									{slide.name}
+								</h2>
+								<span class="review-date">{formatDate(slide.reviewDate)}</span>
+								<Fragment set:html={slide.copy} />
+							</div>
+						</div>
+						<button title="Close (Esc)" type="button" class="mfp-close" data-modal-close>×</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	@use 'styles/app/popup';
+	@use 'styles/app/testimonials';
+
+	.modal-root {
+		opacity: 0;
+		transition: opacity 250ms ease-out;
+
+		&.is-open {
+			opacity: 1;
+		}
+	}
+
+	.modal-scale {
+		transform: scale(0.9);
+		transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	.is-open .modal-scale {
+		transform: scale(1);
+	}
+</style>
+
+<script>
+	let lastFocusedTrigger: HTMLElement | null = null;
+	let originalOverflow: string | null = null;
+
+	function openModal(modal: HTMLElement): void {
+		if (originalOverflow === null) originalOverflow = document.body.style.overflow;
+		lastFocusedTrigger =
+			document.activeElement instanceof HTMLElement ? document.activeElement : null;
+		modal.hidden = false;
+		document.body.style.overflow = 'hidden';
+		requestAnimationFrame(() => modal.classList.add('is-open'));
+		modal.querySelector<HTMLElement>('.mfp-close')?.focus();
+	}
+
+	function closeModal(modal: HTMLElement): void {
+		modal.classList.remove('is-open');
+		modal.hidden = true;
+		document.body.style.overflow = originalOverflow ?? '';
+		lastFocusedTrigger?.focus();
+	}
+
+	function handleKeydown(event: KeyboardEvent): void {
+		if (event.key !== 'Escape') return;
+		document.querySelectorAll<HTMLElement>('[data-modal]:not([hidden])').forEach(closeModal);
+	}
+
+	function initModals(): void {
+		document.querySelectorAll<HTMLElement>('[data-modal]').forEach((modal) => {
+			if (modal.dataset.modalBound) return;
+			modal.dataset.modalBound = 'true';
+
+			modal.querySelector('[data-modal-overlay]')?.addEventListener('click', (event) => {
+				if (event.target === event.currentTarget) closeModal(modal);
+			});
+			modal.querySelector('[data-modal-close]')?.addEventListener('click', () => closeModal(modal));
+		});
+
+		document.querySelectorAll<HTMLElement>('[data-modal-trigger]').forEach((trigger) => {
+			if (trigger.dataset.modalBound) return;
+			trigger.dataset.modalBound = 'true';
+			trigger.addEventListener('click', () => {
+				const targetId = trigger.getAttribute('data-modal-trigger');
+				const modal = targetId ? document.getElementById(targetId) : null;
+				if (modal) openModal(modal);
+			});
+		});
+
+		// Idempotent re-bind of the single, page-level Escape handler.
+		document.removeEventListener('keydown', handleKeydown);
+		document.addEventListener('keydown', handleKeydown);
+	}
+
+	document.addEventListener('astro:page-load', initModals);
+</script>
