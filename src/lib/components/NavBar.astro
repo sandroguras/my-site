@@ -1,0 +1,41 @@
+---
+import type { NavLink as NavLinkType } from '#types/NavLink';
+
+interface Props {
+	links?: NavLinkType[];
+	currentPath?: string;
+}
+
+const { links = [], currentPath = '/' }: Props = Astro.props;
+
+// Function to determine if the link is active
+// considering only the first-degree path segment
+function isActiveLink(currentPath: string, linkPath: string): boolean {
+	// Split the paths into segments
+	const currentSegments = currentPath.split('/').filter(Boolean);
+	const linkSegments = linkPath.split('/').filter(Boolean);
+
+	// Check if the first segment of the current path matches the first segment of the link path
+	return linkSegments.length === 0
+		? currentPath === linkPath
+		: currentSegments[0] === linkSegments[0];
+}
+---
+
+<div class="nav-container">
+	<ul class="nav">
+		{
+			links.map((link) => (
+				<li class="nav__item">
+					<a class:list={{ active: isActiveLink(currentPath, link.path) }} href={link.path}>
+						{link.label}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
+
+<style lang="scss">
+	@use 'styles/app/navbar';
+</style>
